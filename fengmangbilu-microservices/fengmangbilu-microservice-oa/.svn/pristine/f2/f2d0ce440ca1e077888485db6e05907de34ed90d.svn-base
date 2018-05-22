@@ -1,0 +1,98 @@
+package com.fengmangbilu.microservice.oa.services;
+
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.alibaba.fastjson.JSONObject;
+import com.fengmangbilu.microservice.oa.entities.CompanyAuth;
+import com.fengmangbilu.microservice.oa.entities.CompanyInfo;
+import com.fengmangbilu.microservice.oa.entities.DeptInfo;
+import com.fengmangbilu.microservice.oa.entities.StaffInfo;
+import com.fengmangbilu.microservice.oa.enums.AuthStatus;
+import com.fengmangbilu.microservice.oa.repositories.CompanyAuthRepository;
+import com.fengmangbilu.service.DefaultJpaServiceImpl;
+import com.fengmangbilu.util.HttpUtils;
+import com.google.common.collect.Maps;
+import com.qiniu.common.QiniuException;
+
+@Service
+public class CompanyAuthServiceImpl extends DefaultJpaServiceImpl<CompanyAuth, Long, CompanyAuthRepository>
+		implements CompanyAuthService {
+
+	@Autowired
+	private CompanyAuthRepository repository;
+
+	@Autowired
+	private QiniuService qiniuService;
+
+	@Autowired
+	private DeptInfoService deptInfoService;
+
+	@Autowired
+	private StaffInfoService staffInfoService;
+
+	@Autowired
+	private CompanyInfoService companyInfoService;
+
+	@Override
+	public CompanyAuth audit(CompanyAuth companyAuth) {
+		if (companyAuth.getStatus().equals(AuthStatus.FAILURE)) {
+			return repository.save(companyAuth);
+		}
+		if (companyAuth.getStatus().equals(AuthStatus.SUCCESS)) {
+			String userId = companyAuth.getCreatedBy();
+			String companyName = companyAuth.getCompanyName();
+			String url = "https://open.api.tianyancha.com/services/v3/newopen/baseinfoV2.json?name=" + companyName;
+			Map<String, String> headers = Maps.newHashMap();
+			headers.put("Authorization", "Id5aCR7Fj4vk");
+			String result = HttpUtils.getInstance().doGet(url, headers);
+			JSONObject resultObject = JSONObject.parseObject(result);
+			if (resultObject.getInteger("error_code") != 0) {
+				companyAuth.setStatus(AuthStatus.FAILURE);
+				companyAuth.setFailureReason(resultObject.getString("reason"));
+				return repository.save(companyAuth);
+			}
+			// 创建公司
+			CompanyInfo companyInfo = JSONObject.parseObject(resultObject.getString("result"), CompanyInfo.class);
+			try {
+				qiniuService.moveFile(companyAuth.getBusinessLicense());
+			} catch (QiniuException e) {
+				companyAuth.setFailureReason("请核实公司营业执照，并重新上传");
+				companyAuth.setStatus(AuthStatus.FAILURE);
+				return repository.save(companyAuth);
+			}
+			companyInfo.setBusinessLicense(companyAuth.getBusinessLicense());
+			companyInfo.setCompayScale(companyAuth.getCompayScale());
+			companyInfo = companyInfoService.save(companyInfo);
+			companyAuth = repository.save(companyAuth);
+			// 创建部门
+			DeptInfo deptInfo = new DeptInfo();
+			deptInfo.setCompanyId(companyInfo.getId());
+			deptInfo.setName(companyAuth.getDept());
+			deptInfo.setSuperId(-1l);
+			deptInfo.setHasSubDept(false);
+			deptInfo = deptInfoService.save(deptInfo);
+			// 创建员工
+			StaffInfo staffInfo = new StaffInfo();
+			staffInfo.setName(companyAuth.getName());
+			staffInfo.setIdCard(companyAuth.getIdCard());
+			staffInfo.setDeptId(deptInfo.getId());
+			staffInfo.setPosition(companyAuth.getPosition());
+			staffInfo.setCompanyId(companyInfo.getId());
+			staffInfo.setIsActive(true);
+			staffInfo.setIsEmployed(true);
+			staffInfo.setUserId(userId);
+			staffInfoService.save(staffInfo);
+
+		}
+		return companyAuth;
+	}
+
+	@Override
+	public List<CompanyAuth> findAll(String createdBy, AuthStatus status) {
+		return repository.findAll(createdBy, status);
+	}
+}

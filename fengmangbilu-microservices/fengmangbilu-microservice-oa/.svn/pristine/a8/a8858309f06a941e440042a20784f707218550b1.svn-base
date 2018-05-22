@@ -1,0 +1,48 @@
+package com.fengmangbilu.microservice.oa.entities;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+import com.fengmangbilu.domain.SimpleEntity;
+
+import lombok.Getter;
+import lombok.Setter;
+
+/**
+ * 学校信息
+ */
+@Getter
+@Setter
+@Entity
+@Table(name = "fengmangbilu_school_info")
+public class SchoolInfo extends SimpleEntity{
+
+    @Column(length = 50)
+    private String name;
+
+    @Column(length = 50)
+    private String dept;
+    
+    @Column(length = 50)
+    private String address;
+    
+    @Column(length = 50)
+    private String level;
+    
+    @Column(length = 50)
+    private String nature;
+    
+    @Column(length = 2)
+    private Boolean is985;
+    
+    @Column(length = 2)
+    private Boolean is211;
+    
+    @Column(length = 50)
+    private String url;
+    
+    private Boolean topUniversity;
+    
+    private Boolean topSubject;
+}

@@ -1,0 +1,41 @@
+package com.fengmangbilu.data.repository;
+
+import java.io.Serializable;
+
+import javax.persistence.EntityManager;
+
+import org.springframework.data.jpa.repository.support.JpaEntityInformation;
+import org.springframework.data.jpa.repository.support.JpaRepositoryFactory;
+import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
+import org.springframework.data.repository.core.RepositoryInformation;
+import org.springframework.data.repository.core.RepositoryMetadata;
+
+/**
+ * @author Justice
+ */
+public class GenericJpaRepositoryFactory<T, ID extends Serializable> extends JpaRepositoryFactory {
+
+	/**
+	 * @param entityManager
+	 */
+	public GenericJpaRepositoryFactory(EntityManager entityManager) {
+
+		super(entityManager);
+	}
+
+	@Override
+	@SuppressWarnings("unchecked")
+	protected SimpleJpaRepository<?, ?> getTargetRepository(RepositoryInformation information, EntityManager em) {
+		Class<?> repositoryInterface = information.getRepositoryInterface();
+		if (GenericRepository.class.isAssignableFrom(repositoryInterface)) {
+			JpaEntityInformation<T, ID> entityMetadata = getEntityInformation((Class<T>) information.getDomainType());
+			return new GenericJpaRepository<T, ID>(entityMetadata, em);
+		}
+		return super.getTargetRepository(information, em);
+	}
+
+	@Override
+	protected Class<?> getRepositoryBaseClass(RepositoryMetadata metadata) {
+		return GenericJpaRepository.class;
+	}
+}

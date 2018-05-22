@@ -1,0 +1,25 @@
+package com.fengmangbilu.core.data.repository;
+
+import java.io.Serializable;
+
+import javax.persistence.EntityManager;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean;
+import org.springframework.data.repository.core.support.RepositoryFactorySupport;
+
+/**
+ * @author Justice
+ */
+public class GenericJpaRepositoryFactoryBean<T extends JpaRepository<R, ID>, R, ID extends Serializable>
+		extends JpaRepositoryFactoryBean<T, R, ID> {
+
+	public GenericJpaRepositoryFactoryBean(Class<? extends T> repositoryInterface) {
+		super(repositoryInterface);
+	}
+
+	@Override
+	protected RepositoryFactorySupport createRepositoryFactory(EntityManager entityManager) {
+		return new GenericJpaRepositoryFactory<T, ID>(entityManager);
+	}
+}

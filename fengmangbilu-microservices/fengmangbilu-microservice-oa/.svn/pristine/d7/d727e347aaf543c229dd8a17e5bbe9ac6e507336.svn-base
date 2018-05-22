@@ -1,0 +1,11 @@
+package com.fengmangbilu.microservice.credit.repositories;
+
+import org.springframework.stereotype.Repository;
+
+import com.fengmangbilu.microservice.credit.entities.RiskAssessInfo;
+import com.fengmangbilu.repository.DefaultRepository;
+
+@Repository
+public interface RiskAssessInfoRepository extends DefaultRepository<RiskAssessInfo, String> {
+
+}

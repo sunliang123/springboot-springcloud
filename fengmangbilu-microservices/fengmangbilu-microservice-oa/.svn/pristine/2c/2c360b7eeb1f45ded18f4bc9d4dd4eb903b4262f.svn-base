@@ -1,0 +1,10 @@
+package com.fengmangbilu.microservice.credit.services;
+
+import com.fengmangbilu.microservice.credit.entities.EnterpriseInfo;
+import com.fengmangbilu.microservice.credit.repositories.EnterpriseInfoRepository;
+import com.fengmangbilu.service.DefaultJpaService;
+
+public interface EnterpriseInfoService extends DefaultJpaService<EnterpriseInfo, String, EnterpriseInfoRepository> {
+
+	EnterpriseInfo getEnterpriseInfo(String name,String idCard);
+}

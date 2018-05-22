@@ -1,0 +1,13 @@
+package com.fengmangbilu.microservice.credit.services;
+
+import org.springframework.stereotype.Service;
+
+import com.fengmangbilu.microservice.credit.entities.CorporateCaseInfo;
+import com.fengmangbilu.microservice.credit.repositories.CorporateCaseInfoRepository;
+import com.fengmangbilu.service.DefaultJpaServiceImpl;
+
+@Service
+public class CorporateCaseInfoServiceImpl
+		extends DefaultJpaServiceImpl<CorporateCaseInfo, String, CorporateCaseInfoRepository>
+		implements CorporateCaseInfoService {
+}

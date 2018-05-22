@@ -1,0 +1,28 @@
+package com.fengmangbilu.microservice.oa.exceptions;
+
+public class CompanyException extends RuntimeException {
+
+	private static final long serialVersionUID = -7293605442489442252L;
+	
+	public static CompanyException UNAUTHORIZED = new CompanyException(13200,"未企业认证");
+	public static CompanyException NO_DATA = new CompanyException(13201,"未找到该记录");
+	public static CompanyException AUDIT_COMPLETED = new CompanyException(13202,"企业审核已经完成");
+	public static CompanyException AUDIT_SUCCESS = new CompanyException(13203,"企业审核已通过");
+	public static CompanyException AUDIT_NOT_COMPLETED = new CompanyException(13204,"企业认证审核中，请耐心等待");
+
+	private int code;
+
+	public CompanyException(int code) {
+		super();
+		this.code = code;
+	}
+
+	public CompanyException(int code, String message) {
+		super(message);
+		this.code = code;
+	}
+
+	public int getCode() {
+		return code;
+	}
+}

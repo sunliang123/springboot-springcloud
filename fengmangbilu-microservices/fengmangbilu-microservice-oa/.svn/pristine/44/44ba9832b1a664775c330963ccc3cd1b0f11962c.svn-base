@@ -1,0 +1,12 @@
+package com.fengmangbilu.microservice.credit.services;
+
+import org.springframework.stereotype.Service;
+
+import com.fengmangbilu.microservice.credit.entities.OstaInfo;
+import com.fengmangbilu.microservice.credit.repositories.OstaInfoRepository;
+import com.fengmangbilu.service.DefaultJpaServiceImpl;
+
+@Service
+public class OstaInfoServiceImpl extends DefaultJpaServiceImpl<OstaInfo, String, OstaInfoRepository> implements OstaInfoService {
+
+}

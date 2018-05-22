@@ -1,0 +1,65 @@
+package com.fengmangbilu.microservice.user.controllers;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.script.DefaultRedisScript;
+import org.springframework.data.redis.core.script.RedisScript;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.fengmangbilu.validator.provider.ReportOn;
+import com.fengmangbilu.web.Response;
+import com.fengmangbilu.microservice.user.constraints.Mobile;
+import com.fengmangbilu.microservice.user.endpoints.UserRequest;
+import com.fengmangbilu.microservice.user.entities.User;
+import com.fengmangbilu.microservice.user.identifiers.IdCrypt;
+import com.fengmangbilu.microservice.user.services.UserService;
+
+import io.swagger.annotations.Api;
+
+@Api
+@Validated
+@RestController
+public class UserController {
+
+	@Autowired
+	private UserService userService;
+
+	@Autowired
+	private RedisTemplate<String, Object> redisTemplate;
+
+	@PostMapping("register")
+	public ResponseEntity<Response> register(@Valid @RequestBody UserRequest userRequest) {
+		// userService.register(userRequest);
+		StringBuilder lua = new StringBuilder();
+		lua.append("return tonumber(redis.call('incrby',KEYS[1], KEYS[2]));");
+		RedisScript<Long> redisScript = new DefaultRedisScript<Long>(lua.toString(), Long.class);
+		List<String> keys = new ArrayList<String>();
+		keys.add("user");
+		keys.add("2");
+		Long result = redisTemplate.execute(redisScript, keys, 1);
+		return ResponseEntity.ok(Response.ok(IdCrypt.encodeId(result)));
+	}
+
+	@PostMapping("resetPassword")
+	public ResponseEntity<Response> resetPassword(@Valid @RequestBody UserRequest userRequest) {
+		userService.resetPassword(userRequest);
+		return ResponseEntity.ok(Response.ok());
+	}
+
+	@GetMapping("findByMobile")
+	public ResponseEntity<Response> findByMobile(@ReportOn @Mobile @RequestParam String mobile) {
+		User user = userService.findByMobile(mobile);
+		return ResponseEntity.ok(Response.ok(user));
+	}
+}

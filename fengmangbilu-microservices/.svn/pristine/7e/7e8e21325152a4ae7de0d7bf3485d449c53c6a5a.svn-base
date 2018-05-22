@@ -1,0 +1,13 @@
+package com.fengmangbilu.microservice.common.security.util;
+
+import java.util.List;
+import java.util.Map;
+
+public interface JsonParser {
+
+	Map<String, Object> parseMap(String json);
+
+	List<Object> parseList(String json);
+	
+	String formatMap(Map<String, ?> map);
+}

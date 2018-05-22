@@ -1,0 +1,15 @@
+package com.fengmangbilu.microservice.oa.services;
+
+import java.util.List;
+
+import com.fengmangbilu.microservice.oa.entities.CompanyAuth;
+import com.fengmangbilu.microservice.oa.enums.AuthStatus;
+import com.fengmangbilu.microservice.oa.repositories.CompanyAuthRepository;
+import com.fengmangbilu.service.DefaultJpaService;
+
+public interface CompanyAuthService extends DefaultJpaService<CompanyAuth, Long, CompanyAuthRepository> {
+	
+	public CompanyAuth audit(CompanyAuth companyAuth);
+	
+	public List<CompanyAuth> findAll(String createdBy, AuthStatus status);
+}

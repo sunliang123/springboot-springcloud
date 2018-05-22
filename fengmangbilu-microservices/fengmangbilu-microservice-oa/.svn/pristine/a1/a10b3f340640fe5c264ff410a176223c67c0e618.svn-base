@@ -1,0 +1,9 @@
+package com.fengmangbilu.microservice.credit.providers;
+
+import com.fengmangbilu.microservice.credit.providers.support.Conditions;
+
+public interface ICreditProfile {
+
+	Conditions getConditions();
+	
+}

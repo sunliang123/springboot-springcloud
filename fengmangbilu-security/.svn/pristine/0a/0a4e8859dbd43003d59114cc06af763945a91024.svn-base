@@ -1,0 +1,12 @@
+package com.fengmangbilu.security.util;
+
+import org.apache.commons.lang3.RandomStringUtils;
+
+public class RandomValueStringGenerator {
+	
+	private static final String DEFAULT_CODEC = "1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+
+	public static String generate(int count){
+		return RandomStringUtils.random(count,DEFAULT_CODEC);
+	}
+}

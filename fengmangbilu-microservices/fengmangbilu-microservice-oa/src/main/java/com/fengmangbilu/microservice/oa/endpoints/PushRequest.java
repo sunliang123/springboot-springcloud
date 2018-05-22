@@ -1,0 +1,33 @@
+package com.fengmangbilu.microservice.oa.endpoints;
+
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotBlank;
+
+import com.fengmangbilu.microservice.oa.enums.ReportType;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+public class PushRequest {
+
+	@NotNull(message = "入职部门不能为空")
+	private Long deptId;
+	
+	@NotNull(message = "入职公司不能为空")
+	private Long companyId;
+	
+	@NotBlank(message = "入职职位不能为空")
+	private String position;
+	
+	@NotBlank(message = "接收人不能为空")
+	private String userId;
+	
+	@NotNull(message = "报告类型不能为空")
+	private ReportType type;
+	
+	@NotBlank(message = "离职证明不能为空")
+	private String leaveProve;
+}

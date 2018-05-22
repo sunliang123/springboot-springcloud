@@ -1,0 +1,32 @@
+package com.fengmangbilu.microservice.oa.exceptions;
+
+import com.fengmangbilu.microservice.oa.enums.ErrorCode;
+
+public class ReportException extends RuntimeException {
+
+	private static final long serialVersionUID = 9181535536991096192L;
+
+	private final ErrorCode code;
+
+	public ReportException(ErrorCode code) {
+		super();
+		this.code = code;
+	}
+
+	public ReportException(String message, ErrorCode code) {
+		super(message);
+		this.code = code;
+	}
+
+	public ErrorCode getCode() {
+		return this.code;
+	}
+
+	public static ReportException error(ErrorCode code) {
+		return new ReportException(code);
+	}
+
+	public static ReportException error(String message, ErrorCode code) {
+		return new ReportException(message, code);
+	}
+}

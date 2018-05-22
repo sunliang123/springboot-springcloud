@@ -1,0 +1,142 @@
+package com.fengmangbilu.microservice.oa.providers;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.fengmangbilu.microservice.oa.endpoints.ReportRequest;
+import com.fengmangbilu.microservice.oa.enums.ErrorCode;
+import com.fengmangbilu.microservice.oa.enums.Provider;
+import com.fengmangbilu.microservice.oa.exceptions.CreditException;
+import com.fengmangbilu.microservice.oa.providers.crypto.Sign;
+import com.fengmangbilu.util.HttpUtils;
+import com.google.common.collect.Maps;
+
+public class ProviderStrategyFactory {
+
+	private static ProviderStrategyFactory factory = new ProviderStrategyFactory();
+
+	private final static String JD_URL = "http://chongzhi.jd.com/json/order/search_searchPhone.action?mobile=%s";
+
+	private ProviderStrategyFactory() {
+	}
+
+	public ProviderStrategy creator(String mobile) throws CreditException {
+		String result = HttpUtils.getInstance().doGet(String.format(JD_URL, mobile));
+		JSONObject resultObject = JSON.parseObject(result);
+		String areaName = resultObject.getString("areaName");
+		Integer p = resultObject.getInteger("provider");
+		if (Provider.LT.ordinal() == p) {
+			return new LTProviderStrategy(areaName);
+		} else if (Provider.YD.ordinal() == p) {
+			return new YDProviderStrategy(areaName);
+		} else if (Provider.DX.ordinal() == p) {
+			return new DXProviderStrategy(areaName);
+		}
+		throw new CreditException(ErrorCode.API);
+	}
+
+	public static ProviderStrategyFactory getInstance() {
+		return factory;
+	}
+
+	public static class LTProviderStrategy implements ProviderStrategy {
+
+		private String areaName;
+
+		public LTProviderStrategy(String areaName) {
+			this.areaName = areaName;
+		}
+
+		@Override
+		public Map<String, String> getParams(ReportRequest request) throws Exception {
+			Map<String, String> map = new HashMap<String, String>();
+			map.put("mobilePhone", request.getMobile());
+			map.put("idCardCode", request.getIdCard());
+			map.put("idCardName", request.getName());
+			Map<String, String> signMap = Maps.newHashMap();
+			signMap = Sign.getSign(map);
+			signMap.put("prdGrpId", "chinatelecom");
+			signMap.put("prdId", "verifyChinaUnicom");
+			return signMap;
+		}
+
+		@Override
+		public String getAreaName() {
+			return areaName;
+		}
+
+		@Override
+		public Provider getProvider() {
+			return Provider.LT;
+		}
+	}
+
+	public static class YDProviderStrategy implements ProviderStrategy {
+
+		private String areaName;
+
+		public YDProviderStrategy(String areaName) {
+			this.areaName = areaName;
+		}
+
+		@Override
+		public Map<String, String> getParams(ReportRequest request) throws Exception {
+			Map<String, String> map = new HashMap<String, String>();
+			map.put("mobilePhone", request.getMobile());
+			map.put("idCardCode", request.getIdCard());
+			map.put("idCardName", request.getName());
+			Map<String, String> signMap = Maps.newHashMap();
+			signMap = Sign.getSign(map);
+			signMap.put("prdGrpId", "chinatelecom");
+			signMap.put("prdId", "verifyChinaMobile");
+			return signMap;
+		}
+
+		@Override
+		public String getAreaName() {
+			return areaName;
+		}
+
+		@Override
+		public Provider getProvider() {
+			return Provider.YD;
+		}
+
+	}
+
+	public static class DXProviderStrategy implements ProviderStrategy {
+
+		private String areaName;
+
+		public DXProviderStrategy(String areaName) {
+			this.areaName = areaName;
+		}
+
+		@Override
+		public Map<String, String> getParams(ReportRequest request) throws Exception {
+			Map<String, String> map = new HashMap<String, String>();
+			map.put("mdn", request.getMobile());
+			map.put("idNo", request.getIdCard());
+			map.put("realName", request.getName());
+			Map<String, String> signMap = Maps.newHashMap();
+			signMap = Sign.getSign(map);
+			signMap.put("prdGrpId", "chinatelecom");
+			signMap.put("prdId", "verifyIdNameByMdn");
+			return signMap;
+		}
+
+		@Override
+		public String getAreaName() {
+			return areaName;
+		}
+
+		@Override
+		public Provider getProvider() {
+			return Provider.DX;
+		}
+
+	}
+
+}

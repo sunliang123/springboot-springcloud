@@ -1,0 +1,18 @@
+package com.fengmangbilu.microservice.security;
+
+import com.fasterxml.jackson.annotation.JsonValue;
+
+/**
+ * 刷新令牌
+ * @author Justice
+ */
+public interface RefreshToken {
+	
+	/**
+	 * 获取刷新令牌的值
+	 * @return
+	 */
+	@JsonValue
+	String getValue();
+	
+}

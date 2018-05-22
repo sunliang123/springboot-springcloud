@@ -1,0 +1,108 @@
+package com.fengmangbilu.microservice.common.security.token;
+
+import java.util.Collection;
+
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+
+import com.fengmangbilu.microservice.common.security.AccessToken;
+import com.fengmangbilu.microservice.common.security.RefreshToken;
+
+/**
+ * 令牌存储接口
+ * @author Justice
+ */
+public interface TokenStore {
+
+	/**
+	 * 读取存储在指定令牌下的身份验证
+	 * 
+	 * @param token 存储身份验证的令牌值
+	 * @return 认证凭证(可能为空)
+	 */
+	UsernamePasswordAuthenticationToken readAuthentication(AccessToken token);
+
+	/**
+	 * 读取存储在指定令牌值下的身份验证
+	 * 
+	 * @param token 存储身份验证的令牌值
+	 * @return 认证凭证(可能为空)
+	 */
+	UsernamePasswordAuthenticationToken readAuthentication(String token);
+
+	/**
+	 * 存储访问令牌
+	 * 
+	 * @param token 存储的令牌
+	 * @param authentication 与令牌相关联的身份验证
+	 */
+	void storeAccessToken(AccessToken token, Authentication authentication);
+
+	/**
+	 * 从存储库读取访问令牌
+	 * 
+	 * @param tokenValue 令牌的值
+	 * @return 要读取的访问令牌
+	 */
+	AccessToken readAccessToken(String tokenValue);
+
+	/**
+	 * 从数据库中删除访问令牌
+	 * 
+	 * @param token 要从数据库中移除的令牌
+	 */
+	void removeAccessToken(AccessToken token);
+
+	/**
+	 * 将指定的刷新令牌存储在数据库中
+	 * 
+	 * @param refreshToken 要存储的刷新令牌
+	 * @param authentication 与刷新令牌关联的身份验证
+	 */
+	void storeRefreshToken(RefreshToken refreshToken, Authentication authentication);
+
+	/**
+	 * 从存储库读取刷新令牌
+	 * 
+	 * @param tokenValue 要读取的令牌的值
+	 * @return 令牌的值.
+	 */
+	RefreshToken readRefreshToken(String tokenValue);
+
+	/**
+	 * @param 令牌刷新令牌
+	 * @return 最初用于授予刷新令牌的身份验证
+	 */
+	UsernamePasswordAuthenticationToken readAuthenticationForRefreshToken(RefreshToken token);
+
+	/**
+	 * 从数据库中移除刷新令牌
+	 * 
+	 * @param token 要从数据库中移除的令牌
+	 */
+	void removeRefreshToken(RefreshToken token);
+
+	/**
+	 * 使用刷新令牌删除访问令牌此功能是必要的，所以刷新令牌不能用于创建无限数量的访问令牌
+	 * 
+	 * @param refreshtoken 刷新令牌
+	 */
+	void removeAccessTokenUsingRefreshToken(RefreshToken refreshToken);
+
+	/**
+	 * 检索存储在所提供的身份验证密钥上的访问令牌，如果它存在的话。
+	 * 
+	 * @param authentication 访问令牌的身份验证密钥
+	 * 
+	 * @return 访问令牌或NULL
+	 */
+	AccessToken getAccessToken(Authentication authentication);
+
+	
+	/**
+	 * @param userName 要搜索的用户名
+	 * @return 访问令牌的集合
+	 */
+	Collection<AccessToken> findTokensByUserName(String userName);
+}
+

@@ -1,0 +1,21 @@
+package com.fengmangbilu.microservice.user.exceptions;
+
+public interface UserErrorMessage {
+	public static final int ERR_DEFAULT_CODE = 1099;
+
+	public static final String ERR_MOBILE_NOT_FOUND = "ERR_MOBILE_NOT_FOUND";
+	public static final String ERR_MOBILE_DUPLICATE = "ERR_MOBILE_DUPLICATE";
+	public static final String ERR_MOBILE_FORMAT = "ERR_MOBILE_FORMAT";
+	public static final String ERR_MOBILE_IS_BLANK = "ERR_MOBILE_IS_BLANK";
+
+	public static final String ERR_SMS_CODE = "ERR_SMS_CODE";
+	public static final String ERR_SMS_CODE_IS_BLANK = "ERR_SMS_CODE_IS_BLANK";
+	public static final String ERR_SMS_LIMIT_CONTROL = "ERR_SMS_LIMIT_CONTROL";
+
+	public static final String ERR_PASSWORD_IS_BLANK = "ERR_PASSWORD_IS_BLANK";
+	public static final String ERR_PASSWORD_FORMAT = "ERR_PASSWORD_FORMAT";
+	public static final String ERR_PASSWORD_INCORRECT = "ERR_PASSWORD_INCORRECT";
+
+	public static final String ERR_ACCOUNT_IS_BLANK = "ERR_ACCOUNT_IS_BLANK";
+	public static final String ERR_UNKNOW = "ERR_UNKNOW";
+}

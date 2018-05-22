@@ -1,0 +1,14 @@
+package com.fengmangbilu.microservice.oa.providers;
+
+import java.util.Map;
+
+import com.fengmangbilu.microservice.oa.endpoints.CreditReportRequest;
+import com.fengmangbilu.microservice.oa.enums.Provider;
+
+public interface ProviderStrategy {
+	public Map<String, String> getParams(CreditReportRequest request) throws Exception;
+
+	public String getAreaName();
+
+	public Provider getProvider();
+}

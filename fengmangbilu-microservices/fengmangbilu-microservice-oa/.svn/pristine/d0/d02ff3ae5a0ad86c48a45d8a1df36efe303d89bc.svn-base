@@ -1,0 +1,234 @@
+package com.fengmangbilu.microservice.credit.services;
+
+import org.springframework.stereotype.Service;
+
+import com.fengmangbilu.microservice.credit.entities.RiskInfo;
+import com.fengmangbilu.microservice.credit.repositories.RiskInfoRepository;
+import com.fengmangbilu.service.DefaultJpaServiceImpl;
+
+@Service
+public class RiskInfoServiceImpl extends DefaultJpaServiceImpl<RiskInfo, String, RiskInfoRepository>
+		implements RiskInfoService {
+
+//	private final static String QUERY_TYPE = "25136";
+//
+//	private final static String REPORT_IDS = "14221";
+//
+//	@Autowired
+//	private RiskInfoRepository repository;
+//
+//	@Override
+//	public RiskInfo queryRiskInfo(String name, String idCard) throws Exception {
+//		List<Item> items = new ArrayList<Item>();
+//		items.add(new Item("name", name));
+//		items.add(new Item("documentNo", idCard));
+//		items.add(new Item("subreportIDs", REPORT_IDS));
+//		Result result = PyCreditUtils.doAccess(items, QUERY_TYPE);
+//		if (StringUtils.equals("1", result.getStatus())) {
+//			CisReports cisReports = PyCreditUtils.unZip(result.getReturnValue());
+//			if (cisReports != null) {
+//				CisReport cisReport = cisReports.getCisReport();
+//				if (cisReport != null) {
+//					PersonRiskInfo risk = cisReport.getPersonRiskInfo();
+//					if (StringUtils.equals("1", risk.getTreatResult())) {
+//						RiskInfo rInfo = new RiskInfo();
+//						rInfo.setName(name);
+//						rInfo.setIdCard(idCard);
+//						rInfo.setBatNo(cisReports.getBatNo());
+//						PersonRiskInfoItem riskItem = risk.getItem();
+//						rInfo.setAlCount(Integer.valueOf(riskItem.getAlCount()));
+//						rInfo.setZxCount(Integer.valueOf(riskItem.getZxCount()));
+//						rInfo.setSxCount(Integer.valueOf(riskItem.getSxCount()));
+//						rInfo.setSwCount(Integer.valueOf(riskItem.getSwCount()));
+//						rInfo.setCqggCount(Integer.valueOf(riskItem.getCqggCount()));
+//						rInfo.setWdyqCount(Integer.valueOf(riskItem.getWdyqCount()));
+//						PersonRiskInfoZxs zxs = risk.getDetails().getZxs();
+//						if (zxs != null) {
+//							List<PersonRiskInfoZxsItem> zxsItems = zxs.getItem();
+//							Set<RiskZxsInfo> riskZxsInfos = Sets.newHashSet();
+//							for (PersonRiskInfoZxsItem item : zxsItems) {
+//								PersonRiskInfoZxsItemFix fix = item.getFix();
+//								RiskZxsInfo info = new RiskZxsInfo();
+//								info.setAh(fix.getAh());
+//								info.setAjzt(fix.getAjzt());
+//								info.setBt(fix.getBt());
+//								info.setBzxr(fix.getBzxrmc());
+//								info.setLasj(fix.getLasj());
+//								info.setZjhm(fix.getZjhm());
+//								info.setZxbd(fix.getZxbd());
+//								info.setZxfy(fix.getZxfy());
+//								info.setRiskInfo(rInfo);
+//								riskZxsInfos.add(info);
+//							}
+//							rInfo.setRiskZxsInfos(riskZxsInfos);
+//						}
+//						PersonRiskInfoAls als = risk.getDetails().getAls();
+//						Set<RiskAlsInfo> riskAlsInfos = Sets.newHashSet();
+//						if (als != null) {
+//							List<PersonRiskInfoAlsItem> alsItems = als.getItem();
+//							for (PersonRiskInfoAlsItem item : alsItems) {
+//								PersonRiskInfoAlsItemFix fix = item.getFix();
+//								RiskAlsInfo info = new RiskAlsInfo();
+//								info.setAjlx(fix.getAjlx());
+//								info.setAjzh(fix.getAjzh());
+//								info.setAy(fix.getAy());
+//								info.setBt(fix.getBt());
+//								info.setDsrxm(fix.getDsrxm());
+//								info.setFymc(fix.getFymc());
+//								info.setPjjg(fix.getPjjg());
+//								info.setSjrq(fix.getSjrq());
+//								info.setSlcx(fix.getSlcx());
+//								info.setSr(fix.getSr());
+//								info.setXb(fix.getXb());
+//								info.setZjhm(fix.getZjhm());
+//								info.setRiskInfo(rInfo);
+//								riskAlsInfos.add(info);
+//							}
+//							rInfo.setRiskAlsInfos(riskAlsInfos);
+//						}
+//						PersonRiskInfoCqs cqs = risk.getDetails().getCqs();
+//						Set<RiskCqsInfo> riskCqsInfos = Sets.newHashSet();
+//						if (cqs != null) {
+//							List<PersonRiskInfoCqsItem> cqsItems = cqs.getItem();
+//							for (PersonRiskInfoCqsItem item : cqsItems) {
+//								PersonRiskInfoCqsItemFix fix = item.getFix();
+//								RiskCqsInfo info = new RiskCqsInfo();
+//								info.setBcqr(fix.getBcqr());
+//								info.setBt(fix.getBt());
+//								info.setCqje(fix.getCqje());
+//								info.setFbjs(fix.getFbjs());
+//								info.setZt(fix.getZt());
+//								info.setDbgdDz(fix.getDbgd().getDz());
+//								info.setDbgdSfzhm(fix.getDbgd().getSfzhm());
+//								info.setDbgdXb(fix.getDbgd().getXb());
+//								info.setDbgdXm(fix.getDbgd().getXm());
+//								info.setDbgdXxdz(fix.getDbgd().getXxdz());
+//								info.setDbgdZj(fix.getDbgd().getZj());
+//								info.setDbjbrDz(fix.getDbjbr().getDz());
+//								info.setDbjbrDzyj(fix.getDbjbr().getDzyj());
+//								info.setDbjbrSfzhm(fix.getDbjbr().getSfzhm());
+//								info.setDbjbrSjhm(fix.getDbjbr().getSjhm());
+//								info.setDbjbrXb(fix.getDbjbr().getXb());
+//								info.setDbjbrXm(fix.getDbjbr().getXm());
+//								info.setDbjbrXxdz(fix.getDbjbr().getXxdz());
+//								info.setDbjbrZj(fix.getDbjbr().getZj());
+//								info.setFzrDz(fix.getFzr().getDz());
+//								info.setFzrDzyj(fix.getFzr().getDzyj());
+//								info.setFzrFbjs(fix.getFzr().getFbjs());
+//								info.setFzrSjhm(fix.getFzr().getSjhm());
+//								info.setFzrXm(fix.getFzr().getXm());
+//								info.setFzrXxdz(fix.getFzr().getXxdz());
+//								info.setFzrZj(fix.getFzr().getZj());
+//								info.setFzrZw(fix.getFzr().getZw());
+//								info.setQkgdDz(fix.getQkgd().getDz());
+//								info.setQkgdSfzhm(fix.getQkgd().getSfzhm());
+//								info.setQkgdXb(fix.getQkgd().getXb());
+//								info.setQkgdXm(fix.getQkgd().getXm());
+//								info.setQkgdXxdz(fix.getQkgd().getXxdz());
+//								info.setQkgdZj(fix.getQkgd().getZj());
+//								info.setQkjbrDz(fix.getQkjbr().getDz());
+//								info.setQkjbrDzyj(fix.getQkjbr().getDzyj());
+//								info.setQkjbrSfzhm(fix.getQkjbr().getSfzhm());
+//								info.setQkjbrSjhm(fix.getQkjbr().getSjhm());
+//								info.setQkjbrXb(fix.getQkjbr().getXb());
+//								info.setQkjbrXm(fix.getQkjbr().getXm());
+//								info.setQkjbrXxdz(fix.getQkjbr().getXxdz());
+//								info.setQkjbrZj(fix.getQkjbr().getZj());
+//								info.setRiskInfo(rInfo);
+//								riskCqsInfos.add(info);
+//							}
+//							rInfo.setRiskCqsInfos(riskCqsInfos);
+//						}
+//						PersonRiskInfoSws sws = risk.getDetails().getSws();
+//						Set<RiskSwsInfo> riskSwsInfos = Sets.newHashSet();
+//						if (sws != null) {
+//							List<PersonRiskInfoSwsItem> swsItems = sws.getItem();
+//							for (PersonRiskInfoSwsItem item : swsItems) {
+//								PersonRiskInfoSwsItemFix fix = item.getFix();
+//								RiskSwsInfo info = new RiskSwsInfo();
+//								info.setBt(fix.getBt());
+//								info.setBzxr(fix.getBzxr());
+//								info.setFrxm(fix.getFrxm());
+//								info.setGgsj(fix.getGgsj());
+//								info.setJydd(fix.getJydd());
+//								info.setZjhm(fix.getZjhm());
+//								info.setRiskInfo(rInfo);
+//								riskSwsInfos.add(info);
+//							}
+//							rInfo.setRiskSwsInfos(riskSwsInfos);
+//						}
+//						PersonRiskInfoSxs sxs = risk.getDetails().getSxs();
+//						Set<RiskSxsInfo> riskSxsInfos = Sets.newHashSet();
+//						if (sxs != null) {
+//							List<PersonRiskInfoSxsItem> sxsItems = sxs.getItem();
+//							for (PersonRiskInfoSxsItem item : sxsItems) {
+//								PersonRiskInfoSxsItemFix fix = item.getFix();
+//								RiskSxsInfo info = new RiskSxsInfo();
+//								info.setAh(fix.getAh());
+//								info.setBt(fix.getBt());
+//								info.setBzxr(fix.getMc());
+//								info.setFbsj(fix.getFbsj());
+//								info.setFlwsyw(fix.getFlwsyw());
+//								info.setLasj(fix.getLasj());
+//								info.setLxqk(fix.getLxqk());
+//								info.setNl(fix.getNl());
+//								info.setSf(fix.getSf());
+//								info.setWlx(fix.getWlx());
+//								info.setXb(fix.getXb());
+//								info.setXwjtqx(fix.getXwjtqx());
+//								info.setYjdw(fix.getYjdw());
+//								info.setYjwh(fix.getYjwh());
+//								info.setYlx(fix.getYlx());
+//								info.setZjhm(fix.getZjhm());
+//								info.setZxfy(fix.getZxfy());
+//								info.setRiskInfo(rInfo);
+//								riskSxsInfos.add(info);
+//							}
+//							rInfo.setRiskSxsInfos(riskSxsInfos);
+//						}
+//						PersonRiskInfoWdyqs wdyqs = risk.getDetails().getWdyqs();
+//						Set<RiskWdyqsInfo> riskWdyqsInfos = Sets.newHashSet();
+//						if (wdyqs != null) {
+//							List<PersonRiskInfoWdyqsItem> wdyqsItems = wdyqs.getItem();
+//							for (PersonRiskInfoWdyqsItem item : wdyqsItems) {
+//								PersonRiskInfoWdyqsItemFix fix = item.getFix();
+//								RiskWdyqsInfo info = new RiskWdyqsInfo();
+//								info.setBjbx(fix.getBjbx());
+//								info.setBt(fix.getBt());
+//								info.setDksj(fix.getDksj());
+//								info.setGxsj(fix.getGxsj());
+//								info.setHkzt(fix.getHkzt());
+//								info.setJgdz(fix.getJgdz());
+//								info.setJzdh(fix.getJzdh());
+//								info.setSjlydwmc(fix.getSjlydwmc());
+//								info.setWhfx(fix.getWhfx());
+//								info.setXm(fix.getXm());
+//								info.setYhje(fix.getYhje());
+//								info.setZfzh(fix.getZfzh());
+//								info.setPhoto(fix.getPhoto());
+//								info.setPhotoType(fix.getPhotoType());
+//								info.setRiskInfo(rInfo);
+//								riskWdyqsInfos.add(info);
+//							}
+//							rInfo.setRiskWdyqsInfos(riskWdyqsInfos);
+//						}
+//						return repository.save(rInfo);
+//					} else if (StringUtils.equals("2", risk.getTreatResult())) {
+//						return null;
+//					} else {
+////						throw new ServiceException(risk.getErrorMessage());
+//					}
+//				}
+//			}
+//		}
+//		if (StringUtils.isNotBlank(result.getErrorMessage())) {
+//			String[] msgs = StringUtils.split(result.getErrorMessage(), ",");
+//			if (msgs != null && msgs.length > 0) {
+////				throw new ServiceException(msgs[0]);
+//			}
+//		}
+////		throw new ServiceException("接口异常");
+//		return null;
+//	}
+
+}

@@ -1,0 +1,37 @@
+package com.fengmangbilu.util;
+
+import java.util.Locale;
+
+import org.apache.commons.lang3.StringUtils;
+import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
+
+/**
+ * 日期帮助类
+ * 
+ * @author Justice
+ */
+public class DateUtils {
+
+    /**
+     * 判断字符串是否符合日期格式
+     * 
+     * @param formatString
+     * @return
+     */
+    @SuppressWarnings("unused")
+    public static boolean isDateFormat(String formatString) {
+        if (StringUtils.isEmpty(formatString)) {
+            return false;
+        }
+        String pattern = DateTimeFormat.patternForStyle("S-", Locale.CHINA);
+        DateTimeFormatter formatter = DateTimeFormat.forPattern(pattern);
+        try {
+            DateTime date = formatter.parseDateTime(formatString);
+        } catch (IllegalArgumentException e) {
+            return false;
+        }
+        return true;
+    }
+}

@@ -1,0 +1,63 @@
+package com.fengmangbilu.microservice.user.services;
+
+import org.apache.commons.text.RandomStringGenerator;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+
+import com.fengmangbilu.common.exceptions.BizException;
+import com.fengmangbilu.data.service.GenericJpaServiceImpl;
+import com.fengmangbilu.microservice.Constants;
+import com.fengmangbilu.microservice.user.entities.User;
+import com.fengmangbilu.microservice.user.repositories.UserRepository;
+
+@Service
+public class UserServiceImpl extends GenericJpaServiceImpl<User, String, UserRepository> implements UserService {
+
+    @Value("${hibernate.userId.seqName}")
+    private String seqName;
+
+    @Autowired
+    private UserRepository repository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private SmsService smsService;
+
+    @Override
+    public String generatedUserId() {
+        return repository.getMySqlNextVal(seqName);
+    }
+
+    @Override
+    public User findByMobile(String mobile) {
+        return repository.findByMobile(mobile);
+    }
+
+    @Override
+    public User findByUserId(String userId) {
+        return repository.findByUserId(userId);
+    }
+
+    @Override
+    public User register(String mobile, String password, String smsCode) throws BizException {
+        User user = findByMobile(mobile);
+        if (user != null) {
+            throw new BizException("该手机号已经注册");
+        }
+        String code = smsService.getSmsCode(mobile, Constants.REGISTER_SMS);
+        if (code == null || !code.equals(smsCode)) {
+            throw new BizException("验证码错误");
+        }
+        user = new User();
+        user.setMobile(mobile);
+        user.setPassword(passwordEncoder.encode(password));
+        user.setUserId(generatedUserId());
+        RandomStringGenerator generator = new RandomStringGenerator.Builder().withinRange('a', 'z').build();
+        user.setNickname(generator.generate(6));
+        return repository.save(user);
+    }
+}

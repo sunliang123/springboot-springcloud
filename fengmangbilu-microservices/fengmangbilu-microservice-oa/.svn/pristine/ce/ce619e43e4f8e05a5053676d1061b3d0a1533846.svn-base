@@ -1,0 +1,91 @@
+package com.fengmangbilu.microservice.oa.providers;
+
+import java.util.Map;
+
+import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.fengmangbilu.microservice.oa.endpoints.CreditReportRequest;
+import com.fengmangbilu.microservice.oa.enums.ErrorCode;
+import com.fengmangbilu.microservice.oa.exceptions.CreditException;
+import com.fengmangbilu.microservice.oa.providers.crypto.Sign;
+import com.fengmangbilu.util.HttpUtils;
+
+public class ProviderContext {
+
+	private final static Logger logger = LoggerFactory.getLogger(ProviderContext.class);
+
+	private static ProviderContext context;
+
+	private final static String KAOLA_URL = "https://access.kaolazhengxin.com:8453/authentication.do?_t=json";
+
+	private ProviderStrategy strategy;
+	
+	private CreditReportRequest request;
+
+	private boolean realNameAuth;
+
+	public static ProviderContext getContext() {
+		context = new ProviderContext();
+		return context;
+	}
+
+	public ProviderContext execute(CreditReportRequest request) throws CreditException {
+		strategy = ProviderStrategyFactory.getInstance().creator(request.getMobile());
+		Map<String, String> params;
+		try {
+			params = strategy.getParams(request);
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+			throw new CreditException(ErrorCode.ENCRYPT);
+		}
+		String ret = HttpUtils.getInstance().doPost(KAOLA_URL, params);
+		JSONObject retObject = JSON.parseObject(ret);
+		String retCode = retObject.getString("retCode");
+		String retMsg = retObject.getString("retMsg");
+		if (StringUtils.equals("000000", retCode)) {
+			try {
+				JSONObject resultObject = Sign.getSignVeryfy(retObject);
+				logger.debug("手机实名认证结果:{}", resultObject.toJSONString());
+				String result = resultObject.getString("result");
+				this.setRequest(request);
+				this.setRealNameAuth(StringUtils.equalsAny(result, "0", "T"));
+				return this;
+			} catch (Exception e) {
+				logger.error(e.getMessage());
+				throw new CreditException(ErrorCode.SIGN);
+			}
+		} else {
+			logger.error(retMsg);
+			throw new CreditException(retMsg, ErrorCode.OTHER);
+		}
+	}
+
+	public boolean isRealNameAuth() {
+		return realNameAuth;
+	}
+
+	public void setRealNameAuth(boolean realNameAuth) {
+		this.realNameAuth = realNameAuth;
+	}
+
+	public ProviderStrategy getStrategy() {
+		return strategy;
+	}
+
+	public void setStrategy(ProviderStrategy strategy) {
+		this.strategy = strategy;
+	}
+
+	public CreditReportRequest getRequest() {
+		return request;
+	}
+
+	public void setRequest(CreditReportRequest request) {
+		this.request = request;
+	}
+	
+}

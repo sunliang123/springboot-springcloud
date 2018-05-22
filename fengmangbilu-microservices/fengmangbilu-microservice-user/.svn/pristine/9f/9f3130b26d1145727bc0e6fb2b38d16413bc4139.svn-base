@@ -1,0 +1,48 @@
+package com.fengmangbilu.microservice.user.controllers;
+
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.fengmangbilu.core.Response;
+import com.fengmangbilu.data.validator.provider.ReportOn;
+import com.fengmangbilu.microservice.user.constraints.Mobile;
+import com.fengmangbilu.microservice.user.endpoints.UserRequest;
+import com.fengmangbilu.microservice.user.entities.User;
+import com.fengmangbilu.microservice.user.services.UserService;
+
+import io.swagger.annotations.Api;
+
+@Api
+@Validated
+@RestController
+public class UserController {
+
+	@Autowired
+	private UserService userService;
+
+	@PostMapping("register")
+	public ResponseEntity<Response> register(@Valid @RequestBody UserRequest userRequest) {
+		userService.register(userRequest);
+		return ResponseEntity.ok(Response.ok());
+	}
+
+	@PostMapping("resetPassword")
+	public ResponseEntity<Response> resetPassword(@Valid @RequestBody UserRequest userRequest) {
+		userService.resetPassword(userRequest);
+		return ResponseEntity.ok(Response.ok());
+	}
+	
+	@GetMapping("findByMobile")
+	public ResponseEntity<Response> findByMobile(@ReportOn @Mobile @RequestParam String mobile) {
+		User user = userService.findByMobile(mobile);
+		return ResponseEntity.ok(Response.ok(user));
+	}
+}

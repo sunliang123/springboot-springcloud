@@ -1,0 +1,62 @@
+package com.fengmangbilu.microservice.security.authentication;
+
+import java.util.Enumeration;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.security.core.Authentication;
+import org.springframework.security.web.authentication.preauth.PreAuthenticatedAuthenticationToken;
+
+import com.fengmangbilu.microservice.security.AccessToken;
+
+public class BearerTokenExtractor implements TokenExtractor {
+
+	@Override
+	public Authentication extract(HttpServletRequest request) {
+		String tokenValue = extractToken(request);
+		if (tokenValue != null) {
+			PreAuthenticatedAuthenticationToken authentication = new PreAuthenticatedAuthenticationToken(tokenValue,"");
+			return authentication;
+		}
+		return null;
+	}
+
+	protected String extractToken(HttpServletRequest request) {
+		// first check the header...
+		String token = extractHeaderToken(request);
+
+		// bearer type allows a request parameter as well
+		if (token == null) {
+			token = request.getParameter(AccessToken.ACCESS_TOKEN);
+			if (token != null) {
+				request.setAttribute(TokenAuthenticationDetails.ACCESS_TOKEN_TYPE, AccessToken.BEARER_TYPE);
+			}
+		}
+		return token;
+	}
+
+	/**
+	 * 从请求头中提取承载的令牌。
+	 * 
+	 * @param request 请求。
+	 * @return 令牌，或空如果没有提供授权头。
+	 */
+	protected String extractHeaderToken(HttpServletRequest request) {
+		Enumeration<String> headers = request.getHeaders("Authorization");
+		while (headers.hasMoreElements()) {
+			String value = headers.nextElement();
+			if ((value.toLowerCase().startsWith(AccessToken.BEARER_TYPE.toLowerCase()))) {
+				String authHeaderValue = value.substring(AccessToken.BEARER_TYPE.length()).trim();
+				// Add this here for the auth details later. Would be better to change the signature of this method.
+				request.setAttribute(TokenAuthenticationDetails.ACCESS_TOKEN_TYPE,value.substring(0, AccessToken.BEARER_TYPE.length()).trim());
+				int commaIndex = authHeaderValue.indexOf(',');
+				if (commaIndex > 0) {
+					authHeaderValue = authHeaderValue.substring(0, commaIndex);
+				}
+				return authHeaderValue;
+			}
+		}
+		return null;
+	}
+
+}

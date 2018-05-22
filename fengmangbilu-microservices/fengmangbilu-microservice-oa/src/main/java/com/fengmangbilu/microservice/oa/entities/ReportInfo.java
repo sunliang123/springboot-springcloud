@@ -1,0 +1,182 @@
+package com.fengmangbilu.microservice.oa.entities;
+
+import java.util.Set;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Parameter;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fengmangbilu.domain.BaseEntity;
+import com.fengmangbilu.microservice.oa.enums.ReportType;
+import com.fengmangbilu.microservice.oa.generators.ReportSequenceGenerator;
+
+import lombok.Getter;
+import lombok.Setter;
+
+/**
+ * 个人报告
+ */
+@Getter
+@Setter
+@Entity
+@Table(name = "fengmangbilu_report_info")
+@JsonIgnoreProperties({"createdBy", "lastModifiedBy"})
+public class ReportInfo extends BaseEntity {
+
+	/** 报告编号  **/
+	@Id
+	@Column(length = 50)
+	@GeneratedValue(generator = "reportSequenceGenerator")
+	@GenericGenerator(name = "reportSequenceGenerator", 
+			strategy = ReportSequenceGenerator.TYPE,
+			parameters = @Parameter(name = "sequence_name", value = "report"))
+	private String reportId;
+
+	/** 姓名  **/
+	@Column(length = 30)
+	private String name;
+
+	/** 身份证号  **/
+	@Column(length = 20)
+	private String idCard;
+
+	/** 手机号  **/
+	@Column(length = 20)
+	private String mobile;
+
+	/** 报告类型  **/
+	@Column(length = 300)
+	@Enumerated(EnumType.ORDINAL)
+	private ReportType type;
+
+	/** 身份证 **/
+	@ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST})
+	private PersonInfo personInfo;
+
+	/** 手机实名 **/
+	@ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST})
+	private MobileInfo mobileInfo;
+
+	/** 学历 **/
+	@ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST})
+	private EducationInfo educationInfo;
+
+	/** 职业资格 **/
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "reportInfo", fetch = FetchType.EAGER)
+	private Set<OstaInfo> ostaInfos;
+
+	/** 风险六项 **/
+	@ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST})
+	private RiskInfo riskInfo;
+
+	/** 风险评估信息 **/
+	@ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST})
+	private RiskAssessInfo riskAssessInfo;
+
+	/** 对外投资 **/
+	@ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST})
+	private EnterpriseInfo enterpriseInfo;
+	
+	public long getScore() {
+		long specialScore = 0; // 职业资格总分
+		long educationScore = 0; // 学历总分
+		long riskScore = 0; // 风险总分
+		long highRiskScore = 0; // 高风险总分
+		long identityScore = 0; // 身份认证分
+		long mobileScore = 0; // 手机实名分
+
+		if (personInfo != null) { // 身份认证
+			identityScore += 50;
+		}
+		if (mobileInfo != null) { // 手机实名
+			mobileScore += 20;
+		}
+
+		if (ostaInfos != null) { // 职业资格
+			if (ostaInfos.size() == 5) {
+				specialScore += 150;
+			}
+			if (ostaInfos.size() == 4) {
+				specialScore += 120;
+			}
+			if (ostaInfos.size() == 3) {
+				specialScore += 90;
+			}
+			if (ostaInfos.size() == 2) {
+				specialScore += 60;
+			}
+			if (ostaInfos.size() == 1) {
+				specialScore += 30;
+			}
+		}
+
+		if (educationInfo != null) { // 学历
+			if (educationInfo.getEducationDegree() != null && educationInfo.getEducationDegree() != "") {
+				if ((educationInfo.getEducationDegree()).equals("博士")) {
+					educationScore += 300;
+				} else if ((educationInfo.getEducationDegree()).equals("硕士")) {
+					educationScore += 200;
+				} else if ((educationInfo.getEducationDegree()).equals("本科")) {
+					educationScore += 100;
+				} else if ((educationInfo.getEducationDegree()).equals("专科")) {
+					educationScore += 80;
+				} else {
+					educationScore += 50;
+				}
+				if (educationInfo.getSchoolInfo() != null) { // 985、211
+					if (educationInfo.getSchoolInfo().getIs985() != null) {
+						if (educationInfo.getSchoolInfo().getIs985()) {
+							educationScore += 50;
+						}
+					}
+					if (educationInfo.getSchoolInfo().getIs211() != null) {
+						if (educationInfo.getSchoolInfo().getIs211()) {
+							educationScore += 30;
+						}
+					}
+					if (educationInfo.getSchoolInfo().getTopSubject() != null) { // 一流学科
+						if (educationInfo.getSchoolInfo().getTopSubject()) {
+							educationScore += 10;
+						}
+					}
+					if (educationInfo.getSchoolInfo().getTopUniversity() != null) { // 一流学校
+						if (educationInfo.getSchoolInfo().getTopUniversity()) {
+							educationScore += 10;
+						}
+					}
+				}
+			}
+		}
+
+		if (riskInfo != null) { // 风险六项
+			riskScore += (riskInfo.getAlCount() + riskInfo.getZxCount() + riskInfo.getSwCount()
+					+ riskInfo.getCqggCount() + riskInfo.getWdyqCount()) * 10;
+			if (riskInfo.getSxCount() > 0) {
+				riskScore += riskInfo.getSxCount() * 30;
+			}
+		}
+
+		if (riskAssessInfo != null) { // 高风险
+			if (riskAssessInfo.getResult() != null && riskAssessInfo.getResult() != "") {
+				if (!(riskAssessInfo.getResult()).equals("2")) {
+					highRiskScore += 50;
+				}
+			}
+		}
+		// 总分 = （职业资格分+学历分+身份认证分+手机实名分）-（风险六项分+高风险分）
+		return 500 + (specialScore + educationScore + identityScore + mobileScore) - (riskScore + highRiskScore);
+	}
+
+}

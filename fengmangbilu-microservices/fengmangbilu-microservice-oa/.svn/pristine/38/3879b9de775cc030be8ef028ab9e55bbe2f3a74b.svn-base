@@ -1,0 +1,73 @@
+package com.fengmangbilu.microservice.oa.services;
+
+import java.util.Set;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.fengmangbilu.microservice.oa.entities.Corporate;
+import com.fengmangbilu.microservice.oa.entities.CorporateCaseInfo;
+import com.fengmangbilu.microservice.oa.entities.CorporateManager;
+import com.fengmangbilu.microservice.oa.entities.CorporateShareholder;
+import com.fengmangbilu.microservice.oa.entities.EnterpriseInfo;
+import com.fengmangbilu.microservice.oa.repositories.EnterpriseInfoRepository;
+import com.fengmangbilu.service.DefaultJpaServiceImpl;
+import com.fengmangbilu.util.HttpUtils;
+
+@Service
+public class EnterpriseInfoServiceImpl extends DefaultJpaServiceImpl<EnterpriseInfo, String, EnterpriseInfoRepository>
+		implements EnterpriseInfoService {
+
+	private final Logger logger = LoggerFactory.getLogger(EnterpriseInfoServiceImpl.class);
+
+	private final static String JD_URL = "https://way.jd.com/freedt/member?appkey=87f5764fc0bab42695ddd1f1eae7aef6&key=%s";
+
+	@Autowired
+	private EnterpriseInfoRepository repository;
+
+	@Override
+	public EnterpriseInfo getEnterpriseInfo(String name, String idCard) {
+		String tbAPI = String.format(JD_URL, idCard);
+		String res = HttpUtils.getInstance().doGet(tbAPI);
+		logger.info("京东个人对外投资接口查询结果: {}", res);
+		JSONObject content = JSON.parseObject(res);
+		if (content.get("code").equals("10000")) {
+			JSONObject result = (JSONObject) content.get("result");
+			JSONObject data = (JSONObject) result.get("data");
+			if (data.get("status").equals("EXIST")) {
+				EnterpriseInfo info = JSON.parseObject(data.toJSONString(), EnterpriseInfo.class);
+				info.setName(name);
+				info.setIdCard(idCard);
+				Set<CorporateCaseInfo> caseInfos = info.getCaseInfos();
+				for (CorporateCaseInfo corporateCaseInfo : caseInfos) {
+					corporateCaseInfo.setEnterpriseInfo(info);
+				}
+				Set<Corporate> corporates = info.getCorporates();
+				for (Corporate corporate : corporates) {
+					corporate.setEnterpriseInfo(info);
+				}
+				Set<CorporateManager> corporateManagers = info.getCorporateManagers();
+				for (CorporateManager corporateManager : corporateManagers) {
+					corporateManager.setEnterpriseInfo(info);
+				}
+				Set<CorporateShareholder> corporateShareholders = info.getCorporateShareholders();
+				for (CorporateShareholder corporateShareholder : corporateShareholders) {
+					corporateShareholder.setEnterpriseInfo(info);
+				}
+				return repository.save(info);
+			} else {
+				return null;
+			}
+		} else {
+			if (content.get("msg") != null) {
+				logger.info("京东学历接口查询失败原因：{}", content.get("resmsg"));
+				return null;
+			}
+		}
+		return null;
+	}
+}

@@ -1,0 +1,65 @@
+package com.fengmangbilu.microservice.oa.entities;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.Formula;
+
+import com.fengmangbilu.domain.BaseEntity;
+import com.fengmangbilu.microservice.oa.enums.ReportType;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+@Entity
+@Table(name = "fengmangbilu_report_push_info")
+public class ReportPushInfo extends BaseEntity {
+
+	/** 推送人姓名 **/
+	@Column(length = 30)
+	private String name;
+
+	/** 推送人身份证**/
+	@Column(length = 20)
+	private String idCard;
+
+	/** 推送人手机号 **/
+	@Column(length = 20)
+	private String mobile;
+
+	/** 职位 **/
+	@Column(length = 50)
+	private String position;
+
+	/** 部门id **/
+	@Column(length = 50)
+	private Long deptId;
+
+	/** 公司id **/
+	@Column(length = 50)
+	private Long companyId;
+	
+	/** 接收人**/
+	@Column(length = 50)
+	private String userId;
+	
+	/** 报告id**/
+	@Column(length = 50)
+	private String reportId;
+	
+	/** 报告类型**/
+	@Column(length = 50)
+	private ReportType type;
+
+	/** 部门名称 **/
+	@Formula("(select d.name from fengmangbilu_dept_info d where d.id = dept_id)")
+	private String deptName;
+
+	/** 公司名称 **/
+	@Formula("(select c.name from fengmangbilu_company_info c where c.id = company_id)")
+	private String companyName;
+
+}

@@ -1,0 +1,11 @@
+package com.fengmangbilu.microservice.oa.services;
+
+import com.fengmangbilu.microservice.oa.entities.IdCardInfo;
+import com.fengmangbilu.microservice.oa.repositories.IdCardInfoRepository;
+import com.fengmangbilu.service.DefaultJpaService;
+
+public interface IdCardInfoService extends DefaultJpaService<IdCardInfo, Long, IdCardInfoRepository> {
+	
+	public IdCardInfo findFirstByCreatedBy(String createdBy);
+	
+}

@@ -1,0 +1,56 @@
+package com.fengmangbilu.microservice.user.controllers;
+
+import java.util.Map;
+
+import javax.annotation.Resource;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.alibaba.fastjson.JSON;
+import com.aliyuncs.dysmsapi.model.v20170525.SendSmsResponse;
+import com.fengmangbilu.microservice.user.constraints.Mobile;
+import com.fengmangbilu.microservice.user.services.AbstractSmsService;
+import com.fengmangbilu.microservice.user.services.SmsService;
+import com.fengmangbilu.web.Response;
+import com.google.common.collect.Maps;
+
+import io.swagger.annotations.Api;
+
+@Api
+@Validated
+@RestController
+public class SmsController {
+
+	@Resource(name = "aliyunSmsServiceImpl")
+	private SmsService<SendSmsResponse> smsService;
+
+	@Value("${aliyun.register.templateCode}")
+	private String registerTemplateCode;
+
+	@Value("${aliyun.resetPassword.templateCode}")
+	private String resetPasswordTemplateCode;
+
+	@GetMapping("send_register_sms")
+	public Response sendRegisterSms(@Mobile @RequestParam(required = false) String mobile) {
+		String code = smsService.putSmsCode(mobile, AbstractSmsService.SMS_SOURCE_REGISTER);
+		Map<String, Object> map = Maps.newLinkedHashMap();
+		map.put("code", code);
+		String paramString = JSON.toJSONString(map);
+		smsService.sendMessage(mobile, paramString, registerTemplateCode);
+		return Response.ok("发送成功");
+	}
+
+	@GetMapping("send_resetPassword_sms")
+	public Response sendResetPasswordSms(@Mobile @RequestParam(required = false) String mobile) {
+		String code = smsService.putSmsCode(mobile, AbstractSmsService.SMS_SOURCE_REST_PASSWORD);
+		Map<String, Object> map = Maps.newLinkedHashMap();
+		map.put("code", code);
+		String paramString = JSON.toJSONString(map);
+		smsService.sendMessage(mobile, paramString, registerTemplateCode);
+		return Response.ok("发送成功");
+	}
+}

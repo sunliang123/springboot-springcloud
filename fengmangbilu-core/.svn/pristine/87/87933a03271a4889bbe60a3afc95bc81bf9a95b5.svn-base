@@ -1,0 +1,189 @@
+package com.fengmangbilu.core.data.domain;
+
+import java.io.Serializable;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.google.common.collect.Maps;
+
+@JsonPropertyOrder({ "status", "data", "message", "success" })
+public class Response implements Serializable {
+
+	private static final long serialVersionUID = 1313892315396960605L;
+
+	private int status;
+	private Object data;
+	private String message;
+	private boolean success;
+	
+	public Response(){
+	}
+
+	public Response(int status, Object data, String message, boolean success) {
+		this.status = status;
+		this.data = data;
+		this.message = message;
+		this.success = success;
+	}
+
+	@JsonProperty
+	public int getStatus() {
+		return status;
+	}
+
+	@JsonProperty
+	public boolean isSuccess() {
+		return success;
+	}
+
+	@JsonProperty
+	public String getMessage() {
+		return message;
+	}
+
+	@JsonProperty
+	public Object getData() {
+		return data;
+	}
+	
+	@Override
+	public String toString() {
+		return ReflectionToStringBuilder.toString(this);
+	}
+
+	public static class Builder {
+		private boolean success;
+
+		private int status;
+
+		private String message;
+
+		private Object data;
+
+		public Builder(boolean success) {
+			this.success = success;
+		}
+
+		public Builder message(String message) {
+			this.message = message;
+			return this;
+		}
+
+		public Builder data(Object data) {
+			this.data = data;
+			return this;
+		}
+
+		public Builder status(int status) {
+			this.status = status;
+			return this;
+		}
+
+		public Response build() {
+			return new Response(status, data, message, success);
+		}
+	}
+
+	public static Builder withSuccess(Boolean withSuccess) {
+		return new Builder(withSuccess);
+	}
+
+	public static Response ok() {
+		return withSuccess(true).status(HttpServletResponse.SC_OK).build();
+	}
+
+	public static Response ok(String message) {
+		return withSuccess(true).status(HttpServletResponse.SC_OK).message(message).build();
+	}
+
+	public static Response ok(Object data) {
+		return withSuccess(true).status(HttpServletResponse.SC_OK).data(data).build();
+	}
+
+	public static Response ok(String message, Object data) {
+		return withSuccess(true).status(HttpServletResponse.SC_OK).data(data).message(message).build();
+	}
+	
+	public static Response error(int status, String message) {
+		return withSuccess(false).status(status).message(message).build();
+	}
+
+	public static Response error(int status, Object data) {
+		return withSuccess(false).status(status).data(data).build();
+	}
+	
+	public static Response error(int status, String message, Object data) {
+		return withSuccess(false).status(status).message(message).data(data).build();
+	}
+	
+	public static Response error(String message) {
+		return withSuccess(false).status(HttpServletResponse.SC_BAD_REQUEST).message(message).build();
+	}
+
+	public static Response error(Object data) {
+		return withSuccess(false).status(HttpServletResponse.SC_BAD_REQUEST).data(data).build();
+	}
+
+	public static Response error(String message, Object data) {
+		return withSuccess(false).status(HttpServletResponse.SC_BAD_REQUEST).data(data).message(message).build();
+	}
+
+	public static Response validationError(String message) {
+		return withSuccess(false).status(HttpServletResponse.SC_FOUND).message(message).build();
+	}
+
+	public static Response validationError(Object data) {
+		return withSuccess(false).status(HttpServletResponse.SC_FOUND).data(data).build();
+	}
+
+	public static Response validationError(String errCode, String errMsg) {
+		Map<String, String> errMap = Maps.newHashMap();
+		errMap.put(errCode, errMsg);
+		return withSuccess(false).status(HttpServletResponse.SC_FOUND).data(errMap).build();
+	}
+
+	public static Response validationError(String message, Object data) {
+		return withSuccess(false).status(HttpServletResponse.SC_FOUND).data(data).message(message).build();
+	}
+
+	public static Response notFound(String message) {
+		return withSuccess(false).status(HttpServletResponse.SC_NOT_FOUND).message(message).build();
+	}
+
+	public static Response notFound(Object data) {
+		return withSuccess(false).status(HttpServletResponse.SC_NOT_FOUND).data(data).build();
+	}
+
+	public static Response notFound(String message, Object data) {
+		return withSuccess(false).status(HttpServletResponse.SC_NOT_FOUND).data(data).message(message).build();
+	}
+
+	public static Response forbidden(String message) {
+		return withSuccess(false).status(HttpServletResponse.SC_FORBIDDEN).message(message).build();
+	}
+
+	public static Response forbidden(Object data) {
+		return withSuccess(false).status(HttpServletResponse.SC_FORBIDDEN).data(data).build();
+	}
+
+	public static Response forbidden(String message, Object data) {
+		return withSuccess(false).status(HttpServletResponse.SC_FORBIDDEN).data(data).message(message).build();
+	}
+
+	public static Response serverError(String message) {
+		return withSuccess(false).status(HttpServletResponse.SC_INTERNAL_SERVER_ERROR).message(message).build();
+	}
+
+	public static Response serverError(Object data) {
+		return withSuccess(false).status(HttpServletResponse.SC_INTERNAL_SERVER_ERROR).data(data).build();
+	}
+
+	public static Response serverError(String message, Object data) {
+		return withSuccess(false).status(HttpServletResponse.SC_INTERNAL_SERVER_ERROR).data(data).message(message).build();
+	}
+}

@@ -1,0 +1,88 @@
+package com.fengmangbilu.blog.controllers;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort.Direction;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.fengmangbilu.blog.entities.Blog;
+import com.fengmangbilu.blog.entities.Tag;
+import com.fengmangbilu.blog.services.BlogService;
+import com.fengmangbilu.blog.services.TagService;
+
+@Controller
+@RequestMapping
+public class IndexController {
+
+	@Autowired
+	private TagService tagService;
+
+	@Autowired
+	private BlogService blogService;
+
+	@GetMapping
+	public String index(Model model) {
+		// 文章列表
+		Pageable pageable = new PageRequest(0, 5, Direction.ASC, "createdDate");
+		Page<Blog> blogs = blogService.findAll(pageable);
+		model.addAttribute("blogs", blogs);
+		// 标签列表
+		List<Tag> tags = tagService.findAll();
+		model.addAttribute("tags", tags);
+		// 存档列表
+		List<Object[]> archives = blogService.countGroupByCreateDate();
+		model.addAttribute("archives", archives);
+		return "index";
+	}
+
+	@GetMapping("next/{p}")
+	public String next(@PathVariable("p") int p, Model model) {
+		Pageable pageable = new PageRequest(p, 5, Direction.ASC, "createdDate");
+		Page<Blog> blogs = blogService.findAll(pageable);
+		model.addAttribute("blogs", blogs);
+		return "next";
+	}
+
+	@GetMapping("tags/{id}")
+	public String tags(@PathVariable("id") Long id, Model model) {
+		List<Blog> blogs = blogService.findByTagsIn(id);
+		model.addAttribute("blogs", blogs);
+		// 标签列表
+		List<Tag> tags = tagService.findAll();
+		model.addAttribute("tags", tags);
+		// 存档列表
+		List<Object[]> archives = blogService.countGroupByCreateDate();
+		model.addAttribute("archives", archives);
+		return "index";
+	}
+
+	@GetMapping("month/{date}")
+	public String month(@PathVariable("date") String date, Model model) {
+		List<Blog> blogs = blogService.findAll();
+		model.addAttribute("blogs", blogs);
+		return "next";
+	}
+
+	@GetMapping("blog/{id}")
+	public String blog(@PathVariable("id") Blog blog, Model model) {
+		if (blog == null) {
+			return "error";
+		}
+		model.addAttribute("blog", blog);
+		return "blog";
+	}
+
+	@GetMapping("about")
+	public String about() {
+		return "about";
+	}
+
+}

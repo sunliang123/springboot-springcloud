@@ -1,0 +1,199 @@
+package com.fengmangbilu.microservice.oa.providers.support;
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
+public class PersonRiskInfoSxsItemFix {
+    
+    @XmlElement
+    private String bt;
+    
+    @XmlElement
+    private String mc;
+    
+    @XmlElement
+    private String zjhm;
+    
+    @XmlElement
+    private String ah;
+
+    @XmlElement
+    private String xb;
+    
+    @XmlElement
+    private String nl;
+
+    @XmlElement
+    private String zxfy;
+    
+    @XmlElement
+    private String sf;
+    
+    @XmlElement
+    private String yjwh;
+    
+    @XmlElement
+    private String lasj;
+    
+    @XmlElement
+    private String yjdw;
+    
+    @XmlElement
+    private String flwsyw;
+    
+    @XmlElement
+    private String lxqk;
+    
+    @XmlElement
+    private String ylx;
+    
+    @XmlElement
+    private String wlx;
+    
+    @XmlElement
+    private String xwjtqx;
+    
+    @XmlElement
+    private String fbsj;
+
+    public String getBt() {
+        return bt;
+    }
+
+    public void setBt(String bt) {
+        this.bt = bt;
+    }
+
+    public String getMc() {
+        return mc;
+    }
+
+    public void setMc(String mc) {
+        this.mc = mc;
+    }
+
+    public String getZjhm() {
+        return zjhm;
+    }
+
+    public void setZjhm(String zjhm) {
+        this.zjhm = zjhm;
+    }
+
+    public String getAh() {
+        return ah;
+    }
+
+    public void setAh(String ah) {
+        this.ah = ah;
+    }
+
+    public String getXb() {
+        return xb;
+    }
+
+    public void setXb(String xb) {
+        this.xb = xb;
+    }
+
+    public String getNl() {
+        return nl;
+    }
+
+    public void setNl(String nl) {
+        this.nl = nl;
+    }
+
+    public String getZxfy() {
+        return zxfy;
+    }
+
+    public void setZxfy(String zxfy) {
+        this.zxfy = zxfy;
+    }
+
+    public String getSf() {
+        return sf;
+    }
+
+    public void setSf(String sf) {
+        this.sf = sf;
+    }
+
+    public String getYjwh() {
+        return yjwh;
+    }
+
+    public void setYjwh(String yjwh) {
+        this.yjwh = yjwh;
+    }
+
+    public String getLasj() {
+        return lasj;
+    }
+
+    public void setLasj(String lasj) {
+        this.lasj = lasj;
+    }
+
+    public String getYjdw() {
+        return yjdw;
+    }
+
+    public void setYjdw(String yjdw) {
+        this.yjdw = yjdw;
+    }
+
+    public String getFlwsyw() {
+        return flwsyw;
+    }
+
+    public void setFlwsyw(String flwsyw) {
+        this.flwsyw = flwsyw;
+    }
+
+    public String getLxqk() {
+        return lxqk;
+    }
+
+    public void setLxqk(String lxqk) {
+        this.lxqk = lxqk;
+    }
+
+    public String getYlx() {
+        return ylx;
+    }
+
+    public void setYlx(String ylx) {
+        this.ylx = ylx;
+    }
+
+    public String getWlx() {
+        return wlx;
+    }
+
+    public void setWlx(String wlx) {
+        this.wlx = wlx;
+    }
+
+    public String getXwjtqx() {
+        return xwjtqx;
+    }
+
+    public void setXwjtqx(String xwjtqx) {
+        this.xwjtqx = xwjtqx;
+    }
+
+    public String getFbsj() {
+        return fbsj;
+    }
+
+    public void setFbsj(String fbsj) {
+        this.fbsj = fbsj;
+    }
+    
+}

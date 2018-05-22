@@ -1,0 +1,22 @@
+package com.fengmangbilu.microservice.oa.endpoints;
+
+import javax.validation.constraints.NotNull;
+
+import com.fengmangbilu.microservice.oa.enums.AuthStatus;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+public class CompanyAuthRequest {
+	
+	@NotNull
+	private Long id;
+
+	@NotNull
+	private AuthStatus status;
+	
+	private String failureReason;
+	
+}

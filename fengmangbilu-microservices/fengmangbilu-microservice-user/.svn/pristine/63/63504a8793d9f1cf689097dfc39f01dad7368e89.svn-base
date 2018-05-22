@@ -1,0 +1,13 @@
+package com.fengmangbilu.microservice.user.services;
+
+import org.springframework.stereotype.Service;
+
+import com.fengmangbilu.microservice.user.entities.UserDetailPoint;
+import com.fengmangbilu.microservice.user.repositories.UserDetailPointRepository;
+import com.fengmangbilu.service.DefaultJpaServiceImpl;
+
+@Service
+public class UserDetailPointServiceImpl extends DefaultJpaServiceImpl<UserDetailPoint, Long, UserDetailPointRepository>
+		implements UserDetailPointService {
+
+}

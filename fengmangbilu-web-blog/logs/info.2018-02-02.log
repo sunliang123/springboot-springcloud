@@ -1,0 +1,1027 @@
+2018-02-02 10:03:02.574 [main] INFO  com.fengmangbilu.blog.BlogApplication - Starting BlogApplication on Zx-PC with PID 10616 (E:\workspace\fengmangbilu-web-blog\target\classes started by Zx in E:\workspace\fengmangbilu-web-blog)
+2018-02-02 10:03:02.578 [main] INFO  com.fengmangbilu.blog.BlogApplication - No active profile set, falling back to default profiles: default
+2018-02-02 10:03:02.679 [main] INFO  org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@488d1cd7: startup date [Fri Feb 02 10:03:02 CST 2018]; root of context hierarchy
+2018-02-02 10:03:02.814 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.3.6.Final
+2018-02-02 10:03:03.569 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-02-02 10:03:03.698 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-02-02 10:03:03.726 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.fengmangbilu.blog.repositories.BlogRepository.
+2018-02-02 10:03:03.727 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.fengmangbilu.blog.repositories.TagRepository.
+2018-02-02 10:03:03.990 [main] INFO  org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-02-02 10:03:04.275 [main] INFO  org.hibernate.validator.internal.xml.ValidationXmlParser - HV000007: META-INF/validation.xml found. Parsing XML based configuration.
+2018-02-02 10:03:04.371 [main] INFO  org.hibernate.validator.internal.xml.ValidationBootstrapParameters - HV000004: Using com.fengmangbilu.validator.i18n.ValidationMessageInterpolator as message interpolator.
+2018-02-02 10:03:04.372 [main] INFO  org.hibernate.validator.internal.xml.ValidationBootstrapParameters - HV000119: Using com.fengmangbilu.validator.provider.ReportOnParameterNameProvider as parameter name provider.
+2018-02-02 10:03:04.851 [main] INFO  org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http)
+2018-02-02 10:03:04.866 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2018-02-02 10:03:04.866 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-02-02 10:03:04.990 [localhost-startStop-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2018-02-02 10:03:04.990 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2311 ms
+2018-02-02 10:03:05.185 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+2018-02-02 10:03:05.189 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-02-02 10:03:05.190 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-02-02 10:03:05.190 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-02-02 10:03:05.190 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2018-02-02 10:03:05.190 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'resourceUrlEncodingFilter' to: [/*]
+2018-02-02 10:03:05.650 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-02-02 10:03:05.668 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-02-02 10:03:05.765 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.0.12.Final}
+2018-02-02 10:03:05.766 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2018-02-02 10:03:05.768 [main] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+2018-02-02 10:03:05.823 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-02-02 10:03:07.169 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-02-02 10:03:07.847 [main] INFO  org.hibernate.tool.hbm2ddl.SchemaUpdate - HHH000228: Running hbm2ddl schema update
+2018-02-02 10:03:08.688 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-02-02 10:03:09.429 [main] INFO  org.hibernate.validator.internal.xml.ValidationXmlParser - HV000007: META-INF/validation.xml found. Parsing XML based configuration.
+2018-02-02 10:03:09.436 [main] INFO  org.hibernate.validator.internal.xml.ValidationBootstrapParameters - HV000004: Using com.fengmangbilu.validator.i18n.ValidationMessageInterpolator as message interpolator.
+2018-02-02 10:03:09.436 [main] INFO  org.hibernate.validator.internal.xml.ValidationBootstrapParameters - HV000119: Using com.fengmangbilu.validator.provider.ReportOnParameterNameProvider as parameter name provider.
+2018-02-02 10:03:09.585 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@488d1cd7: startup date [Fri Feb 02 10:03:02 CST 2018]; root of context hierarchy
+2018-02-02 10:03:09.591 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Detected ResponseBodyAdvice bean in jsonFilterResponseBodyAdvice
+2018-02-02 10:03:09.592 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Detected @ModelAttribute methods in resourceUrlController
+2018-02-02 10:03:09.641 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[],methods=[GET]}" onto public java.lang.String com.fengmangbilu.blog.controllers.IndexController.index(org.springframework.ui.Model,java.lang.Integer)
+2018-02-02 10:03:09.641 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/p],methods=[GET]}" onto public java.lang.String com.fengmangbilu.blog.controllers.IndexController.p()
+2018-02-02 10:03:09.641 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/about],methods=[GET]}" onto public java.lang.String com.fengmangbilu.blog.controllers.IndexController.about()
+2018-02-02 10:03:09.641 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-02-02 10:03:09.641 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-02-02 10:03:09.698 [main] INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-02 10:03:09.698 [main] INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-02 10:03:09.713 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Detected ResponseBodyAdvice implementation in jsonFilterResponseBodyAdvice
+2018-02-02 10:03:09.713 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Detected @ExceptionHandler methods in defaultErrorController
+2018-02-02 10:03:10.052 [main] INFO  org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer - ClassTemplateLoader for Spring macros added to FreeMarker configuration
+2018-02-02 10:03:10.315 [main] INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2018-02-02 10:03:10.331 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2018-02-02 10:03:10.352 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2018-02-02 10:03:10.370 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2018-02-02 10:03:10.395 [main] INFO  org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8080 (http)
+2018-02-02 10:03:10.400 [main] INFO  com.fengmangbilu.blog.BlogApplication - Started BlogApplication in 8.273 seconds (JVM running for 8.888)
+2018-02-02 10:03:12.143 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-02-02 10:03:12.143 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+2018-02-02 10:03:12.157 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 14 ms
+2018-02-02 10:03:12.250 [http-nio-8080-exec-1] INFO  org.hibernate.hql.internal.QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+2018-02-02 10:03:12.421 [http-nio-8080-exec-1] INFO  p6spy - |12|statement|connection8|select blog0_.id as id1_0_, blog0_.created_date as created_2_0_, blog0_.last_modified_date as last_mod3_0_, blog0_.author as author4_0_, blog0_.content as content5_0_, blog0_.summary as summary6_0_, blog0_.title as title7_0_ from fengmangbilu_blog blog0_ limit 5, 5
+2018-02-02 10:03:12.438 [http-nio-8080-exec-1] INFO  p6spy - |9|statement|connection8|select count(blog0_.id) as col_0_0_ from fengmangbilu_blog blog0_
+2018-02-02 10:03:12.450 [http-nio-8080-exec-1] INFO  p6spy - |8|commit|connection8|
+2018-02-02 10:03:12.506 [http-nio-8080-exec-1] INFO  p6spy - |8|statement|connection8|select tag0_.id as id1_2_, tag0_.created_date as created_2_2_, tag0_.last_modified_date as last_mod3_2_, tag0_.name as name4_2_ from fengmangbilu_tag tag0_
+2018-02-02 10:03:12.516 [http-nio-8080-exec-1] INFO  p6spy - |8|commit|connection8|
+2018-02-02 10:03:14.790 [http-nio-8080-exec-4] INFO  p6spy - |9|statement|connection8|select blog0_.id as id1_0_, blog0_.created_date as created_2_0_, blog0_.last_modified_date as last_mod3_0_, blog0_.author as author4_0_, blog0_.content as content5_0_, blog0_.summary as summary6_0_, blog0_.title as title7_0_ from fengmangbilu_blog blog0_ limit 5, 5
+2018-02-02 10:03:14.801 [http-nio-8080-exec-4] INFO  p6spy - |9|statement|connection8|select count(blog0_.id) as col_0_0_ from fengmangbilu_blog blog0_
+2018-02-02 10:03:14.811 [http-nio-8080-exec-4] INFO  p6spy - |8|commit|connection8|
+2018-02-02 10:03:14.878 [http-nio-8080-exec-4] INFO  p6spy - |8|statement|connection8|select tag0_.id as id1_2_, tag0_.created_date as created_2_2_, tag0_.last_modified_date as last_mod3_2_, tag0_.name as name4_2_ from fengmangbilu_tag tag0_
+2018-02-02 10:03:14.889 [http-nio-8080-exec-4] INFO  p6spy - |8|commit|connection8|
+2018-02-02 10:06:18.723 [http-nio-8080-exec-1] INFO  p6spy - |9|statement|connection8|select blog0_.id as id1_0_, blog0_.created_date as created_2_0_, blog0_.last_modified_date as last_mod3_0_, blog0_.author as author4_0_, blog0_.content as content5_0_, blog0_.summary as summary6_0_, blog0_.title as title7_0_ from fengmangbilu_blog blog0_ order by blog0_.created_date asc limit 5, 5
+2018-02-02 10:06:18.734 [http-nio-8080-exec-1] INFO  p6spy - |9|statement|connection8|select count(blog0_.id) as col_0_0_ from fengmangbilu_blog blog0_
+2018-02-02 10:06:18.744 [http-nio-8080-exec-1] INFO  p6spy - |8|commit|connection8|
+2018-02-02 10:06:18.798 [http-nio-8080-exec-1] INFO  p6spy - |9|statement|connection8|select tag0_.id as id1_2_, tag0_.created_date as created_2_2_, tag0_.last_modified_date as last_mod3_2_, tag0_.name as name4_2_ from fengmangbilu_tag tag0_
+2018-02-02 10:06:18.808 [http-nio-8080-exec-1] INFO  p6spy - |8|commit|connection8|
+2018-02-02 10:08:26.657 [http-nio-8080-exec-9] INFO  p6spy - |10|statement|connection8|select blog0_.id as id1_0_, blog0_.created_date as created_2_0_, blog0_.last_modified_date as last_mod3_0_, blog0_.author as author4_0_, blog0_.content as content5_0_, blog0_.summary as summary6_0_, blog0_.title as title7_0_ from fengmangbilu_blog blog0_ order by blog0_.created_date asc limit 5, 5
+2018-02-02 10:08:26.668 [http-nio-8080-exec-9] INFO  p6spy - |9|statement|connection8|select count(blog0_.id) as col_0_0_ from fengmangbilu_blog blog0_
+2018-02-02 10:08:26.680 [http-nio-8080-exec-9] INFO  p6spy - |8|commit|connection8|
+2018-02-02 10:08:26.739 [http-nio-8080-exec-9] INFO  p6spy - |10|statement|connection8|select tag0_.id as id1_2_, tag0_.created_date as created_2_2_, tag0_.last_modified_date as last_mod3_2_, tag0_.name as name4_2_ from fengmangbilu_tag tag0_
+2018-02-02 10:08:26.749 [http-nio-8080-exec-9] INFO  p6spy - |8|commit|connection8|
+2018-02-02 10:08:27.122 [http-nio-8080-exec-6] INFO  p6spy - |9|statement|connection8|select blog0_.id as id1_0_, blog0_.created_date as created_2_0_, blog0_.last_modified_date as last_mod3_0_, blog0_.author as author4_0_, blog0_.content as content5_0_, blog0_.summary as summary6_0_, blog0_.title as title7_0_ from fengmangbilu_blog blog0_ order by blog0_.created_date asc limit 5, 5
+2018-02-02 10:08:27.133 [http-nio-8080-exec-6] INFO  p6spy - |9|statement|connection8|select count(blog0_.id) as col_0_0_ from fengmangbilu_blog blog0_
+2018-02-02 10:08:27.143 [http-nio-8080-exec-6] INFO  p6spy - |8|commit|connection8|
+2018-02-02 10:08:27.199 [http-nio-8080-exec-6] INFO  p6spy - |9|statement|connection8|select tag0_.id as id1_2_, tag0_.created_date as created_2_2_, tag0_.last_modified_date as last_mod3_2_, tag0_.name as name4_2_ from fengmangbilu_tag tag0_
+2018-02-02 10:08:27.211 [http-nio-8080-exec-6] INFO  p6spy - |8|commit|connection8|
+2018-02-02 10:08:32.555 [http-nio-8080-exec-4] INFO  p6spy - |10|statement|connection8|select blog0_.id as id1_0_, blog0_.created_date as created_2_0_, blog0_.last_modified_date as last_mod3_0_, blog0_.author as author4_0_, blog0_.content as content5_0_, blog0_.summary as summary6_0_, blog0_.title as title7_0_ from fengmangbilu_blog blog0_ order by blog0_.created_date asc limit 5, 5
+2018-02-02 10:08:32.567 [http-nio-8080-exec-4] INFO  p6spy - |9|statement|connection8|select count(blog0_.id) as col_0_0_ from fengmangbilu_blog blog0_
+2018-02-02 10:08:32.577 [http-nio-8080-exec-4] INFO  p6spy - |8|commit|connection8|
+2018-02-02 10:08:32.639 [http-nio-8080-exec-4] INFO  p6spy - |10|statement|connection8|select tag0_.id as id1_2_, tag0_.created_date as created_2_2_, tag0_.last_modified_date as last_mod3_2_, tag0_.name as name4_2_ from fengmangbilu_tag tag0_
+2018-02-02 10:08:32.650 [http-nio-8080-exec-4] INFO  p6spy - |8|commit|connection8|
+2018-02-02 10:08:36.519 [http-nio-8080-exec-10] INFO  p6spy - |10|statement|connection8|select blog0_.id as id1_0_, blog0_.created_date as created_2_0_, blog0_.last_modified_date as last_mod3_0_, blog0_.author as author4_0_, blog0_.content as content5_0_, blog0_.summary as summary6_0_, blog0_.title as title7_0_ from fengmangbilu_blog blog0_ order by blog0_.created_date asc limit 5, 5
+2018-02-02 10:08:36.532 [http-nio-8080-exec-10] INFO  p6spy - |9|statement|connection8|select count(blog0_.id) as col_0_0_ from fengmangbilu_blog blog0_
+2018-02-02 10:08:36.543 [http-nio-8080-exec-10] INFO  p6spy - |8|commit|connection8|
+2018-02-02 10:08:36.606 [http-nio-8080-exec-10] INFO  p6spy - |16|statement|connection8|select tag0_.id as id1_2_, tag0_.created_date as created_2_2_, tag0_.last_modified_date as last_mod3_2_, tag0_.name as name4_2_ from fengmangbilu_tag tag0_
+2018-02-02 10:08:36.618 [http-nio-8080-exec-10] INFO  p6spy - |9|commit|connection8|
+2018-02-02 10:32:54.467 [http-nio-8080-exec-9] INFO  p6spy - |10|statement|connection8|select blog0_.id as id1_0_, blog0_.created_date as created_2_0_, blog0_.last_modified_date as last_mod3_0_, blog0_.author as author4_0_, blog0_.content as content5_0_, blog0_.summary as summary6_0_, blog0_.title as title7_0_ from fengmangbilu_blog blog0_ order by blog0_.created_date asc limit 5, 5
+2018-02-02 10:32:54.478 [http-nio-8080-exec-9] INFO  p6spy - |9|statement|connection8|select count(blog0_.id) as col_0_0_ from fengmangbilu_blog blog0_
+2018-02-02 10:32:54.488 [http-nio-8080-exec-9] INFO  p6spy - |8|commit|connection8|
+2018-02-02 10:32:54.546 [http-nio-8080-exec-9] INFO  p6spy - |9|statement|connection8|select tag0_.id as id1_2_, tag0_.created_date as created_2_2_, tag0_.last_modified_date as last_mod3_2_, tag0_.name as name4_2_ from fengmangbilu_tag tag0_
+2018-02-02 10:32:54.557 [http-nio-8080-exec-9] INFO  p6spy - |8|commit|connection8|
+2018-02-02 10:33:07.140 [main] INFO  com.fengmangbilu.blog.BlogApplication - Starting BlogApplication on Zx-PC with PID 12188 (E:\workspace\fengmangbilu-web-blog\target\classes started by Zx in E:\workspace\fengmangbilu-web-blog)
+2018-02-02 10:33:07.144 [main] INFO  com.fengmangbilu.blog.BlogApplication - No active profile set, falling back to default profiles: default
+2018-02-02 10:33:07.188 [main] INFO  org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@488d1cd7: startup date [Fri Feb 02 10:33:07 CST 2018]; root of context hierarchy
+2018-02-02 10:33:07.370 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.3.6.Final
+2018-02-02 10:33:07.732 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-02-02 10:33:07.876 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-02-02 10:33:07.900 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.fengmangbilu.blog.repositories.BlogRepository.
+2018-02-02 10:33:07.901 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.fengmangbilu.blog.repositories.TagRepository.
+2018-02-02 10:33:08.121 [main] INFO  org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-02-02 10:33:08.375 [main] INFO  org.hibernate.validator.internal.xml.ValidationXmlParser - HV000007: META-INF/validation.xml found. Parsing XML based configuration.
+2018-02-02 10:33:08.425 [main] INFO  org.hibernate.validator.internal.xml.ValidationBootstrapParameters - HV000004: Using com.fengmangbilu.validator.i18n.ValidationMessageInterpolator as message interpolator.
+2018-02-02 10:33:08.425 [main] INFO  org.hibernate.validator.internal.xml.ValidationBootstrapParameters - HV000119: Using com.fengmangbilu.validator.provider.ReportOnParameterNameProvider as parameter name provider.
+2018-02-02 10:33:08.888 [main] INFO  org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http)
+2018-02-02 10:33:08.903 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2018-02-02 10:33:08.903 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-02-02 10:33:09.022 [localhost-startStop-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2018-02-02 10:33:09.022 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1835 ms
+2018-02-02 10:33:09.227 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+2018-02-02 10:33:09.227 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-02-02 10:33:09.227 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-02-02 10:33:09.227 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-02-02 10:33:09.227 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2018-02-02 10:33:09.227 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'resourceUrlEncodingFilter' to: [/*]
+2018-02-02 10:33:09.554 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-02-02 10:33:09.685 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-02-02 10:33:09.750 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.0.12.Final}
+2018-02-02 10:33:09.751 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2018-02-02 10:33:09.753 [main] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+2018-02-02 10:33:09.792 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-02-02 10:33:11.128 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-02-02 10:33:11.576 [main] INFO  org.hibernate.tool.hbm2ddl.SchemaUpdate - HHH000228: Running hbm2ddl schema update
+2018-02-02 10:33:12.324 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-02-02 10:33:12.697 [main] INFO  org.hibernate.hql.internal.QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+2018-02-02 10:33:12.825 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2018-02-02 10:33:12.834 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2018-02-02 10:33:12.853 [main] INFO  org.springframework.boot.autoconfigure.logging.AutoConfigurationReportLoggingInitializer - 
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+2018-02-02 10:35:14.580 [main] INFO  com.fengmangbilu.blog.BlogApplication - Starting BlogApplication on Zx-PC with PID 5984 (E:\workspace\fengmangbilu-web-blog\target\classes started by Zx in E:\workspace\fengmangbilu-web-blog)
+2018-02-02 10:35:14.597 [main] INFO  com.fengmangbilu.blog.BlogApplication - No active profile set, falling back to default profiles: default
+2018-02-02 10:35:14.667 [main] INFO  org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@488d1cd7: startup date [Fri Feb 02 10:35:14 CST 2018]; root of context hierarchy
+2018-02-02 10:35:14.822 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.3.6.Final
+2018-02-02 10:35:15.251 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-02-02 10:35:15.400 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-02-02 10:35:15.425 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.fengmangbilu.blog.repositories.BlogRepository.
+2018-02-02 10:35:15.425 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.fengmangbilu.blog.repositories.TagRepository.
+2018-02-02 10:35:15.677 [main] INFO  org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-02-02 10:35:15.919 [main] INFO  org.hibernate.validator.internal.xml.ValidationXmlParser - HV000007: META-INF/validation.xml found. Parsing XML based configuration.
+2018-02-02 10:35:15.977 [main] INFO  org.hibernate.validator.internal.xml.ValidationBootstrapParameters - HV000004: Using com.fengmangbilu.validator.i18n.ValidationMessageInterpolator as message interpolator.
+2018-02-02 10:35:15.978 [main] INFO  org.hibernate.validator.internal.xml.ValidationBootstrapParameters - HV000119: Using com.fengmangbilu.validator.provider.ReportOnParameterNameProvider as parameter name provider.
+2018-02-02 10:35:16.414 [main] INFO  org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http)
+2018-02-02 10:35:16.429 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2018-02-02 10:35:16.431 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-02-02 10:35:16.544 [localhost-startStop-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2018-02-02 10:35:16.545 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1878 ms
+2018-02-02 10:35:16.786 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+2018-02-02 10:35:16.786 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-02-02 10:35:16.786 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-02-02 10:35:16.786 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-02-02 10:35:16.786 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2018-02-02 10:35:16.786 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'resourceUrlEncodingFilter' to: [/*]
+2018-02-02 10:35:17.172 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-02-02 10:35:17.186 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-02-02 10:35:17.244 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.0.12.Final}
+2018-02-02 10:35:17.246 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2018-02-02 10:35:17.247 [main] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+2018-02-02 10:35:17.270 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-02-02 10:35:18.612 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-02-02 10:35:19.025 [main] INFO  org.hibernate.tool.hbm2ddl.SchemaUpdate - HHH000228: Running hbm2ddl schema update
+2018-02-02 10:35:19.817 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-02-02 10:35:20.157 [main] INFO  org.hibernate.hql.internal.QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+2018-02-02 10:35:20.236 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2018-02-02 10:35:20.241 [main] INFO  org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2018-02-02 10:35:20.253 [main] INFO  org.springframework.boot.autoconfigure.logging.AutoConfigurationReportLoggingInitializer - 
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+2018-02-02 10:35:57.623 [main] INFO  com.fengmangbilu.blog.BlogApplication - Starting BlogApplication on Zx-PC with PID 12504 (E:\workspace\fengmangbilu-web-blog\target\classes started by Zx in E:\workspace\fengmangbilu-web-blog)
+2018-02-02 10:35:57.627 [main] INFO  com.fengmangbilu.blog.BlogApplication - No active profile set, falling back to default profiles: default
+2018-02-02 10:35:57.670 [main] INFO  org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@488d1cd7: startup date [Fri Feb 02 10:35:57 CST 2018]; root of context hierarchy
+2018-02-02 10:35:57.818 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.3.6.Final
+2018-02-02 10:35:58.232 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-02-02 10:35:58.384 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-02-02 10:35:58.398 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.fengmangbilu.blog.repositories.BlogRepository.
+2018-02-02 10:35:58.398 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.fengmangbilu.blog.repositories.TagRepository.
+2018-02-02 10:35:58.646 [main] INFO  org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-02-02 10:35:58.867 [main] INFO  org.hibernate.validator.internal.xml.ValidationXmlParser - HV000007: META-INF/validation.xml found. Parsing XML based configuration.
+2018-02-02 10:35:58.918 [main] INFO  org.hibernate.validator.internal.xml.ValidationBootstrapParameters - HV000004: Using com.fengmangbilu.validator.i18n.ValidationMessageInterpolator as message interpolator.
+2018-02-02 10:35:58.919 [main] INFO  org.hibernate.validator.internal.xml.ValidationBootstrapParameters - HV000119: Using com.fengmangbilu.validator.provider.ReportOnParameterNameProvider as parameter name provider.
+2018-02-02 10:35:59.342 [main] INFO  org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http)
+2018-02-02 10:35:59.345 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2018-02-02 10:35:59.345 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-02-02 10:35:59.480 [localhost-startStop-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2018-02-02 10:35:59.480 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1810 ms
+2018-02-02 10:35:59.731 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+2018-02-02 10:35:59.736 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-02-02 10:35:59.737 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-02-02 10:35:59.737 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-02-02 10:35:59.737 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2018-02-02 10:35:59.737 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'resourceUrlEncodingFilter' to: [/*]
+2018-02-02 10:36:00.095 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-02-02 10:36:00.110 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-02-02 10:36:00.174 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.0.12.Final}
+2018-02-02 10:36:00.176 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2018-02-02 10:36:00.177 [main] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+2018-02-02 10:36:00.207 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-02-02 10:36:01.461 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-02-02 10:36:01.861 [main] INFO  org.hibernate.tool.hbm2ddl.SchemaUpdate - HHH000228: Running hbm2ddl schema update
+2018-02-02 10:36:02.657 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-02-02 10:36:02.974 [main] INFO  org.hibernate.hql.internal.QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+2018-02-02 10:36:03.464 [main] INFO  org.hibernate.validator.internal.xml.ValidationXmlParser - HV000007: META-INF/validation.xml found. Parsing XML based configuration.
+2018-02-02 10:36:03.470 [main] INFO  org.hibernate.validator.internal.xml.ValidationBootstrapParameters - HV000004: Using com.fengmangbilu.validator.i18n.ValidationMessageInterpolator as message interpolator.
+2018-02-02 10:36:03.470 [main] INFO  org.hibernate.validator.internal.xml.ValidationBootstrapParameters - HV000119: Using com.fengmangbilu.validator.provider.ReportOnParameterNameProvider as parameter name provider.
+2018-02-02 10:36:03.592 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@488d1cd7: startup date [Fri Feb 02 10:35:57 CST 2018]; root of context hierarchy
+2018-02-02 10:36:03.599 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Detected ResponseBodyAdvice bean in jsonFilterResponseBodyAdvice
+2018-02-02 10:36:03.600 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Detected @ModelAttribute methods in resourceUrlController
+2018-02-02 10:36:03.657 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[],methods=[GET]}" onto public java.lang.String com.fengmangbilu.blog.controllers.IndexController.index(org.springframework.ui.Model,java.lang.Integer)
+2018-02-02 10:36:03.657 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/p],methods=[GET]}" onto public java.lang.String com.fengmangbilu.blog.controllers.IndexController.p()
+2018-02-02 10:36:03.657 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/about],methods=[GET]}" onto public java.lang.String com.fengmangbilu.blog.controllers.IndexController.about()
+2018-02-02 10:36:03.657 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-02-02 10:36:03.657 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-02-02 10:36:03.721 [main] INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-02 10:36:03.721 [main] INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-02 10:36:03.744 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Detected ResponseBodyAdvice implementation in jsonFilterResponseBodyAdvice
+2018-02-02 10:36:03.744 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Detected @ExceptionHandler methods in defaultErrorController
+2018-02-02 10:36:04.062 [main] INFO  org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer - ClassTemplateLoader for Spring macros added to FreeMarker configuration
+2018-02-02 10:36:04.315 [main] INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2018-02-02 10:36:04.330 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2018-02-02 10:36:04.342 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2018-02-02 10:36:04.351 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2018-02-02 10:36:04.366 [main] INFO  org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8080 (http)
+2018-02-02 10:36:04.366 [main] INFO  com.fengmangbilu.blog.BlogApplication - Started BlogApplication in 7.112 seconds (JVM running for 7.425)
+2018-02-02 10:36:12.887 [http-nio-8080-exec-2] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-02-02 10:36:12.887 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+2018-02-02 10:36:12.909 [http-nio-8080-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 21 ms
+2018-02-02 10:36:15.829 [http-nio-8080-exec-3] INFO  p6spy - |11|statement|connection8|select blog0_.id as id1_0_, blog0_.created_date as created_2_0_, blog0_.last_modified_date as last_mod3_0_, blog0_.author as author4_0_, blog0_.content as content5_0_, blog0_.summary as summary6_0_, blog0_.title as title7_0_ from fengmangbilu_blog blog0_ order by blog0_.created_date asc limit 5
+2018-02-02 10:36:15.840 [http-nio-8080-exec-3] INFO  p6spy - |7|commit|connection8|
+2018-02-02 10:36:15.898 [http-nio-8080-exec-3] INFO  p6spy - |10|statement|connection8|select tag0_.id as id1_2_, tag0_.created_date as created_2_2_, tag0_.last_modified_date as last_mod3_2_, tag0_.name as name4_2_ from fengmangbilu_tag tag0_
+2018-02-02 10:36:15.907 [http-nio-8080-exec-3] INFO  p6spy - |7|commit|connection8|
+2018-02-02 10:36:15.946 [http-nio-8080-exec-3] INFO  p6spy - |9|statement|connection8|select blog0_.created_date as col_0_0_, count(*) as col_1_0_ from fengmangbilu_blog blog0_ group by date_format(blog0_.created_date, '%Y-%m-%d') order by blog0_.created_date asc
+2018-02-02 10:39:07.517 [http-nio-8080-exec-1] INFO  p6spy - |9|statement|connection8|select blog0_.id as id1_0_, blog0_.created_date as created_2_0_, blog0_.last_modified_date as last_mod3_0_, blog0_.author as author4_0_, blog0_.content as content5_0_, blog0_.summary as summary6_0_, blog0_.title as title7_0_ from fengmangbilu_blog blog0_ order by blog0_.created_date asc limit 5
+2018-02-02 10:39:07.528 [http-nio-8080-exec-1] INFO  p6spy - |8|commit|connection8|
+2018-02-02 10:39:07.582 [http-nio-8080-exec-1] INFO  p6spy - |9|statement|connection8|select tag0_.id as id1_2_, tag0_.created_date as created_2_2_, tag0_.last_modified_date as last_mod3_2_, tag0_.name as name4_2_ from fengmangbilu_tag tag0_
+2018-02-02 10:39:07.592 [http-nio-8080-exec-1] INFO  p6spy - |8|commit|connection8|
+2018-02-02 10:39:07.628 [http-nio-8080-exec-1] INFO  p6spy - |8|statement|connection8|select blog0_.created_date as col_0_0_, count(*) as col_1_0_ from fengmangbilu_blog blog0_ group by date_format(blog0_.created_date, '%Y-%m-%d') order by blog0_.created_date asc
+2018-02-02 10:44:46.659 [http-nio-8080-exec-8] INFO  p6spy - |9|statement|connection8|select blog0_.id as id1_0_, blog0_.created_date as created_2_0_, blog0_.last_modified_date as last_mod3_0_, blog0_.author as author4_0_, blog0_.content as content5_0_, blog0_.summary as summary6_0_, blog0_.title as title7_0_ from fengmangbilu_blog blog0_ order by blog0_.created_date asc limit 5
+2018-02-02 10:44:46.728 [http-nio-8080-exec-8] INFO  p6spy - |8|commit|connection8|
+2018-02-02 10:44:46.782 [http-nio-8080-exec-8] INFO  p6spy - |9|statement|connection8|select tag0_.id as id1_2_, tag0_.created_date as created_2_2_, tag0_.last_modified_date as last_mod3_2_, tag0_.name as name4_2_ from fengmangbilu_tag tag0_
+2018-02-02 10:44:46.791 [http-nio-8080-exec-8] INFO  p6spy - |7|commit|connection8|
+2018-02-02 10:44:46.833 [http-nio-8080-exec-8] INFO  p6spy - |9|statement|connection8|select blog0_.created_date as col_0_0_, count(*) as col_1_0_ from fengmangbilu_blog blog0_ group by date_format(blog0_.created_date, '%Y-%m-%d') order by blog0_.created_date asc
+2018-02-02 10:44:47.931 [http-nio-8080-exec-7] INFO  p6spy - |8|statement|connection8|select blog0_.id as id1_0_, blog0_.created_date as created_2_0_, blog0_.last_modified_date as last_mod3_0_, blog0_.author as author4_0_, blog0_.content as content5_0_, blog0_.summary as summary6_0_, blog0_.title as title7_0_ from fengmangbilu_blog blog0_ order by blog0_.created_date asc limit 5
+2018-02-02 10:44:47.942 [http-nio-8080-exec-7] INFO  p6spy - |9|commit|connection8|
+2018-02-02 10:44:47.997 [http-nio-8080-exec-7] INFO  p6spy - |8|statement|connection8|select tag0_.id as id1_2_, tag0_.created_date as created_2_2_, tag0_.last_modified_date as last_mod3_2_, tag0_.name as name4_2_ from fengmangbilu_tag tag0_
+2018-02-02 10:44:48.010 [http-nio-8080-exec-7] INFO  p6spy - |11|commit|connection8|
+2018-02-02 10:44:48.052 [http-nio-8080-exec-7] INFO  p6spy - |8|statement|connection8|select blog0_.created_date as col_0_0_, count(*) as col_1_0_ from fengmangbilu_blog blog0_ group by date_format(blog0_.created_date, '%Y-%m-%d') order by blog0_.created_date asc
+2018-02-02 10:44:48.422 [http-nio-8080-exec-5] INFO  p6spy - |8|statement|connection8|select blog0_.id as id1_0_, blog0_.created_date as created_2_0_, blog0_.last_modified_date as last_mod3_0_, blog0_.author as author4_0_, blog0_.content as content5_0_, blog0_.summary as summary6_0_, blog0_.title as title7_0_ from fengmangbilu_blog blog0_ order by blog0_.created_date asc limit 5
+2018-02-02 10:44:48.435 [http-nio-8080-exec-5] INFO  p6spy - |10|commit|connection8|
+2018-02-02 10:44:48.488 [http-nio-8080-exec-5] INFO  p6spy - |8|statement|connection8|select tag0_.id as id1_2_, tag0_.created_date as created_2_2_, tag0_.last_modified_date as last_mod3_2_, tag0_.name as name4_2_ from fengmangbilu_tag tag0_
+2018-02-02 10:44:48.496 [http-nio-8080-exec-5] INFO  p6spy - |7|commit|connection8|
+2018-02-02 10:44:48.531 [http-nio-8080-exec-5] INFO  p6spy - |7|statement|connection8|select blog0_.created_date as col_0_0_, count(*) as col_1_0_ from fengmangbilu_blog blog0_ group by date_format(blog0_.created_date, '%Y-%m-%d') order by blog0_.created_date asc
+2018-02-02 10:44:48.812 [http-nio-8080-exec-6] INFO  p6spy - |9|statement|connection8|select blog0_.id as id1_0_, blog0_.created_date as created_2_0_, blog0_.last_modified_date as last_mod3_0_, blog0_.author as author4_0_, blog0_.content as content5_0_, blog0_.summary as summary6_0_, blog0_.title as title7_0_ from fengmangbilu_blog blog0_ order by blog0_.created_date asc limit 5
+2018-02-02 10:44:48.822 [http-nio-8080-exec-6] INFO  p6spy - |8|commit|connection8|
+2018-02-02 10:44:48.871 [http-nio-8080-exec-6] INFO  p6spy - |7|statement|connection8|select tag0_.id as id1_2_, tag0_.created_date as created_2_2_, tag0_.last_modified_date as last_mod3_2_, tag0_.name as name4_2_ from fengmangbilu_tag tag0_
+2018-02-02 10:44:48.879 [http-nio-8080-exec-6] INFO  p6spy - |7|commit|connection8|
+2018-02-02 10:44:48.917 [http-nio-8080-exec-6] INFO  p6spy - |9|statement|connection8|select blog0_.created_date as col_0_0_, count(*) as col_1_0_ from fengmangbilu_blog blog0_ group by date_format(blog0_.created_date, '%Y-%m-%d') order by blog0_.created_date asc
+2018-02-02 10:45:08.517 [http-nio-8080-exec-8] INFO  p6spy - |9|statement|connection8|select blog0_.id as id1_0_, blog0_.created_date as created_2_0_, blog0_.last_modified_date as last_mod3_0_, blog0_.author as author4_0_, blog0_.content as content5_0_, blog0_.summary as summary6_0_, blog0_.title as title7_0_ from fengmangbilu_blog blog0_ order by blog0_.created_date asc limit 5
+2018-02-02 10:45:08.542 [http-nio-8080-exec-8] INFO  p6spy - |7|commit|connection8|
+2018-02-02 10:45:47.674 [http-nio-8080-exec-8] INFO  p6spy - |10|statement|connection8|select tags0_.blog_id as blog_id1_1_0_, tags0_.tags_id as tags_id2_1_0_, tag1_.id as id1_2_1_, tag1_.created_date as created_2_2_1_, tag1_.last_modified_date as last_mod3_2_1_, tag1_.name as name4_2_1_ from fengmangbilu_blog_tags tags0_ inner join fengmangbilu_tag tag1_ on tags0_.tags_id=tag1_.id where tags0_.blog_id=1
+2018-02-02 10:46:45.889 [http-nio-8080-exec-8] INFO  p6spy - |8|statement|connection8|select tag0_.id as id1_2_, tag0_.created_date as created_2_2_, tag0_.last_modified_date as last_mod3_2_, tag0_.name as name4_2_ from fengmangbilu_tag tag0_
+2018-02-02 10:46:45.899 [http-nio-8080-exec-8] INFO  p6spy - |7|commit|connection8|
+2018-02-02 10:46:45.934 [http-nio-8080-exec-8] INFO  p6spy - |9|statement|connection8|select blog0_.created_date as col_0_0_, count(*) as col_1_0_ from fengmangbilu_blog blog0_ group by date_format(blog0_.created_date, '%Y-%m-%d') order by blog0_.created_date asc
+2018-02-02 10:48:08.684 [http-nio-8080-exec-9] INFO  p6spy - |9|statement|connection8|select blog0_.id as id1_0_, blog0_.created_date as created_2_0_, blog0_.last_modified_date as last_mod3_0_, blog0_.author as author4_0_, blog0_.content as content5_0_, blog0_.summary as summary6_0_, blog0_.title as title7_0_ from fengmangbilu_blog blog0_ order by blog0_.created_date asc limit 5
+2018-02-02 10:48:08.694 [http-nio-8080-exec-9] INFO  p6spy - |7|commit|connection8|
+2018-02-02 10:48:08.749 [http-nio-8080-exec-9] INFO  p6spy - |8|statement|connection8|select tag0_.id as id1_2_, tag0_.created_date as created_2_2_, tag0_.last_modified_date as last_mod3_2_, tag0_.name as name4_2_ from fengmangbilu_tag tag0_
+2018-02-02 10:48:08.761 [http-nio-8080-exec-9] INFO  p6spy - |8|commit|connection8|
+2018-02-02 10:48:08.799 [http-nio-8080-exec-9] INFO  p6spy - |8|statement|connection8|select blog0_.created_date as col_0_0_, count(*) as col_1_0_ from fengmangbilu_blog blog0_ group by date_format(blog0_.created_date, '%Y-%m-%d') order by blog0_.created_date asc
+2018-02-02 10:49:03.503 [http-nio-8080-exec-3] INFO  p6spy - |8|statement|connection8|select blog0_.id as id1_0_, blog0_.created_date as created_2_0_, blog0_.last_modified_date as last_mod3_0_, blog0_.author as author4_0_, blog0_.content as content5_0_, blog0_.summary as summary6_0_, blog0_.title as title7_0_ from fengmangbilu_blog blog0_ order by blog0_.created_date asc limit 5
+2018-02-02 10:49:03.512 [http-nio-8080-exec-3] INFO  p6spy - |7|commit|connection8|
+2018-02-02 10:49:03.565 [http-nio-8080-exec-3] INFO  p6spy - |8|statement|connection8|select tag0_.id as id1_2_, tag0_.created_date as created_2_2_, tag0_.last_modified_date as last_mod3_2_, tag0_.name as name4_2_ from fengmangbilu_tag tag0_
+2018-02-02 10:49:03.575 [http-nio-8080-exec-3] INFO  p6spy - |8|commit|connection8|
+2018-02-02 10:49:03.610 [http-nio-8080-exec-3] INFO  p6spy - |9|statement|connection8|select blog0_.created_date as col_0_0_, count(*) as col_1_0_ from fengmangbilu_blog blog0_ group by date_format(blog0_.created_date, '%Y-%m-%d') order by blog0_.created_date asc
+2018-02-02 10:49:15.539 [http-nio-8080-exec-7] INFO  p6spy - |9|statement|connection8|select blog0_.id as id1_0_, blog0_.created_date as created_2_0_, blog0_.last_modified_date as last_mod3_0_, blog0_.author as author4_0_, blog0_.content as content5_0_, blog0_.summary as summary6_0_, blog0_.title as title7_0_ from fengmangbilu_blog blog0_ order by blog0_.created_date asc limit 5
+2018-02-02 10:49:15.549 [http-nio-8080-exec-7] INFO  p6spy - |7|commit|connection8|
+2018-02-02 10:49:15.601 [http-nio-8080-exec-7] INFO  p6spy - |8|statement|connection8|select tag0_.id as id1_2_, tag0_.created_date as created_2_2_, tag0_.last_modified_date as last_mod3_2_, tag0_.name as name4_2_ from fengmangbilu_tag tag0_
+2018-02-02 10:49:15.610 [http-nio-8080-exec-7] INFO  p6spy - |7|commit|connection8|
+2018-02-02 10:49:15.644 [http-nio-8080-exec-7] INFO  p6spy - |9|statement|connection8|select blog0_.created_date as col_0_0_, count(*) as col_1_0_ from fengmangbilu_blog blog0_ group by date_format(blog0_.created_date, '%Y-%m-%d') order by blog0_.created_date asc
+2018-02-02 10:49:16.191 [http-nio-8080-exec-5] INFO  p6spy - |9|statement|connection8|select blog0_.id as id1_0_, blog0_.created_date as created_2_0_, blog0_.last_modified_date as last_mod3_0_, blog0_.author as author4_0_, blog0_.content as content5_0_, blog0_.summary as summary6_0_, blog0_.title as title7_0_ from fengmangbilu_blog blog0_ order by blog0_.created_date asc limit 5
+2018-02-02 10:49:16.203 [http-nio-8080-exec-5] INFO  p6spy - |8|commit|connection8|
+2018-02-02 10:49:16.257 [http-nio-8080-exec-5] INFO  p6spy - |8|statement|connection8|select tag0_.id as id1_2_, tag0_.created_date as created_2_2_, tag0_.last_modified_date as last_mod3_2_, tag0_.name as name4_2_ from fengmangbilu_tag tag0_
+2018-02-02 10:49:16.266 [http-nio-8080-exec-5] INFO  p6spy - |7|commit|connection8|
+2018-02-02 10:49:16.302 [http-nio-8080-exec-5] INFO  p6spy - |9|statement|connection8|select blog0_.created_date as col_0_0_, count(*) as col_1_0_ from fengmangbilu_blog blog0_ group by date_format(blog0_.created_date, '%Y-%m-%d') order by blog0_.created_date asc
+2018-02-02 10:49:16.508 [http-nio-8080-exec-2] INFO  p6spy - |8|statement|connection8|select blog0_.id as id1_0_, blog0_.created_date as created_2_0_, blog0_.last_modified_date as last_mod3_0_, blog0_.author as author4_0_, blog0_.content as content5_0_, blog0_.summary as summary6_0_, blog0_.title as title7_0_ from fengmangbilu_blog blog0_ order by blog0_.created_date asc limit 5
+2018-02-02 10:49:16.517 [http-nio-8080-exec-2] INFO  p6spy - |7|commit|connection8|
+2018-02-02 10:49:16.569 [http-nio-8080-exec-2] INFO  p6spy - |8|statement|connection8|select tag0_.id as id1_2_, tag0_.created_date as created_2_2_, tag0_.last_modified_date as last_mod3_2_, tag0_.name as name4_2_ from fengmangbilu_tag tag0_
+2018-02-02 10:49:16.578 [http-nio-8080-exec-2] INFO  p6spy - |7|commit|connection8|
+2018-02-02 10:49:16.615 [http-nio-8080-exec-2] INFO  p6spy - |9|statement|connection8|select blog0_.created_date as col_0_0_, count(*) as col_1_0_ from fengmangbilu_blog blog0_ group by date_format(blog0_.created_date, '%Y-%m-%d') order by blog0_.created_date asc
+2018-02-02 10:49:36.260 [http-nio-8080-exec-1] INFO  p6spy - |9|statement|connection8|select blog0_.id as id1_0_, blog0_.created_date as created_2_0_, blog0_.last_modified_date as last_mod3_0_, blog0_.author as author4_0_, blog0_.content as content5_0_, blog0_.summary as summary6_0_, blog0_.title as title7_0_ from fengmangbilu_blog blog0_ order by blog0_.created_date asc limit 5
+2018-02-02 10:49:36.269 [http-nio-8080-exec-1] INFO  p6spy - |7|commit|connection8|
+2018-02-02 10:49:36.318 [http-nio-8080-exec-1] INFO  p6spy - |8|statement|connection8|select tag0_.id as id1_2_, tag0_.created_date as created_2_2_, tag0_.last_modified_date as last_mod3_2_, tag0_.name as name4_2_ from fengmangbilu_tag tag0_
+2018-02-02 10:49:36.327 [http-nio-8080-exec-1] INFO  p6spy - |8|commit|connection8|
+2018-02-02 10:49:36.362 [http-nio-8080-exec-1] INFO  p6spy - |9|statement|connection8|select blog0_.created_date as col_0_0_, count(*) as col_1_0_ from fengmangbilu_blog blog0_ group by date_format(blog0_.created_date, '%Y-%m-%d') order by blog0_.created_date asc
+2018-02-02 10:52:46.306 [main] INFO  com.fengmangbilu.blog.BlogApplication - Starting BlogApplication on Zx-PC with PID 11748 (E:\workspace\fengmangbilu-web-blog\target\classes started by Zx in E:\workspace\fengmangbilu-web-blog)
+2018-02-02 10:52:46.309 [main] INFO  com.fengmangbilu.blog.BlogApplication - No active profile set, falling back to default profiles: default
+2018-02-02 10:52:46.350 [main] INFO  org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@488d1cd7: startup date [Fri Feb 02 10:52:46 CST 2018]; root of context hierarchy
+2018-02-02 10:52:46.555 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.3.6.Final
+2018-02-02 10:52:46.946 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-02-02 10:52:47.063 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-02-02 10:52:47.094 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.fengmangbilu.blog.repositories.BlogRepository.
+2018-02-02 10:52:47.094 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.fengmangbilu.blog.repositories.TagRepository.
+2018-02-02 10:52:47.328 [main] INFO  org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-02-02 10:52:47.595 [main] INFO  org.hibernate.validator.internal.xml.ValidationXmlParser - HV000007: META-INF/validation.xml found. Parsing XML based configuration.
+2018-02-02 10:52:47.640 [main] INFO  org.hibernate.validator.internal.xml.ValidationBootstrapParameters - HV000004: Using com.fengmangbilu.validator.i18n.ValidationMessageInterpolator as message interpolator.
+2018-02-02 10:52:47.641 [main] INFO  org.hibernate.validator.internal.xml.ValidationBootstrapParameters - HV000119: Using com.fengmangbilu.validator.provider.ReportOnParameterNameProvider as parameter name provider.
+2018-02-02 10:52:48.059 [main] INFO  org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http)
+2018-02-02 10:52:48.074 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2018-02-02 10:52:48.076 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-02-02 10:52:48.191 [localhost-startStop-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2018-02-02 10:52:48.191 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1841 ms
+2018-02-02 10:52:48.457 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+2018-02-02 10:52:48.457 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-02-02 10:52:48.457 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-02-02 10:52:48.457 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-02-02 10:52:48.457 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2018-02-02 10:52:48.457 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'resourceUrlEncodingFilter' to: [/*]
+2018-02-02 10:52:48.777 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-02-02 10:52:48.861 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-02-02 10:52:48.920 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.0.12.Final}
+2018-02-02 10:52:48.921 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2018-02-02 10:52:48.923 [main] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+2018-02-02 10:52:48.958 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-02-02 10:52:50.208 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-02-02 10:52:50.607 [main] INFO  org.hibernate.tool.hbm2ddl.SchemaUpdate - HHH000228: Running hbm2ddl schema update
+2018-02-02 10:52:51.397 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-02-02 10:52:51.747 [main] INFO  org.hibernate.hql.internal.QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+2018-02-02 10:52:52.290 [main] INFO  org.hibernate.validator.internal.xml.ValidationXmlParser - HV000007: META-INF/validation.xml found. Parsing XML based configuration.
+2018-02-02 10:52:52.290 [main] INFO  org.hibernate.validator.internal.xml.ValidationBootstrapParameters - HV000004: Using com.fengmangbilu.validator.i18n.ValidationMessageInterpolator as message interpolator.
+2018-02-02 10:52:52.290 [main] INFO  org.hibernate.validator.internal.xml.ValidationBootstrapParameters - HV000119: Using com.fengmangbilu.validator.provider.ReportOnParameterNameProvider as parameter name provider.
+2018-02-02 10:52:52.428 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@488d1cd7: startup date [Fri Feb 02 10:52:46 CST 2018]; root of context hierarchy
+2018-02-02 10:52:52.428 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Detected ResponseBodyAdvice bean in jsonFilterResponseBodyAdvice
+2018-02-02 10:52:52.428 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Detected @ModelAttribute methods in resourceUrlController
+2018-02-02 10:52:52.494 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[],methods=[GET]}" onto public java.lang.String com.fengmangbilu.blog.controllers.IndexController.index(org.springframework.ui.Model,java.lang.Integer)
+2018-02-02 10:52:52.494 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/p],methods=[GET]}" onto public java.lang.String com.fengmangbilu.blog.controllers.IndexController.p()
+2018-02-02 10:52:52.494 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/about],methods=[GET]}" onto public java.lang.String com.fengmangbilu.blog.controllers.IndexController.about()
+2018-02-02 10:52:52.494 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-02-02 10:52:52.494 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-02-02 10:52:52.550 [main] INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-02 10:52:52.550 [main] INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-02 10:52:52.556 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Detected ResponseBodyAdvice implementation in jsonFilterResponseBodyAdvice
+2018-02-02 10:52:52.556 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Detected @ExceptionHandler methods in defaultErrorController
+2018-02-02 10:52:52.875 [main] INFO  org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer - ClassTemplateLoader for Spring macros added to FreeMarker configuration
+2018-02-02 10:52:53.132 [main] INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2018-02-02 10:52:53.146 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2018-02-02 10:52:53.146 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2018-02-02 10:52:53.161 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2018-02-02 10:52:53.196 [main] INFO  org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8080 (http)
+2018-02-02 10:52:53.201 [main] INFO  com.fengmangbilu.blog.BlogApplication - Started BlogApplication in 7.251 seconds (JVM running for 7.585)
+2018-02-02 10:53:09.409 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-02-02 10:53:09.409 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+2018-02-02 10:53:09.427 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 18 ms
+2018-02-02 10:53:09.548 [http-nio-8080-exec-1] INFO  p6spy - |13|statement|connection8|select blog0_.id as id1_0_, blog0_.created_date as created_2_0_, blog0_.last_modified_date as last_mod3_0_, blog0_.author as author4_0_, blog0_.content as content5_0_, blog0_.summary as summary6_0_, blog0_.title as title7_0_ from fengmangbilu_blog blog0_ order by blog0_.created_date asc limit 5
+2018-02-02 10:53:09.577 [http-nio-8080-exec-1] INFO  p6spy - |8|commit|connection8|
+2018-02-02 10:53:09.634 [http-nio-8080-exec-1] INFO  p6spy - |9|statement|connection8|select tag0_.id as id1_2_, tag0_.created_date as created_2_2_, tag0_.last_modified_date as last_mod3_2_, tag0_.name as name4_2_ from fengmangbilu_tag tag0_
+2018-02-02 10:53:09.644 [http-nio-8080-exec-1] INFO  p6spy - |8|commit|connection8|
+2018-02-02 10:53:09.689 [http-nio-8080-exec-1] INFO  p6spy - |9|statement|connection8|select blog0_.created_date as col_0_0_, count(*) as col_1_0_ from fengmangbilu_blog blog0_ group by date_format(blog0_.created_date, '%Y-%m-%d') order by blog0_.created_date asc
+2018-02-02 10:53:29.703 [http-nio-8080-exec-3] INFO  p6spy - |9|statement|connection8|select blog0_.id as id1_0_, blog0_.created_date as created_2_0_, blog0_.last_modified_date as last_mod3_0_, blog0_.author as author4_0_, blog0_.content as content5_0_, blog0_.summary as summary6_0_, blog0_.title as title7_0_ from fengmangbilu_blog blog0_ order by blog0_.created_date asc limit 5
+2018-02-02 10:53:29.722 [http-nio-8080-exec-3] INFO  p6spy - |8|commit|connection8|
+2018-02-02 10:53:35.357 [http-nio-8080-exec-3] INFO  p6spy - |9|statement|connection8|select tags0_.blog_id as blog_id1_1_0_, tags0_.tags_id as tags_id2_1_0_, tag1_.id as id1_2_1_, tag1_.created_date as created_2_2_1_, tag1_.last_modified_date as last_mod3_2_1_, tag1_.name as name4_2_1_ from fengmangbilu_blog_tags tags0_ inner join fengmangbilu_tag tag1_ on tags0_.tags_id=tag1_.id where tags0_.blog_id=1
+2018-02-02 10:54:45.996 [http-nio-8080-exec-3] INFO  p6spy - |10|statement|connection8|select tag0_.id as id1_2_, tag0_.created_date as created_2_2_, tag0_.last_modified_date as last_mod3_2_, tag0_.name as name4_2_ from fengmangbilu_tag tag0_
+2018-02-02 10:54:46.007 [http-nio-8080-exec-3] INFO  p6spy - |9|commit|connection8|
+2018-02-02 10:54:46.046 [http-nio-8080-exec-3] INFO  p6spy - |9|statement|connection8|select blog0_.created_date as col_0_0_, count(*) as col_1_0_ from fengmangbilu_blog blog0_ group by date_format(blog0_.created_date, '%Y-%m-%d') order by blog0_.created_date asc
+2018-02-02 10:55:21.255 [http-nio-8080-exec-7] INFO  p6spy - |8|statement|connection8|select blog0_.id as id1_0_, blog0_.created_date as created_2_0_, blog0_.last_modified_date as last_mod3_0_, blog0_.author as author4_0_, blog0_.content as content5_0_, blog0_.summary as summary6_0_, blog0_.title as title7_0_ from fengmangbilu_blog blog0_ order by blog0_.created_date asc limit 5
+2018-02-02 10:55:21.270 [http-nio-8080-exec-7] INFO  p6spy - |10|commit|connection8|
+2018-02-02 10:55:21.324 [http-nio-8080-exec-7] INFO  p6spy - |9|statement|connection8|select tag0_.id as id1_2_, tag0_.created_date as created_2_2_, tag0_.last_modified_date as last_mod3_2_, tag0_.name as name4_2_ from fengmangbilu_tag tag0_
+2018-02-02 10:55:21.334 [http-nio-8080-exec-7] INFO  p6spy - |8|commit|connection8|
+2018-02-02 10:55:21.372 [http-nio-8080-exec-7] INFO  p6spy - |9|statement|connection8|select blog0_.created_date as col_0_0_, count(*) as col_1_0_ from fengmangbilu_blog blog0_ group by date_format(blog0_.created_date, '%Y-%m-%d') order by blog0_.created_date asc
+2018-02-02 10:55:30.764 [http-nio-8080-exec-9] INFO  p6spy - |10|statement|connection8|select blog0_.id as id1_0_, blog0_.created_date as created_2_0_, blog0_.last_modified_date as last_mod3_0_, blog0_.author as author4_0_, blog0_.content as content5_0_, blog0_.summary as summary6_0_, blog0_.title as title7_0_ from fengmangbilu_blog blog0_ order by blog0_.created_date asc limit 5
+2018-02-02 10:55:30.782 [http-nio-8080-exec-9] INFO  p6spy - |8|commit|connection8|
+2018-02-02 10:55:35.781 [http-nio-8080-exec-9] INFO  p6spy - |9|statement|connection8|select tags0_.blog_id as blog_id1_1_0_, tags0_.tags_id as tags_id2_1_0_, tag1_.id as id1_2_1_, tag1_.created_date as created_2_2_1_, tag1_.last_modified_date as last_mod3_2_1_, tag1_.name as name4_2_1_ from fengmangbilu_blog_tags tags0_ inner join fengmangbilu_tag tag1_ on tags0_.tags_id=tag1_.id where tags0_.blog_id=1
+2018-02-02 10:55:40.902 [http-nio-8080-exec-9] INFO  p6spy - |9|statement|connection8|select tag0_.id as id1_2_, tag0_.created_date as created_2_2_, tag0_.last_modified_date as last_mod3_2_, tag0_.name as name4_2_ from fengmangbilu_tag tag0_
+2018-02-02 10:55:40.912 [http-nio-8080-exec-9] INFO  p6spy - |8|commit|connection8|
+2018-02-02 10:55:40.952 [http-nio-8080-exec-9] INFO  p6spy - |10|statement|connection8|select blog0_.created_date as col_0_0_, count(*) as col_1_0_ from fengmangbilu_blog blog0_ group by date_format(blog0_.created_date, '%Y-%m-%d') order by blog0_.created_date asc
+2018-02-02 10:56:20.921 [http-nio-8080-exec-4] INFO  p6spy - |10|statement|connection8|select blog0_.id as id1_0_, blog0_.created_date as created_2_0_, blog0_.last_modified_date as last_mod3_0_, blog0_.author as author4_0_, blog0_.content as content5_0_, blog0_.summary as summary6_0_, blog0_.title as title7_0_ from fengmangbilu_blog blog0_ order by blog0_.created_date asc limit 5
+2018-02-02 10:56:20.941 [http-nio-8080-exec-4] INFO  p6spy - |8|commit|connection8|
+2018-02-02 10:56:37.224 [http-nio-8080-exec-4] INFO  p6spy - |10|statement|connection8|select tags0_.blog_id as blog_id1_1_0_, tags0_.tags_id as tags_id2_1_0_, tag1_.id as id1_2_1_, tag1_.created_date as created_2_2_1_, tag1_.last_modified_date as last_mod3_2_1_, tag1_.name as name4_2_1_ from fengmangbilu_blog_tags tags0_ inner join fengmangbilu_tag tag1_ on tags0_.tags_id=tag1_.id where tags0_.blog_id=1
+2018-02-02 10:56:53.601 [http-nio-8080-exec-4] INFO  p6spy - |8|statement|connection8|select tag0_.id as id1_2_, tag0_.created_date as created_2_2_, tag0_.last_modified_date as last_mod3_2_, tag0_.name as name4_2_ from fengmangbilu_tag tag0_
+2018-02-02 10:56:53.611 [http-nio-8080-exec-4] INFO  p6spy - |8|commit|connection8|
+2018-02-02 10:56:53.647 [http-nio-8080-exec-4] INFO  p6spy - |7|statement|connection8|select blog0_.created_date as col_0_0_, count(*) as col_1_0_ from fengmangbilu_blog blog0_ group by date_format(blog0_.created_date, '%Y-%m-%d') order by blog0_.created_date asc
+2018-02-02 10:57:10.662 [http-nio-8080-exec-6] INFO  p6spy - |9|statement|connection8|select blog0_.id as id1_0_, blog0_.created_date as created_2_0_, blog0_.last_modified_date as last_mod3_0_, blog0_.author as author4_0_, blog0_.content as content5_0_, blog0_.summary as summary6_0_, blog0_.title as title7_0_ from fengmangbilu_blog blog0_ order by blog0_.created_date asc limit 5
+2018-02-02 10:57:10.680 [http-nio-8080-exec-6] INFO  p6spy - |13|commit|connection8|
+2018-02-02 10:57:10.736 [http-nio-8080-exec-6] INFO  p6spy - |10|statement|connection8|select tag0_.id as id1_2_, tag0_.created_date as created_2_2_, tag0_.last_modified_date as last_mod3_2_, tag0_.name as name4_2_ from fengmangbilu_tag tag0_
+2018-02-02 10:57:10.747 [http-nio-8080-exec-6] INFO  p6spy - |8|commit|connection8|
+2018-02-02 10:57:10.785 [http-nio-8080-exec-6] INFO  p6spy - |9|statement|connection8|select blog0_.created_date as col_0_0_, count(*) as col_1_0_ from fengmangbilu_blog blog0_ group by date_format(blog0_.created_date, '%Y-%m-%d') order by blog0_.created_date asc
+2018-02-02 10:58:04.371 [http-nio-8080-exec-7] INFO  p6spy - |9|statement|connection8|select blog0_.id as id1_0_, blog0_.created_date as created_2_0_, blog0_.last_modified_date as last_mod3_0_, blog0_.author as author4_0_, blog0_.content as content5_0_, blog0_.summary as summary6_0_, blog0_.title as title7_0_ from fengmangbilu_blog blog0_ order by blog0_.created_date asc limit 5
+2018-02-02 10:58:04.383 [http-nio-8080-exec-7] INFO  p6spy - |8|commit|connection8|
+2018-02-02 10:58:04.439 [http-nio-8080-exec-7] INFO  p6spy - |10|statement|connection8|select tag0_.id as id1_2_, tag0_.created_date as created_2_2_, tag0_.last_modified_date as last_mod3_2_, tag0_.name as name4_2_ from fengmangbilu_tag tag0_
+2018-02-02 10:58:04.449 [http-nio-8080-exec-7] INFO  p6spy - |8|commit|connection8|
+2018-02-02 10:58:04.489 [http-nio-8080-exec-7] INFO  p6spy - |11|statement|connection8|select blog0_.created_date as col_0_0_, count(*) as col_1_0_ from fengmangbilu_blog blog0_ group by date_format(blog0_.created_date, '%Y-%m-%d') order by blog0_.created_date asc
+2018-02-02 10:58:35.401 [http-nio-8080-exec-2] INFO  p6spy - |9|statement|connection8|select blog0_.id as id1_0_, blog0_.created_date as created_2_0_, blog0_.last_modified_date as last_mod3_0_, blog0_.author as author4_0_, blog0_.content as content5_0_, blog0_.summary as summary6_0_, blog0_.title as title7_0_ from fengmangbilu_blog blog0_ order by blog0_.created_date asc limit 5
+2018-02-02 10:58:35.413 [http-nio-8080-exec-2] INFO  p6spy - |9|commit|connection8|
+2018-02-02 10:58:35.473 [http-nio-8080-exec-2] INFO  p6spy - |9|statement|connection8|select tag0_.id as id1_2_, tag0_.created_date as created_2_2_, tag0_.last_modified_date as last_mod3_2_, tag0_.name as name4_2_ from fengmangbilu_tag tag0_
+2018-02-02 10:58:35.483 [http-nio-8080-exec-2] INFO  p6spy - |8|commit|connection8|
+2018-02-02 10:58:35.523 [http-nio-8080-exec-2] INFO  p6spy - |10|statement|connection8|select blog0_.created_date as col_0_0_, count(*) as col_1_0_ from fengmangbilu_blog blog0_ group by date_format(blog0_.created_date, '%Y-%m-%d') order by blog0_.created_date asc
+2018-02-02 11:03:24.780 [main] INFO  com.fengmangbilu.blog.BlogApplication - Starting BlogApplication on Zx-PC with PID 4868 (E:\workspace\fengmangbilu-web-blog\target\classes started by Zx in E:\workspace\fengmangbilu-web-blog)
+2018-02-02 11:03:24.783 [main] INFO  com.fengmangbilu.blog.BlogApplication - No active profile set, falling back to default profiles: default
+2018-02-02 11:03:24.828 [main] INFO  org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@488d1cd7: startup date [Fri Feb 02 11:03:24 CST 2018]; root of context hierarchy
+2018-02-02 11:03:25.006 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.3.6.Final
+2018-02-02 11:03:25.402 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-02-02 11:03:25.539 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-02-02 11:03:25.563 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.fengmangbilu.blog.repositories.BlogRepository.
+2018-02-02 11:03:25.564 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.fengmangbilu.blog.repositories.TagRepository.
+2018-02-02 11:03:25.818 [main] INFO  org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-02-02 11:03:26.028 [main] INFO  org.hibernate.validator.internal.xml.ValidationXmlParser - HV000007: META-INF/validation.xml found. Parsing XML based configuration.
+2018-02-02 11:03:26.083 [main] INFO  org.hibernate.validator.internal.xml.ValidationBootstrapParameters - HV000004: Using com.fengmangbilu.validator.i18n.ValidationMessageInterpolator as message interpolator.
+2018-02-02 11:03:26.084 [main] INFO  org.hibernate.validator.internal.xml.ValidationBootstrapParameters - HV000119: Using com.fengmangbilu.validator.provider.ReportOnParameterNameProvider as parameter name provider.
+2018-02-02 11:03:26.499 [main] INFO  org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http)
+2018-02-02 11:03:26.508 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2018-02-02 11:03:26.508 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-02-02 11:03:26.650 [localhost-startStop-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2018-02-02 11:03:26.650 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1822 ms
+2018-02-02 11:03:26.906 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+2018-02-02 11:03:26.911 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-02-02 11:03:26.912 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-02-02 11:03:26.912 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-02-02 11:03:26.912 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2018-02-02 11:03:26.912 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'resourceUrlEncodingFilter' to: [/*]
+2018-02-02 11:03:27.205 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-02-02 11:03:27.278 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-02-02 11:03:27.334 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.0.12.Final}
+2018-02-02 11:03:27.336 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2018-02-02 11:03:27.337 [main] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+2018-02-02 11:03:27.371 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-02-02 11:03:28.628 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-02-02 11:03:29.047 [main] INFO  org.hibernate.tool.hbm2ddl.SchemaUpdate - HHH000228: Running hbm2ddl schema update
+2018-02-02 11:03:29.842 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-02-02 11:03:30.185 [main] INFO  org.hibernate.hql.internal.QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+2018-02-02 11:03:30.715 [main] INFO  org.hibernate.validator.internal.xml.ValidationXmlParser - HV000007: META-INF/validation.xml found. Parsing XML based configuration.
+2018-02-02 11:03:30.724 [main] INFO  org.hibernate.validator.internal.xml.ValidationBootstrapParameters - HV000004: Using com.fengmangbilu.validator.i18n.ValidationMessageInterpolator as message interpolator.
+2018-02-02 11:03:30.724 [main] INFO  org.hibernate.validator.internal.xml.ValidationBootstrapParameters - HV000119: Using com.fengmangbilu.validator.provider.ReportOnParameterNameProvider as parameter name provider.
+2018-02-02 11:03:30.894 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@488d1cd7: startup date [Fri Feb 02 11:03:24 CST 2018]; root of context hierarchy
+2018-02-02 11:03:30.901 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Detected ResponseBodyAdvice bean in jsonFilterResponseBodyAdvice
+2018-02-02 11:03:30.902 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Detected @ModelAttribute methods in resourceUrlController
+2018-02-02 11:03:30.974 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[],methods=[GET]}" onto public java.lang.String com.fengmangbilu.blog.controllers.IndexController.index(java.lang.Integer,org.springframework.ui.Model)
+2018-02-02 11:03:30.975 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/p],methods=[GET]}" onto public java.lang.String com.fengmangbilu.blog.controllers.IndexController.p(java.lang.Long,org.springframework.ui.Model)
+2018-02-02 11:03:30.976 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/about],methods=[GET]}" onto public java.lang.String com.fengmangbilu.blog.controllers.IndexController.about()
+2018-02-02 11:03:30.978 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-02-02 11:03:30.979 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-02-02 11:03:31.021 [main] INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-02 11:03:31.021 [main] INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-02 11:03:31.041 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Detected ResponseBodyAdvice implementation in jsonFilterResponseBodyAdvice
+2018-02-02 11:03:31.041 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Detected @ExceptionHandler methods in defaultErrorController
+2018-02-02 11:03:31.362 [main] INFO  org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer - ClassTemplateLoader for Spring macros added to FreeMarker configuration
+2018-02-02 11:03:31.627 [main] INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2018-02-02 11:03:31.644 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2018-02-02 11:03:31.658 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2018-02-02 11:03:31.670 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2018-02-02 11:03:31.691 [main] INFO  org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8080 (http)
+2018-02-02 11:03:31.695 [main] INFO  com.fengmangbilu.blog.BlogApplication - Started BlogApplication in 7.266 seconds (JVM running for 7.696)
+2018-02-02 11:03:37.371 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-02-02 11:03:37.372 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+2018-02-02 11:03:37.387 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 15 ms
+2018-02-02 11:03:37.517 [http-nio-8080-exec-1] INFO  p6spy - |12|statement|connection8|select blog0_.id as id1_0_, blog0_.created_date as created_2_0_, blog0_.last_modified_date as last_mod3_0_, blog0_.author as author4_0_, blog0_.content as content5_0_, blog0_.summary as summary6_0_, blog0_.title as title7_0_ from fengmangbilu_blog blog0_ order by blog0_.created_date asc limit 5
+2018-02-02 11:03:37.547 [http-nio-8080-exec-1] INFO  p6spy - |8|commit|connection8|
+2018-02-02 11:03:37.603 [http-nio-8080-exec-1] INFO  p6spy - |9|statement|connection8|select tag0_.id as id1_2_, tag0_.created_date as created_2_2_, tag0_.last_modified_date as last_mod3_2_, tag0_.name as name4_2_ from fengmangbilu_tag tag0_
+2018-02-02 11:03:37.613 [http-nio-8080-exec-1] INFO  p6spy - |8|commit|connection8|
+2018-02-02 11:03:37.654 [http-nio-8080-exec-1] INFO  p6spy - |8|statement|connection8|select blog0_.created_date as col_0_0_, count(*) as col_1_0_ from fengmangbilu_blog blog0_ group by date_format(blog0_.created_date, '%Y-%m-%d') order by blog0_.created_date asc
+2018-02-02 11:03:40.484 [http-nio-8080-exec-3] INFO  p6spy - |9|statement|connection8|select blog0_.id as id1_0_0_, blog0_.created_date as created_2_0_0_, blog0_.last_modified_date as last_mod3_0_0_, blog0_.author as author4_0_0_, blog0_.content as content5_0_0_, blog0_.summary as summary6_0_0_, blog0_.title as title7_0_0_ from fengmangbilu_blog blog0_ where blog0_.id=1
+2018-02-02 11:03:40.502 [http-nio-8080-exec-3] INFO  p6spy - |11|commit|connection8|
+2018-02-02 11:05:20.557 [main] INFO  com.fengmangbilu.blog.BlogApplication - Starting BlogApplication on Zx-PC with PID 13088 (E:\workspace\fengmangbilu-web-blog\target\classes started by Zx in E:\workspace\fengmangbilu-web-blog)
+2018-02-02 11:05:20.557 [main] INFO  com.fengmangbilu.blog.BlogApplication - No active profile set, falling back to default profiles: default
+2018-02-02 11:05:20.596 [main] INFO  org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@488d1cd7: startup date [Fri Feb 02 11:05:20 CST 2018]; root of context hierarchy
+2018-02-02 11:05:20.772 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.3.6.Final
+2018-02-02 11:05:21.157 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-02-02 11:05:21.277 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-02-02 11:05:21.300 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.fengmangbilu.blog.repositories.BlogRepository.
+2018-02-02 11:05:21.302 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.fengmangbilu.blog.repositories.TagRepository.
+2018-02-02 11:05:21.538 [main] INFO  org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-02-02 11:05:21.794 [main] INFO  org.hibernate.validator.internal.xml.ValidationXmlParser - HV000007: META-INF/validation.xml found. Parsing XML based configuration.
+2018-02-02 11:05:21.843 [main] INFO  org.hibernate.validator.internal.xml.ValidationBootstrapParameters - HV000004: Using com.fengmangbilu.validator.i18n.ValidationMessageInterpolator as message interpolator.
+2018-02-02 11:05:21.843 [main] INFO  org.hibernate.validator.internal.xml.ValidationBootstrapParameters - HV000119: Using com.fengmangbilu.validator.provider.ReportOnParameterNameProvider as parameter name provider.
+2018-02-02 11:05:22.278 [main] INFO  org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http)
+2018-02-02 11:05:22.285 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2018-02-02 11:05:22.285 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-02-02 11:05:22.403 [localhost-startStop-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2018-02-02 11:05:22.403 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1807 ms
+2018-02-02 11:05:22.598 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+2018-02-02 11:05:22.614 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-02-02 11:05:22.614 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-02-02 11:05:22.614 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-02-02 11:05:22.614 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2018-02-02 11:05:22.614 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'resourceUrlEncodingFilter' to: [/*]
+2018-02-02 11:05:22.900 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-02-02 11:05:22.957 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-02-02 11:05:23.028 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.0.12.Final}
+2018-02-02 11:05:23.029 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2018-02-02 11:05:23.030 [main] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+2018-02-02 11:05:23.063 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-02-02 11:05:24.307 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-02-02 11:05:24.722 [main] INFO  org.hibernate.tool.hbm2ddl.SchemaUpdate - HHH000228: Running hbm2ddl schema update
+2018-02-02 11:05:25.420 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-02-02 11:05:25.762 [main] INFO  org.hibernate.hql.internal.QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+2018-02-02 11:05:26.231 [main] INFO  org.hibernate.validator.internal.xml.ValidationXmlParser - HV000007: META-INF/validation.xml found. Parsing XML based configuration.
+2018-02-02 11:05:26.231 [main] INFO  org.hibernate.validator.internal.xml.ValidationBootstrapParameters - HV000004: Using com.fengmangbilu.validator.i18n.ValidationMessageInterpolator as message interpolator.
+2018-02-02 11:05:26.231 [main] INFO  org.hibernate.validator.internal.xml.ValidationBootstrapParameters - HV000119: Using com.fengmangbilu.validator.provider.ReportOnParameterNameProvider as parameter name provider.
+2018-02-02 11:05:26.395 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@488d1cd7: startup date [Fri Feb 02 11:05:20 CST 2018]; root of context hierarchy
+2018-02-02 11:05:26.395 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Detected ResponseBodyAdvice bean in jsonFilterResponseBodyAdvice
+2018-02-02 11:05:26.395 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Detected @ModelAttribute methods in resourceUrlController
+2018-02-02 11:05:26.464 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[],methods=[GET]}" onto public java.lang.String com.fengmangbilu.blog.controllers.IndexController.index(java.lang.Integer,org.springframework.ui.Model)
+2018-02-02 11:05:26.479 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/about],methods=[GET]}" onto public java.lang.String com.fengmangbilu.blog.controllers.IndexController.about()
+2018-02-02 11:05:26.479 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/blog],methods=[GET]}" onto public java.lang.String com.fengmangbilu.blog.controllers.IndexController.blog(java.lang.Long,org.springframework.ui.Model)
+2018-02-02 11:05:26.479 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-02-02 11:05:26.479 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-02-02 11:05:26.529 [main] INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-02 11:05:26.530 [main] INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-02 11:05:26.551 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Detected ResponseBodyAdvice implementation in jsonFilterResponseBodyAdvice
+2018-02-02 11:05:26.552 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Detected @ExceptionHandler methods in defaultErrorController
+2018-02-02 11:05:26.880 [main] INFO  org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer - ClassTemplateLoader for Spring macros added to FreeMarker configuration
+2018-02-02 11:05:27.155 [main] INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2018-02-02 11:05:27.171 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2018-02-02 11:05:27.185 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2018-02-02 11:05:27.191 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2018-02-02 11:05:27.206 [main] INFO  org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8080 (http)
+2018-02-02 11:05:27.206 [main] INFO  com.fengmangbilu.blog.BlogApplication - Started BlogApplication in 7.019 seconds (JVM running for 7.333)
+2018-02-02 11:06:33.774 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-02-02 11:06:33.775 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+2018-02-02 11:06:33.790 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 15 ms
+2018-02-02 11:06:37.472 [http-nio-8080-exec-3] INFO  p6spy - |12|statement|connection8|select blog0_.id as id1_0_, blog0_.created_date as created_2_0_, blog0_.last_modified_date as last_mod3_0_, blog0_.author as author4_0_, blog0_.content as content5_0_, blog0_.summary as summary6_0_, blog0_.title as title7_0_ from fengmangbilu_blog blog0_ order by blog0_.created_date asc limit 5
+2018-02-02 11:06:37.502 [http-nio-8080-exec-3] INFO  p6spy - |6|commit|connection8|
+2018-02-02 11:06:37.560 [http-nio-8080-exec-3] INFO  p6spy - |8|statement|connection8|select tag0_.id as id1_2_, tag0_.created_date as created_2_2_, tag0_.last_modified_date as last_mod3_2_, tag0_.name as name4_2_ from fengmangbilu_tag tag0_
+2018-02-02 11:06:37.570 [http-nio-8080-exec-3] INFO  p6spy - |7|commit|connection8|
+2018-02-02 11:06:37.615 [http-nio-8080-exec-3] INFO  p6spy - |8|statement|connection8|select blog0_.created_date as col_0_0_, count(*) as col_1_0_ from fengmangbilu_blog blog0_ group by date_format(blog0_.created_date, '%Y-%m-%d') order by blog0_.created_date asc
+2018-02-02 11:07:13.086 [http-nio-8080-exec-4] INFO  p6spy - |8|statement|connection8|select blog0_.id as id1_0_0_, blog0_.created_date as created_2_0_0_, blog0_.last_modified_date as last_mod3_0_0_, blog0_.author as author4_0_0_, blog0_.content as content5_0_0_, blog0_.summary as summary6_0_0_, blog0_.title as title7_0_0_ from fengmangbilu_blog blog0_ where blog0_.id=1
+2018-02-02 11:07:13.098 [http-nio-8080-exec-4] INFO  p6spy - |7|commit|connection8|
+2018-02-02 11:08:56.795 [http-nio-8080-exec-10] INFO  p6spy - |8|statement|connection8|select blog0_.id as id1_0_0_, blog0_.created_date as created_2_0_0_, blog0_.last_modified_date as last_mod3_0_0_, blog0_.author as author4_0_0_, blog0_.content as content5_0_0_, blog0_.summary as summary6_0_0_, blog0_.title as title7_0_0_ from fengmangbilu_blog blog0_ where blog0_.id=1
+2018-02-02 11:08:56.804 [http-nio-8080-exec-10] INFO  p6spy - |7|commit|connection8|
+2018-02-02 11:09:38.036 [http-nio-8080-exec-2] INFO  p6spy - |8|statement|connection8|select blog0_.id as id1_0_0_, blog0_.created_date as created_2_0_0_, blog0_.last_modified_date as last_mod3_0_0_, blog0_.author as author4_0_0_, blog0_.content as content5_0_0_, blog0_.summary as summary6_0_0_, blog0_.title as title7_0_0_ from fengmangbilu_blog blog0_ where blog0_.id=1
+2018-02-02 11:09:38.046 [http-nio-8080-exec-2] INFO  p6spy - |6|commit|connection8|
+2018-02-02 11:09:38.789 [http-nio-8080-exec-4] INFO  p6spy - |8|statement|connection8|select blog0_.id as id1_0_0_, blog0_.created_date as created_2_0_0_, blog0_.last_modified_date as last_mod3_0_0_, blog0_.author as author4_0_0_, blog0_.content as content5_0_0_, blog0_.summary as summary6_0_0_, blog0_.title as title7_0_0_ from fengmangbilu_blog blog0_ where blog0_.id=1
+2018-02-02 11:09:38.799 [http-nio-8080-exec-4] INFO  p6spy - |8|commit|connection8|
+2018-02-02 11:09:39.345 [http-nio-8080-exec-8] INFO  p6spy - |9|statement|connection8|select blog0_.id as id1_0_0_, blog0_.created_date as created_2_0_0_, blog0_.last_modified_date as last_mod3_0_0_, blog0_.author as author4_0_0_, blog0_.content as content5_0_0_, blog0_.summary as summary6_0_0_, blog0_.title as title7_0_0_ from fengmangbilu_blog blog0_ where blog0_.id=1
+2018-02-02 11:09:39.353 [http-nio-8080-exec-8] INFO  p6spy - |6|commit|connection8|
+2018-02-02 11:11:32.061 [http-nio-8080-exec-5] INFO  p6spy - |8|statement|connection8|select blog0_.id as id1_0_0_, blog0_.created_date as created_2_0_0_, blog0_.last_modified_date as last_mod3_0_0_, blog0_.author as author4_0_0_, blog0_.content as content5_0_0_, blog0_.summary as summary6_0_0_, blog0_.title as title7_0_0_ from fengmangbilu_blog blog0_ where blog0_.id=1
+2018-02-02 11:11:32.071 [http-nio-8080-exec-5] INFO  p6spy - |7|commit|connection8|
+2018-02-02 11:12:41.863 [main] INFO  com.fengmangbilu.blog.BlogApplication - Starting BlogApplication on Zx-PC with PID 7916 (E:\workspace\fengmangbilu-web-blog\target\classes started by Zx in E:\workspace\fengmangbilu-web-blog)
+2018-02-02 11:12:41.867 [main] INFO  com.fengmangbilu.blog.BlogApplication - No active profile set, falling back to default profiles: default
+2018-02-02 11:12:41.895 [main] INFO  org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@488d1cd7: startup date [Fri Feb 02 11:12:41 CST 2018]; root of context hierarchy
+2018-02-02 11:12:42.077 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.3.6.Final
+2018-02-02 11:12:42.517 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-02-02 11:12:42.648 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-02-02 11:12:42.673 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.fengmangbilu.blog.repositories.BlogRepository.
+2018-02-02 11:12:42.673 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.fengmangbilu.blog.repositories.TagRepository.
+2018-02-02 11:12:42.913 [main] INFO  org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-02-02 11:12:43.132 [main] INFO  org.hibernate.validator.internal.xml.ValidationXmlParser - HV000007: META-INF/validation.xml found. Parsing XML based configuration.
+2018-02-02 11:12:43.178 [main] INFO  org.hibernate.validator.internal.xml.ValidationBootstrapParameters - HV000004: Using com.fengmangbilu.validator.i18n.ValidationMessageInterpolator as message interpolator.
+2018-02-02 11:12:43.178 [main] INFO  org.hibernate.validator.internal.xml.ValidationBootstrapParameters - HV000119: Using com.fengmangbilu.validator.provider.ReportOnParameterNameProvider as parameter name provider.
+2018-02-02 11:12:43.588 [main] INFO  org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http)
+2018-02-02 11:12:43.604 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2018-02-02 11:12:43.604 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-02-02 11:12:43.737 [localhost-startStop-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2018-02-02 11:12:43.738 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1843 ms
+2018-02-02 11:12:43.981 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+2018-02-02 11:12:43.981 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-02-02 11:12:43.981 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-02-02 11:12:43.981 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-02-02 11:12:43.981 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2018-02-02 11:12:43.981 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'resourceUrlEncodingFilter' to: [/*]
+2018-02-02 11:12:44.281 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-02-02 11:12:44.359 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-02-02 11:12:44.420 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.0.12.Final}
+2018-02-02 11:12:44.421 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2018-02-02 11:12:44.423 [main] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+2018-02-02 11:12:44.458 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-02-02 11:12:45.736 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-02-02 11:12:46.130 [main] INFO  org.hibernate.tool.hbm2ddl.SchemaUpdate - HHH000228: Running hbm2ddl schema update
+2018-02-02 11:12:46.821 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-02-02 11:12:47.163 [main] INFO  org.hibernate.hql.internal.QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+2018-02-02 11:12:47.653 [main] INFO  org.hibernate.validator.internal.xml.ValidationXmlParser - HV000007: META-INF/validation.xml found. Parsing XML based configuration.
+2018-02-02 11:12:47.653 [main] INFO  org.hibernate.validator.internal.xml.ValidationBootstrapParameters - HV000004: Using com.fengmangbilu.validator.i18n.ValidationMessageInterpolator as message interpolator.
+2018-02-02 11:12:47.653 [main] INFO  org.hibernate.validator.internal.xml.ValidationBootstrapParameters - HV000119: Using com.fengmangbilu.validator.provider.ReportOnParameterNameProvider as parameter name provider.
+2018-02-02 11:12:47.802 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@488d1cd7: startup date [Fri Feb 02 11:12:41 CST 2018]; root of context hierarchy
+2018-02-02 11:12:47.806 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Detected ResponseBodyAdvice bean in jsonFilterResponseBodyAdvice
+2018-02-02 11:12:47.806 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Detected @ModelAttribute methods in resourceUrlController
+2018-02-02 11:12:47.872 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[],methods=[GET]}" onto public java.lang.String com.fengmangbilu.blog.controllers.IndexController.index(java.lang.Integer,org.springframework.ui.Model)
+2018-02-02 11:12:47.872 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/about],methods=[GET]}" onto public java.lang.String com.fengmangbilu.blog.controllers.IndexController.about()
+2018-02-02 11:12:47.872 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/blog],methods=[GET]}" onto public java.lang.String com.fengmangbilu.blog.controllers.IndexController.blog(java.lang.Long,org.springframework.ui.Model)
+2018-02-02 11:12:47.872 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-02-02 11:12:47.872 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-02-02 11:12:47.928 [main] INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-02 11:12:47.928 [main] INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-02 11:12:47.947 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Detected ResponseBodyAdvice implementation in jsonFilterResponseBodyAdvice
+2018-02-02 11:12:47.948 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Detected @ExceptionHandler methods in defaultErrorController
+2018-02-02 11:12:48.283 [main] INFO  org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer - ClassTemplateLoader for Spring macros added to FreeMarker configuration
+2018-02-02 11:12:48.556 [main] INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2018-02-02 11:12:48.560 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2018-02-02 11:12:48.576 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2018-02-02 11:12:48.592 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2018-02-02 11:12:48.607 [main] INFO  org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8080 (http)
+2018-02-02 11:12:48.623 [main] INFO  com.fengmangbilu.blog.BlogApplication - Started BlogApplication in 7.111 seconds (JVM running for 7.43)
+2018-02-02 11:13:17.568 [main] INFO  com.fengmangbilu.blog.BlogApplication - Starting BlogApplication on Zx-PC with PID 11876 (E:\workspace\fengmangbilu-web-blog\target\classes started by Zx in E:\workspace\fengmangbilu-web-blog)
+2018-02-02 11:13:17.572 [main] INFO  com.fengmangbilu.blog.BlogApplication - No active profile set, falling back to default profiles: default
+2018-02-02 11:13:17.618 [main] INFO  org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@488d1cd7: startup date [Fri Feb 02 11:13:17 CST 2018]; root of context hierarchy
+2018-02-02 11:13:17.777 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.3.6.Final
+2018-02-02 11:13:18.144 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-02-02 11:13:18.278 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-02-02 11:13:18.304 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.fengmangbilu.blog.repositories.BlogRepository.
+2018-02-02 11:13:18.305 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.fengmangbilu.blog.repositories.TagRepository.
+2018-02-02 11:13:18.554 [main] INFO  org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-02-02 11:13:18.829 [main] INFO  org.hibernate.validator.internal.xml.ValidationXmlParser - HV000007: META-INF/validation.xml found. Parsing XML based configuration.
+2018-02-02 11:13:18.881 [main] INFO  org.hibernate.validator.internal.xml.ValidationBootstrapParameters - HV000004: Using com.fengmangbilu.validator.i18n.ValidationMessageInterpolator as message interpolator.
+2018-02-02 11:13:18.882 [main] INFO  org.hibernate.validator.internal.xml.ValidationBootstrapParameters - HV000119: Using com.fengmangbilu.validator.provider.ReportOnParameterNameProvider as parameter name provider.
+2018-02-02 11:13:19.308 [main] INFO  org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http)
+2018-02-02 11:13:19.320 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2018-02-02 11:13:19.321 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-02-02 11:13:19.452 [localhost-startStop-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2018-02-02 11:13:19.453 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1835 ms
+2018-02-02 11:13:19.668 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+2018-02-02 11:13:19.674 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-02-02 11:13:19.675 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-02-02 11:13:19.675 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-02-02 11:13:19.675 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2018-02-02 11:13:19.675 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'resourceUrlEncodingFilter' to: [/*]
+2018-02-02 11:13:20.064 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-02-02 11:13:20.077 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-02-02 11:13:20.132 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.0.12.Final}
+2018-02-02 11:13:20.133 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2018-02-02 11:13:20.134 [main] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+2018-02-02 11:13:20.168 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-02-02 11:13:21.420 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-02-02 11:13:21.823 [main] INFO  org.hibernate.tool.hbm2ddl.SchemaUpdate - HHH000228: Running hbm2ddl schema update
+2018-02-02 11:13:22.058 [main] INFO  p6spy - |15|statement|connection9|alter table fengmangbilu_blog add column content longtext
+2018-02-02 11:13:22.643 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-02-02 11:13:22.996 [main] INFO  org.hibernate.hql.internal.QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+2018-02-02 11:13:23.545 [main] INFO  org.hibernate.validator.internal.xml.ValidationXmlParser - HV000007: META-INF/validation.xml found. Parsing XML based configuration.
+2018-02-02 11:13:23.553 [main] INFO  org.hibernate.validator.internal.xml.ValidationBootstrapParameters - HV000004: Using com.fengmangbilu.validator.i18n.ValidationMessageInterpolator as message interpolator.
+2018-02-02 11:13:23.554 [main] INFO  org.hibernate.validator.internal.xml.ValidationBootstrapParameters - HV000119: Using com.fengmangbilu.validator.provider.ReportOnParameterNameProvider as parameter name provider.
+2018-02-02 11:13:23.702 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@488d1cd7: startup date [Fri Feb 02 11:13:17 CST 2018]; root of context hierarchy
+2018-02-02 11:13:23.708 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Detected ResponseBodyAdvice bean in jsonFilterResponseBodyAdvice
+2018-02-02 11:13:23.710 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Detected @ModelAttribute methods in resourceUrlController
+2018-02-02 11:13:23.765 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[],methods=[GET]}" onto public java.lang.String com.fengmangbilu.blog.controllers.IndexController.index(java.lang.Integer,org.springframework.ui.Model)
+2018-02-02 11:13:23.765 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/blog],methods=[GET]}" onto public java.lang.String com.fengmangbilu.blog.controllers.IndexController.blog(java.lang.Long,org.springframework.ui.Model)
+2018-02-02 11:13:23.765 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/about],methods=[GET]}" onto public java.lang.String com.fengmangbilu.blog.controllers.IndexController.about()
+2018-02-02 11:13:23.765 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-02-02 11:13:23.765 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-02-02 11:13:23.821 [main] INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-02 11:13:23.821 [main] INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-02 11:13:23.839 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Detected ResponseBodyAdvice implementation in jsonFilterResponseBodyAdvice
+2018-02-02 11:13:23.839 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Detected @ExceptionHandler methods in defaultErrorController
+2018-02-02 11:13:24.141 [main] INFO  org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer - ClassTemplateLoader for Spring macros added to FreeMarker configuration
+2018-02-02 11:13:24.371 [main] INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2018-02-02 11:13:24.401 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2018-02-02 11:13:24.417 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2018-02-02 11:13:24.428 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2018-02-02 11:13:24.444 [main] INFO  org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8080 (http)
+2018-02-02 11:13:24.444 [main] INFO  com.fengmangbilu.blog.BlogApplication - Started BlogApplication in 7.216 seconds (JVM running for 7.549)
+2018-02-02 11:13:47.570 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-02-02 11:13:47.571 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+2018-02-02 11:13:47.585 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 14 ms
+2018-02-02 11:13:47.685 [http-nio-8080-exec-1] INFO  p6spy - |13|statement|connection8|select blog0_.id as id1_0_0_, blog0_.created_date as created_2_0_0_, blog0_.last_modified_date as last_mod3_0_0_, blog0_.author as author4_0_0_, blog0_.content as content5_0_0_, blog0_.summary as summary6_0_0_, blog0_.title as title7_0_0_ from fengmangbilu_blog blog0_ where blog0_.id=1
+2018-02-02 11:13:47.714 [http-nio-8080-exec-1] INFO  p6spy - |8|commit|connection8|
+2018-02-02 11:13:54.732 [http-nio-8080-exec-3] INFO  p6spy - |10|statement|connection8|select blog0_.id as id1_0_, blog0_.created_date as created_2_0_, blog0_.last_modified_date as last_mod3_0_, blog0_.author as author4_0_, blog0_.content as content5_0_, blog0_.summary as summary6_0_, blog0_.title as title7_0_ from fengmangbilu_blog blog0_ order by blog0_.created_date asc limit 5
+2018-02-02 11:13:54.745 [http-nio-8080-exec-3] INFO  p6spy - |8|commit|connection8|
+2018-02-02 11:13:54.808 [http-nio-8080-exec-3] INFO  p6spy - |10|statement|connection8|select tag0_.id as id1_2_, tag0_.created_date as created_2_2_, tag0_.last_modified_date as last_mod3_2_, tag0_.name as name4_2_ from fengmangbilu_tag tag0_
+2018-02-02 11:13:54.820 [http-nio-8080-exec-3] INFO  p6spy - |9|commit|connection8|
+2018-02-02 11:13:54.864 [http-nio-8080-exec-3] INFO  p6spy - |9|statement|connection8|select blog0_.created_date as col_0_0_, count(*) as col_1_0_ from fengmangbilu_blog blog0_ group by date_format(blog0_.created_date, '%Y-%m-%d') order by blog0_.created_date asc
+2018-02-02 11:15:25.496 [http-nio-8080-exec-5] INFO  p6spy - |9|statement|connection8|select blog0_.id as id1_0_, blog0_.created_date as created_2_0_, blog0_.last_modified_date as last_mod3_0_, blog0_.author as author4_0_, blog0_.content as content5_0_, blog0_.summary as summary6_0_, blog0_.title as title7_0_ from fengmangbilu_blog blog0_ order by blog0_.created_date asc limit 5
+2018-02-02 11:15:25.509 [http-nio-8080-exec-5] INFO  p6spy - |10|commit|connection8|
+2018-02-02 11:15:25.569 [http-nio-8080-exec-5] INFO  p6spy - |9|statement|connection8|select tag0_.id as id1_2_, tag0_.created_date as created_2_2_, tag0_.last_modified_date as last_mod3_2_, tag0_.name as name4_2_ from fengmangbilu_tag tag0_
+2018-02-02 11:15:25.580 [http-nio-8080-exec-5] INFO  p6spy - |8|commit|connection8|
+2018-02-02 11:15:25.620 [http-nio-8080-exec-5] INFO  p6spy - |9|statement|connection8|select blog0_.created_date as col_0_0_, count(*) as col_1_0_ from fengmangbilu_blog blog0_ group by date_format(blog0_.created_date, '%Y-%m-%d') order by blog0_.created_date asc
+2018-02-02 11:15:29.806 [http-nio-8080-exec-6] INFO  p6spy - |9|statement|connection8|select blog0_.id as id1_0_, blog0_.created_date as created_2_0_, blog0_.last_modified_date as last_mod3_0_, blog0_.author as author4_0_, blog0_.content as content5_0_, blog0_.summary as summary6_0_, blog0_.title as title7_0_ from fengmangbilu_blog blog0_ order by blog0_.created_date asc limit 5
+2018-02-02 11:15:29.816 [http-nio-8080-exec-6] INFO  p6spy - |8|commit|connection8|
+2018-02-02 11:15:29.873 [http-nio-8080-exec-6] INFO  p6spy - |9|statement|connection8|select tag0_.id as id1_2_, tag0_.created_date as created_2_2_, tag0_.last_modified_date as last_mod3_2_, tag0_.name as name4_2_ from fengmangbilu_tag tag0_
+2018-02-02 11:15:29.886 [http-nio-8080-exec-6] INFO  p6spy - |10|commit|connection8|
+2018-02-02 11:15:29.923 [http-nio-8080-exec-6] INFO  p6spy - |9|statement|connection8|select blog0_.created_date as col_0_0_, count(*) as col_1_0_ from fengmangbilu_blog blog0_ group by date_format(blog0_.created_date, '%Y-%m-%d') order by blog0_.created_date asc
+2018-02-02 11:16:05.394 [http-nio-8080-exec-1] INFO  p6spy - |9|statement|connection8|select blog0_.id as id1_0_, blog0_.created_date as created_2_0_, blog0_.last_modified_date as last_mod3_0_, blog0_.author as author4_0_, blog0_.content as content5_0_, blog0_.summary as summary6_0_, blog0_.title as title7_0_ from fengmangbilu_blog blog0_ order by blog0_.created_date asc limit 5
+2018-02-02 11:16:05.402 [http-nio-8080-exec-1] INFO  p6spy - |7|commit|connection8|
+2018-02-02 11:16:05.462 [http-nio-8080-exec-1] INFO  p6spy - |9|statement|connection8|select tag0_.id as id1_2_, tag0_.created_date as created_2_2_, tag0_.last_modified_date as last_mod3_2_, tag0_.name as name4_2_ from fengmangbilu_tag tag0_
+2018-02-02 11:16:05.472 [http-nio-8080-exec-1] INFO  p6spy - |8|commit|connection8|
+2018-02-02 11:16:05.514 [http-nio-8080-exec-1] INFO  p6spy - |9|statement|connection8|select blog0_.created_date as col_0_0_, count(*) as col_1_0_ from fengmangbilu_blog blog0_ group by date_format(blog0_.created_date, '%Y-%m-%d') order by blog0_.created_date asc
+2018-02-02 11:16:06.101 [http-nio-8080-exec-3] INFO  p6spy - |9|statement|connection8|select blog0_.id as id1_0_, blog0_.created_date as created_2_0_, blog0_.last_modified_date as last_mod3_0_, blog0_.author as author4_0_, blog0_.content as content5_0_, blog0_.summary as summary6_0_, blog0_.title as title7_0_ from fengmangbilu_blog blog0_ order by blog0_.created_date asc limit 5
+2018-02-02 11:16:06.112 [http-nio-8080-exec-3] INFO  p6spy - |7|commit|connection8|
+2018-02-02 11:16:06.169 [http-nio-8080-exec-3] INFO  p6spy - |9|statement|connection8|select tag0_.id as id1_2_, tag0_.created_date as created_2_2_, tag0_.last_modified_date as last_mod3_2_, tag0_.name as name4_2_ from fengmangbilu_tag tag0_
+2018-02-02 11:16:06.184 [http-nio-8080-exec-3] INFO  p6spy - |12|commit|connection8|
+2018-02-02 11:16:06.221 [http-nio-8080-exec-3] INFO  p6spy - |8|statement|connection8|select blog0_.created_date as col_0_0_, count(*) as col_1_0_ from fengmangbilu_blog blog0_ group by date_format(blog0_.created_date, '%Y-%m-%d') order by blog0_.created_date asc
+2018-02-02 11:16:13.175 [http-nio-8080-exec-4] INFO  p6spy - |10|statement|connection8|select blog0_.id as id1_0_, blog0_.created_date as created_2_0_, blog0_.last_modified_date as last_mod3_0_, blog0_.author as author4_0_, blog0_.content as content5_0_, blog0_.summary as summary6_0_, blog0_.title as title7_0_ from fengmangbilu_blog blog0_ order by blog0_.created_date asc limit 5
+2018-02-02 11:16:13.187 [http-nio-8080-exec-4] INFO  p6spy - |8|commit|connection8|
+2018-02-02 11:16:13.242 [http-nio-8080-exec-4] INFO  p6spy - |8|statement|connection8|select tag0_.id as id1_2_, tag0_.created_date as created_2_2_, tag0_.last_modified_date as last_mod3_2_, tag0_.name as name4_2_ from fengmangbilu_tag tag0_
+2018-02-02 11:16:13.252 [http-nio-8080-exec-4] INFO  p6spy - |8|commit|connection8|
+2018-02-02 11:16:13.292 [http-nio-8080-exec-4] INFO  p6spy - |9|statement|connection8|select blog0_.created_date as col_0_0_, count(*) as col_1_0_ from fengmangbilu_blog blog0_ group by date_format(blog0_.created_date, '%Y-%m-%d') order by blog0_.created_date asc
+2018-02-02 11:16:22.235 [http-nio-8080-exec-7] INFO  p6spy - |9|statement|connection8|select blog0_.id as id1_0_, blog0_.created_date as created_2_0_, blog0_.last_modified_date as last_mod3_0_, blog0_.author as author4_0_, blog0_.content as content5_0_, blog0_.summary as summary6_0_, blog0_.title as title7_0_ from fengmangbilu_blog blog0_ order by blog0_.created_date asc limit 5
+2018-02-02 11:16:22.245 [http-nio-8080-exec-7] INFO  p6spy - |8|commit|connection8|
+2018-02-02 11:16:22.299 [http-nio-8080-exec-7] INFO  p6spy - |9|statement|connection8|select tag0_.id as id1_2_, tag0_.created_date as created_2_2_, tag0_.last_modified_date as last_mod3_2_, tag0_.name as name4_2_ from fengmangbilu_tag tag0_
+2018-02-02 11:16:22.310 [http-nio-8080-exec-7] INFO  p6spy - |8|commit|connection8|
+2018-02-02 11:16:22.352 [http-nio-8080-exec-7] INFO  p6spy - |12|statement|connection8|select blog0_.created_date as col_0_0_, count(*) as col_1_0_ from fengmangbilu_blog blog0_ group by date_format(blog0_.created_date, '%Y-%m-%d') order by blog0_.created_date asc
+2018-02-02 11:17:10.036 [http-nio-8080-exec-1] INFO  p6spy - |10|statement|connection8|select blog0_.id as id1_0_, blog0_.created_date as created_2_0_, blog0_.last_modified_date as last_mod3_0_, blog0_.author as author4_0_, blog0_.content as content5_0_, blog0_.summary as summary6_0_, blog0_.title as title7_0_ from fengmangbilu_blog blog0_ order by blog0_.created_date asc limit 5
+2018-02-02 11:17:10.046 [http-nio-8080-exec-1] INFO  p6spy - |8|commit|connection8|
+2018-02-02 11:17:10.102 [http-nio-8080-exec-1] INFO  p6spy - |10|statement|connection8|select tag0_.id as id1_2_, tag0_.created_date as created_2_2_, tag0_.last_modified_date as last_mod3_2_, tag0_.name as name4_2_ from fengmangbilu_tag tag0_
+2018-02-02 11:17:10.113 [http-nio-8080-exec-1] INFO  p6spy - |9|commit|connection8|
+2018-02-02 11:17:10.151 [http-nio-8080-exec-1] INFO  p6spy - |8|statement|connection8|select blog0_.created_date as col_0_0_, count(*) as col_1_0_ from fengmangbilu_blog blog0_ group by date_format(blog0_.created_date, '%Y-%m-%d') order by blog0_.created_date asc
+2018-02-02 11:17:56.134 [http-nio-8080-exec-3] INFO  p6spy - |9|statement|connection8|select blog0_.id as id1_0_, blog0_.created_date as created_2_0_, blog0_.last_modified_date as last_mod3_0_, blog0_.author as author4_0_, blog0_.content as content5_0_, blog0_.summary as summary6_0_, blog0_.title as title7_0_ from fengmangbilu_blog blog0_ order by blog0_.created_date asc limit 5
+2018-02-02 11:17:56.144 [http-nio-8080-exec-3] INFO  p6spy - |8|commit|connection8|
+2018-02-02 11:17:56.200 [http-nio-8080-exec-3] INFO  p6spy - |9|statement|connection8|select tag0_.id as id1_2_, tag0_.created_date as created_2_2_, tag0_.last_modified_date as last_mod3_2_, tag0_.name as name4_2_ from fengmangbilu_tag tag0_
+2018-02-02 11:17:56.211 [http-nio-8080-exec-3] INFO  p6spy - |9|commit|connection8|
+2018-02-02 11:17:56.248 [http-nio-8080-exec-3] INFO  p6spy - |9|statement|connection8|select blog0_.created_date as col_0_0_, count(*) as col_1_0_ from fengmangbilu_blog blog0_ group by date_format(blog0_.created_date, '%Y-%m-%d') order by blog0_.created_date asc
+2018-02-02 11:19:22.239 [http-nio-8080-exec-5] INFO  p6spy - |9|statement|connection8|select blog0_.id as id1_0_, blog0_.created_date as created_2_0_, blog0_.last_modified_date as last_mod3_0_, blog0_.author as author4_0_, blog0_.content as content5_0_, blog0_.summary as summary6_0_, blog0_.title as title7_0_ from fengmangbilu_blog blog0_ order by blog0_.created_date asc limit 5
+2018-02-02 11:19:22.249 [http-nio-8080-exec-5] INFO  p6spy - |9|commit|connection8|
+2018-02-02 11:19:22.302 [http-nio-8080-exec-5] INFO  p6spy - |9|statement|connection8|select tag0_.id as id1_2_, tag0_.created_date as created_2_2_, tag0_.last_modified_date as last_mod3_2_, tag0_.name as name4_2_ from fengmangbilu_tag tag0_
+2018-02-02 11:19:22.315 [http-nio-8080-exec-5] INFO  p6spy - |8|commit|connection8|
+2018-02-02 11:19:22.353 [http-nio-8080-exec-5] INFO  p6spy - |10|statement|connection8|select blog0_.created_date as col_0_0_, count(*) as col_1_0_ from fengmangbilu_blog blog0_ group by date_format(blog0_.created_date, '%Y-%m-%d') order by blog0_.created_date asc
+2018-02-02 11:19:31.766 [http-nio-8080-exec-10] INFO  p6spy - |10|statement|connection8|select blog0_.id as id1_0_, blog0_.created_date as created_2_0_, blog0_.last_modified_date as last_mod3_0_, blog0_.author as author4_0_, blog0_.content as content5_0_, blog0_.summary as summary6_0_, blog0_.title as title7_0_ from fengmangbilu_blog blog0_ order by blog0_.created_date asc limit 5
+2018-02-02 11:19:31.777 [http-nio-8080-exec-10] INFO  p6spy - |8|commit|connection8|
+2018-02-02 11:19:31.845 [http-nio-8080-exec-10] INFO  p6spy - |9|statement|connection8|select tag0_.id as id1_2_, tag0_.created_date as created_2_2_, tag0_.last_modified_date as last_mod3_2_, tag0_.name as name4_2_ from fengmangbilu_tag tag0_
+2018-02-02 11:19:31.855 [http-nio-8080-exec-10] INFO  p6spy - |8|commit|connection8|
+2018-02-02 11:19:31.893 [http-nio-8080-exec-10] INFO  p6spy - |10|statement|connection8|select blog0_.created_date as col_0_0_, count(*) as col_1_0_ from fengmangbilu_blog blog0_ group by date_format(blog0_.created_date, '%Y-%m-%d') order by blog0_.created_date asc
+2018-02-02 11:19:36.390 [http-nio-8080-exec-6] INFO  p6spy - |9|statement|connection8|select blog0_.id as id1_0_0_, blog0_.created_date as created_2_0_0_, blog0_.last_modified_date as last_mod3_0_0_, blog0_.author as author4_0_0_, blog0_.content as content5_0_0_, blog0_.summary as summary6_0_0_, blog0_.title as title7_0_0_ from fengmangbilu_blog blog0_ where blog0_.id=1
+2018-02-02 11:19:36.400 [http-nio-8080-exec-6] INFO  p6spy - |8|commit|connection8|
+2018-02-02 11:19:40.524 [http-nio-8080-exec-9] INFO  p6spy - |12|statement|connection8|select blog0_.id as id1_0_0_, blog0_.created_date as created_2_0_0_, blog0_.last_modified_date as last_mod3_0_0_, blog0_.author as author4_0_0_, blog0_.content as content5_0_0_, blog0_.summary as summary6_0_0_, blog0_.title as title7_0_0_ from fengmangbilu_blog blog0_ where blog0_.id=1
+2018-02-02 11:19:40.534 [http-nio-8080-exec-9] INFO  p6spy - |8|commit|connection8|
+2018-02-02 11:19:45.629 [http-nio-8080-exec-7] INFO  p6spy - |10|statement|connection8|select blog0_.id as id1_0_, blog0_.created_date as created_2_0_, blog0_.last_modified_date as last_mod3_0_, blog0_.author as author4_0_, blog0_.content as content5_0_, blog0_.summary as summary6_0_, blog0_.title as title7_0_ from fengmangbilu_blog blog0_ order by blog0_.created_date asc limit 5
+2018-02-02 11:19:45.639 [http-nio-8080-exec-7] INFO  p6spy - |8|commit|connection8|
+2018-02-02 11:19:45.693 [http-nio-8080-exec-7] INFO  p6spy - |9|statement|connection8|select tag0_.id as id1_2_, tag0_.created_date as created_2_2_, tag0_.last_modified_date as last_mod3_2_, tag0_.name as name4_2_ from fengmangbilu_tag tag0_
+2018-02-02 11:19:45.703 [http-nio-8080-exec-7] INFO  p6spy - |8|commit|connection8|
+2018-02-02 11:19:45.740 [http-nio-8080-exec-7] INFO  p6spy - |9|statement|connection8|select blog0_.created_date as col_0_0_, count(*) as col_1_0_ from fengmangbilu_blog blog0_ group by date_format(blog0_.created_date, '%Y-%m-%d') order by blog0_.created_date asc
+2018-02-02 11:19:47.086 [http-nio-8080-exec-1] INFO  p6spy - |9|statement|connection8|select blog0_.id as id1_0_0_, blog0_.created_date as created_2_0_0_, blog0_.last_modified_date as last_mod3_0_0_, blog0_.author as author4_0_0_, blog0_.content as content5_0_0_, blog0_.summary as summary6_0_0_, blog0_.title as title7_0_0_ from fengmangbilu_blog blog0_ where blog0_.id=1
+2018-02-02 11:19:47.094 [http-nio-8080-exec-1] INFO  p6spy - |7|commit|connection8|
+2018-02-02 11:20:19.222 [http-nio-8080-exec-2] INFO  p6spy - |8|statement|connection8|select blog0_.id as id1_0_, blog0_.created_date as created_2_0_, blog0_.last_modified_date as last_mod3_0_, blog0_.author as author4_0_, blog0_.content as content5_0_, blog0_.summary as summary6_0_, blog0_.title as title7_0_ from fengmangbilu_blog blog0_ order by blog0_.created_date asc limit 5
+2018-02-02 11:20:19.233 [http-nio-8080-exec-2] INFO  p6spy - |8|commit|connection8|
+2018-02-02 11:20:19.289 [http-nio-8080-exec-2] INFO  p6spy - |10|statement|connection8|select tag0_.id as id1_2_, tag0_.created_date as created_2_2_, tag0_.last_modified_date as last_mod3_2_, tag0_.name as name4_2_ from fengmangbilu_tag tag0_
+2018-02-02 11:20:19.300 [http-nio-8080-exec-2] INFO  p6spy - |8|commit|connection8|
+2018-02-02 11:20:19.337 [http-nio-8080-exec-2] INFO  p6spy - |9|statement|connection8|select blog0_.created_date as col_0_0_, count(*) as col_1_0_ from fengmangbilu_blog blog0_ group by date_format(blog0_.created_date, '%Y-%m-%d') order by blog0_.created_date asc
+2018-02-02 11:20:20.614 [http-nio-8080-exec-3] INFO  p6spy - |10|statement|connection8|select blog0_.id as id1_0_, blog0_.created_date as created_2_0_, blog0_.last_modified_date as last_mod3_0_, blog0_.author as author4_0_, blog0_.content as content5_0_, blog0_.summary as summary6_0_, blog0_.title as title7_0_ from fengmangbilu_blog blog0_ order by blog0_.created_date asc limit 5
+2018-02-02 11:20:20.623 [http-nio-8080-exec-3] INFO  p6spy - |8|commit|connection8|
+2018-02-02 11:20:20.679 [http-nio-8080-exec-3] INFO  p6spy - |9|statement|connection8|select tag0_.id as id1_2_, tag0_.created_date as created_2_2_, tag0_.last_modified_date as last_mod3_2_, tag0_.name as name4_2_ from fengmangbilu_tag tag0_
+2018-02-02 11:20:20.689 [http-nio-8080-exec-3] INFO  p6spy - |8|commit|connection8|
+2018-02-02 11:20:20.727 [http-nio-8080-exec-3] INFO  p6spy - |10|statement|connection8|select blog0_.created_date as col_0_0_, count(*) as col_1_0_ from fengmangbilu_blog blog0_ group by date_format(blog0_.created_date, '%Y-%m-%d') order by blog0_.created_date asc
+2018-02-02 11:20:34.885 [http-nio-8080-exec-6] INFO  p6spy - |13|statement|connection8|select blog0_.id as id1_0_, blog0_.created_date as created_2_0_, blog0_.last_modified_date as last_mod3_0_, blog0_.author as author4_0_, blog0_.content as content5_0_, blog0_.summary as summary6_0_, blog0_.title as title7_0_ from fengmangbilu_blog blog0_ order by blog0_.created_date asc limit 5
+2018-02-02 11:20:34.897 [http-nio-8080-exec-6] INFO  p6spy - |8|commit|connection8|
+2018-02-02 11:21:07.251 [http-nio-8080-exec-6] INFO  p6spy - |10|statement|connection8|select tag0_.id as id1_2_, tag0_.created_date as created_2_2_, tag0_.last_modified_date as last_mod3_2_, tag0_.name as name4_2_ from fengmangbilu_tag tag0_
+2018-02-02 11:21:07.261 [http-nio-8080-exec-6] INFO  p6spy - |8|commit|connection8|
+2018-02-02 11:21:07.297 [http-nio-8080-exec-6] INFO  p6spy - |8|statement|connection8|select blog0_.created_date as col_0_0_, count(*) as col_1_0_ from fengmangbilu_blog blog0_ group by date_format(blog0_.created_date, '%Y-%m-%d') order by blog0_.created_date asc
+2018-02-02 11:47:20.473 [http-nio-8080-exec-2] INFO  p6spy - |10|statement|connection8|select blog0_.id as id1_0_, blog0_.created_date as created_2_0_, blog0_.last_modified_date as last_mod3_0_, blog0_.author as author4_0_, blog0_.content as content5_0_, blog0_.summary as summary6_0_, blog0_.title as title7_0_ from fengmangbilu_blog blog0_ order by blog0_.created_date asc limit 5
+2018-02-02 11:47:20.485 [http-nio-8080-exec-2] INFO  p6spy - |8|commit|connection8|
+2018-02-02 11:47:22.878 [http-nio-8080-exec-2] INFO  p6spy - |8|statement|connection8|select tag0_.id as id1_2_, tag0_.created_date as created_2_2_, tag0_.last_modified_date as last_mod3_2_, tag0_.name as name4_2_ from fengmangbilu_tag tag0_
+2018-02-02 11:47:22.889 [http-nio-8080-exec-2] INFO  p6spy - |8|commit|connection8|
+2018-02-02 11:47:22.939 [http-nio-8080-exec-2] INFO  p6spy - |9|statement|connection8|select blog0_.created_date as col_0_0_, count(*) as col_1_0_ from fengmangbilu_blog blog0_ group by date_format(blog0_.created_date, '%Y-%m-%d') order by blog0_.created_date asc
+2018-02-02 11:47:54.100 [http-nio-8080-exec-4] INFO  p6spy - |9|statement|connection8|select blog0_.id as id1_0_, blog0_.created_date as created_2_0_, blog0_.last_modified_date as last_mod3_0_, blog0_.author as author4_0_, blog0_.content as content5_0_, blog0_.summary as summary6_0_, blog0_.title as title7_0_ from fengmangbilu_blog blog0_ order by blog0_.created_date asc limit 5
+2018-02-02 11:47:54.109 [http-nio-8080-exec-4] INFO  p6spy - |8|commit|connection8|
+2018-02-02 11:47:56.189 [http-nio-8080-exec-4] INFO  p6spy - |7|statement|connection8|select tag0_.id as id1_2_, tag0_.created_date as created_2_2_, tag0_.last_modified_date as last_mod3_2_, tag0_.name as name4_2_ from fengmangbilu_tag tag0_
+2018-02-02 11:47:56.200 [http-nio-8080-exec-4] INFO  p6spy - |9|commit|connection8|
+2018-02-02 11:47:56.235 [http-nio-8080-exec-4] INFO  p6spy - |7|statement|connection8|select blog0_.created_date as col_0_0_, count(*) as col_1_0_ from fengmangbilu_blog blog0_ group by date_format(blog0_.created_date, '%Y-%m-%d') order by blog0_.created_date asc
+2018-02-02 11:58:19.810 [main] INFO  com.fengmangbilu.blog.BlogApplication - Starting BlogApplication on Zx-PC with PID 12368 (E:\workspace\fengmangbilu-web-blog\target\classes started by Zx in E:\workspace\fengmangbilu-web-blog)
+2018-02-02 11:58:19.810 [main] INFO  com.fengmangbilu.blog.BlogApplication - No active profile set, falling back to default profiles: default
+2018-02-02 11:58:19.864 [main] INFO  org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@d278d2b: startup date [Fri Feb 02 11:58:19 CST 2018]; root of context hierarchy
+2018-02-02 11:58:20.033 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.3.6.Final
+2018-02-02 11:58:20.477 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-02-02 11:58:20.616 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-02-02 11:58:20.641 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.fengmangbilu.blog.repositories.BlogRepository.
+2018-02-02 11:58:20.642 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.fengmangbilu.blog.repositories.TagRepository.
+2018-02-02 11:58:20.919 [main] INFO  org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-02-02 11:58:21.067 [main] INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$7c96a12f] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-02-02 11:58:21.179 [main] INFO  org.hibernate.validator.internal.xml.ValidationXmlParser - HV000007: META-INF/validation.xml found. Parsing XML based configuration.
+2018-02-02 11:58:21.235 [main] INFO  org.hibernate.validator.internal.xml.ValidationBootstrapParameters - HV000004: Using com.fengmangbilu.validator.i18n.ValidationMessageInterpolator as message interpolator.
+2018-02-02 11:58:21.236 [main] INFO  org.hibernate.validator.internal.xml.ValidationBootstrapParameters - HV000119: Using com.fengmangbilu.validator.provider.ReportOnParameterNameProvider as parameter name provider.
+2018-02-02 11:58:21.675 [main] INFO  org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http)
+2018-02-02 11:58:21.689 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2018-02-02 11:58:21.690 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-02-02 11:58:21.804 [localhost-startStop-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2018-02-02 11:58:21.804 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1940 ms
+2018-02-02 11:58:22.075 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+2018-02-02 11:58:22.075 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-02-02 11:58:22.075 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-02-02 11:58:22.075 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-02-02 11:58:22.075 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2018-02-02 11:58:22.075 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'resourceUrlEncodingFilter' to: [/*]
+2018-02-02 11:58:22.490 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-02-02 11:58:22.505 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-02-02 11:58:22.572 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.0.12.Final}
+2018-02-02 11:58:22.574 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2018-02-02 11:58:22.575 [main] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+2018-02-02 11:58:22.609 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-02-02 11:58:23.850 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-02-02 11:58:24.269 [main] INFO  org.hibernate.tool.hbm2ddl.SchemaUpdate - HHH000228: Running hbm2ddl schema update
+2018-02-02 11:58:25.051 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-02-02 11:58:25.403 [main] INFO  org.hibernate.hql.internal.QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+2018-02-02 11:58:25.958 [main] INFO  org.hibernate.validator.internal.xml.ValidationXmlParser - HV000007: META-INF/validation.xml found. Parsing XML based configuration.
+2018-02-02 11:58:25.958 [main] INFO  org.hibernate.validator.internal.xml.ValidationBootstrapParameters - HV000004: Using com.fengmangbilu.validator.i18n.ValidationMessageInterpolator as message interpolator.
+2018-02-02 11:58:25.958 [main] INFO  org.hibernate.validator.internal.xml.ValidationBootstrapParameters - HV000119: Using com.fengmangbilu.validator.provider.ReportOnParameterNameProvider as parameter name provider.
+2018-02-02 11:58:26.182 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@d278d2b: startup date [Fri Feb 02 11:58:19 CST 2018]; root of context hierarchy
+2018-02-02 11:58:26.197 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Detected ResponseBodyAdvice bean in jsonFilterResponseBodyAdvice
+2018-02-02 11:58:26.197 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Detected @ModelAttribute methods in resourceUrlController
+2018-02-02 11:58:26.277 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[],methods=[GET]}" onto public java.lang.String com.fengmangbilu.blog.controllers.IndexController.index(java.lang.Integer,org.springframework.data.web.PagedResourcesAssembler<com.fengmangbilu.blog.entities.Blog>,org.springframework.ui.Model)
+2018-02-02 11:58:26.278 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/blog],methods=[GET]}" onto public java.lang.String com.fengmangbilu.blog.controllers.IndexController.blog(java.lang.Long,org.springframework.ui.Model)
+2018-02-02 11:58:26.278 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/about],methods=[GET]}" onto public java.lang.String com.fengmangbilu.blog.controllers.IndexController.about()
+2018-02-02 11:58:26.281 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-02-02 11:58:26.281 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-02-02 11:58:26.324 [main] INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-02 11:58:26.324 [main] INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-02 11:58:26.339 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Detected ResponseBodyAdvice implementation in jsonFilterResponseBodyAdvice
+2018-02-02 11:58:26.339 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Detected @ExceptionHandler methods in defaultErrorController
+2018-02-02 11:58:26.664 [main] INFO  org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer - ClassTemplateLoader for Spring macros added to FreeMarker configuration
+2018-02-02 11:58:26.982 [main] INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2018-02-02 11:58:26.998 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2018-02-02 11:58:27.001 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2018-02-02 11:58:27.016 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2018-02-02 11:58:27.038 [main] INFO  org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8080 (http)
+2018-02-02 11:58:27.042 [main] INFO  com.fengmangbilu.blog.BlogApplication - Started BlogApplication in 7.585 seconds (JVM running for 7.894)
+2018-02-02 11:58:49.621 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-02-02 11:58:49.622 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+2018-02-02 11:58:49.645 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 23 ms
+2018-02-02 11:58:49.983 [http-nio-8080-exec-1] INFO  p6spy - |205|statement|connection8|select blog0_.id as id1_0_, blog0_.created_date as created_2_0_, blog0_.last_modified_date as last_mod3_0_, blog0_.author as author4_0_, blog0_.content as content5_0_, blog0_.summary as summary6_0_, blog0_.title as title7_0_ from fengmangbilu_blog blog0_ order by blog0_.created_date asc limit 5
+2018-02-02 11:58:50.014 [http-nio-8080-exec-1] INFO  p6spy - |8|commit|connection8|
+2018-02-02 11:58:50.074 [http-nio-8080-exec-1] INFO  p6spy - |8|statement|connection8|select tag0_.id as id1_2_, tag0_.created_date as created_2_2_, tag0_.last_modified_date as last_mod3_2_, tag0_.name as name4_2_ from fengmangbilu_tag tag0_
+2018-02-02 11:58:50.084 [http-nio-8080-exec-1] INFO  p6spy - |8|commit|connection8|
+2018-02-02 11:58:50.128 [http-nio-8080-exec-1] INFO  p6spy - |7|statement|connection8|select blog0_.created_date as col_0_0_, count(*) as col_1_0_ from fengmangbilu_blog blog0_ group by date_format(blog0_.created_date, '%Y-%m-%d') order by blog0_.created_date asc
+2018-02-02 11:58:58.273 [http-nio-8080-exec-3] INFO  p6spy - |10|statement|connection8|select blog0_.id as id1_0_, blog0_.created_date as created_2_0_, blog0_.last_modified_date as last_mod3_0_, blog0_.author as author4_0_, blog0_.content as content5_0_, blog0_.summary as summary6_0_, blog0_.title as title7_0_ from fengmangbilu_blog blog0_ order by blog0_.created_date asc limit 5
+2018-02-02 11:58:58.298 [http-nio-8080-exec-3] INFO  p6spy - |9|commit|connection8|
+2018-02-02 11:59:04.311 [http-nio-8080-exec-3] INFO  p6spy - |9|statement|connection8|select tags0_.blog_id as blog_id1_1_0_, tags0_.tags_id as tags_id2_1_0_, tag1_.id as id1_2_1_, tag1_.created_date as created_2_2_1_, tag1_.last_modified_date as last_mod3_2_1_, tag1_.name as name4_2_1_ from fengmangbilu_blog_tags tags0_ inner join fengmangbilu_tag tag1_ on tags0_.tags_id=tag1_.id where tags0_.blog_id=1
+2018-02-02 12:00:18.357 [http-nio-8080-exec-3] INFO  p6spy - |9|statement|connection8|select tag0_.id as id1_2_, tag0_.created_date as created_2_2_, tag0_.last_modified_date as last_mod3_2_, tag0_.name as name4_2_ from fengmangbilu_tag tag0_
+2018-02-02 12:00:18.369 [http-nio-8080-exec-3] INFO  p6spy - |8|commit|connection8|
+2018-02-02 12:00:18.408 [http-nio-8080-exec-3] INFO  p6spy - |10|statement|connection8|select blog0_.created_date as col_0_0_, count(*) as col_1_0_ from fengmangbilu_blog blog0_ group by date_format(blog0_.created_date, '%Y-%m-%d') order by blog0_.created_date asc
+2018-02-02 12:00:21.568 [http-nio-8080-exec-5] INFO  p6spy - |10|statement|connection8|select blog0_.id as id1_0_, blog0_.created_date as created_2_0_, blog0_.last_modified_date as last_mod3_0_, blog0_.author as author4_0_, blog0_.content as content5_0_, blog0_.summary as summary6_0_, blog0_.title as title7_0_ from fengmangbilu_blog blog0_ order by blog0_.created_date asc limit 5
+2018-02-02 12:00:21.580 [http-nio-8080-exec-5] INFO  p6spy - |8|commit|connection8|
+2018-02-02 12:00:21.640 [http-nio-8080-exec-5] INFO  p6spy - |9|statement|connection8|select tag0_.id as id1_2_, tag0_.created_date as created_2_2_, tag0_.last_modified_date as last_mod3_2_, tag0_.name as name4_2_ from fengmangbilu_tag tag0_
+2018-02-02 12:00:21.651 [http-nio-8080-exec-5] INFO  p6spy - |8|commit|connection8|
+2018-02-02 12:00:21.691 [http-nio-8080-exec-5] INFO  p6spy - |9|statement|connection8|select blog0_.created_date as col_0_0_, count(*) as col_1_0_ from fengmangbilu_blog blog0_ group by date_format(blog0_.created_date, '%Y-%m-%d') order by blog0_.created_date asc
+2018-02-02 12:00:54.828 [http-nio-8080-exec-6] INFO  p6spy - |9|statement|connection8|select blog0_.id as id1_0_, blog0_.created_date as created_2_0_, blog0_.last_modified_date as last_mod3_0_, blog0_.author as author4_0_, blog0_.content as content5_0_, blog0_.summary as summary6_0_, blog0_.title as title7_0_ from fengmangbilu_blog blog0_ order by blog0_.created_date asc limit 5
+2018-02-02 12:00:54.841 [http-nio-8080-exec-6] INFO  p6spy - |8|commit|connection8|
+2018-02-02 12:01:05.214 [http-nio-8080-exec-6] INFO  p6spy - |13|statement|connection8|select tags0_.blog_id as blog_id1_1_0_, tags0_.tags_id as tags_id2_1_0_, tag1_.id as id1_2_1_, tag1_.created_date as created_2_2_1_, tag1_.last_modified_date as last_mod3_2_1_, tag1_.name as name4_2_1_ from fengmangbilu_blog_tags tags0_ inner join fengmangbilu_tag tag1_ on tags0_.tags_id=tag1_.id where tags0_.blog_id=1
+2018-02-02 12:01:23.566 [http-nio-8080-exec-6] INFO  p6spy - |9|statement|connection8|select tag0_.id as id1_2_, tag0_.created_date as created_2_2_, tag0_.last_modified_date as last_mod3_2_, tag0_.name as name4_2_ from fengmangbilu_tag tag0_
+2018-02-02 12:01:23.577 [http-nio-8080-exec-6] INFO  p6spy - |8|commit|connection8|
+2018-02-02 12:01:23.616 [http-nio-8080-exec-6] INFO  p6spy - |9|statement|connection8|select blog0_.created_date as col_0_0_, count(*) as col_1_0_ from fengmangbilu_blog blog0_ group by date_format(blog0_.created_date, '%Y-%m-%d') order by blog0_.created_date asc
+2018-02-02 12:01:57.869 [http-nio-8080-exec-8] INFO  p6spy - |10|statement|connection8|select blog0_.id as id1_0_, blog0_.created_date as created_2_0_, blog0_.last_modified_date as last_mod3_0_, blog0_.author as author4_0_, blog0_.content as content5_0_, blog0_.summary as summary6_0_, blog0_.title as title7_0_ from fengmangbilu_blog blog0_ order by blog0_.created_date asc limit 5
+2018-02-02 12:01:57.881 [http-nio-8080-exec-8] INFO  p6spy - |8|commit|connection8|
+2018-02-02 12:01:57.941 [http-nio-8080-exec-8] INFO  p6spy - |10|statement|connection8|select tag0_.id as id1_2_, tag0_.created_date as created_2_2_, tag0_.last_modified_date as last_mod3_2_, tag0_.name as name4_2_ from fengmangbilu_tag tag0_
+2018-02-02 12:01:57.955 [http-nio-8080-exec-8] INFO  p6spy - |8|commit|connection8|
+2018-02-02 12:01:57.993 [http-nio-8080-exec-8] INFO  p6spy - |8|statement|connection8|select blog0_.created_date as col_0_0_, count(*) as col_1_0_ from fengmangbilu_blog blog0_ group by date_format(blog0_.created_date, '%Y-%m-%d') order by blog0_.created_date asc
+2018-02-02 12:02:25.137 [http-nio-8080-exec-9] INFO  p6spy - |10|statement|connection8|select blog0_.id as id1_0_, blog0_.created_date as created_2_0_, blog0_.last_modified_date as last_mod3_0_, blog0_.author as author4_0_, blog0_.content as content5_0_, blog0_.summary as summary6_0_, blog0_.title as title7_0_ from fengmangbilu_blog blog0_ order by blog0_.created_date asc limit 5
+2018-02-02 12:02:25.147 [http-nio-8080-exec-9] INFO  p6spy - |8|commit|connection8|
+2018-02-02 12:02:25.199 [http-nio-8080-exec-9] INFO  p6spy - |8|statement|connection8|select tag0_.id as id1_2_, tag0_.created_date as created_2_2_, tag0_.last_modified_date as last_mod3_2_, tag0_.name as name4_2_ from fengmangbilu_tag tag0_
+2018-02-02 12:02:25.208 [http-nio-8080-exec-9] INFO  p6spy - |8|commit|connection8|
+2018-02-02 12:02:25.244 [http-nio-8080-exec-9] INFO  p6spy - |9|statement|connection8|select blog0_.created_date as col_0_0_, count(*) as col_1_0_ from fengmangbilu_blog blog0_ group by date_format(blog0_.created_date, '%Y-%m-%d') order by blog0_.created_date asc
+2018-02-02 12:02:48.732 [http-nio-8080-exec-1] INFO  p6spy - |10|statement|connection8|select blog0_.id as id1_0_, blog0_.created_date as created_2_0_, blog0_.last_modified_date as last_mod3_0_, blog0_.author as author4_0_, blog0_.content as content5_0_, blog0_.summary as summary6_0_, blog0_.title as title7_0_ from fengmangbilu_blog blog0_ order by blog0_.created_date asc limit 5
+2018-02-02 12:02:48.750 [http-nio-8080-exec-1] INFO  p6spy - |8|commit|connection8|
+2018-02-02 12:02:54.589 [http-nio-8080-exec-1] INFO  p6spy - |8|statement|connection8|select tags0_.blog_id as blog_id1_1_0_, tags0_.tags_id as tags_id2_1_0_, tag1_.id as id1_2_1_, tag1_.created_date as created_2_2_1_, tag1_.last_modified_date as last_mod3_2_1_, tag1_.name as name4_2_1_ from fengmangbilu_blog_tags tags0_ inner join fengmangbilu_tag tag1_ on tags0_.tags_id=tag1_.id where tags0_.blog_id=1
+2018-02-02 12:03:07.807 [http-nio-8080-exec-1] INFO  p6spy - |9|statement|connection8|select tag0_.id as id1_2_, tag0_.created_date as created_2_2_, tag0_.last_modified_date as last_mod3_2_, tag0_.name as name4_2_ from fengmangbilu_tag tag0_
+2018-02-02 12:03:07.817 [http-nio-8080-exec-1] INFO  p6spy - |8|commit|connection8|
+2018-02-02 12:03:07.853 [http-nio-8080-exec-1] INFO  p6spy - |8|statement|connection8|select blog0_.created_date as col_0_0_, count(*) as col_1_0_ from fengmangbilu_blog blog0_ group by date_format(blog0_.created_date, '%Y-%m-%d') order by blog0_.created_date asc
+2018-02-02 12:04:35.703 [http-nio-8080-exec-2] INFO  p6spy - |8|statement|connection8|select blog0_.id as id1_0_, blog0_.created_date as created_2_0_, blog0_.last_modified_date as last_mod3_0_, blog0_.author as author4_0_, blog0_.content as content5_0_, blog0_.summary as summary6_0_, blog0_.title as title7_0_ from fengmangbilu_blog blog0_ order by blog0_.created_date asc limit 5
+2018-02-02 12:04:35.712 [http-nio-8080-exec-2] INFO  p6spy - |8|commit|connection8|
+2018-02-02 12:04:35.766 [http-nio-8080-exec-2] INFO  p6spy - |8|statement|connection8|select tag0_.id as id1_2_, tag0_.created_date as created_2_2_, tag0_.last_modified_date as last_mod3_2_, tag0_.name as name4_2_ from fengmangbilu_tag tag0_
+2018-02-02 12:04:35.776 [http-nio-8080-exec-2] INFO  p6spy - |8|commit|connection8|
+2018-02-02 12:04:35.811 [http-nio-8080-exec-2] INFO  p6spy - |8|statement|connection8|select blog0_.created_date as col_0_0_, count(*) as col_1_0_ from fengmangbilu_blog blog0_ group by date_format(blog0_.created_date, '%Y-%m-%d') order by blog0_.created_date asc
+2018-02-02 12:05:08.831 [http-nio-8080-exec-4] INFO  p6spy - |10|statement|connection8|select blog0_.id as id1_0_, blog0_.created_date as created_2_0_, blog0_.last_modified_date as last_mod3_0_, blog0_.author as author4_0_, blog0_.content as content5_0_, blog0_.summary as summary6_0_, blog0_.title as title7_0_ from fengmangbilu_blog blog0_ order by blog0_.created_date asc limit 5
+2018-02-02 12:05:08.840 [http-nio-8080-exec-4] INFO  p6spy - |8|commit|connection8|
+2018-02-02 12:05:08.893 [http-nio-8080-exec-4] INFO  p6spy - |8|statement|connection8|select tag0_.id as id1_2_, tag0_.created_date as created_2_2_, tag0_.last_modified_date as last_mod3_2_, tag0_.name as name4_2_ from fengmangbilu_tag tag0_
+2018-02-02 12:05:08.902 [http-nio-8080-exec-4] INFO  p6spy - |8|commit|connection8|
+2018-02-02 12:05:08.938 [http-nio-8080-exec-4] INFO  p6spy - |9|statement|connection8|select blog0_.created_date as col_0_0_, count(*) as col_1_0_ from fengmangbilu_blog blog0_ group by date_format(blog0_.created_date, '%Y-%m-%d') order by blog0_.created_date asc
+2018-02-02 12:05:12.500 [http-nio-8080-exec-5] INFO  p6spy - |8|statement|connection8|select blog0_.id as id1_0_0_, blog0_.created_date as created_2_0_0_, blog0_.last_modified_date as last_mod3_0_0_, blog0_.author as author4_0_0_, blog0_.content as content5_0_0_, blog0_.summary as summary6_0_0_, blog0_.title as title7_0_0_ from fengmangbilu_blog blog0_ where blog0_.id=1
+2018-02-02 12:05:12.514 [http-nio-8080-exec-5] INFO  p6spy - |8|commit|connection8|
+2018-02-02 12:05:31.441 [http-nio-8080-exec-7] INFO  p6spy - |12|statement|connection8|select blog0_.id as id1_0_0_, blog0_.created_date as created_2_0_0_, blog0_.last_modified_date as last_mod3_0_0_, blog0_.author as author4_0_0_, blog0_.content as content5_0_0_, blog0_.summary as summary6_0_0_, blog0_.title as title7_0_0_ from fengmangbilu_blog blog0_ where blog0_.id=1
+2018-02-02 12:05:31.453 [http-nio-8080-exec-7] INFO  p6spy - |8|commit|connection8|
+2018-02-02 12:06:48.768 [main] INFO  com.fengmangbilu.blog.BlogApplication - Starting BlogApplication on Zx-PC with PID 3696 (E:\workspace\fengmangbilu-web-blog\target\classes started by Zx in E:\workspace\fengmangbilu-web-blog)
+2018-02-02 12:06:48.774 [main] INFO  com.fengmangbilu.blog.BlogApplication - No active profile set, falling back to default profiles: default
+2018-02-02 12:06:48.837 [main] INFO  org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@d278d2b: startup date [Fri Feb 02 12:06:48 CST 2018]; root of context hierarchy
+2018-02-02 12:06:49.002 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.3.6.Final
+2018-02-02 12:06:49.424 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-02-02 12:06:49.556 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-02-02 12:06:49.578 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.fengmangbilu.blog.repositories.BlogRepository.
+2018-02-02 12:06:49.579 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport - Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.fengmangbilu.blog.repositories.TagRepository.
+2018-02-02 12:06:49.852 [main] INFO  org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-02-02 12:06:49.999 [main] INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$4bc96664] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-02-02 12:06:50.101 [main] INFO  org.hibernate.validator.internal.xml.ValidationXmlParser - HV000007: META-INF/validation.xml found. Parsing XML based configuration.
+2018-02-02 12:06:50.155 [main] INFO  org.hibernate.validator.internal.xml.ValidationBootstrapParameters - HV000004: Using com.fengmangbilu.validator.i18n.ValidationMessageInterpolator as message interpolator.
+2018-02-02 12:06:50.156 [main] INFO  org.hibernate.validator.internal.xml.ValidationBootstrapParameters - HV000119: Using com.fengmangbilu.validator.provider.ReportOnParameterNameProvider as parameter name provider.
+2018-02-02 12:06:50.601 [main] INFO  org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http)
+2018-02-02 12:06:50.612 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2018-02-02 12:06:50.614 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-02-02 12:06:50.754 [localhost-startStop-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2018-02-02 12:06:50.754 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1917 ms
+2018-02-02 12:06:50.950 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+2018-02-02 12:06:50.956 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-02-02 12:06:50.956 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-02-02 12:06:50.957 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-02-02 12:06:50.957 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2018-02-02 12:06:50.957 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'resourceUrlEncodingFilter' to: [/*]
+2018-02-02 12:06:51.313 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-02-02 12:06:51.329 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-02-02 12:06:51.402 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.0.12.Final}
+2018-02-02 12:06:51.404 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2018-02-02 12:06:51.406 [main] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+2018-02-02 12:06:51.442 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-02-02 12:06:52.754 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-02-02 12:06:53.169 [main] INFO  org.hibernate.tool.hbm2ddl.SchemaUpdate - HHH000228: Running hbm2ddl schema update
+2018-02-02 12:06:53.949 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-02-02 12:06:54.329 [main] INFO  org.hibernate.hql.internal.QueryTranslatorFactoryInitiator - HHH000397: Using ASTQueryTranslatorFactory
+2018-02-02 12:06:54.831 [main] INFO  org.hibernate.validator.internal.xml.ValidationXmlParser - HV000007: META-INF/validation.xml found. Parsing XML based configuration.
+2018-02-02 12:06:54.837 [main] INFO  org.hibernate.validator.internal.xml.ValidationBootstrapParameters - HV000004: Using com.fengmangbilu.validator.i18n.ValidationMessageInterpolator as message interpolator.
+2018-02-02 12:06:54.837 [main] INFO  org.hibernate.validator.internal.xml.ValidationBootstrapParameters - HV000119: Using com.fengmangbilu.validator.provider.ReportOnParameterNameProvider as parameter name provider.
+2018-02-02 12:06:55.005 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@d278d2b: startup date [Fri Feb 02 12:06:48 CST 2018]; root of context hierarchy
+2018-02-02 12:06:55.014 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Detected ResponseBodyAdvice bean in jsonFilterResponseBodyAdvice
+2018-02-02 12:06:55.015 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Detected @ModelAttribute methods in resourceUrlController
+2018-02-02 12:06:55.087 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[],methods=[GET]}" onto public java.lang.String com.fengmangbilu.blog.controllers.IndexController.index(java.lang.Integer,org.springframework.data.web.PagedResourcesAssembler<com.fengmangbilu.blog.entities.Blog>,org.springframework.ui.Model)
+2018-02-02 12:06:55.088 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/about],methods=[GET]}" onto public java.lang.String com.fengmangbilu.blog.controllers.IndexController.about()
+2018-02-02 12:06:55.088 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/p/{id}],methods=[GET]}" onto public java.lang.String com.fengmangbilu.blog.controllers.IndexController.post(com.fengmangbilu.blog.entities.Blog,org.springframework.ui.Model)
+2018-02-02 12:06:55.090 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2018-02-02 12:06:55.091 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2018-02-02 12:06:55.134 [main] INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-02 12:06:55.134 [main] INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-02-02 12:06:55.155 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Detected ResponseBodyAdvice implementation in jsonFilterResponseBodyAdvice
+2018-02-02 12:06:55.155 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Detected @ExceptionHandler methods in defaultErrorController
+2018-02-02 12:06:55.463 [main] INFO  org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer - ClassTemplateLoader for Spring macros added to FreeMarker configuration
+2018-02-02 12:06:55.794 [main] INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2018-02-02 12:06:55.810 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2018-02-02 12:06:55.810 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2018-02-02 12:06:55.826 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2018-02-02 12:06:55.844 [main] INFO  org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8080 (http)
+2018-02-02 12:06:55.862 [main] INFO  com.fengmangbilu.blog.BlogApplication - Started BlogApplication in 7.46 seconds (JVM running for 7.774)
+2018-02-02 12:06:59.136 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-02-02 12:06:59.137 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+2018-02-02 12:06:59.152 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 15 ms
+2018-02-02 12:06:59.414 [http-nio-8080-exec-1] INFO  p6spy - |12|statement|connection8|select blog0_.id as id1_0_, blog0_.created_date as created_2_0_, blog0_.last_modified_date as last_mod3_0_, blog0_.author as author4_0_, blog0_.content as content5_0_, blog0_.summary as summary6_0_, blog0_.title as title7_0_ from fengmangbilu_blog blog0_ order by blog0_.created_date asc limit 5
+2018-02-02 12:06:59.444 [http-nio-8080-exec-1] INFO  p6spy - |7|commit|connection8|
+2018-02-02 12:06:59.503 [http-nio-8080-exec-1] INFO  p6spy - |8|statement|connection8|select tag0_.id as id1_2_, tag0_.created_date as created_2_2_, tag0_.last_modified_date as last_mod3_2_, tag0_.name as name4_2_ from fengmangbilu_tag tag0_
+2018-02-02 12:06:59.513 [http-nio-8080-exec-1] INFO  p6spy - |7|commit|connection8|
+2018-02-02 12:06:59.556 [http-nio-8080-exec-1] INFO  p6spy - |9|statement|connection8|select blog0_.created_date as col_0_0_, count(*) as col_1_0_ from fengmangbilu_blog blog0_ group by date_format(blog0_.created_date, '%Y-%m-%d') order by blog0_.created_date asc
+2018-02-02 12:07:00.578 [http-nio-8080-exec-5] INFO  p6spy - |10|statement|connection8|select blog0_.id as id1_0_0_, blog0_.created_date as created_2_0_0_, blog0_.last_modified_date as last_mod3_0_0_, blog0_.author as author4_0_0_, blog0_.content as content5_0_0_, blog0_.summary as summary6_0_0_, blog0_.title as title7_0_0_ from fengmangbilu_blog blog0_ where blog0_.id=1
+2018-02-02 12:07:00.593 [http-nio-8080-exec-5] INFO  p6spy - |9|commit|connection8|
+2018-02-02 12:07:05.316 [http-nio-8080-exec-9] INFO  p6spy - |9|statement|connection8|select blog0_.id as id1_0_, blog0_.created_date as created_2_0_, blog0_.last_modified_date as last_mod3_0_, blog0_.author as author4_0_, blog0_.content as content5_0_, blog0_.summary as summary6_0_, blog0_.title as title7_0_ from fengmangbilu_blog blog0_ order by blog0_.created_date asc limit 5
+2018-02-02 12:07:05.325 [http-nio-8080-exec-9] INFO  p6spy - |7|commit|connection8|
+2018-02-02 12:07:05.379 [http-nio-8080-exec-9] INFO  p6spy - |6|statement|connection8|select tag0_.id as id1_2_, tag0_.created_date as created_2_2_, tag0_.last_modified_date as last_mod3_2_, tag0_.name as name4_2_ from fengmangbilu_tag tag0_
+2018-02-02 12:07:05.388 [http-nio-8080-exec-9] INFO  p6spy - |7|commit|connection8|
+2018-02-02 12:07:05.422 [http-nio-8080-exec-9] INFO  p6spy - |9|statement|connection8|select blog0_.created_date as col_0_0_, count(*) as col_1_0_ from fengmangbilu_blog blog0_ group by date_format(blog0_.created_date, '%Y-%m-%d') order by blog0_.created_date asc
+2018-02-02 12:07:05.986 [http-nio-8080-exec-2] INFO  p6spy - |10|statement|connection8|select blog0_.id as id1_0_0_, blog0_.created_date as created_2_0_0_, blog0_.last_modified_date as last_mod3_0_0_, blog0_.author as author4_0_0_, blog0_.content as content5_0_0_, blog0_.summary as summary6_0_0_, blog0_.title as title7_0_0_ from fengmangbilu_blog blog0_ where blog0_.id=1
+2018-02-02 12:07:05.998 [http-nio-8080-exec-2] INFO  p6spy - |10|commit|connection8|
+2018-02-02 12:07:55.390 [http-nio-8080-exec-10] INFO  p6spy - |8|statement|connection8|select blog0_.id as id1_0_0_, blog0_.created_date as created_2_0_0_, blog0_.last_modified_date as last_mod3_0_0_, blog0_.author as author4_0_0_, blog0_.content as content5_0_0_, blog0_.summary as summary6_0_0_, blog0_.title as title7_0_0_ from fengmangbilu_blog blog0_ where blog0_.id=1
+2018-02-02 12:07:55.399 [http-nio-8080-exec-10] INFO  p6spy - |7|commit|connection8|
+2018-02-02 12:07:57.847 [http-nio-8080-exec-9] INFO  p6spy - |9|statement|connection8|select blog0_.id as id1_0_, blog0_.created_date as created_2_0_, blog0_.last_modified_date as last_mod3_0_, blog0_.author as author4_0_, blog0_.content as content5_0_, blog0_.summary as summary6_0_, blog0_.title as title7_0_ from fengmangbilu_blog blog0_ order by blog0_.created_date asc limit 5
+2018-02-02 12:07:57.858 [http-nio-8080-exec-9] INFO  p6spy - |8|commit|connection8|
+2018-02-02 12:07:57.912 [http-nio-8080-exec-9] INFO  p6spy - |9|statement|connection8|select tag0_.id as id1_2_, tag0_.created_date as created_2_2_, tag0_.last_modified_date as last_mod3_2_, tag0_.name as name4_2_ from fengmangbilu_tag tag0_
+2018-02-02 12:07:57.921 [http-nio-8080-exec-9] INFO  p6spy - |7|commit|connection8|
+2018-02-02 12:07:57.957 [http-nio-8080-exec-9] INFO  p6spy - |7|statement|connection8|select blog0_.created_date as col_0_0_, count(*) as col_1_0_ from fengmangbilu_blog blog0_ group by date_format(blog0_.created_date, '%Y-%m-%d') order by blog0_.created_date asc
+2018-02-02 12:07:59.049 [http-nio-8080-exec-2] INFO  p6spy - |8|statement|connection8|select blog0_.id as id1_0_0_, blog0_.created_date as created_2_0_0_, blog0_.last_modified_date as last_mod3_0_0_, blog0_.author as author4_0_0_, blog0_.content as content5_0_0_, blog0_.summary as summary6_0_0_, blog0_.title as title7_0_0_ from fengmangbilu_blog blog0_ where blog0_.id=1
+2018-02-02 12:07:59.058 [http-nio-8080-exec-2] INFO  p6spy - |6|commit|connection8|
+2018-02-02 12:08:01.048 [http-nio-8080-exec-1] INFO  p6spy - |9|statement|connection8|select blog0_.id as id1_0_, blog0_.created_date as created_2_0_, blog0_.last_modified_date as last_mod3_0_, blog0_.author as author4_0_, blog0_.content as content5_0_, blog0_.summary as summary6_0_, blog0_.title as title7_0_ from fengmangbilu_blog blog0_ order by blog0_.created_date asc limit 5
+2018-02-02 12:08:01.058 [http-nio-8080-exec-1] INFO  p6spy - |7|commit|connection8|
+2018-02-02 12:08:01.111 [http-nio-8080-exec-1] INFO  p6spy - |9|statement|connection8|select tag0_.id as id1_2_, tag0_.created_date as created_2_2_, tag0_.last_modified_date as last_mod3_2_, tag0_.name as name4_2_ from fengmangbilu_tag tag0_
+2018-02-02 12:08:01.121 [http-nio-8080-exec-1] INFO  p6spy - |7|commit|connection8|
+2018-02-02 12:08:01.167 [http-nio-8080-exec-1] INFO  p6spy - |9|statement|connection8|select blog0_.created_date as col_0_0_, count(*) as col_1_0_ from fengmangbilu_blog blog0_ group by date_format(blog0_.created_date, '%Y-%m-%d') order by blog0_.created_date asc
+2018-02-02 12:08:02.049 [http-nio-8080-exec-4] INFO  p6spy - |9|statement|connection8|select blog0_.id as id1_0_0_, blog0_.created_date as created_2_0_0_, blog0_.last_modified_date as last_mod3_0_0_, blog0_.author as author4_0_0_, blog0_.content as content5_0_0_, blog0_.summary as summary6_0_0_, blog0_.title as title7_0_0_ from fengmangbilu_blog blog0_ where blog0_.id=1
+2018-02-02 12:08:02.060 [http-nio-8080-exec-4] INFO  p6spy - |7|commit|connection8|
+2018-02-02 12:08:03.319 [http-nio-8080-exec-8] INFO  p6spy - |9|statement|connection8|select blog0_.id as id1_0_, blog0_.created_date as created_2_0_, blog0_.last_modified_date as last_mod3_0_, blog0_.author as author4_0_, blog0_.content as content5_0_, blog0_.summary as summary6_0_, blog0_.title as title7_0_ from fengmangbilu_blog blog0_ order by blog0_.created_date asc limit 5
+2018-02-02 12:08:03.328 [http-nio-8080-exec-8] INFO  p6spy - |7|commit|connection8|
+2018-02-02 12:08:03.379 [http-nio-8080-exec-8] INFO  p6spy - |7|statement|connection8|select tag0_.id as id1_2_, tag0_.created_date as created_2_2_, tag0_.last_modified_date as last_mod3_2_, tag0_.name as name4_2_ from fengmangbilu_tag tag0_
+2018-02-02 12:08:03.390 [http-nio-8080-exec-8] INFO  p6spy - |7|commit|connection8|
+2018-02-02 12:08:03.426 [http-nio-8080-exec-8] INFO  p6spy - |8|statement|connection8|select blog0_.created_date as col_0_0_, count(*) as col_1_0_ from fengmangbilu_blog blog0_ group by date_format(blog0_.created_date, '%Y-%m-%d') order by blog0_.created_date asc
+2018-02-02 12:08:04.120 [http-nio-8080-exec-3] INFO  p6spy - |7|statement|connection8|select blog0_.id as id1_0_0_, blog0_.created_date as created_2_0_0_, blog0_.last_modified_date as last_mod3_0_0_, blog0_.author as author4_0_0_, blog0_.content as content5_0_0_, blog0_.summary as summary6_0_0_, blog0_.title as title7_0_0_ from fengmangbilu_blog blog0_ where blog0_.id=1
+2018-02-02 12:08:04.130 [http-nio-8080-exec-3] INFO  p6spy - |7|commit|connection8|
+2018-02-02 12:08:06.344 [http-nio-8080-exec-7] INFO  p6spy - |8|statement|connection8|select blog0_.id as id1_0_0_, blog0_.created_date as created_2_0_0_, blog0_.last_modified_date as last_mod3_0_0_, blog0_.author as author4_0_0_, blog0_.content as content5_0_0_, blog0_.summary as summary6_0_0_, blog0_.title as title7_0_0_ from fengmangbilu_blog blog0_ where blog0_.id=2
+2018-02-02 12:08:06.353 [http-nio-8080-exec-7] INFO  p6spy - |7|commit|connection8|
+2018-02-02 12:08:08.009 [http-nio-8080-exec-9] INFO  p6spy - |8|statement|connection8|select blog0_.id as id1_0_, blog0_.created_date as created_2_0_, blog0_.last_modified_date as last_mod3_0_, blog0_.author as author4_0_, blog0_.content as content5_0_, blog0_.summary as summary6_0_, blog0_.title as title7_0_ from fengmangbilu_blog blog0_ order by blog0_.created_date asc limit 5
+2018-02-02 12:08:08.017 [http-nio-8080-exec-9] INFO  p6spy - |6|commit|connection8|
+2018-02-02 12:08:08.067 [http-nio-8080-exec-9] INFO  p6spy - |7|statement|connection8|select tag0_.id as id1_2_, tag0_.created_date as created_2_2_, tag0_.last_modified_date as last_mod3_2_, tag0_.name as name4_2_ from fengmangbilu_tag tag0_
+2018-02-02 12:08:08.081 [http-nio-8080-exec-9] INFO  p6spy - |12|commit|connection8|
+2018-02-02 12:08:08.118 [http-nio-8080-exec-9] INFO  p6spy - |7|statement|connection8|select blog0_.created_date as col_0_0_, count(*) as col_1_0_ from fengmangbilu_blog blog0_ group by date_format(blog0_.created_date, '%Y-%m-%d') order by blog0_.created_date asc
+2018-02-02 12:20:18.009 [http-nio-8080-exec-8] INFO  p6spy - |8|statement|connection8|select blog0_.id as id1_0_, blog0_.created_date as created_2_0_, blog0_.last_modified_date as last_mod3_0_, blog0_.author as author4_0_, blog0_.content as content5_0_, blog0_.summary as summary6_0_, blog0_.title as title7_0_ from fengmangbilu_blog blog0_ order by blog0_.created_date asc limit 5
+2018-02-02 12:20:18.018 [http-nio-8080-exec-8] INFO  p6spy - |7|commit|connection8|
+2018-02-02 12:20:18.070 [http-nio-8080-exec-8] INFO  p6spy - |9|statement|connection8|select tag0_.id as id1_2_, tag0_.created_date as created_2_2_, tag0_.last_modified_date as last_mod3_2_, tag0_.name as name4_2_ from fengmangbilu_tag tag0_
+2018-02-02 12:20:18.080 [http-nio-8080-exec-8] INFO  p6spy - |7|commit|connection8|
+2018-02-02 12:20:18.113 [http-nio-8080-exec-8] INFO  p6spy - |8|statement|connection8|select blog0_.created_date as col_0_0_, count(*) as col_1_0_ from fengmangbilu_blog blog0_ group by date_format(blog0_.created_date, '%Y-%m-%d') order by blog0_.created_date asc
+2018-02-02 12:22:38.975 [http-nio-8080-exec-1] INFO  p6spy - |9|statement|connection8|select blog0_.id as id1_0_, blog0_.created_date as created_2_0_, blog0_.last_modified_date as last_mod3_0_, blog0_.author as author4_0_, blog0_.content as content5_0_, blog0_.summary as summary6_0_, blog0_.title as title7_0_ from fengmangbilu_blog blog0_ order by blog0_.created_date asc limit 5
+2018-02-02 12:22:38.985 [http-nio-8080-exec-1] INFO  p6spy - |7|commit|connection8|
+2018-02-02 12:22:41.246 [http-nio-8080-exec-1] INFO  p6spy - |9|statement|connection8|select tags0_.blog_id as blog_id1_1_0_, tags0_.tags_id as tags_id2_1_0_, tag1_.id as id1_2_1_, tag1_.created_date as created_2_2_1_, tag1_.last_modified_date as last_mod3_2_1_, tag1_.name as name4_2_1_ from fengmangbilu_blog_tags tags0_ inner join fengmangbilu_tag tag1_ on tags0_.tags_id=tag1_.id where tags0_.blog_id=1
+2018-02-02 12:23:22.642 [http-nio-8080-exec-1] INFO  p6spy - |9|statement|connection8|select tag0_.id as id1_2_, tag0_.created_date as created_2_2_, tag0_.last_modified_date as last_mod3_2_, tag0_.name as name4_2_ from fengmangbilu_tag tag0_
+2018-02-02 12:23:22.653 [http-nio-8080-exec-1] INFO  p6spy - |7|commit|connection8|
+2018-02-02 12:23:22.687 [http-nio-8080-exec-1] INFO  p6spy - |9|statement|connection8|select blog0_.created_date as col_0_0_, count(*) as col_1_0_ from fengmangbilu_blog blog0_ group by date_format(blog0_.created_date, '%Y-%m-%d') order by blog0_.created_date asc
+2018-02-02 13:33:46.767 [http-nio-8080-exec-4] INFO  p6spy - |9|statement|connection8|select blog0_.id as id1_0_0_, blog0_.created_date as created_2_0_0_, blog0_.last_modified_date as last_mod3_0_0_, blog0_.author as author4_0_0_, blog0_.content as content5_0_0_, blog0_.summary as summary6_0_0_, blog0_.title as title7_0_0_ from fengmangbilu_blog blog0_ where blog0_.id=1
+2018-02-02 13:33:46.775 [http-nio-8080-exec-4] INFO  p6spy - |6|commit|connection8|
+2018-02-02 13:37:22.009 [http-nio-8080-exec-4] INFO  p6spy - |9|statement|connection8|select blog0_.id as id1_0_0_, blog0_.created_date as created_2_0_0_, blog0_.last_modified_date as last_mod3_0_0_, blog0_.author as author4_0_0_, blog0_.content as content5_0_0_, blog0_.summary as summary6_0_0_, blog0_.title as title7_0_0_ from fengmangbilu_blog blog0_ where blog0_.id=1
+2018-02-02 13:37:22.018 [http-nio-8080-exec-4] INFO  p6spy - |7|commit|connection8|
+2018-02-02 14:28:29.512 [http-nio-8080-exec-10] INFO  p6spy - |8|statement|connection8|select blog0_.id as id1_0_, blog0_.created_date as created_2_0_, blog0_.last_modified_date as last_mod3_0_, blog0_.author as author4_0_, blog0_.content as content5_0_, blog0_.summary as summary6_0_, blog0_.title as title7_0_ from fengmangbilu_blog blog0_ order by blog0_.created_date asc limit 5
+2018-02-02 14:28:29.521 [http-nio-8080-exec-10] INFO  p6spy - |7|commit|connection8|
+2018-02-02 14:28:29.570 [http-nio-8080-exec-10] INFO  p6spy - |8|statement|connection8|select tag0_.id as id1_2_, tag0_.created_date as created_2_2_, tag0_.last_modified_date as last_mod3_2_, tag0_.name as name4_2_ from fengmangbilu_tag tag0_
+2018-02-02 14:28:29.579 [http-nio-8080-exec-10] INFO  p6spy - |7|commit|connection8|
+2018-02-02 14:28:29.612 [http-nio-8080-exec-10] INFO  p6spy - |8|statement|connection8|select blog0_.created_date as col_0_0_, count(*) as col_1_0_ from fengmangbilu_blog blog0_ group by date_format(blog0_.created_date, '%Y-%m-%d') order by blog0_.created_date asc
+2018-02-02 14:28:31.837 [http-nio-8080-exec-5] INFO  p6spy - |8|statement|connection8|select blog0_.id as id1_0_, blog0_.created_date as created_2_0_, blog0_.last_modified_date as last_mod3_0_, blog0_.author as author4_0_, blog0_.content as content5_0_, blog0_.summary as summary6_0_, blog0_.title as title7_0_ from fengmangbilu_blog blog0_ order by blog0_.created_date asc limit 5
+2018-02-02 14:28:31.846 [http-nio-8080-exec-5] INFO  p6spy - |7|commit|connection8|
+2018-02-02 14:28:31.896 [http-nio-8080-exec-5] INFO  p6spy - |8|statement|connection8|select tag0_.id as id1_2_, tag0_.created_date as created_2_2_, tag0_.last_modified_date as last_mod3_2_, tag0_.name as name4_2_ from fengmangbilu_tag tag0_
+2018-02-02 14:28:31.908 [http-nio-8080-exec-5] INFO  p6spy - |7|commit|connection8|
+2018-02-02 14:28:31.944 [http-nio-8080-exec-5] INFO  p6spy - |9|statement|connection8|select blog0_.created_date as col_0_0_, count(*) as col_1_0_ from fengmangbilu_blog blog0_ group by date_format(blog0_.created_date, '%Y-%m-%d') order by blog0_.created_date asc
+2018-02-02 14:28:32.673 [http-nio-8080-exec-4] INFO  p6spy - |8|statement|connection8|select blog0_.id as id1_0_, blog0_.created_date as created_2_0_, blog0_.last_modified_date as last_mod3_0_, blog0_.author as author4_0_, blog0_.content as content5_0_, blog0_.summary as summary6_0_, blog0_.title as title7_0_ from fengmangbilu_blog blog0_ order by blog0_.created_date asc limit 5
+2018-02-02 14:28:32.684 [http-nio-8080-exec-4] INFO  p6spy - |9|commit|connection8|
+2018-02-02 14:28:32.736 [http-nio-8080-exec-4] INFO  p6spy - |8|statement|connection8|select tag0_.id as id1_2_, tag0_.created_date as created_2_2_, tag0_.last_modified_date as last_mod3_2_, tag0_.name as name4_2_ from fengmangbilu_tag tag0_
+2018-02-02 14:28:32.746 [http-nio-8080-exec-4] INFO  p6spy - |7|commit|connection8|
+2018-02-02 14:28:32.780 [http-nio-8080-exec-4] INFO  p6spy - |8|statement|connection8|select blog0_.created_date as col_0_0_, count(*) as col_1_0_ from fengmangbilu_blog blog0_ group by date_format(blog0_.created_date, '%Y-%m-%d') order by blog0_.created_date asc
+2018-02-02 14:31:18.577 [http-nio-8080-exec-8] INFO  p6spy - |8|statement|connection8|select blog0_.id as id1_0_0_, blog0_.created_date as created_2_0_0_, blog0_.last_modified_date as last_mod3_0_0_, blog0_.author as author4_0_0_, blog0_.content as content5_0_0_, blog0_.summary as summary6_0_0_, blog0_.title as title7_0_0_ from fengmangbilu_blog blog0_ where blog0_.id=1
+2018-02-02 14:31:18.586 [http-nio-8080-exec-8] INFO  p6spy - |7|commit|connection8|
+2018-02-02 14:31:21.310 [http-nio-8080-exec-1] INFO  p6spy - |8|statement|connection8|select blog0_.id as id1_0_0_, blog0_.created_date as created_2_0_0_, blog0_.last_modified_date as last_mod3_0_0_, blog0_.author as author4_0_0_, blog0_.content as content5_0_0_, blog0_.summary as summary6_0_0_, blog0_.title as title7_0_0_ from fengmangbilu_blog blog0_ where blog0_.id=1
+2018-02-02 14:31:21.319 [http-nio-8080-exec-1] INFO  p6spy - |7|commit|connection8|
+2018-02-02 14:31:37.530 [http-nio-8080-exec-10] INFO  p6spy - |8|statement|connection8|select blog0_.id as id1_0_0_, blog0_.created_date as created_2_0_0_, blog0_.last_modified_date as last_mod3_0_0_, blog0_.author as author4_0_0_, blog0_.content as content5_0_0_, blog0_.summary as summary6_0_0_, blog0_.title as title7_0_0_ from fengmangbilu_blog blog0_ where blog0_.id=1
+2018-02-02 14:31:37.539 [http-nio-8080-exec-10] INFO  p6spy - |7|commit|connection8|
+2018-02-02 14:32:27.835 [http-nio-8080-exec-5] INFO  p6spy - |9|statement|connection8|select blog0_.id as id1_0_0_, blog0_.created_date as created_2_0_0_, blog0_.last_modified_date as last_mod3_0_0_, blog0_.author as author4_0_0_, blog0_.content as content5_0_0_, blog0_.summary as summary6_0_0_, blog0_.title as title7_0_0_ from fengmangbilu_blog blog0_ where blog0_.id=1
+2018-02-02 14:32:27.845 [http-nio-8080-exec-5] INFO  p6spy - |7|commit|connection8|
+2018-02-02 14:32:30.065 [http-nio-8080-exec-4] INFO  p6spy - |9|statement|connection8|select blog0_.id as id1_0_, blog0_.created_date as created_2_0_, blog0_.last_modified_date as last_mod3_0_, blog0_.author as author4_0_, blog0_.content as content5_0_, blog0_.summary as summary6_0_, blog0_.title as title7_0_ from fengmangbilu_blog blog0_ order by blog0_.created_date asc limit 5
+2018-02-02 14:32:30.074 [http-nio-8080-exec-4] INFO  p6spy - |7|commit|connection8|
+2018-02-02 14:32:30.122 [http-nio-8080-exec-4] INFO  p6spy - |8|statement|connection8|select tag0_.id as id1_2_, tag0_.created_date as created_2_2_, tag0_.last_modified_date as last_mod3_2_, tag0_.name as name4_2_ from fengmangbilu_tag tag0_
+2018-02-02 14:32:30.131 [http-nio-8080-exec-4] INFO  p6spy - |7|commit|connection8|
+2018-02-02 14:32:30.164 [http-nio-8080-exec-4] INFO  p6spy - |8|statement|connection8|select blog0_.created_date as col_0_0_, count(*) as col_1_0_ from fengmangbilu_blog blog0_ group by date_format(blog0_.created_date, '%Y-%m-%d') order by blog0_.created_date asc
+2018-02-02 14:32:41.759 [http-nio-8080-exec-1] INFO  p6spy - |9|statement|connection8|select blog0_.id as id1_0_0_, blog0_.created_date as created_2_0_0_, blog0_.last_modified_date as last_mod3_0_0_, blog0_.author as author4_0_0_, blog0_.content as content5_0_0_, blog0_.summary as summary6_0_0_, blog0_.title as title7_0_0_ from fengmangbilu_blog blog0_ where blog0_.id=1
+2018-02-02 14:32:41.769 [http-nio-8080-exec-1] INFO  p6spy - |7|commit|connection8|

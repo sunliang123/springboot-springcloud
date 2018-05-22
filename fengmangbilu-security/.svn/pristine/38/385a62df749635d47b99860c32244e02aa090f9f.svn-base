@@ -1,0 +1,5 @@
+package com.fengmangbilu.security.exceptions;
+
+public class TokenExceptionJackson2Deserializer {
+
+}

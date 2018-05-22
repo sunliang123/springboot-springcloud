@@ -1,0 +1,30 @@
+package com.fengmangbilu.microservice.user.endpoints;
+
+import org.hibernate.validator.constraints.NotBlank;
+
+import com.fengmangbilu.microservice.user.exceptions.UserErrorMessage;
+
+public class LoginRequest {
+
+	@NotBlank(message = UserErrorMessage.ERR_ACCOUNT_IS_BLANK)
+	private String username;
+
+	@NotBlank(message = UserErrorMessage.ERR_PASSWORD_IS_BLANK)
+	private String password;
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+}

@@ -1,0 +1,182 @@
+package com.fengmangbilu.microservice.credit.entities;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fengmangbilu.domain.SimpleEntity;
+
+@Entity
+@JsonIgnoreProperties({"id", "riskInfo"})
+@Table(name = "fengmangbilu_risk_wdyqs_info")
+public class RiskWdyqsInfo extends SimpleEntity {
+
+	@Column(length = 50)
+	private String bt;
+
+	@Column(length = 10)
+	private String xm;
+
+	@Column(length = 50)
+	private String zfzh;
+
+	@Column(length = 50)
+	private String jzdh;
+
+	@Column(length = 50)
+	private String jgdz;
+
+	@Column(length = 50)
+	private String bjbx;
+
+	@Column(length = 50)
+	private String dksj;
+
+	@Column(length = 50)
+	private String yhje;
+
+	@Column(length = 50)
+	private String whfx;
+
+	@Column(length = 50)
+	private String hkzt;
+
+	@Column(length = 50)
+	private String gxsj;
+
+	@Column(length = 50)
+	private String sjlydwmc;
+
+	@Column(length = 15000)
+	private String photo;
+
+	@Column(length = 10)
+	private String photoType;
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	private RiskInfo riskInfo;
+
+	public String getBt() {
+		return bt;
+	}
+
+	public void setBt(String bt) {
+		this.bt = bt;
+	}
+
+	public String getXm() {
+		return xm;
+	}
+
+	public void setXm(String xm) {
+		this.xm = xm;
+	}
+
+	public String getZfzh() {
+		return zfzh;
+	}
+
+	public void setZfzh(String zfzh) {
+		this.zfzh = zfzh;
+	}
+
+	public String getJzdh() {
+		return jzdh;
+	}
+
+	public void setJzdh(String jzdh) {
+		this.jzdh = jzdh;
+	}
+
+	public String getJgdz() {
+		return jgdz;
+	}
+
+	public void setJgdz(String jgdz) {
+		this.jgdz = jgdz;
+	}
+
+	public String getBjbx() {
+		return bjbx;
+	}
+
+	public void setBjbx(String bjbx) {
+		this.bjbx = bjbx;
+	}
+
+	public String getDksj() {
+		return dksj;
+	}
+
+	public void setDksj(String dksj) {
+		this.dksj = dksj;
+	}
+
+	public String getYhje() {
+		return yhje;
+	}
+
+	public void setYhje(String yhje) {
+		this.yhje = yhje;
+	}
+
+	public String getWhfx() {
+		return whfx;
+	}
+
+	public void setWhfx(String whfx) {
+		this.whfx = whfx;
+	}
+
+	public String getHkzt() {
+		return hkzt;
+	}
+
+	public void setHkzt(String hkzt) {
+		this.hkzt = hkzt;
+	}
+
+	public String getGxsj() {
+		return gxsj;
+	}
+
+	public void setGxsj(String gxsj) {
+		this.gxsj = gxsj;
+	}
+
+	public String getSjlydwmc() {
+		return sjlydwmc;
+	}
+
+	public void setSjlydwmc(String sjlydwmc) {
+		this.sjlydwmc = sjlydwmc;
+	}
+
+	public String getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(String photo) {
+		this.photo = photo;
+	}
+
+	public String getPhotoType() {
+		return photoType;
+	}
+
+	public void setPhotoType(String photoType) {
+		this.photoType = photoType;
+	}
+
+	public RiskInfo getRiskInfo() {
+		return riskInfo;
+	}
+
+	public void setRiskInfo(RiskInfo riskInfo) {
+		this.riskInfo = riskInfo;
+	}
+
+}

@@ -1,0 +1,38 @@
+package com.fengmangbilu.microservice.user.endpoints;
+
+import com.fengmangbilu.microservice.user.constraints.UserRequestConstraint;
+
+@UserRequestConstraint
+public class UserRequest {
+
+	private String mobile;
+
+	private String password;
+
+	private String smsCode;
+
+	public String getSmsCode() {
+		return smsCode;
+	}
+
+	public void setSmsCode(String smsCode) {
+		this.smsCode = smsCode;
+	}
+
+	public String getMobile() {
+		return mobile;
+	}
+
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+}

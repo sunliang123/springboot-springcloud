@@ -1,0 +1,29 @@
+package com.fengmangbilu.security.config;
+
+import org.springframework.boot.context.properties.ConfigurationProperties;
+
+@ConfigurationProperties(prefix = "security")
+public class TokenSecurityProperties {
+	
+	/** 加密key值 **/
+	public String signingKey = "fengmangbilu2017";
+
+	/** 忽略认证的地址 **/
+	private String[] ignoredUrls = new String[] {};
+
+	public String[] getIgnoredUrls() {
+		return ignoredUrls;
+	}
+
+	public void setIgnoredUrls(String[] ignoredUrls) {
+		this.ignoredUrls = ignoredUrls;
+	}
+
+	public String getSigningKey() {
+		return signingKey;
+	}
+
+	public void setSigningKey(String signingKey) {
+		this.signingKey = signingKey;
+	}
+}

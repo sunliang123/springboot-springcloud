@@ -1,0 +1,33 @@
+package com.fengmangbilu.common.validator;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import javax.validation.ConstraintValidator;
+import javax.validation.ConstraintValidatorContext;
+
+import com.fengmangbilu.common.validator.constraints.Mobile;
+
+public class MobileValidator implements ConstraintValidator<Mobile, CharSequence> {
+
+    private final Pattern localPattern = Pattern.compile("^((13[0-9])|(15[^4,\\D])|(17[0-9])|(18[0-9]))\\d{8}$");
+
+    @Override
+    public void initialize(Mobile constraintAnnotation) {
+
+    }
+
+    @Override
+    public boolean isValid(CharSequence value, ConstraintValidatorContext context) {
+
+        if (value == null || value.length() == 0) {
+            return true;
+        }
+        return match(value.toString());
+    }
+
+    private boolean match(String mobile) {
+        Matcher m = localPattern.matcher(mobile);
+        return m.matches();
+    }
+}

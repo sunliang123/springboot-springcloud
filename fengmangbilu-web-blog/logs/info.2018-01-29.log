@@ -1,0 +1,262 @@
+2018-01-29 17:38:27.836 [main] INFO  com.fengmangbilu.blog.BlogApplication - Starting BlogApplication on Zx-PC with PID 16404 (E:\workspace\fengmangbilu-web-blog\target\classes started by Zx in E:\workspace\fengmangbilu-web-blog)
+2018-01-29 17:38:27.839 [main] INFO  com.fengmangbilu.blog.BlogApplication - No active profile set, falling back to default profiles: default
+2018-01-29 17:38:28.103 [main] INFO  org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@38ba6ce3: startup date [Mon Jan 29 17:38:28 CST 2018]; root of context hierarchy
+2018-01-29 17:38:28.266 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.3.6.Final
+2018-01-29 17:38:29.413 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-01-29 17:38:29.662 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-01-29 17:38:30.053 [main] INFO  org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-01-29 17:38:30.419 [main] INFO  org.hibernate.validator.internal.xml.ValidationXmlParser - HV000007: META-INF/validation.xml found. Parsing XML based configuration.
+2018-01-29 17:38:30.528 [main] INFO  org.hibernate.validator.internal.xml.ValidationBootstrapParameters - HV000004: Using com.fengmangbilu.validator.i18n.ValidationMessageInterpolator as message interpolator.
+2018-01-29 17:38:30.529 [main] INFO  org.hibernate.validator.internal.xml.ValidationBootstrapParameters - HV000119: Using com.fengmangbilu.validator.provider.ReportOnParameterNameProvider as parameter name provider.
+2018-01-29 17:38:31.200 [main] INFO  org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http)
+2018-01-29 17:38:31.216 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2018-01-29 17:38:31.218 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-01-29 17:38:31.367 [localhost-startStop-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2018-01-29 17:38:31.367 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 3264 ms
+2018-01-29 17:38:31.527 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+2018-01-29 17:38:31.532 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-01-29 17:38:31.539 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-01-29 17:38:31.539 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-01-29 17:38:31.540 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2018-01-29 17:38:31.993 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-01-29 17:38:32.140 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-01-29 17:38:32.267 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.0.12.Final}
+2018-01-29 17:38:32.268 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2018-01-29 17:38:32.271 [main] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+2018-01-29 17:38:32.335 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-01-29 17:38:33.871 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-01-29 17:38:34.187 [main] INFO  org.hibernate.tool.hbm2ddl.SchemaUpdate - HHH000228: Running hbm2ddl schema update
+2018-01-29 17:38:34.237 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-01-29 17:38:34.715 [main] INFO  org.hibernate.validator.internal.xml.ValidationXmlParser - HV000007: META-INF/validation.xml found. Parsing XML based configuration.
+2018-01-29 17:38:34.725 [main] INFO  org.hibernate.validator.internal.xml.ValidationBootstrapParameters - HV000004: Using com.fengmangbilu.validator.i18n.ValidationMessageInterpolator as message interpolator.
+2018-01-29 17:38:34.726 [main] INFO  org.hibernate.validator.internal.xml.ValidationBootstrapParameters - HV000119: Using com.fengmangbilu.validator.provider.ReportOnParameterNameProvider as parameter name provider.
+2018-01-29 17:38:35.007 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@38ba6ce3: startup date [Mon Jan 29 17:38:28 CST 2018]; root of context hierarchy
+2018-01-29 17:38:35.014 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Detected ResponseBodyAdvice bean in jsonFilterResponseBodyAdvice
+2018-01-29 17:38:35.112 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[],methods=[GET]}" onto public java.lang.String com.fengmangbilu.blog.controllers.IndexController.index()
+2018-01-29 17:38:35.115 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.fengmangbilu.web.DefaultExceptionHandler.error(javax.servlet.http.HttpServletRequest)
+2018-01-29 17:38:35.158 [main] INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-01-29 17:38:35.158 [main] INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-01-29 17:38:35.180 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Detected ResponseBodyAdvice implementation in jsonFilterResponseBodyAdvice
+2018-01-29 17:38:35.181 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Detected @ExceptionHandler methods in defaultErrorController
+2018-01-29 17:38:35.611 [main] INFO  org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer - ClassTemplateLoader for Spring macros added to FreeMarker configuration
+2018-01-29 17:38:35.938 [main] INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2018-01-29 17:38:35.970 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2018-01-29 17:38:35.991 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2018-01-29 17:38:36.009 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2018-01-29 17:38:36.036 [main] INFO  org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8080 (http)
+2018-01-29 17:38:36.041 [main] INFO  com.fengmangbilu.blog.BlogApplication - Started BlogApplication in 8.814 seconds (JVM running for 9.545)
+2018-01-29 17:38:51.560 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-01-29 17:38:51.560 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+2018-01-29 17:38:51.573 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 13 ms
+2018-01-29 17:48:08.624 [main] INFO  com.fengmangbilu.blog.BlogApplication - Starting BlogApplication on Zx-PC with PID 10424 (E:\workspace\fengmangbilu-web-blog\target\classes started by Zx in E:\workspace\fengmangbilu-web-blog)
+2018-01-29 17:48:08.628 [main] INFO  com.fengmangbilu.blog.BlogApplication - No active profile set, falling back to default profiles: default
+2018-01-29 17:48:08.700 [main] INFO  org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2d6c53fc: startup date [Mon Jan 29 17:48:08 CST 2018]; root of context hierarchy
+2018-01-29 17:48:08.890 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.3.6.Final
+2018-01-29 17:48:09.593 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-01-29 17:48:09.739 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-01-29 17:48:10.040 [main] INFO  org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-01-29 17:48:10.352 [main] INFO  org.hibernate.validator.internal.xml.ValidationXmlParser - HV000007: META-INF/validation.xml found. Parsing XML based configuration.
+2018-01-29 17:48:10.446 [main] INFO  org.hibernate.validator.internal.xml.ValidationBootstrapParameters - HV000004: Using com.fengmangbilu.validator.i18n.ValidationMessageInterpolator as message interpolator.
+2018-01-29 17:48:10.447 [main] INFO  org.hibernate.validator.internal.xml.ValidationBootstrapParameters - HV000119: Using com.fengmangbilu.validator.provider.ReportOnParameterNameProvider as parameter name provider.
+2018-01-29 17:48:10.978 [main] INFO  org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http)
+2018-01-29 17:48:10.993 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2018-01-29 17:48:10.994 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-01-29 17:48:11.133 [localhost-startStop-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2018-01-29 17:48:11.134 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2434 ms
+2018-01-29 17:48:11.310 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+2018-01-29 17:48:11.315 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-01-29 17:48:11.322 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-01-29 17:48:11.323 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-01-29 17:48:11.323 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2018-01-29 17:48:11.677 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-01-29 17:48:11.835 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-01-29 17:48:11.940 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.0.12.Final}
+2018-01-29 17:48:11.942 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2018-01-29 17:48:11.944 [main] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+2018-01-29 17:48:12.030 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-01-29 17:48:13.350 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-01-29 17:48:13.682 [main] INFO  org.hibernate.tool.hbm2ddl.SchemaUpdate - HHH000228: Running hbm2ddl schema update
+2018-01-29 17:48:13.731 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-01-29 17:48:14.107 [main] INFO  org.hibernate.validator.internal.xml.ValidationXmlParser - HV000007: META-INF/validation.xml found. Parsing XML based configuration.
+2018-01-29 17:48:14.116 [main] INFO  org.hibernate.validator.internal.xml.ValidationBootstrapParameters - HV000004: Using com.fengmangbilu.validator.i18n.ValidationMessageInterpolator as message interpolator.
+2018-01-29 17:48:14.116 [main] INFO  org.hibernate.validator.internal.xml.ValidationBootstrapParameters - HV000119: Using com.fengmangbilu.validator.provider.ReportOnParameterNameProvider as parameter name provider.
+2018-01-29 17:48:14.334 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2d6c53fc: startup date [Mon Jan 29 17:48:08 CST 2018]; root of context hierarchy
+2018-01-29 17:48:14.345 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Detected ResponseBodyAdvice bean in jsonFilterResponseBodyAdvice
+2018-01-29 17:48:14.432 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[],methods=[GET]}" onto public java.lang.String com.fengmangbilu.blog.controllers.IndexController.index()
+2018-01-29 17:48:14.434 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.fengmangbilu.web.DefaultExceptionHandler.error(javax.servlet.http.HttpServletRequest)
+2018-01-29 17:48:14.475 [main] INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-01-29 17:48:14.475 [main] INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-01-29 17:48:14.510 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Detected ResponseBodyAdvice implementation in jsonFilterResponseBodyAdvice
+2018-01-29 17:48:14.510 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Detected @ExceptionHandler methods in defaultErrorController
+2018-01-29 17:48:14.886 [main] INFO  org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer - ClassTemplateLoader for Spring macros added to FreeMarker configuration
+2018-01-29 17:48:15.172 [main] INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2018-01-29 17:48:15.191 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2018-01-29 17:48:15.204 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2018-01-29 17:48:15.221 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2018-01-29 17:48:15.242 [main] INFO  org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8080 (http)
+2018-01-29 17:48:15.247 [main] INFO  com.fengmangbilu.blog.BlogApplication - Started BlogApplication in 7.083 seconds (JVM running for 7.625)
+2018-01-29 17:48:50.143 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-01-29 17:48:50.144 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+2018-01-29 17:48:50.157 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 13 ms
+2018-01-29 18:13:04.241 [main] INFO  com.fengmangbilu.blog.BlogApplication - Starting BlogApplication on Zx-PC with PID 19620 (E:\workspace\fengmangbilu-web-blog\target\classes started by Zx in E:\workspace\fengmangbilu-web-blog)
+2018-01-29 18:13:04.245 [main] INFO  com.fengmangbilu.blog.BlogApplication - No active profile set, falling back to default profiles: default
+2018-01-29 18:13:04.297 [main] INFO  org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2d6c53fc: startup date [Mon Jan 29 18:13:04 CST 2018]; root of context hierarchy
+2018-01-29 18:13:04.507 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.3.6.Final
+2018-01-29 18:13:04.997 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-01-29 18:13:05.133 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-01-29 18:13:05.420 [main] INFO  org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-01-29 18:13:05.693 [main] INFO  org.hibernate.validator.internal.xml.ValidationXmlParser - HV000007: META-INF/validation.xml found. Parsing XML based configuration.
+2018-01-29 18:13:05.761 [main] INFO  org.hibernate.validator.internal.xml.ValidationBootstrapParameters - HV000004: Using com.fengmangbilu.validator.i18n.ValidationMessageInterpolator as message interpolator.
+2018-01-29 18:13:05.762 [main] INFO  org.hibernate.validator.internal.xml.ValidationBootstrapParameters - HV000119: Using com.fengmangbilu.validator.provider.ReportOnParameterNameProvider as parameter name provider.
+2018-01-29 18:13:06.207 [main] INFO  org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http)
+2018-01-29 18:13:06.219 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2018-01-29 18:13:06.221 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-01-29 18:13:06.332 [localhost-startStop-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2018-01-29 18:13:06.333 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2036 ms
+2018-01-29 18:13:06.511 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+2018-01-29 18:13:06.517 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-01-29 18:13:06.517 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-01-29 18:13:06.518 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-01-29 18:13:06.518 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2018-01-29 18:13:06.875 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-01-29 18:13:06.977 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-01-29 18:13:07.053 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.0.12.Final}
+2018-01-29 18:13:07.055 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2018-01-29 18:13:07.057 [main] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+2018-01-29 18:13:07.102 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-01-29 18:13:08.343 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-01-29 18:13:08.579 [main] INFO  org.hibernate.tool.hbm2ddl.SchemaUpdate - HHH000228: Running hbm2ddl schema update
+2018-01-29 18:13:08.629 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-01-29 18:13:09.077 [main] INFO  org.hibernate.validator.internal.xml.ValidationXmlParser - HV000007: META-INF/validation.xml found. Parsing XML based configuration.
+2018-01-29 18:13:09.085 [main] INFO  org.hibernate.validator.internal.xml.ValidationBootstrapParameters - HV000004: Using com.fengmangbilu.validator.i18n.ValidationMessageInterpolator as message interpolator.
+2018-01-29 18:13:09.086 [main] INFO  org.hibernate.validator.internal.xml.ValidationBootstrapParameters - HV000119: Using com.fengmangbilu.validator.provider.ReportOnParameterNameProvider as parameter name provider.
+2018-01-29 18:13:09.270 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2d6c53fc: startup date [Mon Jan 29 18:13:04 CST 2018]; root of context hierarchy
+2018-01-29 18:13:09.278 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Detected ResponseBodyAdvice bean in jsonFilterResponseBodyAdvice
+2018-01-29 18:13:09.280 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Detected @ModelAttribute methods in resourceUrlController
+2018-01-29 18:13:09.389 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[],methods=[GET]}" onto public java.lang.String com.fengmangbilu.blog.controllers.IndexController.index()
+2018-01-29 18:13:09.391 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.fengmangbilu.web.DefaultExceptionHandler.error(javax.servlet.http.HttpServletRequest)
+2018-01-29 18:13:09.426 [main] INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-01-29 18:13:09.426 [main] INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-01-29 18:13:09.442 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Detected ResponseBodyAdvice implementation in jsonFilterResponseBodyAdvice
+2018-01-29 18:13:09.443 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Detected @ExceptionHandler methods in defaultErrorController
+2018-01-29 18:13:09.853 [main] INFO  org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer - ClassTemplateLoader for Spring macros added to FreeMarker configuration
+2018-01-29 18:13:10.141 [main] INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2018-01-29 18:13:10.157 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2018-01-29 18:13:10.171 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2018-01-29 18:13:10.181 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2018-01-29 18:13:10.203 [main] INFO  org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8080 (http)
+2018-01-29 18:13:10.208 [main] INFO  com.fengmangbilu.blog.BlogApplication - Started BlogApplication in 6.352 seconds (JVM running for 6.703)
+2018-01-29 18:13:29.699 [main] INFO  com.fengmangbilu.blog.BlogApplication - Starting BlogApplication on Zx-PC with PID 15412 (E:\workspace\fengmangbilu-web-blog\target\classes started by Zx in E:\workspace\fengmangbilu-web-blog)
+2018-01-29 18:13:29.703 [main] INFO  com.fengmangbilu.blog.BlogApplication - No active profile set, falling back to default profiles: default
+2018-01-29 18:13:29.759 [main] INFO  org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2d6c53fc: startup date [Mon Jan 29 18:13:29 CST 2018]; root of context hierarchy
+2018-01-29 18:13:29.948 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.3.6.Final
+2018-01-29 18:13:30.401 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-01-29 18:13:30.535 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-01-29 18:13:30.803 [main] INFO  org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-01-29 18:13:31.071 [main] INFO  org.hibernate.validator.internal.xml.ValidationXmlParser - HV000007: META-INF/validation.xml found. Parsing XML based configuration.
+2018-01-29 18:13:31.143 [main] INFO  org.hibernate.validator.internal.xml.ValidationBootstrapParameters - HV000004: Using com.fengmangbilu.validator.i18n.ValidationMessageInterpolator as message interpolator.
+2018-01-29 18:13:31.144 [main] INFO  org.hibernate.validator.internal.xml.ValidationBootstrapParameters - HV000119: Using com.fengmangbilu.validator.provider.ReportOnParameterNameProvider as parameter name provider.
+2018-01-29 18:13:31.594 [main] INFO  org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http)
+2018-01-29 18:13:31.609 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2018-01-29 18:13:31.611 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-01-29 18:13:31.719 [localhost-startStop-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2018-01-29 18:13:31.719 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1960 ms
+2018-01-29 18:13:31.926 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+2018-01-29 18:13:31.931 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-01-29 18:13:31.932 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-01-29 18:13:31.932 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-01-29 18:13:31.932 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2018-01-29 18:13:31.932 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'resourceUrlEncodingFilter' to: [/*]
+2018-01-29 18:13:32.242 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-01-29 18:13:32.353 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-01-29 18:13:32.413 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.0.12.Final}
+2018-01-29 18:13:32.416 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2018-01-29 18:13:32.418 [main] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+2018-01-29 18:13:32.460 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-01-29 18:13:33.714 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-01-29 18:13:33.932 [main] INFO  org.hibernate.tool.hbm2ddl.SchemaUpdate - HHH000228: Running hbm2ddl schema update
+2018-01-29 18:13:33.981 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-01-29 18:13:34.421 [main] INFO  org.hibernate.validator.internal.xml.ValidationXmlParser - HV000007: META-INF/validation.xml found. Parsing XML based configuration.
+2018-01-29 18:13:34.428 [main] INFO  org.hibernate.validator.internal.xml.ValidationBootstrapParameters - HV000004: Using com.fengmangbilu.validator.i18n.ValidationMessageInterpolator as message interpolator.
+2018-01-29 18:13:34.429 [main] INFO  org.hibernate.validator.internal.xml.ValidationBootstrapParameters - HV000119: Using com.fengmangbilu.validator.provider.ReportOnParameterNameProvider as parameter name provider.
+2018-01-29 18:13:34.584 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2d6c53fc: startup date [Mon Jan 29 18:13:29 CST 2018]; root of context hierarchy
+2018-01-29 18:13:34.593 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Detected ResponseBodyAdvice bean in jsonFilterResponseBodyAdvice
+2018-01-29 18:13:34.596 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Detected @ModelAttribute methods in resourceUrlController
+2018-01-29 18:13:34.691 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[],methods=[GET]}" onto public java.lang.String com.fengmangbilu.blog.controllers.IndexController.index()
+2018-01-29 18:13:34.693 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.fengmangbilu.web.DefaultExceptionHandler.error(javax.servlet.http.HttpServletRequest)
+2018-01-29 18:13:34.781 [main] INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-01-29 18:13:34.781 [main] INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-01-29 18:13:34.802 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Detected ResponseBodyAdvice implementation in jsonFilterResponseBodyAdvice
+2018-01-29 18:13:34.802 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Detected @ExceptionHandler methods in defaultErrorController
+2018-01-29 18:13:35.162 [main] INFO  org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer - ClassTemplateLoader for Spring macros added to FreeMarker configuration
+2018-01-29 18:13:35.450 [main] INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2018-01-29 18:13:35.467 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2018-01-29 18:13:35.478 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2018-01-29 18:13:35.486 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2018-01-29 18:13:35.508 [main] INFO  org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8080 (http)
+2018-01-29 18:13:35.512 [main] INFO  com.fengmangbilu.blog.BlogApplication - Started BlogApplication in 6.194 seconds (JVM running for 6.531)
+2018-01-29 18:13:40.646 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-01-29 18:13:40.646 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+2018-01-29 18:13:40.661 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 15 ms
+2018-01-29 18:19:19.057 [main] INFO  com.fengmangbilu.blog.BlogApplication - Starting BlogApplication on Zx-PC with PID 10892 (E:\workspace\fengmangbilu-web-blog\target\classes started by Zx in E:\workspace\fengmangbilu-web-blog)
+2018-01-29 18:19:19.063 [main] INFO  com.fengmangbilu.blog.BlogApplication - No active profile set, falling back to default profiles: default
+2018-01-29 18:19:19.114 [main] INFO  org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2d6c53fc: startup date [Mon Jan 29 18:19:19 CST 2018]; root of context hierarchy
+2018-01-29 18:19:19.291 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.3.6.Final
+2018-01-29 18:19:19.733 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-01-29 18:19:19.879 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-01-29 18:19:20.182 [main] INFO  org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2018-01-29 18:19:20.459 [main] INFO  org.hibernate.validator.internal.xml.ValidationXmlParser - HV000007: META-INF/validation.xml found. Parsing XML based configuration.
+2018-01-29 18:19:20.526 [main] INFO  org.hibernate.validator.internal.xml.ValidationBootstrapParameters - HV000004: Using com.fengmangbilu.validator.i18n.ValidationMessageInterpolator as message interpolator.
+2018-01-29 18:19:20.528 [main] INFO  org.hibernate.validator.internal.xml.ValidationBootstrapParameters - HV000119: Using com.fengmangbilu.validator.provider.ReportOnParameterNameProvider as parameter name provider.
+2018-01-29 18:19:21.016 [main] INFO  org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 8080 (http)
+2018-01-29 18:19:21.031 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2018-01-29 18:19:21.032 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.23
+2018-01-29 18:19:21.146 [localhost-startStop-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2018-01-29 18:19:21.146 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2033 ms
+2018-01-29 18:19:21.365 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+2018-01-29 18:19:21.371 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-01-29 18:19:21.372 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-01-29 18:19:21.372 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-01-29 18:19:21.372 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2018-01-29 18:19:21.373 [localhost-startStop-1] INFO  org.springframework.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'resourceUrlEncodingFilter' to: [/*]
+2018-01-29 18:19:21.735 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Building JPA container EntityManagerFactory for persistence unit 'default'
+2018-01-29 18:19:21.869 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-01-29 18:19:21.927 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.0.12.Final}
+2018-01-29 18:19:21.929 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+2018-01-29 18:19:21.930 [main] INFO  org.hibernate.cfg.Environment - HHH000021: Bytecode provider name : javassist
+2018-01-29 18:19:21.965 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-01-29 18:19:23.219 [main] INFO  org.hibernate.dialect.Dialect - HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+2018-01-29 18:19:23.430 [main] INFO  org.hibernate.tool.hbm2ddl.SchemaUpdate - HHH000228: Running hbm2ddl schema update
+2018-01-29 18:19:23.482 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-01-29 18:19:23.922 [main] INFO  org.hibernate.validator.internal.xml.ValidationXmlParser - HV000007: META-INF/validation.xml found. Parsing XML based configuration.
+2018-01-29 18:19:23.930 [main] INFO  org.hibernate.validator.internal.xml.ValidationBootstrapParameters - HV000004: Using com.fengmangbilu.validator.i18n.ValidationMessageInterpolator as message interpolator.
+2018-01-29 18:19:23.930 [main] INFO  org.hibernate.validator.internal.xml.ValidationBootstrapParameters - HV000119: Using com.fengmangbilu.validator.provider.ReportOnParameterNameProvider as parameter name provider.
+2018-01-29 18:19:24.093 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@2d6c53fc: startup date [Mon Jan 29 18:19:19 CST 2018]; root of context hierarchy
+2018-01-29 18:19:24.100 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Detected ResponseBodyAdvice bean in jsonFilterResponseBodyAdvice
+2018-01-29 18:19:24.103 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter - Detected @ModelAttribute methods in resourceUrlController
+2018-01-29 18:19:24.180 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[],methods=[GET]}" onto public java.lang.String com.fengmangbilu.blog.controllers.IndexController.index()
+2018-01-29 18:19:24.183 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.lang.Object> com.fengmangbilu.web.DefaultExceptionHandler.error(javax.servlet.http.HttpServletRequest)
+2018-01-29 18:19:24.259 [main] INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-01-29 18:19:24.259 [main] INFO  org.springframework.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2018-01-29 18:19:24.282 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Detected ResponseBodyAdvice implementation in jsonFilterResponseBodyAdvice
+2018-01-29 18:19:24.283 [main] INFO  org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Detected @ExceptionHandler methods in defaultErrorController
+2018-01-29 18:19:24.615 [main] INFO  org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer - ClassTemplateLoader for Spring macros added to FreeMarker configuration
+2018-01-29 18:19:24.899 [main] INFO  org.springframework.jmx.export.annotation.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2018-01-29 18:19:24.913 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2018-01-29 18:19:24.926 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2018-01-29 18:19:24.939 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2018-01-29 18:19:24.957 [main] INFO  org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer - Tomcat started on port(s): 8080 (http)
+2018-01-29 18:19:24.962 [main] INFO  com.fengmangbilu.blog.BlogApplication - Started BlogApplication in 6.303 seconds (JVM running for 6.647)
+2018-01-29 18:19:34.211 [http-nio-8080-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-01-29 18:19:34.212 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+2018-01-29 18:19:34.232 [http-nio-8080-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 20 ms

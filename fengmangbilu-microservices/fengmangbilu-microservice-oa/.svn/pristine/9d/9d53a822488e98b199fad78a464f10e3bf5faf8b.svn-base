@@ -1,0 +1,32 @@
+package com.fengmangbilu.microservice.credit.exceptions;
+
+import com.fengmangbilu.microservice.credit.enums.ErrorCode;
+
+public class CreditException extends Exception {
+
+	private static final long serialVersionUID = 9181535536991096192L;
+
+	private final ErrorCode code;
+
+	public CreditException(ErrorCode code) {
+		super();
+		this.code = code;
+	}
+
+	public CreditException(String message, ErrorCode code) {
+		super(message);
+		this.code = code;
+	}
+
+	public ErrorCode getCode() {
+		return this.code;
+	}
+
+	public static CreditException error(ErrorCode code) {
+		return new CreditException(code);
+	}
+
+	public static CreditException error(String message, ErrorCode code) {
+		return new CreditException(message, code);
+	}
+}

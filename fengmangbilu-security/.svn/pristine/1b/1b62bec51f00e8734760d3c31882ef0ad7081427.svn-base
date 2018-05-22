@@ -1,0 +1,15 @@
+package com.fengmangbilu.security;
+
+/**
+ * 刷新令牌
+ * @author Justice
+ */
+public interface RefreshToken {
+	
+	/**
+	 * 获取刷新令牌的值
+	 * @return
+	 */
+	String getValue();
+	
+}

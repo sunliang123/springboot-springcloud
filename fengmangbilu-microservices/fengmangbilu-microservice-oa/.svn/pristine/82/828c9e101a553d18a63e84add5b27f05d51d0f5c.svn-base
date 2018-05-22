@@ -1,0 +1,40 @@
+package com.fengmangbilu.microservice.oa.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
+
+import com.fengmangbilu.microservice.oa.entities.ReportInfo;
+import com.fengmangbilu.microservice.oa.entities.ReportPushInfo;
+import com.fengmangbilu.microservice.oa.repositories.ReportPushInfoRepository;
+import com.fengmangbilu.service.DefaultJpaServiceImpl;
+
+@Service
+public class ReportPushInfoServiceImpl extends DefaultJpaServiceImpl<ReportPushInfo, Long, ReportPushInfoRepository>
+		implements ReportPushInfoService {
+	
+	@Autowired
+	private ReportInfoService reportInfoService;
+
+	@Autowired
+	private ReportPushInfoRepository repository;
+
+	@Override
+	public ReportPushInfo push(ReportPushInfo reportPushInfo,ReportInfo reportInfo) {
+		reportInfo = reportInfoService.save(reportInfo);
+		reportPushInfo.setReportId(reportInfo.getReportId());
+		return repository.save(reportPushInfo);
+	}
+
+	@Override
+	public ReportPushInfo findFirstByCreatedByAndUserId(String createdBy, String userId) {
+		return repository.findFirstByCreatedByAndUserId(createdBy, userId);
+	}
+
+	@Override
+	public Page<ReportPushInfo> findByCreatedByOrderByCreatedDateDesc(String createdBy, Pageable pageable) {
+		return repository.findByCreatedByOrderByCreatedDateDesc(createdBy, pageable);
+	}
+
+}

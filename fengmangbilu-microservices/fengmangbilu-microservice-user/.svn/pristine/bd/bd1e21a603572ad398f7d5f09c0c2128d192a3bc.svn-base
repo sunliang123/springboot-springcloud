@@ -1,0 +1,17 @@
+package com.fengmangbilu.microservice.user.services;
+
+import com.fengmangbilu.common.exceptions.BizException;
+import com.fengmangbilu.data.service.GenericJpaService;
+import com.fengmangbilu.microservice.user.entities.User;
+import com.fengmangbilu.microservice.user.repositories.UserRepository;
+
+public interface UserService extends GenericJpaService<User, String, UserRepository> {
+
+    String generatedUserId();
+
+    User register(String mobile, String password, String smsCode) throws BizException;
+
+    User findByMobile(String mobile);
+
+    User findByUserId(String userId);
+}

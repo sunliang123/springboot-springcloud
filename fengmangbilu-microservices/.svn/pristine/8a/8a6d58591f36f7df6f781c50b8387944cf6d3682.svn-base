@@ -1,0 +1,101 @@
+package com.fengmangbilu.microservice.common.security.config;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.core.Ordered;
+import org.springframework.security.authentication.AnonymousAuthenticationProvider;
+import org.springframework.security.authentication.AuthenticationEventPublisher;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
+
+import com.fengmangbilu.microservice.common.security.token.DefaultTokenService;
+import com.fengmangbilu.microservice.common.security.token.TokenService;
+import com.fengmangbilu.microservice.common.security.token.TokenStore;
+import com.fengmangbilu.microservice.common.security.token.store.JwtAccessTokenConverter;
+import com.fengmangbilu.microservice.common.security.token.store.JwtTokenStore;
+
+@Configuration
+@EnableConfigurationProperties(MicroserviceSecurityProperties.class)
+@EnableGlobalMethodSecurity(securedEnabled = true, prePostEnabled = true, jsr250Enabled = true)
+public class MicroserviceSecurityConfiguration extends WebSecurityConfigurerAdapter implements Ordered {
+
+	@Autowired
+	private MicroserviceSecurityProperties microserviceSecurityProperties;
+
+	@Autowired(required = false)
+	private AuthenticationEventPublisher eventPublisher;
+
+	@Override
+	public int getOrder() {
+		return 3;
+	}
+	
+	@Bean
+	@ConditionalOnMissingBean
+	protected JwtAccessTokenConverter jwtTokenEnhancer() throws Exception {
+		JwtAccessTokenConverter tokenEnhancer = new JwtAccessTokenConverter();
+		tokenEnhancer.setSigningKey("fengmangbilu");
+		tokenEnhancer.afterPropertiesSet();
+		return tokenEnhancer;
+	}
+
+	@Bean
+	@ConditionalOnMissingBean
+	public TokenService tokenService() throws Exception {
+		DefaultTokenService tokenService = new DefaultTokenService();
+		tokenService.setTokenStore(tokenStore());
+		tokenService.setTokenEnhancer(jwtTokenEnhancer());
+		return tokenService;
+	}
+
+	@Bean
+	@ConditionalOnMissingBean
+	public TokenStore tokenStore() throws Exception {
+		JwtTokenStore tokenStore = new JwtTokenStore();
+		tokenStore.setTokenEnhancer(jwtTokenEnhancer());
+		return tokenStore;
+	}
+
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
+		MicroserviceSecurityConfigurer resource = new MicroserviceSecurityConfigurer();
+		resource.tokenService(tokenService());
+		if (eventPublisher != null) {
+			resource.eventPublisher(eventPublisher);
+		}
+		// @formatter:off
+		http.authenticationProvider(new AnonymousAuthenticationProvider("default"))
+		// N.B. exceptionHandling is duplicated in resources.configure() so that
+		// it works
+		.exceptionHandling()
+				.accessDeniedHandler(resource.getAccessDeniedHandler()).and()
+				.sessionManagement()
+				.sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
+				.csrf().disable();
+		// @formatter:on
+		http.apply(resource);
+		
+		// Add anyRequest() last as a fall back. Spring Security would
+		// replace an existing anyRequest() matcher with this one, so to
+		// avoid that we only add it if the user hasn't configured anything.
+		http.authorizeRequests()
+				.antMatchers(microserviceSecurityProperties.getIgnoredUrls()).permitAll()
+				.anyRequest().authenticated();
+		}
+
+	
+	@Override
+	public void configure(WebSecurity web) throws Exception {
+		web.ignoring()
+				 // ignore swagger2
+				.antMatchers("/v2/api-docs/**", "/swagger-resources/**", "/swagger-ui.html", "/webjars/**")
+				 // ignore actuator
+				.antMatchers("/actuator/**");
+	}
+}

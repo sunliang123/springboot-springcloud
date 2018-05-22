@@ -1,0 +1,55 @@
+package com.fengmangbilu.core;
+
+import java.util.Map;
+import java.util.TreeMap;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.util.StringUtils;
+
+/**
+ * 全局异常
+ * @author Justice
+ */
+public class GlobalException extends RuntimeException {
+
+	private static final long serialVersionUID = 4357632308925574057L;
+
+	/** 附加信息 */
+	private Map<String, Object> additionalInformation = null;
+
+	public GlobalException() {
+		super();
+	}
+
+	public GlobalException(String message) {
+		super(message);
+	}
+
+	public GlobalException(String message, Throwable cause) {
+		super(message, cause);
+	}
+
+	public Map<String, Object> getAdditionalInformation() {
+		return this.additionalInformation;
+	}
+
+	public void addAdditionalInformation(String key, Object value) {
+		if (this.additionalInformation == null) {
+			this.additionalInformation = new TreeMap<String, Object>();
+		}
+
+		this.additionalInformation.put(key, value);
+	}
+
+	public HttpStatus getHttpStatus() {
+		return HttpStatus.NO_CONTENT;
+	}
+
+	@Override
+	public String getMessage() {
+		if (StringUtils.isEmpty(super.getMessage())) {
+			return getHttpStatus().getReasonPhrase();
+		}
+		return super.getMessage();
+	}
+}

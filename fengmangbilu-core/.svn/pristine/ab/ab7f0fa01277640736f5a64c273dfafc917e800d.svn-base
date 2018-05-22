@@ -1,0 +1,334 @@
+package com.fengmangbilu.core;
+
+import java.io.Serializable;
+import java.util.Map;
+
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+import org.springframework.http.HttpStatus;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.google.common.collect.Maps;
+
+/**
+ * 全局响应实体
+ * 
+ * @author Justice
+ */
+@JsonPropertyOrder({ "status", "data", "message", "success" })
+public class Response implements Serializable {
+
+	private static final long serialVersionUID = 1313892315396960605L;
+
+	/** 状态码 */
+	private int status;
+	/** 消息内容 */
+	private Object data;
+	/** 消息提示 */
+	private String message;
+	/** 是否请求成功 */
+	private boolean success;
+
+	public Response() {
+	}
+
+	public Response(int status, Object data, String message, boolean success) {
+		this.status = status;
+		this.data = data;
+		this.message = message;
+		this.success = success;
+	}
+
+	@JsonProperty
+	public int getStatus() {
+		return status;
+	}
+
+	@JsonProperty
+	public boolean isSuccess() {
+		return success;
+	}
+
+	@JsonProperty
+	public String getMessage() {
+		return message;
+	}
+
+	@JsonProperty
+	public Object getData() {
+		return data;
+	}
+
+	@Override
+	public String toString() {
+		return ReflectionToStringBuilder.toString(this);
+	}
+
+	public static class Builder {
+		private boolean success;
+
+		private int status;
+
+		private String message;
+
+		private Object data;
+
+		public Builder(boolean success) {
+			this.success = success;
+		}
+
+		public Builder message(String message) {
+			this.message = message;
+			return this;
+		}
+
+		public Builder data(Object data) {
+			this.data = data;
+			return this;
+		}
+
+		public Builder status(int status) {
+			this.status = status;
+			return this;
+		}
+
+		public Response build() {
+			return new Response(status, data, message, success);
+		}
+	}
+
+	public static Builder withSuccess(Boolean withSuccess) {
+		return new Builder(withSuccess);
+	}
+
+	/**
+	 * 请求成功
+	 * @return 响应结果
+	 */
+	public static Response ok() {
+		return withSuccess(true).status(HttpStatus.OK.value()).build();
+	}
+
+	/**
+	 * 请求成功
+	 * @param message 消息提示
+	 * @return 响应结果
+	 */
+	public static Response ok(String message) {
+		return withSuccess(true).status(HttpStatus.OK.value()).message(message).build();
+	}
+
+	/**
+	 * 请求成功
+	 * @param message 消息内容
+	 * @return 响应结果
+	 */
+	public static Response ok(Object data) {
+		return withSuccess(true).status(HttpStatus.OK.value()).data(data).build();
+	}
+
+	/**
+	 * 请求成功
+	 * @param message 消息提示
+	 * @param data 消息内容
+	 * @return 响应结果
+	 */
+	public static Response ok(String message, Object data) {
+		return withSuccess(true).status(HttpStatus.OK.value()).data(data).message(message).build();
+	}
+
+	/**
+	 * 请求失败(自定义错误)
+	 * @param status 状态码
+	 * @param message 消息提示
+	 * @return 响应结果
+	 */
+	public static Response error(int status, String message) {
+		return withSuccess(false).status(status).message(message).build();
+	}
+
+	/**
+	 * 请求失败(自定义错误)
+	 * @param status 状态码
+	 * @param data 消息内容
+	 * @return 响应结果
+	 */
+	public static Response error(int status, Object data) {
+		return withSuccess(false).status(status).data(data).build();
+	}
+
+	/**
+	 * 请求失败(自定义错误)
+	 * @param status 状态码
+	 * @param message 消息提示
+	 * @param data 消息内容
+	 * @return 响应结果
+	 */
+	public static Response error(int status, String message, Object data) {
+		return withSuccess(false).status(status).message(message).data(data).build();
+	}
+
+	/**
+	 * 请求失败(业务错误)
+	 * @param message 消息提示
+	 * @return 响应结果
+	 */
+	public static Response error(String message) {
+		return withSuccess(false).status(HttpStatus.BAD_REQUEST.value()).message(message).build();
+	}
+
+	/**
+	 * 请求失败(业务错误)
+	 * @param data 消息内容
+	 * @return 响应结果
+	 */
+	public static Response error(Object data) {
+		return withSuccess(false).status(HttpStatus.BAD_REQUEST.value()).data(data).build();
+	}
+
+	/**
+	 * 请求失败(业务错误)
+	 * @param message 消息提示
+	 * @param data 消息内容
+	 * @return 响应结果
+	 */
+	public static Response error(String message, Object data) {
+		return withSuccess(false).status(HttpStatus.BAD_REQUEST.value()).data(data).message(message).build();
+	}
+
+	/**
+	 * 请求失败(参数验证)
+	 * @param message 消息提示
+	 * @return 响应结果
+	 */
+	public static Response validationError(String message) {
+		return withSuccess(false).status(HttpStatus.FOUND.value()).message(message).build();
+	}
+
+	/**
+	 * 请求失败(参数验证)
+	 * @param data 消息内容
+	 * @return 响应结果
+	 */
+	public static Response validationError(Object data) {
+		return withSuccess(false).status(HttpStatus.FOUND.value()).data(data).build();
+	}
+
+	/**
+	 * 请求失败(参数验证)
+	 * @param errCode 参数编码
+	 * @param errMsg 错误提示
+	 * @return 响应结果
+	 */
+	public static Response validationError(String errCode, String errMsg) {
+		Map<String, String> errMap = Maps.newHashMap();
+		errMap.put(errCode, errMsg);
+		return withSuccess(false).status(HttpStatus.FOUND.value()).data(errMap).build();
+	}
+
+	/**
+	 * 请求失败(参数验证)
+	 * @param message 消息提示
+	 * @param data 消息内容
+	 * @return 响应结果
+	 */
+	public static Response validationError(String message, Object data) {
+		return withSuccess(false).status(HttpStatus.FOUND.value()).data(data).message(message).build();
+	}
+
+	/**
+	 * 请求失败(拒绝访问)
+	 * @param message 消息提示
+	 * @return 响应结果
+	 */
+	public static Response forbidden(String message) {
+		return withSuccess(false).status(HttpStatus.FORBIDDEN.value()).message(message).build();
+	}
+
+	/**
+	 * 请求失败(拒绝访问)
+	 * @param data 消息内容
+	 * @return 响应结果
+	 */
+	public static Response forbidden(Object data) {
+		return withSuccess(false).status(HttpStatus.FORBIDDEN.value()).data(data).build();
+	}
+
+	/**
+	 * 请求失败(拒绝访问)
+	 * @param message 消息提示
+	 * @param data 消息内容
+	 * @return 响应结果
+	 */
+	public static Response forbidden(String message, Object data) {
+		return withSuccess(false).status(HttpStatus.FORBIDDEN.value()).data(data).message(message).build();
+	}
+
+	/**
+	 * 请求失败(认证失败)
+	 * @param message 消息提示
+	 * @return 响应结果
+	 */
+	public static Response unauthorized(String message) {
+		return withSuccess(false).status(HttpStatus.UNAUTHORIZED.value()).message(message).build();
+	}
+
+	/**
+	 * 请求失败(认证失败)
+	 * @param message 消息提示
+	 * @return 响应结果
+	 */
+	public static Response unauthorized(Object data) {
+		return withSuccess(false).status(HttpStatus.UNAUTHORIZED.value()).data(data).build();
+	}
+
+	/**
+	 * 请求失败(认证失败)
+	 * @param message 消息提示
+	 * @param data 消息内容
+	 * @return 响应结果
+	 */
+	public static Response unauthorized(String message, Object data) {
+		return withSuccess(false).status(HttpStatus.UNAUTHORIZED.value()).data(data).message(message).build();
+	}
+
+	/**
+	 * 请求失败(系统内部错误)
+	 * @param message 消息提示
+	 * @return 响应结果
+	 */
+	public static Response serverError(String message) {
+		return withSuccess(false).status(HttpStatus.INTERNAL_SERVER_ERROR.value()).message(message).build();
+	}
+
+	/**
+	 * 请求失败(系统内部错误)
+	 * @param data 消息内容
+	 * @return 响应结果
+	 */
+	public static Response serverError(Object data) {
+		return withSuccess(false).status(HttpStatus.INTERNAL_SERVER_ERROR.value()).data(data).build();
+	}
+
+	/**
+	 * 请求失败(系统内部错误)
+	 * @param message 消息提示
+	 * @param data 消息内容
+	 * @return 响应结果
+	 */
+	public static Response serverError(String message, Object data) {
+		return withSuccess(false).status(HttpStatus.INTERNAL_SERVER_ERROR.value()).message(message).data(data).build();
+	}
+
+	/**
+	 * 请求失败(全局异常)
+	 * @param ex 全局异常
+	 * @return
+	 */
+	public static Response error(GlobalException e) {
+		int status = e.getHttpStatus().value();
+		String message = e.getMessage();
+		Map<String, Object> data = e.getAdditionalInformation();
+		return withSuccess(false).status(status).message(message).data(data).build();
+	}
+}

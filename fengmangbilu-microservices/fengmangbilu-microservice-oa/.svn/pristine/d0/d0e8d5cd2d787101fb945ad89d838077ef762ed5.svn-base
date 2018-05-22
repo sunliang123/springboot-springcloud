@@ -1,0 +1,9 @@
+package com.fengmangbilu.microservice.oa.services;
+
+import com.fengmangbilu.microservice.oa.entities.CorporateManager;
+import com.fengmangbilu.microservice.oa.repositories.CorporateManagerRepository;
+import com.fengmangbilu.service.DefaultJpaService;
+
+public interface CorporateManagerService extends DefaultJpaService<CorporateManager, Long, CorporateManagerRepository> {
+
+}

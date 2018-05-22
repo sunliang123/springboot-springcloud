@@ -1,0 +1,135 @@
+<#import "common/page.ftl" as page>
+<@page.html app="index">
+	<section class="main">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-8">
+					<article class="post">
+						<div class="post-header">
+							<h2 class="post-title">
+								<a href="#">卫星系统——酒店后端全链路日志收集工具介绍</a>
+							</h2>
+							<ul class="post-meta">
+								<li><i class="fas fa-calendar"></i> 2017-03-02</li>
+								<li><i class="fas fa-edit"></i> 小明</li>
+								<li><i class="fas fa-comments"></i> 3条回复</li>
+							</ul>
+						</div>
+
+						<div class="post-content">
+							<p>随着酒店业务的高速发展，我们为用户、商家提供的服务越来越精细，系统服务化程度、复杂度也逐渐上升。微服务化虽然能够很好地解决问题，但也有副作用，比如，问题定位。</p>
+						</div>
+					</article>
+					
+					<article class="post">
+						<div class="post-header">
+							<h2 class="post-title">
+								<a href="#">卫星系统——酒店后端全链路日志收集工具介绍</a>
+							</h2>
+							<ul class="post-meta">
+								<li><i class="fas fa-calendar"></i> 2017-03-02</li>
+								<li><i class="fas fa-edit"></i> 小明</li>
+								<li><i class="fas fa-comments"></i> 3条回复</li>
+							</ul>
+						</div>
+
+						<div class="post-content">
+							<p>随着酒店业务的高速发展，我们为用户、商家提供的服务越来越精细，系统服务化程度、复杂度也逐渐上升。微服务化虽然能够很好地解决问题，但也有副作用，比如，问题定位。</p>
+						</div>
+					</article>
+					
+					<article class="post">
+						<div class="post-header">
+							<h2 class="post-title">
+								<a href="#">卫星系统——酒店后端全链路日志收集工具介绍</a>
+							</h2>
+							<ul class="post-meta">
+								<li><i class="fas fa-calendar"></i> 2017-03-02</li>
+								<li><i class="fas fa-edit"></i> 小明</li>
+								<li><i class="fas fa-comments"></i> 3条回复</li>
+							</ul>
+						</div>
+
+						<div class="post-content">
+							<p>随着酒店业务的高速发展，我们为用户、商家提供的服务越来越精细，系统服务化程度、复杂度也逐渐上升。微服务化虽然能够很好地解决问题，但也有副作用，比如，问题定位。</p>
+						</div>
+					</article>
+					
+					<article class="post">
+						<div class="post-header">
+							<h2 class="post-title">
+								<a href="#">卫星系统——酒店后端全链路日志收集工具介绍</a>
+							</h2>
+							<ul class="post-meta">
+								<li><i class="fas fa-calendar"></i> 2017-03-02</li>
+								<li><i class="fas fa-edit"></i> 小明</li>
+								<li><i class="fas fa-comments"></i> 3条回复</li>
+							</ul>
+						</div>
+
+						<div class="post-content">
+							<p>随着酒店业务的高速发展，我们为用户、商家提供的服务越来越精细，系统服务化程度、复杂度也逐渐上升。微服务化虽然能够很好地解决问题，但也有副作用，比如，问题定位。</p>
+						</div>
+					</article>
+					
+					<div class="row">
+				          <div class="col-lg-12">
+				              <ul class="pagination">
+				                  <li class="next"><a href="#"><i class="fas fa-chevron-left"></i></a></li>
+				                  <li class="active"><a href="#">1</a></li>
+				                  <li><a href="#">2</a></li>
+				                  <li><a href="#">3</a></li>
+				                  <li><a href="#">4</a></li>
+				                  <li><a href="#">5</a></li>
+				                  <li class="prev"><a href="#"><i class="fas fa-chevron-right"></i></a></li>
+				              </ul>
+				          </div>
+				      </div>
+				</div>
+				<div class="col-sm-4">
+					<div class="sidebar">
+						<aside class="widget">
+							<div class="widget-title">关于我们</div>
+
+							<div class="about-widget">
+								<img src="img/swords_128.png" alt="About Me">
+
+								<p class="text-left">锋芒毕露工作室由忠信信息技术团队主办，每期都会邀请忠信大咖及其他互联网公司的技术专家分享来自一线的实践经验，覆盖各主要技术领域。</p>
+
+								<a href="about" class="btn-read-more mt-2">查看更多 <i class="fas fa-long-arrow-alt-right"></i></a>
+								<ul class="socials mt-3">
+									<li><a href="http://qq.com"><i class="fab fa-qq"></i></a></li>
+									<li><a href="http://weixin.com"><i class="fab fa-weixin"></i></a></li>
+									<li><a href="http://weibo.com"><i class="fab fa-weibo"></i></a></li>
+								</ul>
+							</div>
+						</aside>
+
+						<aside class="widget widget_archive">
+							<div class="widget-title">文章存档</div>
+
+							<ul>
+								<li><a href="#">2017年1月</a> <span class="float-right">(32)</span></li>
+								<li><a href="#">2016年10月</a> <span class="float-right">(09)</span></li>
+								<li><a href="#">2016年1月</a> <span class="float-right">(81)</span></li>
+								<li><a href="#">2014年1月</a> <span class="float-right">(12)</span></li>
+							</ul>
+
+						</aside>
+
+						<aside class="widget widget_tag_cloud">
+							<div class="widget-title">文章标签</div>
+							<div class="tagcloud">
+								<a href="#">logo</a> <a href="#">business</a> <a href="#">corporate</a> <a href="#">e-commerce</a> <a href="#">agency</a>
+								<a href="#">responsive</a>
+							</div>
+						</aside>
+						
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+</@page.html>

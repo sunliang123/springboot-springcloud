@@ -1,0 +1,5 @@
+package com.fengmangbilu.microservice.common.cache.sms;
+
+public enum Source {
+	REGISTER, REST_PASSWORD;
+}

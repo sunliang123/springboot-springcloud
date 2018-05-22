@@ -1,0 +1,37 @@
+package com.fengmangbilu.microservice.user.controllers;
+
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.fengmangbilu.core.Response;
+import com.fengmangbilu.microservice.user.endpoints.UserRequest;
+import com.fengmangbilu.microservice.user.services.UserService;
+
+import io.swagger.annotations.Api;
+
+@Api
+@Validated
+@RestController
+public class UserController extends ErrorController{
+
+	@Autowired
+	private UserService userService;
+
+	@PostMapping("register")
+	public ResponseEntity<Response> register(@Valid @RequestBody UserRequest userRequest) {
+		userService.register(userRequest);
+		return ResponseEntity.ok(Response.ok());
+	}
+
+	@PostMapping("resetPassword")
+	public ResponseEntity<Response> resetPassword(@Valid @RequestBody UserRequest userRequest) {
+		userService.resetPassword(userRequest);
+		return ResponseEntity.ok(Response.ok());
+	}
+}

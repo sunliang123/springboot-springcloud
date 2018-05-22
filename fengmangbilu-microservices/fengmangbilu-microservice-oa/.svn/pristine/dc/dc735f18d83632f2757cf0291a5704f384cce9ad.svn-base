@@ -1,0 +1,9 @@
+package com.fengmangbilu.microservice.credit.services;
+
+import com.fengmangbilu.microservice.credit.entities.EducationInfo;
+import com.fengmangbilu.microservice.credit.repositories.EducationInfoRepository;
+import com.fengmangbilu.service.DefaultJpaService;
+
+public interface EducationInfoService extends DefaultJpaService<EducationInfo, String, EducationInfoRepository> {
+
+}

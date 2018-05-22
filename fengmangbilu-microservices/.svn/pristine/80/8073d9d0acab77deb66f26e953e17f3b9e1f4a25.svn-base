@@ -1,0 +1,19 @@
+package com.fengmangbilu.microservice.common.security.approval;
+
+import java.util.Collection;
+
+/**
+ * 用来验证和限制刷新令牌。
+ * 
+ * @author Justice
+ *
+ */
+public interface ApprovalStore {
+
+	public boolean addApprovals(Collection<Approval> approvals);
+
+	public boolean revokeApprovals(Collection<Approval> approvals);
+
+	public Collection<Approval> getApprovals(String userId);
+
+}

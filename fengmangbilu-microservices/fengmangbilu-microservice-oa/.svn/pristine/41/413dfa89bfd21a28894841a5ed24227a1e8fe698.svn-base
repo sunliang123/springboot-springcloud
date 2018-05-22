@@ -1,0 +1,61 @@
+package com.fengmangbilu.microservice.oa.controllers;
+
+import javax.validation.Valid;
+
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.fengmangbilu.microservice.oa.endpoints.RealnameRequest;
+import com.fengmangbilu.microservice.oa.endpoints.ReportRequest;
+import com.fengmangbilu.microservice.oa.entities.IdCardInfo;
+import com.fengmangbilu.microservice.oa.providers.DefaultCreditClient;
+import com.fengmangbilu.microservice.oa.providers.DefaultCreditProfile;
+import com.fengmangbilu.microservice.oa.providers.ICreditClient;
+import com.fengmangbilu.microservice.oa.providers.ICreditProfile;
+import com.fengmangbilu.microservice.oa.providers.support.CisReport;
+import com.fengmangbilu.microservice.oa.providers.support.PoliceCheckInfo;
+import com.fengmangbilu.microservice.oa.services.IdCardInfoService;
+import com.fengmangbilu.util.IdCardUtils;
+import com.fengmangbilu.web.Response;
+
+import io.swagger.annotations.Api;
+
+@Api
+@Validated
+@RestController
+@RequestMapping("certify")
+public class CertifyController {
+
+	@Autowired
+	private IdCardInfoService idCardInfoService;
+
+	@PostMapping("realname")
+	public Response realname(@Valid @RequestBody RealnameRequest request) throws Exception {
+		ReportRequest reportRequest = new ReportRequest();
+		BeanUtils.copyProperties(request, reportRequest);
+		ICreditProfile profile = DefaultCreditProfile.getProfile(reportRequest);
+		ICreditClient client = new DefaultCreditClient(profile);
+		CisReport report = client.getPerson().getCisReport();
+		PoliceCheckInfo policeInfo = report.getPoliceCheckInfo();
+		if (policeInfo != null) {
+			IdCardInfo idCardInfo = new IdCardInfo();
+			BeanUtils.copyProperties(request, idCardInfo);
+			String idCard = request.getIdCard();
+			idCardInfo.setBirthday(IdCardUtils.getBirthByIdCard(idCard));
+			idCardInfo.setGender(IdCardUtils.getGenderByIdCard(idCard).toString());
+			idCardInfoService.save(idCardInfo);
+		}
+		return Response.ok("个人实名认证成功");
+	}
+
+	@PostMapping("company")
+	public Response company(@Valid @RequestBody ReportRequest request) throws Exception {
+		return Response.ok();
+	}
+
+}

@@ -1,0 +1,63 @@
+package com.fengmangbilu.security.token;
+
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+
+import com.fengmangbilu.security.AccessToken;
+import com.fengmangbilu.security.DefaultAccessToken;
+
+/**
+ * 默认访问令牌转换器
+ * @author Justice
+ */
+public class DefaultAccessTokenConverter implements AccessTokenConverter {
+
+	private AuthenticationConverter userTokenConverter = new DefaultAuthenticationConverter();
+
+	public void setUserTokenConverter(AuthenticationConverter userTokenConverter) {
+		this.userTokenConverter = userTokenConverter;
+	}
+
+	public Map<String, ?> convertAccessToken(AccessToken token, Authentication authentication) {
+		Map<String, Object> response = new HashMap<String, Object>();
+
+		response.putAll(userTokenConverter.convertAuthentication(authentication));
+		
+		if (token.getAti() != null) {
+			response.put(ATI, token.getAti());
+		}
+		
+		if (token.getJti() != null) {
+			response.put(JTI, token.getJti());
+		}
+
+		if (token.getExpiration() != null) {
+			response.put(EXP, token.getExpiration().getTime() / 1000);
+		}
+		
+		return response;
+	}
+
+	public AccessToken extractAccessToken(String value, Map<String, ?> map) {
+		DefaultAccessToken token = new DefaultAccessToken(value);
+		if (map.containsKey(EXP)) {
+			token.setExpiration(new Date((Long) map.get(EXP) * 1000L));
+		}
+		if (map.containsKey(ATI)) {
+			token.setAti((String)map.get(ATI));
+		}
+		if (map.containsKey(JTI)) {
+			token.setJti((String)map.get(JTI));
+		}
+		return token;
+	}
+
+	public UsernamePasswordAuthenticationToken extractAuthentication(Map<String, ?> map) {
+		return userTokenConverter.extractAuthentication(map);
+	}
+
+}

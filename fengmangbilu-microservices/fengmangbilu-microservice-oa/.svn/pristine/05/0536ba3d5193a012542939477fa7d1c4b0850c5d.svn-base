@@ -1,0 +1,18 @@
+package com.fengmangbilu.microservice.credit.providers;
+
+import com.fengmangbilu.microservice.credit.exceptions.CreditException;
+import com.fengmangbilu.microservice.credit.providers.support.CisReport;
+
+public interface ICreditClient {
+
+	public CisReport getCisReport();
+
+	public ICreditClient getPerson() throws CreditException;
+
+	public ICreditClient getOsta() throws CreditException;
+
+	public ICreditClient getRisk() throws CreditException;
+
+	public ICreditClient getRiskAssess() throws CreditException;
+
+}

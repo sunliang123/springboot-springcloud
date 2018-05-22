@@ -1,0 +1,17 @@
+package com.fengmangbilu.security;
+
+import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.SpringSecurityCoreVersion;
+
+/**
+ * 过期的令牌异常
+ * @author Justice
+ */
+public class ExpiredTokenException extends AuthenticationException {
+
+	private static final long serialVersionUID = SpringSecurityCoreVersion.SERIAL_VERSION_UID;
+
+	public ExpiredTokenException(String msg) {
+		super(msg);
+	}
+}

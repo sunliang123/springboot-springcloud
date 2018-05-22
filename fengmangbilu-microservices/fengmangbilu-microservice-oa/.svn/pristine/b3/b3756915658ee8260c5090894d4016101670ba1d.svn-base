@@ -1,0 +1,20 @@
+package com.fengmangbilu.microservice.oa.repositories;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+
+import com.fengmangbilu.microservice.oa.entities.ReportInfo;
+import com.fengmangbilu.repository.DefaultRepository;
+
+@Repository
+public interface ReportInfoRepository extends DefaultRepository<ReportInfo, String> {
+
+	ReportInfo findOneByNameAndIdCardAndMobileAndReportId(String name, String idCard, String mobile, String reportId);
+
+	ReportInfo findOneByNameAndIdCardAndMobile(String name, String idCard, String mobile);
+
+	@Query("select r from ReportInfo r where r.name=?1 and r.idCard=?2 and r.mobile = ?3")
+	List<ReportInfo> findAll(String name, String idCard, String mobile);
+}

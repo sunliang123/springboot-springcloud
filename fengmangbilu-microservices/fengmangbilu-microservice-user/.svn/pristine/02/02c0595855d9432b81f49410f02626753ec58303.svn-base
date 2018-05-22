@@ -1,0 +1,50 @@
+package com.fengmangbilu.microservice.user.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.fengmangbilu.microservice.user.entities.UserPoint;
+import com.fengmangbilu.microservice.user.entities.UserPointDetail;
+import com.fengmangbilu.microservice.user.enums.BizType;
+import com.fengmangbilu.microservice.user.enums.PointSource;
+import com.fengmangbilu.microservice.user.repositories.UserPointRepository;
+import com.fengmangbilu.service.DefaultJpaServiceImpl;
+
+@Service
+public class UserPointServiceImpl extends DefaultJpaServiceImpl<UserPoint, Long, UserPointRepository>
+		implements UserPointService {
+
+	@Autowired
+	private UserPointRepository userPointRepository;
+
+	@Autowired
+	private UserPointDetailService userPointDetailService;
+
+	@Override
+	public UserPoint gainPoints(PointSource source, BizType bizType, String acquireReason, String userId, long points) {
+		UserPointDetail userPointDetail = new UserPointDetail();
+		userPointDetail.setUserId(userId);
+		userPointDetail.setSource(source);
+		userPointDetail.setBizType(bizType);
+		userPointDetail.setAcquireReason(acquireReason);
+		userPointDetail.setPoints(points);
+		userPointDetailService.save(userPointDetail);
+		userPointRepository.gainPoints(userId, points);
+		return userPointRepository.findByUserId(userId);
+	}
+	
+	@Override
+	public UserPoint costPoints(PointSource source, BizType bizType, String acquireReason, String userId, long points) {
+		UserPointDetail userPointDetail = new UserPointDetail();
+		userPointDetail.setUserId(userId);
+		userPointDetail.setSource(source);
+		userPointDetail.setBizType(bizType);
+		userPointDetail.setAcquireReason(acquireReason);
+		userPointDetail.setPoints(points);
+		userPointDetailService.save(userPointDetail);
+		userPointRepository.costPoints(userId, points);
+		return userPointRepository.findByUserId(userId);
+	}
+
+
+}

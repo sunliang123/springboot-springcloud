@@ -1,0 +1,47 @@
+package com.fengmangbilu.oacloud.security;
+
+import java.io.IOException;
+
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.http.MediaType;
+import org.springframework.security.web.DefaultRedirectStrategy;
+import org.springframework.security.web.RedirectStrategy;
+import org.springframework.security.web.session.SessionInformationExpiredEvent;
+import org.springframework.security.web.session.SessionInformationExpiredStrategy;
+import org.springframework.security.web.util.UrlUtils;
+import org.springframework.util.Assert;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fengmangbilu.web.Response;
+
+public class AjaxRedirectSessionInformationExpiredStrategy implements SessionInformationExpiredStrategy {
+	private int status = 100098;
+	private String message = "亲，您的帐号在另一处被登录！";
+
+	public AjaxRedirectSessionInformationExpiredStrategy(String invalidSessionUrl) {
+		this(invalidSessionUrl, new DefaultRedirectStrategy());
+	}
+
+	public AjaxRedirectSessionInformationExpiredStrategy(String invalidSessionUrl, RedirectStrategy redirectStrategy) {
+		Assert.isTrue(UrlUtils.isValidRedirectUrl(invalidSessionUrl), "url must start with '/' or with 'http(s)'");
+	}
+
+	public void onExpiredSessionDetected(SessionInformationExpiredEvent event) throws IOException {
+		HttpServletResponse response = event.getResponse();
+		ObjectMapper mapper = new ObjectMapper();
+		Response data = Response.error(status, message);
+		response.setContentType(MediaType.APPLICATION_JSON_UTF8_VALUE);
+		response.getWriter().write(mapper.writeValueAsString(data));
+		response.flushBuffer();
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+}

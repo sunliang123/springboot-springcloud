@@ -1,0 +1,34 @@
+package com.fengmangbilu.microservice.common.security.token;
+
+import java.util.Map;
+
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+
+/**
+ * 认证信息转换器
+ * @author Justice
+ */
+public interface AuthenticationConverter {
+
+	final String AUTHORITIES = AccessTokenConverter.AUTHORITIES;
+
+	final String USERNAME = "user_name";
+
+	/**
+	 * 提取用于访问令牌的用户的信息。
+	 * 
+	 * @param 认证凭证
+	 * @return 用户信息
+	 */
+	Map<String, ?> convertAuthentication(Authentication authentication);
+
+	/**
+	 * 将用户信息转换成认证凭证
+	 * 
+	 * @param 用户信息
+	 * @return 认证凭证
+	 */
+	UsernamePasswordAuthenticationToken extractAuthentication(Map<String, ?> map);
+
+}

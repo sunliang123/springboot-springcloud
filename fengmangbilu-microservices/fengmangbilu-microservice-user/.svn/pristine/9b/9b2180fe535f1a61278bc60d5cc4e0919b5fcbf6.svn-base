@@ -1,0 +1,42 @@
+package com.fengmangbilu.microservice.user.entities;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+import com.fengmangbilu.data.domain.IdEntity;
+
+/**
+ * 会员权限
+ * 
+ * @author Justice
+ */
+@Entity
+@Table(name = "fengmangbilu_authority")
+public class Authority extends IdEntity<String> {
+
+	private static final long serialVersionUID = 1L;
+	
+	@Column(length = 50)
+	private String name;
+
+	@Column(length = 50)
+	private String value;
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getValue() {
+		return value;
+	}
+
+	public void setValue(String value) {
+		this.value = value;
+	}
+
+}

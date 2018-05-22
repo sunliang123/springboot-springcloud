@@ -1,0 +1,13 @@
+package com.fengmangbilu.microservice.credit.services;
+
+import org.springframework.stereotype.Service;
+
+import com.fengmangbilu.microservice.credit.entities.RiskSxsInfo;
+import com.fengmangbilu.microservice.credit.repositories.RiskSxsInfoRepository;
+import com.fengmangbilu.service.DefaultJpaServiceImpl;
+
+@Service
+public class RiskSxsInfoServiceImpl extends DefaultJpaServiceImpl<RiskSxsInfo, String, RiskSxsInfoRepository> implements RiskSxsInfoService {
+
+
+}

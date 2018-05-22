@@ -1,0 +1,22 @@
+package com.fengmangbilu.domain;
+
+import javax.persistence.MappedSuperclass;
+
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.LastModifiedBy;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+@MappedSuperclass
+public class BaseEntity extends DateEntity {
+
+	@CreatedBy
+	private String createdBy;
+
+	@LastModifiedBy
+	private String lastModifiedBy;
+
+}

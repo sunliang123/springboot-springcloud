@@ -1,0 +1,51 @@
+package com.fengmangbilu.security;
+
+import java.util.Date;
+
+/**
+ * 访问令牌
+ * @author Justice
+ */
+public interface AccessToken{
+	
+	public static String BEARER_TYPE = "Bearer";
+	
+	public static String ACCESS_TOKEN = "token";
+	
+	/**
+	 * 获取令牌标识
+	 * @return
+	 */
+	String getJti();
+	
+	/**
+	 * 获取刷新令牌标识
+	 * @return
+	 */
+	String getAti();
+
+	/**
+	 * 获取令牌的刷新令牌的值
+	 * @return
+	 */
+	RefreshToken getRefreshToken();
+
+	/**
+	 * 判断访问令牌是否过期
+	 * @return
+	 */
+	boolean isExpired();
+
+	/**
+	 * 获取令牌的过期时间
+	 * @return
+	 */
+	Date getExpiration();
+
+	/**
+	 * 获取令牌的值
+	 * @return
+	 */
+	String getToken();
+
+}

@@ -1,0 +1,20 @@
+package com.fengmangbilu.core;
+
+import org.springframework.http.HttpStatus;
+
+/**
+ * 参数验证异常
+ * @author Justice
+ */
+@SuppressWarnings("serial")
+public class ValidationException extends GlobalException {
+
+	public ValidationException(String msg) {
+		super(msg);
+	}
+
+	@Override
+	public HttpStatus getHttpStatus() {
+		return HttpStatus.FOUND;
+	}
+}

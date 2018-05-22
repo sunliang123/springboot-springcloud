@@ -1,0 +1,183 @@
+package com.fengmangbilu.microservice.credit.entities;
+
+import java.util.Set;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+
+import com.fengmangbilu.domain.SimpleEntity;
+
+/**
+ * 个人风险信息
+ */
+@Entity
+@Table(name = "fengmangbilu_risk_info")
+public class RiskInfo extends SimpleEntity {
+
+	/** 姓名 **/
+	@Column(length = 20)
+	private String name;
+
+	/** 身份证 **/
+	@Column(length = 25)
+	private String idCard;
+
+	/** 司法案例信息条数 */
+	private int alCount = 0;
+
+	/** 司法执行信息条数 */
+	private int zxCount = 0;
+
+	/** 司法失信信息条数 */
+	private int sxCount = 0;
+
+	/** 税务行政执法信息条数 */
+	private int swCount = 0;
+
+	/** 催欠公告信息条数 */
+	private int cqggCount = 0;
+
+	/** 网贷逾期信息条数 */
+	private int wdyqCount = 0;
+
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "riskInfo", fetch = FetchType.EAGER)
+	private Set<RiskAlsInfo> riskAlsInfos;
+
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "riskInfo", fetch = FetchType.EAGER)
+	private Set<RiskCqsInfo> riskCqsInfos;
+
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "riskInfo", fetch = FetchType.EAGER)
+	private Set<RiskSwsInfo> riskSwsInfos;
+
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "riskInfo", fetch = FetchType.EAGER)
+	private Set<RiskSxsInfo> riskSxsInfos;
+
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "riskInfo", fetch = FetchType.EAGER)
+	private Set<RiskZxsInfo> riskZxsInfos;
+
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "riskInfo", fetch = FetchType.EAGER)
+	private Set<RiskWdyqsInfo> riskWdyqsInfos;
+
+	public int getAlCount() {
+		return alCount;
+	}
+
+	public void setAlCount(int alCount) {
+		this.alCount = alCount;
+	}
+
+	public int getZxCount() {
+		return zxCount;
+	}
+
+	public void setZxCount(int zxCount) {
+		this.zxCount = zxCount;
+	}
+
+	public int getSxCount() {
+		return sxCount;
+	}
+
+	public void setSxCount(int sxCount) {
+		this.sxCount = sxCount;
+	}
+
+	public int getSwCount() {
+		return swCount;
+	}
+
+	public void setSwCount(int swCount) {
+		this.swCount = swCount;
+	}
+
+	public int getCqggCount() {
+		return cqggCount;
+	}
+
+	public void setCqggCount(int cqggCount) {
+		this.cqggCount = cqggCount;
+	}
+
+	public int getWdyqCount() {
+		return wdyqCount;
+	}
+
+	public void setWdyqCount(int wdyqCount) {
+		this.wdyqCount = wdyqCount;
+	}
+
+	public Set<RiskAlsInfo> getRiskAlsInfos() {
+		return riskAlsInfos;
+	}
+
+	public void setRiskAlsInfos(Set<RiskAlsInfo> riskAlsInfos) {
+		this.riskAlsInfos = riskAlsInfos;
+	}
+
+	public Set<RiskCqsInfo> getRiskCqsInfos() {
+		return riskCqsInfos;
+	}
+
+	public void setRiskCqsInfos(Set<RiskCqsInfo> riskCqsInfos) {
+		this.riskCqsInfos = riskCqsInfos;
+	}
+
+	public Set<RiskSwsInfo> getRiskSwsInfos() {
+		return riskSwsInfos;
+	}
+
+	public void setRiskSwsInfos(Set<RiskSwsInfo> riskSwsInfos) {
+		this.riskSwsInfos = riskSwsInfos;
+	}
+
+	public Set<RiskSxsInfo> getRiskSxsInfos() {
+		return riskSxsInfos;
+	}
+
+	public void setRiskSxsInfos(Set<RiskSxsInfo> riskSxsInfos) {
+		this.riskSxsInfos = riskSxsInfos;
+	}
+
+	public Set<RiskZxsInfo> getRiskZxsInfos() {
+		return riskZxsInfos;
+	}
+
+	public void setRiskZxsInfos(Set<RiskZxsInfo> riskZxsInfos) {
+		this.riskZxsInfos = riskZxsInfos;
+	}
+
+	public Set<RiskWdyqsInfo> getRiskWdyqsInfos() {
+		return riskWdyqsInfos;
+	}
+
+	public void setRiskWdyqsInfos(Set<RiskWdyqsInfo> riskWdyqsInfos) {
+		this.riskWdyqsInfos = riskWdyqsInfos;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getIdCard() {
+		return idCard;
+	}
+
+	public void setIdCard(String idCard) {
+		this.idCard = idCard;
+	}
+
+	@Override
+	public String toString() {
+		return ReflectionToStringBuilder.toString(this);
+	}
+}

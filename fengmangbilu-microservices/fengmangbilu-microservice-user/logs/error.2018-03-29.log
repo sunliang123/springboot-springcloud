@@ -1,0 +1,1 @@
+2018-03-29 03:43:11.507 [AMQP Connection 120.76.44.152:5672] ERROR org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Channel shutdown: connection error

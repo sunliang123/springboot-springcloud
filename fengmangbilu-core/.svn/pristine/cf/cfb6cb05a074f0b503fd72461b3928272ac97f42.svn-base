@@ -1,0 +1,34 @@
+package com.fengmangbilu.core.data.repository;
+
+import java.io.Serializable;
+import java.util.List;
+
+import org.springframework.data.domain.Sort.Order;
+import org.springframework.data.jpa.domain.Specification;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
+import org.springframework.data.querydsl.QueryDslPredicateExecutor;
+import org.springframework.data.repository.NoRepositoryBean;
+
+import com.fengmangbilu.core.data.domain.datatables.DataTablesInput;
+import com.fengmangbilu.core.data.domain.datatables.DataTablesOutput;
+
+/**
+ * @author Justice
+ */
+@NoRepositoryBean
+public interface GenericRepository<T, ID extends Serializable>
+		extends JpaRepository<T, ID>, JpaSpecificationExecutor<T>, QueryDslPredicateExecutor<T> {
+
+	List<T> findAll(String name, String value);
+
+	T findOne(String name, String value);
+
+	String getMySqlNextVal(String seqName);
+
+	DataTablesOutput<T> findAll(DataTablesInput input);
+
+	DataTablesOutput<T> findAll(DataTablesInput input, Specification<T> specification);
+
+	DataTablesOutput<T> findAll(DataTablesInput input, Specification<T> specification, List<Order> orders);
+}

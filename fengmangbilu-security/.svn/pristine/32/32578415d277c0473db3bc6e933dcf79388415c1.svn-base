@@ -1,0 +1,113 @@
+package com.fengmangbilu.security.authentication;
+
+
+import java.io.Serializable;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.security.core.SpringSecurityCoreVersion;
+
+public class TokenAuthenticationDetails implements Serializable {
+	
+	private static final long serialVersionUID = SpringSecurityCoreVersion.SERIAL_VERSION_UID;
+
+	public static final String ACCESS_TOKEN_VALUE = TokenAuthenticationDetails.class.getSimpleName() + ".ACCESS_TOKEN_VALUE";
+
+	public static final String ACCESS_TOKEN_TYPE = TokenAuthenticationDetails.class.getSimpleName() + ".ACCESS_TOKEN_TYPE";
+
+	private final String remoteAddress;
+
+	private final String tokenValue;
+
+	private final String tokenType;
+
+	private final String display;
+	
+	private Object decodedDetails;
+
+
+	/**
+	 * 记录访问令牌值和远程地址，如果会话已经存在，也将设置会话id。
+	 * 
+	 * @param request 身份验证请求
+	 */
+	public TokenAuthenticationDetails(HttpServletRequest request) {
+		this.tokenValue = (String) request.getAttribute(ACCESS_TOKEN_VALUE);
+		this.tokenType = (String) request.getAttribute(ACCESS_TOKEN_TYPE);
+		this.remoteAddress = request.getRemoteAddr();
+
+		StringBuilder builder = new StringBuilder();
+		if (remoteAddress!=null) {
+			builder.append("remoteAddress=").append(remoteAddress);
+		}
+		if (builder.length()>1) {
+			builder.append(", ");
+		}
+		if (tokenType!=null) {
+			builder.append("tokenType=").append(this.tokenType);
+		}
+		if (tokenValue!=null) {
+			builder.append("tokenValue=<TOKEN>");
+		}
+		this.display = builder.toString();
+	}
+
+	public String getTokenValue() {
+		return tokenValue;
+	}
+	
+	public String getTokenType() {
+		return tokenType;
+	}
+
+	public String getRemoteAddress() {
+		return remoteAddress;
+	}
+
+	public Object getDecodedDetails() {
+		return decodedDetails;
+	}
+
+	public void setDecodedDetails(Object decodedDetails) {
+		this.decodedDetails = decodedDetails;
+	}
+
+	@Override
+	public String toString() {
+		return display;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((tokenType == null) ? 0 : tokenType.hashCode());
+		result = prime * result + ((tokenValue == null) ? 0 : tokenValue.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		TokenAuthenticationDetails other = (TokenAuthenticationDetails) obj;
+		if (tokenType == null) {
+			if (other.tokenType != null)
+				return false;
+		}
+		else if (!tokenType.equals(other.tokenType))
+			return false;
+		if (tokenValue == null) {
+			if (other.tokenValue != null)
+				return false;
+		}
+		else if (!tokenValue.equals(other.tokenValue))
+			return false;
+		return true;
+	}
+	
+}

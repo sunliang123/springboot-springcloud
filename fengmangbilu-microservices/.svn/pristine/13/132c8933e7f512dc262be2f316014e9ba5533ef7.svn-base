@@ -1,0 +1,18 @@
+package com.fengmangbilu.microservice.common.security.config;
+
+import org.springframework.boot.context.properties.ConfigurationProperties;
+
+@ConfigurationProperties(prefix = "security.microservice")
+public class MicroserviceSecurityProperties {
+	
+	/** 忽略认证的地址 **/
+	private String[] ignoredUrls = new String[]{};
+
+	public  String[] getIgnoredUrls() {
+		return ignoredUrls;
+	}
+
+	public void setIgnoredUrls(String[] ignoredUrls) {
+		this.ignoredUrls = ignoredUrls;
+	}
+}

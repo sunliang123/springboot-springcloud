@@ -1,0 +1,94 @@
+package com.fengmangbilu.microservice.oa.entities;
+
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Parameter;
+
+import com.fengmangbilu.domain.BaseEntity;
+import com.fengmangbilu.microservice.oa.enums.ReportType;
+import com.fengmangbilu.microservice.oa.generators.ReportSequenceGenerator;
+
+import lombok.Getter;
+import lombok.Setter;
+
+/**
+ * 个人报告
+ */
+@Getter
+@Setter
+@Entity
+@Table(name = "fengmangbilu_report_info")
+public class ReportInfo extends BaseEntity {
+
+	/** 报告编号  **/
+	@Id
+	@Column(length = 50)
+	@GeneratedValue(generator = "reportSequenceGenerator")
+	@GenericGenerator(name = "reportSequenceGenerator", 
+			strategy = ReportSequenceGenerator.TYPE,
+			parameters = @Parameter(name = "sequence_name", value = "report"))
+	private String reportId;
+
+	/** 姓名  **/
+	@Column(length = 30)
+	private String name;
+
+	/** 身份证号  **/
+	@Column(length = 20)
+	private String idCard;
+
+	/** 手机号  **/
+	@Column(length = 20)
+	private String mobile;
+
+	/** 报告类型  **/
+	@Column(length = 300)
+	@Enumerated(EnumType.ORDINAL)
+	private ReportType type;
+
+	/** 身份证 **/
+	@ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST})
+	private PersonInfo personInfo;
+
+	/** 手机实名 **/
+	@ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST})
+	private MobileInfo mobileInfo;
+
+	/** 学历 **/
+	@ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST})
+	private EducationInfo educationInfo;
+
+	/** 职业资格 **/
+	@ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST})
+	@JoinTable(name = "fengmangbilu_reportinfo_ostainfo", joinColumns = {@JoinColumn(name = "report_id")},
+			inverseJoinColumns = {@JoinColumn(name = "ostaInfo_id")})
+	private List<OstaInfo> ostaInfos;
+
+	/** 风险六项 **/
+	@ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST})
+	private RiskInfo riskInfo;
+
+	/** 风险评估信息 **/
+	@ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST})
+	private RiskAssessInfo riskAssessInfo;
+
+	/** 对外投资 **/
+	@ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST})
+	private EnterpriseInfo enterpriseInfo;
+
+}

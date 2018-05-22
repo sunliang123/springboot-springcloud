@@ -1,0 +1,14 @@
+package com.fengmangbilu.microservice.oa.repositories;
+
+import org.springframework.stereotype.Repository;
+
+import com.fengmangbilu.microservice.oa.entities.StaffInfo;
+import com.fengmangbilu.repository.DefaultRepository;
+
+@Repository
+public interface StaffInfoRepository extends DefaultRepository<StaffInfo, Long> {
+
+	StaffInfo findByIsLeaveFalseAndUserId(String userId);
+	
+	long countByDeptId(Long deptId);
+}

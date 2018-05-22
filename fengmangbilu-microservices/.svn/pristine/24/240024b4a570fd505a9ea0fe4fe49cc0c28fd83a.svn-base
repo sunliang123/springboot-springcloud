@@ -1,0 +1,33 @@
+# eureka
+server.port=8003
+spring.application.name=payment
+eureka.instance.hostname=localhost
+eureka.client.serviceUrl.defaultZone=http://localhost:8761/eureka/
+
+# management
+management.context-path=/actuator
+management.security.enabled=false
+
+# mvc
+spring.mvc.locale=zh_CN
+spring.mvc.date-format=yyyy-MM-dd
+
+# i18n
+spring.messages.basename=i18n/messages
+
+# feign
+feign.hystrix.enabled=true
+
+# Redis
+# spring.redis.host=r-wz92746a46e216d4.redis.rds.aliyuncs.com
+# spring.redis.port=6379
+# spring.redis.password=Qq314922957
+
+# rabbitmq
+spring.rabbitmq.host=localhost
+spring.rabbitmq.port=5672
+spring.rabbitmq.username=admin
+spring.rabbitmq.password=314922957
+
+# log
+logging.level.com.fengmangbilu=DEBUG

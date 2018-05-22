@@ -1,0 +1,131 @@
+package com.fengmangbilu.microservice.credit.entities;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+
+import com.fengmangbilu.domain.SimpleEntity;
+
+/**
+ * 职业资格信息
+ */
+@Entity
+@Table(name = "fengmangbilu_osta_info")
+public class OstaInfo extends SimpleEntity{
+
+	/** 姓名 **/
+    @Column(length = 30)
+    private String name;
+    
+    /** 身份证号 **/
+    @Column(length = 20)
+    private String idCard;
+    
+    /** 证书编号 **/
+    @Column(length = 50)
+    private String certificateID;
+    
+    /** 职业名称 **/
+    @Column(length = 50)
+    private String occupation;
+    
+    /** 级别 **/
+    @Column(length = 20)
+    private String level;
+    
+    /** 发证日期 **/
+    @Column(length = 20)
+    private String banZhengRiQi;
+    
+    /** 发证单位 **/
+    @Column(length = 100)
+    private String submitOrgName;
+    
+    /** 当前工作所在地 **/
+    @Column(length = 100)
+    private String cityName;
+    
+    /** 全国月平均工资 **/
+    @Column(length = 50)
+    private String avgNationalSalary;
+    
+    public String getCertificateID() {
+        return certificateID;
+    }
+
+    public void setCertificateID(String certificateID) {
+        this.certificateID = certificateID;
+    }
+
+    public String getOccupation() {
+        return occupation;
+    }
+
+    public void setOccupation(String occupation) {
+        this.occupation = occupation;
+    }
+
+    public String getLevel() {
+        return level;
+    }
+
+    public void setLevel(String level) {
+        this.level = level;
+    }
+
+    public String getSubmitOrgName() {
+        return submitOrgName;
+    }
+
+    public void setSubmitOrgName(String submitOrgName) {
+        this.submitOrgName = submitOrgName;
+    }
+
+    public String getCityName() {
+        return cityName;
+    }
+
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
+    }
+
+    public String getBanZhengRiQi() {
+        return banZhengRiQi;
+    }
+
+    public void setBanZhengRiQi(String banZhengRiQi) {
+        this.banZhengRiQi = banZhengRiQi;
+    }
+
+    public String getAvgNationalSalary() {
+        return avgNationalSalary;
+    }
+
+    public void setAvgNationalSalary(String avgNationalSalary) {
+        this.avgNationalSalary = avgNationalSalary;
+    }
+    
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getIdCard() {
+        return idCard;
+    }
+
+    public void setIdCard(String idCard) {
+        this.idCard = idCard;
+    }
+
+    @Override
+    public String toString() {
+        return ReflectionToStringBuilder.toString(this);
+    }
+
+}

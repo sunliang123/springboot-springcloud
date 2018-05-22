@@ -1,0 +1,1 @@
+2018-03-22 19:58:31.336 [http-nio-8001-exec-7] ERROR com.fengmangbilu.web.DefaultExceptionHandler - com.netflix.hystrix.exception.HystrixRuntimeException: OaClient#checkIdCard(ReportRequest) failed and no fallback available.:Response(code=500, data=null, message=OaClient#checkIdCard(ReportRequest) failed and no fallback available., success=false)

@@ -1,0 +1,52 @@
+package com.fengmangbilu.microservice.oa.providers;
+
+import java.util.concurrent.Callable;
+import java.util.concurrent.CountDownLatch;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.fengmangbilu.microservice.oa.endpoints.ReportRequest;
+import com.fengmangbilu.microservice.oa.enums.ErrorCode;
+import com.fengmangbilu.microservice.oa.exceptions.CreditException;
+import com.fengmangbilu.util.HttpUtils;
+
+public class EnterpriseExecutor implements Callable<JSONObject> {
+	private final Logger logger = LoggerFactory.getLogger(EnterpriseExecutor.class);
+	private final static String JD_URL = "https://way.jd.com/freedt/member?appkey=87f5764fc0bab42695ddd1f1eae7aef6&key=%s";
+	private final ReportRequest request;
+	private CountDownLatch latch;
+
+	public EnterpriseExecutor(ReportRequest request, CountDownLatch latch) {
+		this.request = request;
+		this.latch = latch;
+	}
+	@Override
+	public JSONObject call() throws Exception {
+		try {
+			String api = String.format(JD_URL, request.getIdCard());
+			String result = HttpUtils.getInstance().doGet(api);
+			JSONObject resultObject = JSON.parseObject(result);
+			String code = resultObject.getString("code");
+			if (code.equals("10000")) {
+				resultObject = resultObject.getJSONObject("result");
+				resultObject = resultObject.getJSONObject("data");
+				String status = resultObject.getString("status");
+				if (status.equals("EXIST")) {
+					return resultObject;
+				} else {
+					return null;
+				}
+			} else {
+				String msg = resultObject.getString("msg");
+				logger.error(msg);
+				throw new CreditException(msg, ErrorCode.OTHER);
+			}
+		} finally {
+			latch.countDown();
+		}
+	}
+
+}

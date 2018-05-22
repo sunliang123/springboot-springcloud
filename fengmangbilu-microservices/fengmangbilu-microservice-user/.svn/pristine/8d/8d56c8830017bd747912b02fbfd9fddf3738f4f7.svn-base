@@ -1,0 +1,68 @@
+package com.fengmangbilu.microservice.user.configs;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
+import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
+import org.springframework.security.oauth2.config.annotation.web.configurers.ResourceServerSecurityConfigurer;
+import org.springframework.security.oauth2.provider.error.OAuth2AccessDeniedHandler;
+import org.springframework.security.oauth2.provider.error.OAuth2AuthenticationEntryPoint;
+import org.springframework.security.oauth2.provider.error.WebResponseExceptionTranslator;
+import org.springframework.security.web.AuthenticationEntryPoint;
+import org.springframework.security.web.access.AccessDeniedHandler;
+
+import com.fengmangbilu.microservice.security.CustomWebResponseExceptionTranslator;
+
+@Configuration
+@EnableResourceServer
+public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
+
+	@Override
+	public void configure(HttpSecurity httpSecurity) throws Exception {
+		httpSecurity.csrf().disable()
+
+				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
+
+				.authorizeRequests()
+				
+				.antMatchers("/v2/api-docs/**", "/swagger-resources/**", "/swagger-ui.html", "/webjars/**").permitAll()
+
+				.antMatchers("/actuator/**").permitAll()
+				
+				.antMatchers("/register").permitAll()
+
+				.anyRequest().authenticated();
+
+		httpSecurity.headers().cacheControl();
+	}
+
+	@Override
+	public void configure(final ResourceServerSecurityConfigurer resources) throws Exception {
+		resources
+
+				.accessDeniedHandler(accessDeniedHandler())
+
+				.authenticationEntryPoint(authenticationEntryPoint());
+	}
+
+	@Bean
+	public WebResponseExceptionTranslator exceptionTranslator() {
+		return new CustomWebResponseExceptionTranslator();
+	}
+
+	@Bean
+	public AuthenticationEntryPoint authenticationEntryPoint() {
+		final OAuth2AuthenticationEntryPoint entryPoint = new OAuth2AuthenticationEntryPoint();
+		entryPoint.setExceptionTranslator(exceptionTranslator());
+		return entryPoint;
+	}
+
+	@Bean
+	public AccessDeniedHandler accessDeniedHandler() {
+		final OAuth2AccessDeniedHandler handler = new OAuth2AccessDeniedHandler();
+		handler.setExceptionTranslator(exceptionTranslator());
+		return handler;
+	}
+}

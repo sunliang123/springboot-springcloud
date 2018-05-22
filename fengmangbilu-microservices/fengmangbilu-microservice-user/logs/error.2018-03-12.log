@@ -1,0 +1,1 @@
+2018-03-12 15:10:31.963 [http-nio-8001-exec-2] ERROR com.fengmangbilu.web.DefaultExceptionHandler - org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'HEAD' not supported:Response(code=405, data=null, message=Request method 'HEAD' not supported, success=false)

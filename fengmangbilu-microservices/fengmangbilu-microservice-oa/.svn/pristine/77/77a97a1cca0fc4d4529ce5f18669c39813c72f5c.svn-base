@@ -1,0 +1,12 @@
+package com.fengmangbilu.microservice.oa.services;
+
+import org.springframework.stereotype.Service;
+
+import com.fengmangbilu.microservice.oa.entities.CompanyAuth;
+import com.fengmangbilu.microservice.oa.repositories.CompanyAuthRepository;
+import com.fengmangbilu.service.DefaultJpaServiceImpl;
+
+@Service
+public class CompanyAuthServiceImpl extends DefaultJpaServiceImpl<CompanyAuth, Long, CompanyAuthRepository>
+		implements CompanyAuthService {
+}

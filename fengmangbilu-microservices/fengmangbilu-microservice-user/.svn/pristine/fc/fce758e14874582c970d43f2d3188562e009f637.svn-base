@@ -1,0 +1,58 @@
+package com.fengmangbilu.microservice.user.controllers;
+
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.AuthenticationException;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.fengmangbilu.microservice.user.endpoints.LoginRequest;
+import com.fengmangbilu.security.AccessToken;
+import com.fengmangbilu.security.token.TokenService;
+import com.fengmangbilu.web.Response;
+
+import io.swagger.annotations.Api;
+
+@Api
+@Validated
+@RestController
+public class TokenController {
+
+	@Autowired
+	private TokenService tokenService;
+
+	@Autowired
+	private AuthenticationManager authenticationManager;
+
+	@PostMapping("getToken")
+	public Response token(@Valid @RequestBody LoginRequest loginRequest) {
+		String username = loginRequest.getUsername();
+		String password = loginRequest.getPassword();
+		Authentication authentication = new UsernamePasswordAuthenticationToken(username, password);
+		authentication = authenticationManager.authenticate(authentication);
+		if (authentication == null || !authentication.isAuthenticated()) {
+			return Response.unauthorized("帐号或密码错误");
+		}
+		AccessToken token = tokenService.createAccessToken(authentication);
+		return Response.ok(token);
+	}
+
+	@PostMapping("refreshToken")
+	public Response token(@RequestParam String refreshToken) {
+		AccessToken token = tokenService.refreshAccessToken(refreshToken);
+		return Response.ok(token);
+	}
+
+	@ExceptionHandler(AuthenticationException.class)
+	public Response handlerBindException(AuthenticationException ex) {
+		return Response.unauthorized(ex.getMessage());
+	}
+}

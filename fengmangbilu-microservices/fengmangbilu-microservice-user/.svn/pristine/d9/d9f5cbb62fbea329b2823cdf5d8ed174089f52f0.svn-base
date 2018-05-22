@@ -1,0 +1,72 @@
+package com.fengmangbilu.microservice.user.controllers;
+
+import java.util.UUID;
+
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
+
+import com.fengmangbilu.microservice.user.endpoints.UserRequest;
+import com.fengmangbilu.microservice.user.entities.User;
+import com.fengmangbilu.microservice.user.services.QiniuService;
+import com.fengmangbilu.microservice.user.services.UserService;
+import com.fengmangbilu.web.Response;
+import com.qiniu.common.QiniuException;
+
+import io.swagger.annotations.Api;
+
+@Api
+@Validated
+@RestController
+public class UserController {
+
+	@Autowired
+	private UserService userService;
+
+	@Autowired
+	private QiniuService qiniuService;
+
+	@PostMapping("register")
+	public Response register(@Valid @RequestBody UserRequest userRequest) {
+		userService.register(userRequest);
+		return Response.ok();
+	}
+
+	@PostMapping("resetPassword")
+	public Response resetPassword(@Valid @RequestBody UserRequest userRequest) {
+		userService.resetPassword(userRequest);
+		return Response.ok();
+	}
+
+	@PostMapping("deleteAvatar")
+	public Response deleteAvatar(@AuthenticationPrincipal Long userId) throws QiniuException {
+		User user = userService.findOne(userId);
+		qiniuService.deleteFile(user.getAvatar());
+		return Response.ok();
+	}
+
+	@PostMapping("uploadAvatar")
+	public Response uploadAvatar(@AuthenticationPrincipal Long userId, @RequestParam(required = false) MultipartFile file)
+			throws QiniuException {
+		String fileName = UUID.randomUUID().toString().replaceAll("\\-", "");
+		User user = userService.findOne(userId);
+		String avatar = qiniuService.uploadFile(file, user.getAvatar(), fileName);
+		userService.setAvatarFor(userId, avatar);
+		return Response.ok(avatar);
+	}
+
+	@GetMapping("getUpToken")
+	public Response getUpToken() {
+		String upToken = qiniuService.getUpToken();
+		return Response.ok(null, upToken);
+	}
+
+}

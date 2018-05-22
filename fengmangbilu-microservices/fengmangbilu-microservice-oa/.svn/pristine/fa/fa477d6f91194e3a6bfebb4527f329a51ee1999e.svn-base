@@ -1,0 +1,12 @@
+package com.fengmangbilu.microservice.credit.services;
+
+import org.springframework.stereotype.Service;
+
+import com.fengmangbilu.microservice.credit.entities.CorporateManager;
+import com.fengmangbilu.microservice.credit.repositories.CorporateManagerRepository;
+import com.fengmangbilu.service.DefaultJpaServiceImpl;
+
+@Service
+public class CorporateManagerServiceImpl extends
+		DefaultJpaServiceImpl<CorporateManager, String, CorporateManagerRepository> implements CorporateManagerService {
+}

@@ -1,0 +1,162 @@
+package com.fengmangbilu.microservice.common.security.token.store;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+
+import org.springframework.security.authentication.AuthenticationServiceException;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+//import org.springframework.security..common.DefaultExpiringRefreshToken;
+//import org.springframework.security..common.DefaultRefreshToken;
+//import org.springframework.security..common.RefreshToken;
+//import org.springframework.security..common.exceptions.InvalidTokenException;
+//import org.springframework.security..provider.Authentication;
+//import org.springframework.security..provider.approval.Approval;
+//import org.springframework.security..provider.approval.Approval.ApprovalStatus;
+//import org.springframework.security..provider.approval.ApprovalStore;
+//import org.springframework.security.oauth2.provider.approval.Approval;
+//import org.springframework.security.oauth2.provider.approval.Approval.ApprovalStatus;
+//import org.springframework.security.oauth2.provider.approval.ApprovalStore;
+
+import com.fengmangbilu.microservice.common.security.AccessToken;
+import com.fengmangbilu.microservice.common.security.DefaultRefreshToken;
+import com.fengmangbilu.microservice.common.security.RefreshToken;
+import com.fengmangbilu.microservice.common.security.approval.Approval;
+import com.fengmangbilu.microservice.common.security.approval.ApprovalStore;
+import com.fengmangbilu.microservice.common.security.token.DefaultExpiringRefreshToken;
+import com.fengmangbilu.microservice.common.security.token.TokenStore;
+
+/**
+ * JWT令牌存储
+ * @author Justice
+ */
+public class JwtTokenStore implements TokenStore {
+
+	private JwtAccessTokenConverter jwtTokenEnhancer;
+
+	private ApprovalStore approvalStore;
+
+	public JwtTokenStore() {
+	}
+	
+	public void setJwtTokenEnhancer(JwtAccessTokenConverter jwtTokenEnhancer) {
+		this.jwtTokenEnhancer = jwtTokenEnhancer;
+	}
+
+	/**
+	 * 用来验证和限制刷新令牌。
+	 * @param approvalStore
+	 */
+	public void setApprovalStore(ApprovalStore approvalStore) {
+		this.approvalStore = approvalStore;
+	}
+
+	@Override
+	public UsernamePasswordAuthenticationToken readAuthentication(AccessToken token) {
+		return readAuthentication(token.getValue());
+	}
+
+	@Override
+	public UsernamePasswordAuthenticationToken readAuthentication(String token) {
+		return jwtTokenEnhancer.extractAuthentication(jwtTokenEnhancer.decode(token));
+	}
+
+	@Override
+	public void storeAccessToken(AccessToken token, Authentication authentication) {
+	}
+
+	@Override
+	public AccessToken readAccessToken(String tokenValue) {
+		AccessToken accessToken = convertAccessToken(tokenValue);
+		if (jwtTokenEnhancer.isRefreshToken(accessToken)) {
+			throw new AuthenticationServiceException("Encoded token is a refresh token");
+		}
+		return accessToken;
+	}
+
+	private AccessToken convertAccessToken(String tokenValue) {
+		return jwtTokenEnhancer.extractAccessToken(tokenValue, jwtTokenEnhancer.decode(tokenValue));
+	}
+
+	@Override
+	public void removeAccessToken(AccessToken token) {
+		// gh-807 Approvals (if any) should only be removed when Refresh Tokens are removed (or expired)
+	}
+
+	@Override
+	public void storeRefreshToken(RefreshToken refreshToken, Authentication authentication) {
+	}
+
+	@Override
+	public RefreshToken readRefreshToken(String tokenValue) {
+		AccessToken encodedRefreshToken = convertAccessToken(tokenValue);
+		RefreshToken refreshToken = createRefreshToken(encodedRefreshToken);
+		if (approvalStore != null) {
+			Authentication authentication = readAuthentication(tokenValue);
+			if (authentication != null) {
+				String userId = authentication.getName();
+				Collection<Approval> approvals = approvalStore.getApprovals(userId);
+				if(approvals.isEmpty()){
+					return null;
+				}
+			}
+		}
+		return refreshToken;
+	}
+
+	private RefreshToken createRefreshToken(AccessToken encodedRefreshToken) {
+		if (!jwtTokenEnhancer.isRefreshToken(encodedRefreshToken)) {
+			throw new AuthenticationServiceException("Encoded token is not a refresh token");
+		}
+		if (encodedRefreshToken.getExpiration()!=null) {
+			return new DefaultExpiringRefreshToken(encodedRefreshToken.getValue(),
+					encodedRefreshToken.getExpiration());			
+		}
+		return new DefaultRefreshToken(encodedRefreshToken.getValue());
+	}
+
+	@Override
+	public UsernamePasswordAuthenticationToken readAuthenticationForRefreshToken(RefreshToken token) {
+		return readAuthentication(token.getValue());
+	}
+
+	@Override
+	public void removeRefreshToken(RefreshToken token) {
+		remove(token.getValue());
+	}
+
+	@Override
+	public void removeAccessTokenUsingRefreshToken(RefreshToken refreshToken) {
+		// gh-807 Approvals (if any) should only be removed when Refresh Tokens are removed (or expired)
+	}
+
+	@Override
+	public AccessToken getAccessToken(Authentication authentication) {
+		// We don't want to accidentally issue a token, and we have no way to reconstruct the refresh token
+		return null;
+	}
+
+	public void setTokenEnhancer(JwtAccessTokenConverter tokenEnhancer) {
+		this.jwtTokenEnhancer = tokenEnhancer;
+	}
+
+	private void remove(String token) {
+		if (approvalStore != null) {
+			Authentication auth = readAuthentication(token);
+			if (auth != null) {
+				Collection<Approval> approvals = new ArrayList<Approval>();
+				approvalStore.revokeApprovals(approvals);
+			}
+		}
+	}
+	
+	public JwtAccessTokenConverter getJwtTokenEnhancer() {
+		return jwtTokenEnhancer;
+	}
+
+	@Override
+	public Collection<AccessToken> findTokensByUserName(String userName) {
+		return Collections.emptySet();
+	}
+}

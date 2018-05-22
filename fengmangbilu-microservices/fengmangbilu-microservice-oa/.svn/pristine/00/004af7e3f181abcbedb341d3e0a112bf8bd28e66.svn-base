@@ -1,0 +1,107 @@
+package com.fengmangbilu.microservice.credit.entities;
+
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fengmangbilu.domain.SimpleEntity;
+
+@Entity
+@JsonIgnoreProperties({"id", "riskInfo"})
+@Table(name = "fengmangbilu_risk_zxs_info")
+public class RiskZxsInfo extends SimpleEntity {
+
+	private String bt;
+
+	private String bzxr;
+
+	private String zjhm;
+
+	private String zxfy;
+
+	private String ah;
+
+	private String ajzt;
+
+	private String zxbd;
+
+	private String lasj;
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	private RiskInfo riskInfo;
+
+	public String getBt() {
+		return bt;
+	}
+
+	public void setBt(String bt) {
+		this.bt = bt;
+	}
+
+	public String getBzxr() {
+		return bzxr;
+	}
+
+	public void setBzxr(String bzxr) {
+		this.bzxr = bzxr;
+	}
+
+	public String getZjhm() {
+		return zjhm;
+	}
+
+	public void setZjhm(String zjhm) {
+		this.zjhm = zjhm;
+	}
+
+	public String getZxfy() {
+		return zxfy;
+	}
+
+	public void setZxfy(String zxfy) {
+		this.zxfy = zxfy;
+	}
+
+	public String getAh() {
+		return ah;
+	}
+
+	public void setAh(String ah) {
+		this.ah = ah;
+	}
+
+	public String getAjzt() {
+		return ajzt;
+	}
+
+	public void setAjzt(String ajzt) {
+		this.ajzt = ajzt;
+	}
+
+	public String getZxbd() {
+		return zxbd;
+	}
+
+	public void setZxbd(String zxbd) {
+		this.zxbd = zxbd;
+	}
+
+	public String getLasj() {
+		return lasj;
+	}
+
+	public void setLasj(String lasj) {
+		this.lasj = lasj;
+	}
+
+	public RiskInfo getRiskInfo() {
+		return riskInfo;
+	}
+
+	public void setRiskInfo(RiskInfo riskInfo) {
+		this.riskInfo = riskInfo;
+	}
+
+}

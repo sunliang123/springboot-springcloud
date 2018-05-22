@@ -1,0 +1,91 @@
+package com.fengmangbilu.api.controllers;
+
+import java.util.Map;
+import java.util.Set;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.validation.ConstraintViolation;
+import javax.validation.ConstraintViolationException;
+
+import org.springframework.boot.autoconfigure.web.AbstractErrorController;
+import org.springframework.boot.autoconfigure.web.ErrorAttributes;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.util.StringUtils;
+import org.springframework.validation.BindException;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.fengmangbilu.common.exceptions.BizException;
+import com.fengmangbilu.data.domain.Response;
+
+@ControllerAdvice
+@RequestMapping(value = "/")
+public class ErrorController extends AbstractErrorController {
+
+	public ErrorController(ErrorAttributes errorAttributes) {
+		super(errorAttributes);
+	}
+
+	@Override
+	public String getErrorPath() {
+		return "/error";
+	}
+
+	@ResponseBody
+	@RequestMapping(value = "/error")
+	public ResponseEntity<Response> error(HttpServletRequest request) {
+		Map<String, Object> body = getErrorAttributes(request, false);
+		HttpStatus status = getStatus(request);
+		String message = (String) body.get("message");
+		Object data = body.get("error");
+		return ResponseEntity.ok(Response.error(status.value(), message, data));
+	}
+
+	@ResponseBody
+	@ExceptionHandler(ConstraintViolationException.class)
+	public Response handlerConstraintViolationException(ConstraintViolationException ex) {
+		Set<ConstraintViolation<?>> constraintViolations = ex.getConstraintViolations();
+		for (ConstraintViolation<?> constraintViolation : constraintViolations) {
+			return Response.validationError(constraintViolation.getMessage());
+		}
+		return Response.validationError("参数验证错误");
+	}
+
+	@ResponseBody
+	@ExceptionHandler(BindException.class)
+	public Response handlerBindException(BindException ex) {
+		BindingResult result = ex.getBindingResult();
+		FieldError fieldError = result.getFieldError();
+		if (fieldError != null) {
+			return Response.validationError(fieldError.getDefaultMessage());
+		}
+		return Response.validationError("参数验证错误");
+	}
+
+	@ResponseBody
+	@ExceptionHandler(MethodArgumentNotValidException.class)
+	public Response handlerMethodArgumentNotValidException(MethodArgumentNotValidException ex) {
+		BindingResult result = ex.getBindingResult();
+		FieldError fieldError = result.getFieldError();
+		if (fieldError != null) {
+			return Response.validationError(fieldError.getDefaultMessage());
+		}
+		return Response.validationError("参数验证错误");
+	}
+
+	@ResponseBody
+	@ExceptionHandler(BizException.class)
+	public Response handlerBizException(BizException ex) {
+		if (StringUtils.hasText(ex.getMessage())) {
+			return Response.error(ex.getMessage());
+		}
+		return Response.error("业务异常");
+	}
+
+}

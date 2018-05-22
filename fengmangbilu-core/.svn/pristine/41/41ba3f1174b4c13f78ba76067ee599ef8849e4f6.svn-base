@@ -1,0 +1,75 @@
+package com.fengmangbilu.common.jackson;
+
+import java.util.Set;
+
+import org.apache.commons.lang3.Validate;
+
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.jsonFormatVisitors.JsonObjectFormatVisitor;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.fasterxml.jackson.databind.ser.PropertyFilter;
+import com.fasterxml.jackson.databind.ser.PropertyWriter;
+import com.google.common.collect.Sets;
+
+/**
+ * @author Justice
+ */
+public class EntityPropertyFilter implements PropertyFilter {
+
+    private final JsonFilter[] filters;
+
+    /**
+     * Creates a new filter instance by the specified {@link JsonFilter} annotations.
+     *
+     * @param filters the annotations to define the filter
+     */
+    public EntityPropertyFilter(JsonFilter... filters) {
+        this.filters = filters;
+    }
+
+
+    @Override
+    public void serializeAsField(Object pojo, JsonGenerator jgen, SerializerProvider prov, PropertyWriter writer)
+            throws Exception {
+        if (filterOutAllExcept(pojo, writer)) {
+            writer.serializeAsField(pojo, jgen, prov);
+        } else if (!jgen.canOmitFields()) {
+            writer.serializeAsOmittedField(pojo, jgen, prov);
+        }
+    }
+
+    @Override
+    public void serializeAsElement(Object elementValue, JsonGenerator jgen, SerializerProvider prov,
+            PropertyWriter writer) throws Exception {
+        writer.serializeAsElement(elementValue, jgen, prov);
+    }
+
+    @Override
+    @SuppressWarnings("deprecation")
+    public void depositSchemaProperty(PropertyWriter writer, ObjectNode propertiesNode, SerializerProvider provider)
+            throws JsonMappingException {
+        writer.depositSchemaProperty(propertiesNode, provider);
+    }
+
+    @Override
+    public void depositSchemaProperty(PropertyWriter writer, JsonObjectFormatVisitor objectVisitor,
+            SerializerProvider provider) throws JsonMappingException {
+        writer.depositSchemaProperty(objectVisitor, provider);
+    }
+
+    protected boolean filterOutAllExcept(Object object, PropertyWriter writer) {
+        Validate.notNull(object);
+        for (Class<?> cls = object.getClass(); cls != Object.class; cls = cls.getSuperclass()) {
+            for (JsonFilter filter : filters) {
+                if (filter.target().equals(cls)) {
+                    Set<String> properties = Sets.newHashSet(filter.value());
+                    return filter.exclude() ? !properties.contains(writer.getName())
+                            : properties.contains(writer.getName());
+                }
+            }
+        }
+        return true;
+    }
+}

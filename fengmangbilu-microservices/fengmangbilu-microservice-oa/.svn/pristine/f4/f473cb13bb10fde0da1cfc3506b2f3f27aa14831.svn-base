@@ -1,0 +1,47 @@
+package com.fengmangbilu.microservice.oa.endpoints;
+
+import javax.validation.constraints.Pattern;
+
+import org.hibernate.validator.constraints.NotBlank;
+
+import com.fengmangbilu.validator.constraints.IdCard;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+public class CertifyRealnameRequest {
+
+	@NotBlank(message = "图像识别姓名失败")
+	@Pattern(regexp = "^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,16}$", message = "图像识别姓名失败")
+	private String name;
+
+	@IdCard
+	@NotBlank(message = "图像识别身份证失败")
+	private String idCard;
+
+	@NotBlank(message = "图像识别原籍地址失败")
+	private String OriginalAddress;
+
+	@NotBlank(message = "图像识别签发机关失败")
+	private String idIssued;
+
+	@NotBlank(message = "图像识别有效开始期限失败")
+	private String issuedData;
+
+	@NotBlank(message = "图像识别有效结束期限失败")
+	private String validDate;
+
+	@NotBlank(message = "图像识别名族失败")
+	private String nation;
+
+	@NotBlank(message = "图像识别身份证正面失败")
+	private String frontImage;
+
+	@NotBlank(message = "图像识别身份证反面失败")
+	private String backImage;
+
+	@NotBlank(message = "图像识别身份证头部失败")
+	private String headImage;
+}

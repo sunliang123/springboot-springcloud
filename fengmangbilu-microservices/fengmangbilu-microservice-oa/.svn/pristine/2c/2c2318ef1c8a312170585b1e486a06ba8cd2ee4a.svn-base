@@ -1,0 +1,437 @@
+package com.fengmangbilu.microservice.credit.entities;
+
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fengmangbilu.domain.SimpleEntity;
+
+@Entity
+@JsonIgnoreProperties({"id", "riskInfo"})
+@Table(name = "fengmangbilu_risk_cqs_info")
+public class RiskCqsInfo extends SimpleEntity {
+
+	private String bt;
+
+	private String cqje;
+
+	private String bcqr;
+
+	private String fbjs;
+
+	private String zt;
+
+	private String dbgdXm;
+
+	private String dbgdSfzhm;
+
+	private String dbgdXb;
+
+	private String dbgdZj;
+
+	private String dbgdXxdz;
+
+	private String dbgdDz;
+
+	private String dbjbrXm;
+
+	private String dbjbrSfzhm;
+
+	private String dbjbrXb;
+
+	private String dbjbrSjhm;
+
+	private String dbjbrZj;
+
+	private String dbjbrDzyj;
+
+	private String dbjbrXxdz;
+
+	private String dbjbrDz;
+
+	private String fzrXm;
+
+	private String fzrZw;
+
+	private String fzrSjhm;
+
+	private String fzrFbjs;
+
+	private String fzrZj;
+
+	private String fzrDzyj;
+
+	private String fzrXxdz;
+
+	private String fzrDz;
+
+	private String qkgdXm;
+
+	private String qkgdSfzhm;
+
+	private String qkgdXb;
+
+	private String qkgdZj;
+
+	private String qkgdXxdz;
+
+	private String qkgdDz;
+
+	private String qkjbrXm;
+
+	private String qkjbrSfzhm;
+
+	private String qkjbrXb;
+
+	private String qkjbrZj;
+
+	private String qkjbrXxdz;
+
+	private String qkjbrDz;
+
+	private String qkjbrDzyj;
+
+	private String qkjbrSjhm;
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	private RiskInfo riskInfo;
+
+	public String getBt() {
+		return bt;
+	}
+
+	public void setBt(String bt) {
+		this.bt = bt;
+	}
+
+	public String getCqje() {
+		return cqje;
+	}
+
+	public void setCqje(String cqje) {
+		this.cqje = cqje;
+	}
+
+	public String getBcqr() {
+		return bcqr;
+	}
+
+	public void setBcqr(String bcqr) {
+		this.bcqr = bcqr;
+	}
+
+	public String getFbjs() {
+		return fbjs;
+	}
+
+	public void setFbjs(String fbjs) {
+		this.fbjs = fbjs;
+	}
+
+	public String getZt() {
+		return zt;
+	}
+
+	public void setZt(String zt) {
+		this.zt = zt;
+	}
+
+	public String getDbgdXm() {
+		return dbgdXm;
+	}
+
+	public void setDbgdXm(String dbgdXm) {
+		this.dbgdXm = dbgdXm;
+	}
+
+	public String getDbgdSfzhm() {
+		return dbgdSfzhm;
+	}
+
+	public void setDbgdSfzhm(String dbgdSfzhm) {
+		this.dbgdSfzhm = dbgdSfzhm;
+	}
+
+	public String getDbgdXb() {
+		return dbgdXb;
+	}
+
+	public void setDbgdXb(String dbgdXb) {
+		this.dbgdXb = dbgdXb;
+	}
+
+	public String getDbgdZj() {
+		return dbgdZj;
+	}
+
+	public void setDbgdZj(String dbgdZj) {
+		this.dbgdZj = dbgdZj;
+	}
+
+	public String getDbgdXxdz() {
+		return dbgdXxdz;
+	}
+
+	public void setDbgdXxdz(String dbgdXxdz) {
+		this.dbgdXxdz = dbgdXxdz;
+	}
+
+	public String getDbgdDz() {
+		return dbgdDz;
+	}
+
+	public void setDbgdDz(String dbgdDz) {
+		this.dbgdDz = dbgdDz;
+	}
+
+	public String getDbjbrXm() {
+		return dbjbrXm;
+	}
+
+	public void setDbjbrXm(String dbjbrXm) {
+		this.dbjbrXm = dbjbrXm;
+	}
+
+	public String getDbjbrSfzhm() {
+		return dbjbrSfzhm;
+	}
+
+	public void setDbjbrSfzhm(String dbjbrSfzhm) {
+		this.dbjbrSfzhm = dbjbrSfzhm;
+	}
+
+	public String getDbjbrXb() {
+		return dbjbrXb;
+	}
+
+	public void setDbjbrXb(String dbjbrXb) {
+		this.dbjbrXb = dbjbrXb;
+	}
+
+	public String getDbjbrSjhm() {
+		return dbjbrSjhm;
+	}
+
+	public void setDbjbrSjhm(String dbjbrSjhm) {
+		this.dbjbrSjhm = dbjbrSjhm;
+	}
+
+	public String getDbjbrZj() {
+		return dbjbrZj;
+	}
+
+	public void setDbjbrZj(String dbjbrZj) {
+		this.dbjbrZj = dbjbrZj;
+	}
+
+	public String getDbjbrDzyj() {
+		return dbjbrDzyj;
+	}
+
+	public void setDbjbrDzyj(String dbjbrDzyj) {
+		this.dbjbrDzyj = dbjbrDzyj;
+	}
+
+	public String getDbjbrXxdz() {
+		return dbjbrXxdz;
+	}
+
+	public void setDbjbrXxdz(String dbjbrXxdz) {
+		this.dbjbrXxdz = dbjbrXxdz;
+	}
+
+	public String getDbjbrDz() {
+		return dbjbrDz;
+	}
+
+	public void setDbjbrDz(String dbjbrDz) {
+		this.dbjbrDz = dbjbrDz;
+	}
+
+	public String getFzrXm() {
+		return fzrXm;
+	}
+
+	public void setFzrXm(String fzrXm) {
+		this.fzrXm = fzrXm;
+	}
+
+	public String getFzrZw() {
+		return fzrZw;
+	}
+
+	public void setFzrZw(String fzrZw) {
+		this.fzrZw = fzrZw;
+	}
+
+	public String getFzrSjhm() {
+		return fzrSjhm;
+	}
+
+	public void setFzrSjhm(String fzrSjhm) {
+		this.fzrSjhm = fzrSjhm;
+	}
+
+	public String getFzrFbjs() {
+		return fzrFbjs;
+	}
+
+	public void setFzrFbjs(String fzrFbjs) {
+		this.fzrFbjs = fzrFbjs;
+	}
+
+	public String getFzrZj() {
+		return fzrZj;
+	}
+
+	public void setFzrZj(String fzrZj) {
+		this.fzrZj = fzrZj;
+	}
+
+	public String getFzrDzyj() {
+		return fzrDzyj;
+	}
+
+	public void setFzrDzyj(String fzrDzyj) {
+		this.fzrDzyj = fzrDzyj;
+	}
+
+	public String getFzrXxdz() {
+		return fzrXxdz;
+	}
+
+	public void setFzrXxdz(String fzrXxdz) {
+		this.fzrXxdz = fzrXxdz;
+	}
+
+	public String getFzrDz() {
+		return fzrDz;
+	}
+
+	public void setFzrDz(String fzrDz) {
+		this.fzrDz = fzrDz;
+	}
+
+	public String getQkgdXm() {
+		return qkgdXm;
+	}
+
+	public void setQkgdXm(String qkgdXm) {
+		this.qkgdXm = qkgdXm;
+	}
+
+	public String getQkgdSfzhm() {
+		return qkgdSfzhm;
+	}
+
+	public void setQkgdSfzhm(String qkgdSfzhm) {
+		this.qkgdSfzhm = qkgdSfzhm;
+	}
+
+	public String getQkgdXb() {
+		return qkgdXb;
+	}
+
+	public void setQkgdXb(String qkgdXb) {
+		this.qkgdXb = qkgdXb;
+	}
+
+	public String getQkgdZj() {
+		return qkgdZj;
+	}
+
+	public void setQkgdZj(String qkgdZj) {
+		this.qkgdZj = qkgdZj;
+	}
+
+	public String getQkgdXxdz() {
+		return qkgdXxdz;
+	}
+
+	public void setQkgdXxdz(String qkgdXxdz) {
+		this.qkgdXxdz = qkgdXxdz;
+	}
+
+	public String getQkgdDz() {
+		return qkgdDz;
+	}
+
+	public void setQkgdDz(String qkgdDz) {
+		this.qkgdDz = qkgdDz;
+	}
+
+	public String getQkjbrXm() {
+		return qkjbrXm;
+	}
+
+	public void setQkjbrXm(String qkjbrXm) {
+		this.qkjbrXm = qkjbrXm;
+	}
+
+	public String getQkjbrSfzhm() {
+		return qkjbrSfzhm;
+	}
+
+	public void setQkjbrSfzhm(String qkjbrSfzhm) {
+		this.qkjbrSfzhm = qkjbrSfzhm;
+	}
+
+	public String getQkjbrXb() {
+		return qkjbrXb;
+	}
+
+	public void setQkjbrXb(String qkjbrXb) {
+		this.qkjbrXb = qkjbrXb;
+	}
+
+	public String getQkjbrZj() {
+		return qkjbrZj;
+	}
+
+	public void setQkjbrZj(String qkjbrZj) {
+		this.qkjbrZj = qkjbrZj;
+	}
+
+	public String getQkjbrXxdz() {
+		return qkjbrXxdz;
+	}
+
+	public void setQkjbrXxdz(String qkjbrXxdz) {
+		this.qkjbrXxdz = qkjbrXxdz;
+	}
+
+	public String getQkjbrDz() {
+		return qkjbrDz;
+	}
+
+	public void setQkjbrDz(String qkjbrDz) {
+		this.qkjbrDz = qkjbrDz;
+	}
+
+	public String getQkjbrDzyj() {
+		return qkjbrDzyj;
+	}
+
+	public void setQkjbrDzyj(String qkjbrDzyj) {
+		this.qkjbrDzyj = qkjbrDzyj;
+	}
+
+	public String getQkjbrSjhm() {
+		return qkjbrSjhm;
+	}
+
+	public void setQkjbrSjhm(String qkjbrSjhm) {
+		this.qkjbrSjhm = qkjbrSjhm;
+	}
+
+	public RiskInfo getRiskInfo() {
+		return riskInfo;
+	}
+
+	public void setRiskInfo(RiskInfo riskInfo) {
+		this.riskInfo = riskInfo;
+	}
+
+}

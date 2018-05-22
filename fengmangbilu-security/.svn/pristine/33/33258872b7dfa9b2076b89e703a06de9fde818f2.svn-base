@@ -1,0 +1,25 @@
+package com.fengmangbilu.security.config;
+
+import java.util.List;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.security.web.method.annotation.AuthenticationPrincipalArgumentResolver;
+import org.springframework.web.method.support.HandlerMethodArgumentResolver;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+
+@Configuration
+public class TokenSecurityMvcConfiguration extends WebMvcConfigurerAdapter {
+
+	@Lazy
+	@Bean
+	public AuthenticationPrincipalArgumentResolver authenticationPrincipalArgumentResolver() {
+		return new AuthenticationPrincipalArgumentResolver();
+	}
+
+	@Override
+	public void addArgumentResolvers(List<HandlerMethodArgumentResolver> argumentResolvers) {
+		argumentResolvers.add(authenticationPrincipalArgumentResolver());
+	}
+}

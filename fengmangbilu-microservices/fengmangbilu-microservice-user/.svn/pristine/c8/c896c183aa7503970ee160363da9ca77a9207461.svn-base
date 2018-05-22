@@ -1,0 +1,95 @@
+package com.fengmangbilu.microservice.user.services;
+
+import java.util.Date;
+
+import org.apache.commons.text.RandomStringGenerator;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+
+import com.fengmangbilu.core.ServiceException;
+import com.fengmangbilu.data.service.GenericJpaServiceImpl;
+import com.fengmangbilu.microservice.cache.sms.Source;
+import com.fengmangbilu.microservice.user.endpoints.UserRequest;
+import com.fengmangbilu.microservice.user.entities.User;
+import com.fengmangbilu.microservice.user.repositories.UserRepository;
+
+@Service
+public class UserServiceImpl extends GenericJpaServiceImpl<User, String, UserRepository> implements UserService, UserDetailsService {
+
+	@Value("${hibernate.userId.seqName}")
+	private String seqName;
+
+	@Autowired
+	private UserRepository repository;
+
+	@Autowired
+	private PasswordEncoder passwordEncoder;
+
+	@Autowired
+	private SmsService smsService;
+
+	@Override
+	public String generatedUserId() {
+		return repository.getMySqlNextVal(seqName);
+	}
+
+	@Override
+	public User findByMobile(String mobile) {
+		return repository.findByMobile(mobile);
+	}
+
+	@Override
+	public User findByUserId(String userId) {
+		return repository.findByUserId(userId);
+	}
+
+	@Override
+	public User register(UserRequest userRequest) {
+		String mobile = userRequest.getMobile();
+		User user = findByMobile(mobile);
+		if (user != null) {
+			throw new ServiceException("该手机号已经注册");
+		}
+		String smsCode = smsService.getSmsCode(mobile, Source.REGISTER.name());
+		if (smsCode == null || !smsCode.equals(userRequest.getSmsCode())) {
+			throw new ServiceException("验证码错误");
+		}
+		user = new User();
+		user.setMobile(mobile);
+		user.setPassword(passwordEncoder.encode(userRequest.getPassword()));
+		user.setUserId(generatedUserId());
+		RandomStringGenerator generator = new RandomStringGenerator.Builder().withinRange('a', 'z').build();
+		user.setNickname(generator.generate(6));
+		return repository.save(user);
+	}
+
+	@Override
+	public User resetPassword(UserRequest userRequest) {
+		String mobile = userRequest.getMobile();
+		User user = findByMobile(mobile);
+		if (user == null) {
+			throw new ServiceException("该手机号尚未注册");
+		}
+		String smsCode = smsService.getSmsCode(mobile, Source.REST_PASSWORD.name());
+		if (smsCode == null || !smsCode.equals(userRequest.getSmsCode())) {
+			throw new ServiceException("验证码错误");
+		}
+		user.setPassword(passwordEncoder.encode(userRequest.getPassword()));
+		user.setLastPasswordResetDate(new Date());
+		return repository.save(user);
+	}
+
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		User user = repository.findByMobile(username);
+		if (user == null) {
+			throw new UsernameNotFoundException("帐号不存在");
+		}
+		return user;
+	}
+}

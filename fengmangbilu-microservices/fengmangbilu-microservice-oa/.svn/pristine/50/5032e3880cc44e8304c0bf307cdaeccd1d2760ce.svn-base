@@ -1,0 +1,9 @@
+package com.fengmangbilu.microservice.credit.services;
+
+import com.fengmangbilu.microservice.credit.entities.ReportInfo;
+import com.fengmangbilu.microservice.credit.repositories.ReportInfoRepository;
+import com.fengmangbilu.service.DefaultJpaService;
+
+public interface ReportInfoService extends DefaultJpaService<ReportInfo, String, ReportInfoRepository> {
+
+}

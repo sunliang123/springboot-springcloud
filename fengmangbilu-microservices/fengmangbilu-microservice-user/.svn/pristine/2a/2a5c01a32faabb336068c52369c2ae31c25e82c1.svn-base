@@ -1,0 +1,13 @@
+package com.fengmangbilu.microservice.user.services;
+
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.stereotype.Service;
+
+@Service
+public class SmsService {
+
+    @Cacheable(value = "sms", key = "#mobile + ':' + #source", unless = "#result==null")
+    public String getSmsCode(String mobile, String source) {
+        return null;
+    }
+}

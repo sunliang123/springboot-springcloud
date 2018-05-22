@@ -1,0 +1,14 @@
+package com.fengmangbilu.microservice.security.util;
+
+import org.springframework.util.ClassUtils;
+
+public abstract class JsonParserFactory {
+	
+	public static JsonParser getJsonParser() {
+		if (ClassUtils.isPresent("com.fasterxml.jackson.databind.ObjectMapper", null)) {
+			return new Jackson2JsonParser();
+		}
+		throw new IllegalStateException("No Jackson parser found. Please add Jackson to your classpath.");
+	}
+	
+}

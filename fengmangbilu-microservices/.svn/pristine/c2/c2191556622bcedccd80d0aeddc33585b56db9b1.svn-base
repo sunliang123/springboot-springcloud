@@ -1,0 +1,53 @@
+package com.fengmangbilu.microservice.common.security.token;
+
+import java.util.Map;
+
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+
+import com.fengmangbilu.microservice.common.security.AccessToken;
+
+/**
+ * 访问令牌转换器
+ * @author Justice
+ */
+public interface AccessTokenConverter {
+
+	/** 签发者 */
+	final String ISS = "iss";
+	/** 接收者*/
+	final String AUD = "aud";
+	/** 过期时间 */
+	final String EXP = "exp";
+	/** 令牌标识 */
+	final String JTI = "jti";
+	/** 刷新标识 */
+	final String ATI = "ati";
+	/** 访问权限 */
+	final String AUTHORITIES = "authorities";
+
+	/**
+	 * @param 访问令牌
+	 * @param 当前认证信息
+	 * @return 返回一个map集合
+	 * 
+	 */
+	Map<String, ?> convertAccessToken(AccessToken token, Authentication authentication);
+
+	/**
+	 * 从访问令牌转换值中恢复访问令牌
+	 * {@link #convertAccessToken(AccessToken, TokenAuthentication)}.
+	 * @param 访问令牌的值
+	 * @param 从访问令牌解码的映射信息
+	 * @return 访问令牌
+	 */
+	AccessToken extractAccessToken(String value, Map<String, ?> map);
+
+	/**
+	 * 提取访问令牌中的信息转换为认证凭证
+	 * @param 从访问令牌解码的映射信息
+	 * @return 认证凭证
+	 */
+	UsernamePasswordAuthenticationToken extractAuthentication(Map<String, ?> map);
+
+}

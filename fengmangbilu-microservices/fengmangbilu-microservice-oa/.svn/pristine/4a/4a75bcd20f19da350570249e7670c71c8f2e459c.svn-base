@@ -1,0 +1,229 @@
+package com.fengmangbilu.microservice.credit.providers;
+
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.StringReader;
+import java.io.StringWriter;
+import java.rmi.RemoteException;
+import java.util.List;
+import java.util.zip.ZipInputStream;
+
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
+import javax.xml.bind.Unmarshaller;
+import javax.xml.rpc.ServiceException;
+
+import org.apache.axis.client.Call;
+import org.apache.axis.client.Service;
+import org.apache.commons.codec.binary.Base64;
+import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.fengmangbilu.microservice.credit.enums.ErrorCode;
+import com.fengmangbilu.microservice.credit.exceptions.CreditException;
+import com.fengmangbilu.microservice.credit.providers.support.CisReport;
+import com.fengmangbilu.microservice.credit.providers.support.CisReports;
+import com.fengmangbilu.microservice.credit.providers.support.Condition;
+import com.fengmangbilu.microservice.credit.providers.support.Conditions;
+import com.fengmangbilu.microservice.credit.providers.support.Item;
+import com.fengmangbilu.microservice.credit.providers.support.PoliceCheckInfo;
+import com.fengmangbilu.microservice.credit.providers.support.Result;
+
+public class DefaultCreditClient implements ICreditClient {
+
+	private final static Logger logger = LoggerFactory.getLogger(DefaultCreditClient.class);
+
+	private final static String URL = "http://www.pycredit.com:8001/services/WebServiceSingleQuery?wsdl";
+
+	private final static String USERNAME = "szzxwsquery";
+
+	private final static String PASSWORD = "zGBq/OEtzpsz/+C0fn9FGg==";
+
+	private final static int TIMEOUT = 5000;
+
+	private final static String SUB_REPORT_IDS = "subreportIDs";
+
+	private final static String OPERATION_NNAME = "queryReport";
+
+	private final static String DEFAULT_ENCODE = "GBK";
+
+	private final static String PERSON_QUERY_TYPE = "25160";
+
+	private final static String PERSON_REPORT_IDS = "10602,10001";
+
+	private final static String OSTA_QUERY_TYPE = "25160";
+
+	private final static String OSTA_REPORT_IDS = "10602";
+
+	private final static String RISK_QUERY_TYPE = "25136";
+
+	private final static String RISK_REPORT_IDS = "14221";
+
+	private final static String RISK_ASSESS_QUERY_TYPE = "25160";
+
+	private final static String RISK_ASSESS_REPORT_IDS = "14223";
+
+	private ICreditProfile profile = null;
+
+	private CisReport cisReport;
+
+	public DefaultCreditClient(ICreditProfile profile) {
+		this.profile = profile;
+		this.cisReport = new CisReport();
+	}
+
+	@Override
+	public ICreditClient getPerson() throws CreditException {
+		Conditions conditions = profile.getConditions();
+		Condition condition = conditions.getCondition();
+		List<Item> items = condition.getItem();
+		items.add(new Item(SUB_REPORT_IDS, PERSON_REPORT_IDS));
+		condition.setQueryType(PERSON_QUERY_TYPE);
+		CisReports cisReports = doAction(conditions);
+		policeCheck(cisReports);
+		this.cisReport.setPoliceCheckInfo(cisReports.getCisReport().getPoliceCheckInfo());
+		this.cisReport.setPersonBaseInfo(cisReports.getCisReport().getPersonBaseInfo());
+		return this;
+	}
+
+	@Override
+	public ICreditClient getOsta() throws CreditException {
+		Conditions conditions = profile.getConditions();
+		Condition condition = conditions.getCondition();
+		List<Item> items = condition.getItem();
+		items.add(new Item(SUB_REPORT_IDS, OSTA_REPORT_IDS));
+		condition.setQueryType(OSTA_QUERY_TYPE);
+		CisReports cisReports = doAction(conditions);
+		policeCheck(cisReports);
+		this.cisReport.setPoliceCheckInfo(cisReports.getCisReport().getPoliceCheckInfo());
+		this.cisReport.setOstaInfos(cisReports.getCisReport().getOstaInfos());
+		return this;
+	}
+
+	@Override
+	public ICreditClient getRisk() throws CreditException {
+		Conditions conditions = profile.getConditions();
+		Condition condition = conditions.getCondition();
+		List<Item> items = condition.getItem();
+		items.add(new Item(SUB_REPORT_IDS, RISK_REPORT_IDS));
+		condition.setQueryType(RISK_QUERY_TYPE);
+		CisReports cisReports = doAction(conditions);
+		this.cisReport.setPersonRiskInfo(cisReports.getCisReport().getPersonRiskInfo());
+		return this;
+	}
+
+	@Override
+	public ICreditClient getRiskAssess() throws CreditException {
+		Conditions conditions = profile.getConditions();
+		Condition condition = conditions.getCondition();
+		List<Item> items = condition.getItem();
+		items.add(new Item(SUB_REPORT_IDS, RISK_ASSESS_REPORT_IDS));
+		condition.setQueryType(RISK_ASSESS_QUERY_TYPE);
+		CisReports cisReports = doAction(conditions);
+		this.cisReport.setPersonRiskAssess(cisReports.getCisReport().getPersonRiskAssess());
+		return this;
+	}
+
+	@Override
+	public CisReport getCisReport() {
+		return cisReport;
+	}
+
+	private static String marshal(Object obj) throws JAXBException {
+		JAXBContext context = JAXBContext.newInstance(obj.getClass());
+		Marshaller marshaller = context.createMarshaller();
+		marshaller.setProperty(Marshaller.JAXB_ENCODING, DEFAULT_ENCODE);
+		StringWriter writer = new StringWriter();
+		marshaller.marshal(obj, writer);
+		return writer.toString();
+	}
+
+	@SuppressWarnings("unchecked")
+	private <T> T unmarshal(Class<T> cls, String xml) throws JAXBException {
+		logger.debug("鹏元征信返回结果:{}",xml);
+		JAXBContext context;
+		Unmarshaller unmarshaller;
+		context = JAXBContext.newInstance(cls);
+		unmarshaller = context.createUnmarshaller();
+		StringReader reader = new StringReader(xml);
+		return (T) unmarshaller.unmarshal(reader);
+	}
+
+	private CisReports unZip(String data) throws Exception {
+		byte[] bContent = Base64.decodeBase64(data.getBytes());
+		byte[] bytes = null;
+		ByteArrayInputStream bis = new ByteArrayInputStream(bContent);
+		ZipInputStream zip = new ZipInputStream(bis);
+		while (zip.getNextEntry() != null) {
+			byte[] buf = new byte[1024];
+			int num = -1;
+			ByteArrayOutputStream baoStream = new ByteArrayOutputStream();
+			while ((num = zip.read(buf, 0, buf.length)) != -1) {
+				baoStream.write(buf, 0, num);
+			}
+			bytes = baoStream.toByteArray();
+			baoStream.flush();
+			baoStream.close();
+		}
+		String cisReports = new String(bytes, DEFAULT_ENCODE);
+		return unmarshal(CisReports.class, cisReports);
+	}
+
+	private CisReports doAction(Conditions conditions) throws CreditException {
+		Call call = null;
+		try {
+			call = (Call) new Service().createCall();
+		} catch (ServiceException e) {
+			logger.error(e.getMessage());
+			throw CreditException.error(ErrorCode.SERVICE);
+		}
+		call.setTimeout(TIMEOUT);
+		call.setTargetEndpointAddress(URL);
+		call.setOperationName(OPERATION_NNAME);
+		String xml = null;
+		try {
+			xml = marshal(conditions);
+		} catch (JAXBException e) {
+			logger.error(e.getMessage());
+			throw CreditException.error(ErrorCode.CONDITION);
+		}
+		String resultXml;
+		try {
+			resultXml = (String) call.invoke(new Object[] {USERNAME, PASSWORD, xml, "xml"});
+		} catch (RemoteException e) {
+			logger.error(e.getMessage());
+			throw CreditException.error(ErrorCode.CONNECT);
+		}
+		Result result = null;
+		try {
+			result = unmarshal(Result.class, resultXml);
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+			throw CreditException.error(ErrorCode.RESULT);
+		}
+		if (!StringUtils.equals(result.getStatus(), "1")) {
+			throw CreditException.error(result.getErrorMessage(), ErrorCode.OTHER);
+		}
+		CisReports cisReports = null;
+		try {
+			cisReports = unZip(result.getReturnValue());
+		} catch (Exception e) {
+			logger.error(e.getMessage());
+			throw CreditException.error(ErrorCode.UNZIP);
+		}
+		return cisReports;
+	}
+
+	private void policeCheck(CisReports cisReports) throws CreditException {
+		CisReport cisReport = cisReports.getCisReport();
+		PoliceCheckInfo policeInfo = cisReport.getPoliceCheckInfo();
+		if (StringUtils.equals(policeInfo.getTreatResult(), "2")) {
+			throw CreditException.error(ErrorCode.IDCARD_DIFFER);
+		}
+		if (!StringUtils.equalsAny(policeInfo.getTreatResult(), "1", "2")) {
+			throw CreditException.error(ErrorCode.IDCARD_UNFOUND);
+		}
+	}
+}

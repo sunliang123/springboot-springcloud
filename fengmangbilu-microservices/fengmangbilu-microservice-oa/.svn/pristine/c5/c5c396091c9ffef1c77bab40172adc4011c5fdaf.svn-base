@@ -1,0 +1,178 @@
+package com.fengmangbilu.microservice.oa.services;
+
+import java.io.IOException;
+
+import org.apache.commons.lang3.ArrayUtils;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
+import org.springframework.util.Assert;
+import org.springframework.util.StringUtils;
+import org.springframework.web.multipart.MultipartFile;
+
+import com.fengmangbilu.microservice.oa.exceptions.UploadException;
+import com.google.gson.Gson;
+import com.qiniu.common.QiniuException;
+import com.qiniu.common.Zone;
+import com.qiniu.http.Response;
+import com.qiniu.storage.BucketManager;
+import com.qiniu.storage.Configuration;
+import com.qiniu.storage.UploadManager;
+import com.qiniu.storage.model.DefaultPutRet;
+import com.qiniu.storage.model.FileInfo;
+import com.qiniu.util.Auth;
+import com.qiniu.util.StringMap;
+
+@Service
+public class QiniuServiceImpl implements QiniuService {
+
+	public final static String[] DEFAULT_FILE_TYPE = new String[] {"png", "jpg", "jpeg"};
+
+	public final static Long DEFAULT_FILE_SIZE = 2097152l; // 2M
+
+	public final static Long EXPIRES = 3600l; // 有效时长
+
+	@Value("${qiniu.accessKey}")
+	private String accessKey;
+
+	@Value("${qiniu.secretKey}")
+	private String secretKey;
+
+	@Value("${qiniu.bucket}")
+	private String bucket;
+
+	@Override
+	public BucketManager getBucketManager() {
+		Configuration cfg = new Configuration(Zone.zone2());
+		Auth auth = Auth.create(accessKey, secretKey);
+		return new BucketManager(auth, cfg);
+	}
+
+	@Override
+	public UploadManager getUploadManager() {
+		Configuration cfg = new Configuration(Zone.zone2());
+		return new UploadManager(cfg);
+	}
+
+	@Override
+	public String getUpToken() {
+		Auth auth = Auth.create(accessKey, secretKey);
+		return auth.uploadToken(bucket);
+	}
+
+	@Override
+	public String getUpToken(String key, StringMap map) {
+		Auth auth = Auth.create(accessKey, secretKey);
+		return auth.uploadToken(bucket, key, EXPIRES, map);
+	}
+
+	@Override
+	public FileInfo getFileInfo(String head) throws QiniuException {
+		BucketManager bucketManager = getBucketManager();
+		FileInfo fileInfo = bucketManager.stat(bucket, head);
+		return fileInfo;
+	}
+
+	@Override
+	public String uploadFile(MultipartFile file, String sourceFile, String fileName) throws QiniuException {
+		return uploadFile(file, sourceFile, fileName, DEFAULT_FILE_SIZE, DEFAULT_FILE_TYPE);
+	}
+
+	@Override
+	public String uploadFile(MultipartFile file, String sourceFile, String fileName, long fileSizeMax) throws QiniuException {
+		return uploadFile(file, sourceFile, fileName, fileSizeMax, DEFAULT_FILE_TYPE);
+	}
+
+	@Override
+	public String uploadFile(MultipartFile file, String sourceFile, String fileName, long fileSizeMax, String... supportFileType)
+			throws QiniuException {
+		Assert.hasText(fileName, "fileName must not blank");
+		if (StringUtils.isEmpty(file)) {
+			throw UploadException.ERROR_FILE_EMPTY;
+		}
+		// 检查文件大小和格式
+		long fileContentLength = file.getSize();
+		if (fileContentLength != -1 && fileContentLength > fileSizeMax) {
+			throw UploadException.ERROR_FILE_SIZE;
+		}
+		String name = file.getOriginalFilename();
+		String fileType = name.substring(name.lastIndexOf(".") + 1, name.length());
+		if (!ArrayUtils.contains(supportFileType, fileType)) {
+			throw UploadException.ERROR_FILE_TYPE;
+		}
+		fileName = new StringBuffer(fileName).append(".").append(fileType).toString();
+		// 源文件和上传文件名称相同则覆盖上传 否则更新上传
+		String token = null;
+		if (fileName.equals(sourceFile)) {
+			StringMap map = new StringMap();
+			StringBuffer sb = new StringBuffer();
+			map.put("scope", sb.append(bucket).append(":").append(fileName));
+			token = getUpToken(fileName, map);
+		} else {
+			deleteFile(sourceFile);
+			token = getUpToken();
+		}
+		Response response = null;
+		try {
+			response = getUploadManager().put(file.getInputStream(), fileName, token, null, null);
+		} catch (IOException e) {
+			throw new QiniuException(Response.createError(null, null, 0, e.getMessage()));
+		}
+		DefaultPutRet putRet = new Gson().fromJson(response.bodyString(), DefaultPutRet.class);
+		return putRet.key;
+	}
+
+	@Override
+	public void deleteFile(String key) throws QiniuException {
+		try {
+			getBucketManager().delete(bucket, key);
+		} catch (QiniuException e) {
+			// ingore
+		}
+	}
+
+	@Override
+	public String uploadTempFile(MultipartFile file, String fileName, long fileSizeMax, String... supportFileType)
+			throws QiniuException {
+		Assert.hasText(fileName, "fileName must not blank");
+		if (StringUtils.isEmpty(file)) {
+			throw UploadException.ERROR_FILE_EMPTY;
+		}
+		// 检查文件大小和格式
+		long fileContentLength = file.getSize();
+		if (fileContentLength != -1 && fileContentLength > fileSizeMax) {
+			throw UploadException.ERROR_FILE_SIZE;
+		}
+		String name = file.getOriginalFilename();
+		String fileType = name.substring(name.lastIndexOf(".") + 1, name.length());
+		if (!ArrayUtils.contains(supportFileType, fileType)) {
+			throw UploadException.ERROR_FILE_TYPE;
+		}
+		fileName = new StringBuffer(fileName).append(".").append(fileType).toString();
+		// 源文件和上传文件名称相同则覆盖上传 否则更新上传
+		Auth auth = Auth.create(accessKey, secretKey);
+		String token = auth.uploadToken("temp");
+		Response response = null;
+		try {
+			response = getUploadManager().put(file.getInputStream(), fileName, token, null, null);
+		} catch (IOException e) {
+			throw new QiniuException(Response.createError(null, null, 0, e.getMessage()));
+		}
+		DefaultPutRet putRet = new Gson().fromJson(response.bodyString(), DefaultPutRet.class);
+		return putRet.key;
+	}
+
+	@Override
+	public String uploadTempFile(MultipartFile file, String fileName) throws QiniuException {
+		return uploadTempFile(file, fileName, DEFAULT_FILE_SIZE, DEFAULT_FILE_TYPE);
+	}
+
+	@Override
+	public void moveFile(String fileName) throws QiniuException {
+		try {
+			getBucketManager().move("temp", fileName, bucket, fileName);
+		} catch (QiniuException e) {
+			// ingore
+		}
+	}
+
+}

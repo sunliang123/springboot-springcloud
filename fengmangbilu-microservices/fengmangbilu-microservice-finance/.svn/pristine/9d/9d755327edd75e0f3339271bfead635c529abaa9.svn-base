@@ -1,0 +1,478 @@
+package com.fengmangbilu.microservice.finance.endpoints;
+
+import javax.validation.constraints.Min;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+import org.apache.commons.lang.builder.ToStringBuilder;
+import org.hibernate.validator.constraints.NotBlank;
+
+/**
+ * 微信支付统一下单
+ */
+@XmlRootElement(name = "xml")
+@XmlAccessorType(XmlAccessType.FIELD)
+public class WxPayUnifiedOrderRequest{
+
+	/**
+	 * <pre>
+	 * 字段名：公众账号ID
+	 * 变量名：appid
+	 * 是否必填：是
+	 * 类型：String(32)
+	 * 示例值：wxd678efh567hg6787
+	 * 描述：微信分配的公众账号ID（企业号corpid即为此appId）
+	 * </pre>
+	 */
+	@XmlElement(name = "appid")
+	private String appid;
+
+	/**
+	 * <pre>
+	 * 字段名：商户号
+	 * 变量名：mch_id
+	 * 是否必填：是
+	 * 类型：String(32)
+	 * 示例值：1230000109
+	 * 描述：微信支付分配的商户号
+	 * </pre>
+	 */
+	@XmlElement(name = "mch_id")
+	private String mchId;
+
+	/**
+	 * <pre>
+	 * 字段名：随机字符串
+	 * 变量名：nonce_str
+	 * 是否必填：是
+	 * 类型：String(32)
+	 * 示例值：5K8264ILTKCH16CQ2502SI8ZNMTM67VS
+	 * 描述：随机字符串，不长于32位。推荐随机数生成算法
+	 * </pre>
+	 */
+	@XmlElement(name = "nonce_str")
+	private String nonceStr;
+
+	/**
+	 * <pre>
+	 * 字段名：签名
+	 * 变量名：sign
+	 * 是否必填：是
+	 * 类型：String(32)
+	 * 示例值：C380BEC2BFD727A4B6845133519F3AD6
+	 * 描述：签名，详见签名生成算法
+	 * </pre>
+	 */
+	@XmlElement(name = "sign")
+	private String sign;
+
+	/**
+	 * <pre>
+	 * 字段名：设备号
+	 * 变量名：device_info
+	 * 是否必填：否
+	 * 类型：String(32)
+	 * 示例值：013467007045764
+	 * 描述：终端设备号(门店号或收银设备Id)，注意：PC网页或公众号内支付请传"WEB"
+	 * </pre>
+	 */
+	@XmlElement(name = "device_info")
+	private String deviceInfo;
+
+	/**
+	 * <pre>
+	 * 字段名：商品描述
+	 * 变量名：body
+	 * 是否必填：是
+	 * 类型：String(128)
+	 * 示例值： 腾讯充值中心-QQ会员充值
+	 * 描述：商品简单描述，该字段须严格按照规范传递，具体请见参数规定
+	 * </pre>
+	 */
+	@NotBlank
+	@XmlElement(name = "body")
+	private String body;
+
+	/**
+	 * <pre>
+	 * 字段名：商品详情
+	 * 变量名：detail
+	 * 是否必填：否
+	 * 类型：String(6000)
+	 * 示例值： 
+	 * 描述：商品详细列表，使用Json格式，传输签名前请务必使用CDATA标签将JSON文本串保护起来。
+	 * </pre>
+	 */
+	@XmlElement(name = "detail")
+	private String detail;
+
+	/**
+	 * <pre>
+	 * 字段名：附加数据
+	 * 变量名：attach
+	 * 是否必填：否
+	 * 类型：String(127)
+	 * 示例值： 深圳分店
+	 * 描述：  附加数据，在查询API和支付通知中原样返回，该字段主要用于商户携带订单的自定义数据
+	 * </pre>
+	 */
+	@XmlElement(name = "attach")
+	private String attach;
+
+	/**
+	 * <pre>
+	 * 字段名：商户订单号
+	 * 变量名：out_trade_no
+	 * 是否必填：是
+	 * 类型：String(32)
+	 * 示例值：20150806125346
+	 * 描述：商户系统内部的订单号,32个字符内、可包含字母, 其他说明见商户订单号
+	 * </pre>
+	 */
+	@NotBlank
+	@XmlElement(name = "out_trade_no")
+	private String outTradeNo;
+
+	/**
+	 * <pre>
+	 * 字段名：货币类型
+	 * 变量名：fee_type
+	 * 是否必填：否
+	 * 类型：String(16)
+	 * 示例值：CNY
+	 * 描述： 符合ISO 4217标准的三位字母代码，默认人民币：CNY，其他值列表详见货币类型
+	 * </pre>
+	 */
+	@XmlElement(name = "fee_type")
+	private String feeType;
+
+	/**
+	 * <pre>
+	 * 字段名：总金额
+	 * 变量名：total_fee
+	 * 是否必填：是
+	 * 类型：Int
+	 * 示例值： 888
+	 * 描述：订单总金额，单位为分，详见支付金额
+	 * </pre>
+	 */
+	@Min(1)
+	@XmlElement(name = "total_fee")
+	private Integer totalFee;
+
+	/**
+	 * <pre>
+	 * 字段名：终端IP
+	 * 变量名：spbill_create_ip
+	 * 是否必填：是
+	 * 类型：String(16)
+	 * 示例值：123.12.12.123
+	 * 描述：APP和网页支付提交用户端ip，Native支付填调用微信支付API的机器IP。
+	 * </pre>
+	 */
+	@NotBlank
+	@XmlElement(name = "spbill_create_ip")
+	private String spbillCreateIp;
+
+	/**
+	 * <pre>
+	 * 字段名：交易起始时间
+	 * 变量名：time_start
+	 * 是否必填：否
+	 * 类型：String(14)
+	 * 示例值：20091225091010
+	 * 描述：订单生成时间，格式为yyyyMMddHHmmss，如2009年12月25日9点10分10秒表示为20091225091010。其他详见时间规则
+	 * </pre>
+	 */
+	@XmlElement(name = "time_start")
+	private String timeStart;
+
+	/**
+	 * <pre>
+	 * 字段名：交易结束时间
+	 * 变量名：time_expire
+	 * 是否必填：否
+	 * 类型：String(14)
+	 * 示例值：20091227091010
+	 * 描述：订单失效时间，格式为yyyyMMddHHmmss，如2009年12月27日9点10分10秒表示为20091227091010。其他详见时间规则
+	 *     注意：最短失效时间间隔必须大于5分钟
+	 * </pre>
+	 */
+	@XmlElement(name = "time_expire")
+	private String timeExpire;
+
+	/**
+	 * <pre>
+	 * 字段名：商品标记
+	 * 变量名：goods_tag
+	 * 是否必填：否
+	 * 类型：String(32)
+	 * 示例值：WXG
+	 * 描述：商品标记，代金券或立减优惠功能的参数，说明详见代金券或立减优惠
+	 * </pre>
+	 */
+	@XmlElement(name = "goods_tag")
+	private String goodsTag;
+
+	/**
+	 * <pre>
+	 * 字段名：通知地址
+	 * 变量名：notify_url
+	 * 是否必填：是
+	 * 类型：String(256)
+	 * 示例值：http://www.weixin.qq.com/wxpay/pay.php
+	 * 描述：接收微信支付异步通知回调地址，通知url必须为直接可访问的url，不能携带参数。
+	 * </pre>
+	 */
+	@NotBlank
+	@XmlElement(name = "notify_url")
+	private String notifyURL;
+
+	/**
+	 * <pre>
+	 * 字段名：交易类型
+	 * 变量名：trade_type
+	 * 是否必填：是
+	 * 类型：String(16)
+	 * 示例值： JSAPI
+	 * 描述： 取值如下：JSAPI，NATIVE，APP，详细说明见参数规定:
+	 * JSAPI--公众号支付、NATIVE--原生扫码支付、APP--app支付，统一下单接口trade_type的传参可参考这里
+	 * </pre>
+	 */
+	@NotBlank
+	@XmlElement(name = "trade_type")
+	private String tradeType;
+
+	/**
+	 * <pre>
+	 * 字段名：商品Id
+	 * 变量名：product_id
+	 * 是否必填：否
+	 * 类型：String(32)
+	 * 示例值：12235413214070356458058
+	 * 描述：trade_type=NATIVE，此参数必传。此id为二维码中包含的商品Id，商户自行定义。
+	 * </pre>
+	 */
+	@XmlElement(name = "product_id")
+	private String productId;
+
+	/**
+	 * <pre>
+	 * 字段名：指定支付方式
+	 * 变量名：limit_pay
+	 * 是否必填：否
+	 * 类型：String(32)
+	 * 示例值：no_credit
+	 * 描述：no_credit--指定不能使用信用卡支付
+	 * </pre>
+	 */
+	@XmlElement(name = "limit_pay")
+	private String limitPay;
+
+	/**
+	 * <pre>
+	 * 字段名：用户标识
+	 * 变量名：openid
+	 * 是否必填：否
+	 * 类型：String(128)
+	 * 示例值：oUpF8uMuAJO_M2pxb1Q9zNjWeS6o
+	 * 描述：trade_type=JSAPI，此参数必传，用户在商户appid下的唯一标识。openid如何获取，可参考【获取openid】。
+	 * 企业号请使用【企业号OAuth2.0接口】获取企业号内成员userid，再调用【企业号userid转openid接口】进行转换
+	 * </pre>
+	 */
+	@XmlElement(name = "openid")
+	private String openid;
+
+	/**
+	 * <pre>
+	 * 字段名：用户子标识
+	 * 变量名：sub_openid
+	 * 是否必填：否
+	 * 类型：String(128)
+	 * 示例值：oUpF8uMuAJO_M2pxb1Q9zNjWeS6o
+	 * 描述：trade_type=JSAPI，此参数必传，用户在子商户appid下的唯一标识。openid和sub_openid可以选传其中之一，如果选择传sub_openid,则必须传sub_appid。
+	 * 下单前需要调用【网页授权获取用户信息】接口获取到用户的Openid。
+	 * </pre>
+	 */
+	@XmlElement(name = "sub_openid")
+	private String subOpenid;
+
+	public WxPayUnifiedOrderRequest() {
+	}
+
+	public String getAppid() {
+		return appid;
+	}
+
+	public void setAppid(String appid) {
+		this.appid = appid;
+	}
+
+	public String getMchId() {
+		return mchId;
+	}
+
+	public void setMchId(String mchId) {
+		this.mchId = mchId;
+	}
+
+	public String getNonceStr() {
+		return nonceStr;
+	}
+
+	public void setNonceStr(String nonceStr) {
+		this.nonceStr = nonceStr;
+	}
+
+	public String getSign() {
+		return sign;
+	}
+
+	public void setSign(String sign) {
+		this.sign = sign;
+	}
+
+	public String getDeviceInfo() {
+		return deviceInfo;
+	}
+
+	public void setDeviceInfo(String deviceInfo) {
+		this.deviceInfo = deviceInfo;
+	}
+
+	public String getBody() {
+		return body;
+	}
+
+	public void setBody(String body) {
+		this.body = body;
+	}
+
+	public String getDetail() {
+		return detail;
+	}
+
+	public void setDetail(String detail) {
+		this.detail = detail;
+	}
+
+	public String getAttach() {
+		return attach;
+	}
+
+	public void setAttach(String attach) {
+		this.attach = attach;
+	}
+
+	public String getOutTradeNo() {
+		return outTradeNo;
+	}
+
+	public void setOutTradeNo(String outTradeNo) {
+		this.outTradeNo = outTradeNo;
+	}
+
+	public String getFeeType() {
+		return feeType;
+	}
+
+	public void setFeeType(String feeType) {
+		this.feeType = feeType;
+	}
+
+	public Integer getTotalFee() {
+		return totalFee;
+	}
+
+	public void setTotalFee(Integer totalFee) {
+		this.totalFee = totalFee;
+	}
+
+	public String getSpbillCreateIp() {
+		return spbillCreateIp;
+	}
+
+	public void setSpbillCreateIp(String spbillCreateIp) {
+		this.spbillCreateIp = spbillCreateIp;
+	}
+
+	public String getTimeStart() {
+		return timeStart;
+	}
+
+	public void setTimeStart(String timeStart) {
+		this.timeStart = timeStart;
+	}
+
+	public String getTimeExpire() {
+		return timeExpire;
+	}
+
+	public void setTimeExpire(String timeExpire) {
+		this.timeExpire = timeExpire;
+	}
+
+	public String getGoodsTag() {
+		return goodsTag;
+	}
+
+	public void setGoodsTag(String goodsTag) {
+		this.goodsTag = goodsTag;
+	}
+
+	public String getNotifyURL() {
+		return notifyURL;
+	}
+
+	public void setNotifyURL(String notifyURL) {
+		this.notifyURL = notifyURL;
+	}
+
+	public String getTradeType() {
+		return tradeType;
+	}
+
+	public void setTradeType(String tradeType) {
+		this.tradeType = tradeType;
+	}
+
+	public String getProductId() {
+		return productId;
+	}
+
+	public void setProductId(String productId) {
+		this.productId = productId;
+	}
+
+	public String getLimitPay() {
+		return limitPay;
+	}
+
+	public void setLimitPay(String limitPay) {
+		this.limitPay = limitPay;
+	}
+
+	public String getOpenid() {
+		return openid;
+	}
+
+	public void setOpenid(String openid) {
+		this.openid = openid;
+	}
+
+	public String getSubOpenid() {
+		return subOpenid;
+	}
+
+	public void setSubOpenid(String subOpenid) {
+		this.subOpenid = subOpenid;
+	}
+	
+	@Override
+	public String toString() {
+		return ToStringBuilder.reflectionToString(this);
+	}
+
+}

@@ -1,0 +1,86 @@
+package com.fengmangbilu.microservice.user.configs;
+
+import java.util.List;
+
+import javax.annotation.Resource;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
+import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
+import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
+import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
+import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
+import org.springframework.security.oauth2.provider.token.TokenEnhancer;
+import org.springframework.security.oauth2.provider.token.TokenEnhancerChain;
+import org.springframework.security.oauth2.provider.token.TokenStore;
+import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
+import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
+
+import com.fengmangbilu.microservice.security.CustomTokenEnhancer;
+import com.fengmangbilu.microservice.security.CustomWebResponseExceptionTranslator;
+import com.google.common.collect.Lists;
+
+@Configuration
+@EnableAuthorizationServer
+public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
+	
+    @Autowired
+    private AuthenticationManager authenticationManager;
+    
+    @Resource(name="userIdService")
+	private UserDetailsService userIdService;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+	
+	@Bean
+	public JwtAccessTokenConverter accessTokenConverter() {
+		JwtAccessTokenConverter converter = new JwtAccessTokenConverter();
+		converter.setSigningKey("admin@fengmangbilu.com");
+		return converter;
+	}
+
+	@Bean
+	public TokenStore tokenStore() {
+		return new JwtTokenStore(accessTokenConverter());
+	}
+	
+	@Override
+	public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
+		TokenEnhancerChain enhancerChain = new TokenEnhancerChain();
+		List<TokenEnhancer> tokenEnhancers = Lists.newArrayList();
+		tokenEnhancers.add(accessTokenConverter());
+		tokenEnhancers.add(new CustomTokenEnhancer());
+		enhancerChain.setTokenEnhancers(tokenEnhancers);
+		endpoints.userDetailsService(userIdService)
+				 .tokenStore(tokenStore())
+				 .accessTokenConverter(accessTokenConverter())
+				 .tokenEnhancer(enhancerChain)
+				 .authenticationManager(authenticationManager)
+				 .exceptionTranslator(new CustomWebResponseExceptionTranslator());
+	}
+
+    @Override
+    public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
+        clients.inMemory()
+                .withClient("webapp")
+                .secret(passwordEncoder.encode("123456"))
+                .scopes("read", "write", "trust")
+                .authorizedGrantTypes("password", "refresh_token")
+                .accessTokenValiditySeconds(86400)
+                .refreshTokenValiditySeconds(2592000);
+    }
+    
+    @Override
+	public void configure(AuthorizationServerSecurityConfigurer oauthServer) throws Exception {
+		oauthServer.tokenKeyAccess("permitAll()")
+				   .checkTokenAccess("isAuthenticated()")
+				   .passwordEncoder(passwordEncoder);
+	}
+    
+}

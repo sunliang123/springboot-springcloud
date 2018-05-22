@@ -1,0 +1,21 @@
+package com.fengmangbilu.microservice.user.repositories;
+
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+
+import com.fengmangbilu.data.repository.DefaultRepository;
+import com.fengmangbilu.microservice.user.entities.User;
+
+@Repository
+public interface UserRepository extends DefaultRepository<User, Long> {
+
+	User findByMobile(String mobile);
+	
+	User findByUserId(Long userId);
+	
+	@Modifying
+	@Query("update User u set u.lastLoginDate = now() where u.userId = ?1")
+	int setLastLoginDateFor(Long userId);
+	
+}

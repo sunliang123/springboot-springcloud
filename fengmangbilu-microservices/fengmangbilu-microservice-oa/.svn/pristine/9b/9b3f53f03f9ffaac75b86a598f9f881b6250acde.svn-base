@@ -1,0 +1,9 @@
+package com.fengmangbilu.microservice.credit.services;
+
+import com.fengmangbilu.microservice.credit.entities.MobileInfo;
+import com.fengmangbilu.microservice.credit.repositories.MobileInfoRepository;
+import com.fengmangbilu.service.DefaultJpaService;
+
+public interface MobileInfoService extends DefaultJpaService<MobileInfo, String, MobileInfoRepository> {
+
+}

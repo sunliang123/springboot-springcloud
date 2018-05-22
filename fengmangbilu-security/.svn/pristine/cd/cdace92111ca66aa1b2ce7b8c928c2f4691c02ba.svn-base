@@ -1,0 +1,101 @@
+package com.fengmangbilu.security.token;
+
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import com.fengmangbilu.security.AccessToken;
+import com.fengmangbilu.security.DefaultRefreshToken;
+import com.fengmangbilu.security.RefreshToken;
+import com.fengmangbilu.security.exceptions.InvalidTokenException;
+
+public class JwtTokenStore implements TokenStore {
+
+	private JwtAccessTokenConverter jwtTokenEnhancer;
+
+	public JwtTokenStore() {
+	}
+	
+	public void setJwtTokenEnhancer(JwtAccessTokenConverter jwtTokenEnhancer) {
+		this.jwtTokenEnhancer = jwtTokenEnhancer;
+	}
+
+
+	@Override
+	public UsernamePasswordAuthenticationToken readAuthentication(AccessToken token) {
+		return readAuthentication(token.getToken());
+	}
+
+	@Override
+	public UsernamePasswordAuthenticationToken readAuthentication(String token) {
+		return jwtTokenEnhancer.extractAuthentication(jwtTokenEnhancer.decode(token));
+	}
+
+	@Override
+	public void storeAccessToken(AccessToken token, Authentication authentication) {
+	}
+
+	@Override
+	public AccessToken readAccessToken(String tokenValue) {
+		AccessToken accessToken = convertAccessToken(tokenValue);
+		if (jwtTokenEnhancer.isRefreshToken(accessToken)) {
+			throw new InvalidTokenException("Access token is a refresh token");
+		}
+		return accessToken;
+	}
+
+	private AccessToken convertAccessToken(String tokenValue) {
+		return jwtTokenEnhancer.extractAccessToken(tokenValue, jwtTokenEnhancer.decode(tokenValue));
+	}
+
+	@Override
+	public void removeAccessToken(AccessToken token) {
+		// gh-807 Approvals (if any) should only be removed when Refresh Tokens are removed (or expired)
+	}
+
+	@Override
+	public void storeRefreshToken(RefreshToken refreshToken, Authentication authentication) {
+	}
+
+	@Override
+	public RefreshToken readRefreshToken(String tokenValue) {
+		AccessToken encodedRefreshToken = convertAccessToken(tokenValue);
+		RefreshToken refreshToken = createRefreshToken(encodedRefreshToken);
+		return refreshToken;
+	}
+
+	private RefreshToken createRefreshToken(AccessToken encodedRefreshToken) {
+		if (!jwtTokenEnhancer.isRefreshToken(encodedRefreshToken)) {
+			throw new InvalidTokenException("Access token is not a refresh token");
+		}
+		if (encodedRefreshToken.getExpiration()!=null) {
+			return new DefaultExpiringRefreshToken(encodedRefreshToken.getToken(),
+					encodedRefreshToken.getExpiration());			
+		}
+		return new DefaultRefreshToken(encodedRefreshToken.getToken());
+	}
+
+	@Override
+	public UsernamePasswordAuthenticationToken readAuthenticationForRefreshToken(RefreshToken token) {
+		return readAuthentication(token.getValue());
+	}
+
+	@Override
+	public void removeRefreshToken(RefreshToken token) {
+	}
+
+	@Override
+	public void removeAccessTokenUsingRefreshToken(RefreshToken refreshToken) {
+	}
+
+	@Override
+	public AccessToken getAccessToken(Authentication authentication) {
+		return null;
+	}
+
+	public void setTokenEnhancer(JwtAccessTokenConverter tokenEnhancer) {
+		this.jwtTokenEnhancer = tokenEnhancer;
+	}
+
+	public JwtAccessTokenConverter getJwtTokenEnhancer() {
+		return jwtTokenEnhancer;
+	}
+}

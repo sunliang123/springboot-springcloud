@@ -1,0 +1,39 @@
+package com.fengmangbilu.common.validator;
+
+import javax.validation.ConstraintValidator;
+import javax.validation.ConstraintValidatorContext;
+
+import com.fengmangbilu.common.validator.constraints.ChineseName;
+
+public class ChineseNameValidator implements ConstraintValidator<ChineseName, CharSequence> {
+
+	@Override
+	public void initialize(ChineseName constraintAnnotation) {
+
+	}
+
+	@Override
+	public boolean isValid(CharSequence value, ConstraintValidatorContext context) {
+
+		if (value == null || value.length() == 0) {
+			return true;
+		}
+
+		String chineseName = value.toString();
+
+		if (chineseName.contains("·")) {
+			if (chineseName.matches("^[\\u4e00-\\u9fa5]+[·?][\\u4e00-\\u9fa5]+$")) {
+				return true;
+			} else {
+				return false;
+			}
+		} else {
+			if (chineseName.matches("^[\\u4e00-\\u9fa5]+$")) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+	}
+
+}

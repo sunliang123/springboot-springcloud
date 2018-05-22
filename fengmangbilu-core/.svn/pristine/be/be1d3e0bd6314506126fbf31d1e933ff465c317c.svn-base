@@ -1,0 +1,48 @@
+package com.fengmangbilu.validator;
+
+import java.util.Date;
+
+import javax.validation.ConstraintValidator;
+import javax.validation.ConstraintValidatorContext;
+
+import org.apache.commons.beanutils.PropertyUtils;
+
+import com.fengmangbilu.validator.constraints.DateRange;
+
+public class DateRangeValidator implements ConstraintValidator<DateRange, Object> {
+
+	private String startField;
+	private String endField;
+
+	@Override
+	public void initialize(DateRange dateRange) {
+		startField = dateRange.start();
+		endField = dateRange.end();
+	}
+
+	@Override
+	public boolean isValid(final Object value, final ConstraintValidatorContext context) {
+		boolean isValid = false;
+		try {
+			Object startProperty = PropertyUtils.getProperty(value, startField);
+			Object endProperty = PropertyUtils.getProperty(value, endField);
+			final Date startDate = startProperty == null ? null : new Date(((Date) startProperty).getTime());
+			final Date endDate = endProperty == null ? null : new Date(((Date) endProperty).getTime());
+			if (startDate != null && endDate != null) {
+				isValid = startDate.compareTo(endDate) <= 0;
+			} else {
+				return true;
+			}
+		} catch (final Exception e) {
+			isValid = false;
+		}
+		if (!isValid) {
+			context.disableDefaultConstraintViolation();
+			context.buildConstraintViolationWithTemplate(context.getDefaultConstraintMessageTemplate())
+					.addPropertyNode(startField).addConstraintViolation()
+					.buildConstraintViolationWithTemplate(context.getDefaultConstraintMessageTemplate())
+					.addPropertyNode(endField).addConstraintViolation();
+		}
+		return isValid;
+	}
+}

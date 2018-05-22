@@ -1,0 +1,49 @@
+package com.fengmangbilu.microservice.oa.constraints;
+
+import javax.validation.ConstraintValidator;
+import javax.validation.ConstraintValidatorContext;
+
+import org.apache.commons.lang3.StringUtils;
+
+import com.fengmangbilu.microservice.oa.endpoints.CreditReportRequest;
+import com.fengmangbilu.microservice.oa.enums.ErrorCode;
+import com.fengmangbilu.util.IdCardUtils;
+import com.fengmangbilu.util.RegexUtils;
+
+public class CreditReportRequestValidator implements ConstraintValidator<CreditReportRequestConstraint, CreditReportRequest> {
+
+	@Override
+	public void initialize(final CreditReportRequestConstraint constraintAnnotation) {
+	}
+
+	@Override
+	public boolean isValid(CreditReportRequest request, ConstraintValidatorContext context) {
+		String name = request.getName().trim();
+		if (StringUtils.isBlank(name)) {
+			return createSingleConstraintViolation(context, "name", ErrorCode.NAME_NOT_BLANK.name());
+		}
+		if (!RegexUtils.isName(name)) {
+			return createSingleConstraintViolation(context, "name", ErrorCode.NAME_NOT_VALID.name());
+		}
+		String idCard = request.getIdCard().trim();
+		if (StringUtils.isBlank(idCard)) {
+			return createSingleConstraintViolation(context, "idCard", ErrorCode.IDCARD_NOT_BLANK.name());
+		}
+		if (!IdCardUtils.validateCard(idCard)) {
+			return createSingleConstraintViolation(context, "idCard", ErrorCode.IDCARD_NOT_VALID.name());
+		}
+		String mobile = request.getMobile().trim();
+		if (StringUtils.isBlank(mobile)) {
+			return createSingleConstraintViolation(context, "mobile", ErrorCode.MOBILE_NOT_BLANK.name());
+		}
+		if (!RegexUtils.isMobile(mobile)) {
+			return createSingleConstraintViolation(context, "mobile", ErrorCode.MOBILE_NOT_VALID.name());
+		}
+		return true;
+	}
+
+	protected boolean createSingleConstraintViolation(ConstraintValidatorContext context, String name, String message) {
+		context.buildConstraintViolationWithTemplate(message).addPropertyNode(name).addConstraintViolation();
+		return false;
+	}
+}

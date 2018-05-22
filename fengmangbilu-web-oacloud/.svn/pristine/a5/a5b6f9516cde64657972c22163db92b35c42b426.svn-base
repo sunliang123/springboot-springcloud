@@ -1,0 +1,57 @@
+package com.fengmangbilu.oacloud.client;
+
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.Transient;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import lombok.Getter;
+import lombok.Setter;
+
+/**
+ * 个人信息
+ */
+@Getter
+@Setter
+public class User implements UserDetails {
+
+	private static final long serialVersionUID = 1L;
+
+	private String userId;
+
+	private String avatar;
+	
+	private String nickname;
+
+	private String mobile;
+	
+	private String email;
+
+	private String password;
+
+	private Date lastLoginDate;
+
+	private Date lastPasswordResetDate;
+
+	private boolean accountNonExpired = true;
+
+	private boolean accountNonLocked = true;
+
+	private boolean credentialsNonExpired = true;
+
+	private boolean enabled = true;
+
+	private Boolean isCertified = false;
+
+	@Transient
+	private Set<GrantedAuthority> authorities = new HashSet<>();
+
+	@Override
+	public String getUsername() {
+		return userId;
+	}
+}

@@ -1,0 +1,84 @@
+package com.fengmangbilu.microservice.user.controllers;
+
+import java.util.Map;
+
+import javax.annotation.security.RolesAllowed;
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AccountStatusException;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.fengmangbilu.microservice.security.AccessToken;
+import com.fengmangbilu.microservice.security.token.TokenService;
+import com.fengmangbilu.microservice.user.endpoints.TokenRequest;
+import com.fengmangbilu.microservice.user.endpoints.UserRequest;
+import com.fengmangbilu.microservice.user.entities.User;
+import com.fengmangbilu.microservice.user.services.UserService;
+import com.fengmangbilu.web.Response;
+import com.google.common.collect.Maps;
+
+@Validated
+@RestController
+public class UserController {
+
+	@Autowired
+	private UserService userService;
+
+	@Autowired
+	private TokenService tokenService;
+
+	@Autowired
+	private AuthenticationManager authenticationManager;
+
+	@PostMapping("token")
+	public Response token(@Valid @RequestBody TokenRequest tokenRequest){
+		String username = tokenRequest.getUsername();
+		String password = tokenRequest.getPassword();
+		Authentication authentication = new UsernamePasswordAuthenticationToken(username, password);
+		try {
+			authentication = authenticationManager.authenticate(authentication);
+		} catch (AccountStatusException ase) {
+			return Response.unauthorized(ase.getMessage());
+		} catch (BadCredentialsException e) {
+			return Response.unauthorized(e.getMessage());
+		}
+		if (authentication == null || !authentication.isAuthenticated()) {
+			return Response.unauthorized("帐号或密码错误");
+		}
+		AccessToken token = tokenService.createAccessToken(authentication);
+		Map<String,Object> data = Maps.newHashMap();
+		data.put("token", token);
+		data.put("user", authentication);
+		return Response.ok(data);
+	}
+
+	@PostMapping("register")
+	public Response register(@Valid @RequestBody UserRequest userRequest){
+		userService.register(userRequest);
+		return Response.ok();
+	}
+
+	@PutMapping("resetPassword")
+	public Response resetPassword(@Valid @RequestBody UserRequest userRequest){
+		userService.resetPassword(userRequest);
+		return Response.ok();
+	}
+
+	@RolesAllowed({"ROLE_USER"})
+	@GetMapping("u/{userId}")
+	public Response findByUserId(@PathVariable String userId) {
+		User user = userService.findByUserId(userId);
+		return Response.ok(user);
+	}
+}

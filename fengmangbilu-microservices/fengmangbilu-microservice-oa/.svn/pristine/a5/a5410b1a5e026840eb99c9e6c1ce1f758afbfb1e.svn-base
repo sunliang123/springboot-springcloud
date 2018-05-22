@@ -1,0 +1,9 @@
+package com.fengmangbilu.microservice.oa.services;
+
+import com.fengmangbilu.microservice.oa.entities.RiskSxsInfo;
+import com.fengmangbilu.microservice.oa.repositories.RiskSxsInfoRepository;
+import com.fengmangbilu.service.DefaultJpaService;
+
+public interface RiskSxsInfoService extends DefaultJpaService<RiskSxsInfo, String, RiskSxsInfoRepository>{
+    
+}

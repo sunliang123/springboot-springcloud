@@ -1,0 +1,75 @@
+# eureka
+server.port=8080
+eureka.instance.hostname=120.78.191.104
+eureka.client.serviceUrl.defaultZone=http://172.18.111.64:8761/eureka/
+spring.application.name=api-v1
+
+# management
+management.context-path=/actuator
+management.security.enabled=false
+
+# \u8def\u7531\u7f51\u5173\u7edf\u4e00\u524d\u7f00
+zuul.prefix=/api
+# \u4fdd\u6301\u91cd\u5b9a\u5411\u6b63\u786e
+zuul.add-host-header=true
+# \u8fc7\u6ee4\u8bf7\u6c42\u5934
+zuul.sensitive-headers=Cookie,Set-Cookie
+# \u6839\u636e\u670d\u52a1\u5ffd\u7565
+zuul.ignored-services=eureka-admin,api-v1
+# \u6839\u636eurl\u5ffd\u7565
+zuul.ignored-patterns=/v2/api-docs/**,/swagger-resources/**,/swagger-ui.html,/webjars/**"
+# \u65ad\u8def\u5668\u7684\u8d85\u65f6\u65f6\u95f4\u9700\u8981\u5927\u4e8eribbon\u7684\u8d85\u65f6\u65f6\u95f4\uff0c\u4e0d\u7136\u4e0d\u4f1a\u89e6\u53d1\u91cd\u8bd5
+hystrix.command.user-v1.execution.isolation.thread.timeoutInMilliseconds=50000
+# \u8bf7\u6c42\u8fde\u63a5\u7684\u8d85\u65f6\u65f6\u95f4
+ribbon.ReadTimeout=10000
+# \u8bf7\u6c42\u5904\u7406\u7684\u8d85\u65f6\u65f6\u95f4
+ribbon.ConnectTimeout=30000
+# \u5f00\u542f\u7194\u65ad\u5668
+feign.hystrix.enabled=true
+
+# log
+logging.level.com.fengmangbilu=DEBUG
+
+# rabbitmq
+spring.rabbitmq.host=localhost
+spring.rabbitmq.port=5672
+spring.rabbitmq.username=admin
+spring.rabbitmq.password=314922957
+
+# jackson
+spring.jackson.date-format=yyyy-MM-dd HH:mm:ss
+spring.jackson.joda-date-time-format=yyyy-MM-dd HH:mm:ss
+spring.jackson.time-zone=GMT+8
+
+# Mysql
+spring.datasource.url=jdbc:p6spy:mysql://rm-wz9f17q4n5p4ioy2po.mysql.rds.aliyuncs.com:3306/fengmangbilu?characterEncoding=utf-8&useSSL=true
+spring.datasource.username=zxcioc
+spring.datasource.password=Zxcioc2017
+spring.datasource.driver-class-name=com.p6spy.engine.spy.P6SpyDriver
+
+# Druid
+spring.datasource.druid.StatViewServlet.enabled=true
+spring.datasource.druid.StatFilter.enabled=true
+spring.datasource.druid.filters=stat,wall,log4j
+spring.datasource.druid.initialSize=5
+spring.datasource.druid.dbType=mysql
+spring.datasource.druid.minIdle=5
+spring.datasource.druid.maxActive=20
+spring.datasource.druid.maxWait=60000
+spring.datasource.druid.timeBetweenEvictionRunsMillis=60000
+spring.datasource.druid.minEvictableIdleTimeMillis=300000
+spring.datasource.druid.validationQuery=SELECT 1 FROM DUAL
+spring.datasource.druid.testWhileIdle=true
+spring.datasource.druid.testOnBorrow=false
+spring.datasource.druid.testOnReturn=false
+spring.datasource.druid.poolPreparedStatements=true
+spring.datasource.druid.maxPoolPreparedStatementPerConnectionSize=20
+
+# hibernate
+spring.jpa.database=MYSQL
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=false
+spring.jpa.properties.hibernate.query.substitutions=true 1, false 0
+spring.jpa.hibernate.dialect=org.hibernate.dialect.MySQL5Dialect
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL5Dialect
+spring.jpa.properties.javax.persistence.validation.mode=none

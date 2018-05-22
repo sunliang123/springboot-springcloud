@@ -1,0 +1,55 @@
+package com.fengmangbilu.microservice.common.security.approval;
+
+import java.util.Collection;
+import java.util.Date;
+import java.util.HashSet;
+
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+
+import com.fengmangbilu.microservice.common.security.AccessToken;
+import com.fengmangbilu.microservice.common.security.approval.Approval.ApprovalStatus;
+import com.fengmangbilu.microservice.common.security.token.TokenStore;
+
+public class TokenApprovalStore implements ApprovalStore {
+
+	private TokenStore store;
+
+	public void setTokenStore(TokenStore store) {
+		this.store = store;
+	}
+
+	@Override
+	public boolean addApprovals(Collection<Approval> approvals) {
+		return true;
+	}
+
+	@Override
+	public boolean revokeApprovals(Collection<Approval> approvals) {
+		boolean success = true;
+		for (Approval approval : approvals) {
+			Collection<AccessToken> tokens = store.findTokensByUserName(approval.getUserId());
+			for (AccessToken token : tokens) {
+				UsernamePasswordAuthenticationToken authentication = store.readAuthentication(token);
+				if (authentication != null) {
+					store.removeAccessToken(token);
+				}
+			}
+		}
+		return success;
+	}
+
+	@Override
+	public Collection<Approval> getApprovals(String userId) {
+		Collection<Approval> result = new HashSet<Approval>();
+		Collection<AccessToken> tokens = store.findTokensByUserName(userId);
+		for (AccessToken token : tokens) {
+			UsernamePasswordAuthenticationToken authentication = store.readAuthentication(token);
+			if (authentication != null) {
+				Date expiresAt = token.getExpiration();
+				result.add(new Approval(userId, expiresAt, ApprovalStatus.APPROVED));
+			}
+		}
+		return result;
+	}
+
+}

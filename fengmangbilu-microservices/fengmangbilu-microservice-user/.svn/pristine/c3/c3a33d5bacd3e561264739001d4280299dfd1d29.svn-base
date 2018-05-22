@@ -1,0 +1,19 @@
+package com.fengmangbilu.microservice.user.services;
+
+import com.fengmangbilu.data.service.GenericJpaService;
+import com.fengmangbilu.microservice.user.endpoints.UserRequest;
+import com.fengmangbilu.microservice.user.entities.User;
+import com.fengmangbilu.microservice.user.repositories.UserRepository;
+
+public interface UserService extends GenericJpaService<User, String, UserRepository> {
+
+    String generatedUserId();
+
+    User findByMobile(String mobile);
+
+    User findByUserId(String userId);
+    
+    User register(UserRequest userRequest);
+    
+    User resetPassword(UserRequest userRequest);
+}

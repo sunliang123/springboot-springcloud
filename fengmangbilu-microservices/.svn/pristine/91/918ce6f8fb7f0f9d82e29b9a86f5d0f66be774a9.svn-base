@@ -1,0 +1,50 @@
+package com.fengmangbilu.microservice.common.config;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.boot.autoconfigure.web.HttpMessageConverters;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.http.MediaType;
+import org.springframework.http.converter.json.Jackson2ObjectMapperFactoryBean;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ser.impl.SimpleFilterProvider;
+import com.fengmangbilu.web.json.JsonFilterAnnotationIntrospector;
+
+@Configuration
+public class MicroserviceWebMvcConfiguration {
+
+	@Bean
+	public MappingJackson2HttpMessageConverter customJackson2HttpMessageConverter() {
+		MappingJackson2HttpMessageConverter jsonConverter = new MappingJackson2HttpMessageConverter();
+		List<MediaType> supportedMediaTypes = new ArrayList<MediaType>();
+		supportedMediaTypes.add(MediaType.APPLICATION_JSON_UTF8);
+		supportedMediaTypes.add(MediaType.TEXT_HTML);
+		jsonConverter.setSupportedMediaTypes(supportedMediaTypes);
+		jsonConverter.setObjectMapper(jackson2ObjectMapperFactoryBean().getObject());
+		return jsonConverter;
+	}
+
+	@Bean
+	public Jackson2ObjectMapperFactoryBean jackson2ObjectMapperFactoryBean() {
+		Jackson2ObjectMapperFactoryBean factoryBean = new Jackson2ObjectMapperFactoryBean();
+		factoryBean.setFailOnUnknownProperties(false);
+		factoryBean.setFailOnEmptyBeans(false);
+		factoryBean.setIndentOutput(true);
+		factoryBean.setAnnotationIntrospector(new JsonFilterAnnotationIntrospector());
+		ObjectMapper objectMapper = new ObjectMapper();
+		factoryBean.setObjectMapper(objectMapper);
+		SimpleFilterProvider simpleFilterProvider = new SimpleFilterProvider();
+		simpleFilterProvider.setFailOnUnknownId(false);
+		factoryBean.setFilters(simpleFilterProvider);
+		return factoryBean;
+	}
+
+	@Bean
+	public HttpMessageConverters httpMessageConverters() {
+		return new HttpMessageConverters(customJackson2HttpMessageConverter());
+	}
+}

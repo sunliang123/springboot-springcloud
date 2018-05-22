@@ -1,0 +1,44 @@
+package com.fengmangbilu.microservice.user.endpoints;
+
+import org.hibernate.validator.constraints.NotBlank;
+
+import com.fengmangbilu.microservice.user.constraints.Mobile;
+import com.fengmangbilu.microservice.user.constraints.Password;
+import com.fengmangbilu.microservice.user.exceptions.UserErrorMessage;
+
+public class UserRequest {
+
+	@Mobile
+	private String mobile;
+
+	@Password
+	private String password;
+
+	@NotBlank(message = UserErrorMessage.ERR_SMS_CODE_IS_BLANK)
+	private String smsCode;
+
+	public String getSmsCode() {
+		return smsCode;
+	}
+
+	public void setSmsCode(String smsCode) {
+		this.smsCode = smsCode;
+	}
+
+	public String getMobile() {
+		return mobile;
+	}
+
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+}

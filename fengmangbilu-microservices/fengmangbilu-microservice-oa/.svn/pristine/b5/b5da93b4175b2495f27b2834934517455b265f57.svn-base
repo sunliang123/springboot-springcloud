@@ -1,0 +1,10 @@
+package com.fengmangbilu.microservice.credit.services;
+
+import com.fengmangbilu.microservice.credit.entities.CorporateShareholder;
+import com.fengmangbilu.microservice.credit.repositories.CorporateShareholderRepository;
+import com.fengmangbilu.service.DefaultJpaService;
+
+public interface CorporateShareholderService
+		extends DefaultJpaService<CorporateShareholder, String, CorporateShareholderRepository> {
+
+}

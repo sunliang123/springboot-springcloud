@@ -1,0 +1,13 @@
+package com.fengmangbilu.microservice.credit.services;
+
+import org.springframework.stereotype.Service;
+
+import com.fengmangbilu.microservice.credit.entities.ReportInfo;
+import com.fengmangbilu.microservice.credit.repositories.ReportInfoRepository;
+import com.fengmangbilu.service.DefaultJpaServiceImpl;
+
+@Service
+public class ReportInfoServiceImpl extends DefaultJpaServiceImpl<ReportInfo, String, ReportInfoRepository>
+        implements ReportInfoService {
+
+}

@@ -1,0 +1,44 @@
+package com.fengmangbilu.microservice.user.controllers;
+
+import java.security.Principal;
+
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.fengmangbilu.common.exceptions.BizException;
+import com.fengmangbilu.data.domain.Response;
+import com.fengmangbilu.microservice.user.controllers.request.RegisterRequest;
+import com.fengmangbilu.microservice.user.entities.User;
+import com.fengmangbilu.microservice.user.services.UserService;
+
+@Validated
+@RestController
+public class UserController {
+
+    @Autowired
+    private UserService userService;
+
+    @GetMapping(value = "/")
+    public Response me(Principal principal) {
+        return Response.ok(principal);
+    }
+
+    @PostMapping("/register")
+    public Response register(@Valid @RequestBody RegisterRequest registerRequest) throws BizException {
+        userService.register(registerRequest.getMobile(), registerRequest.getPassword(), registerRequest.getSmsCode());
+        return Response.ok("注册成功");
+    }
+
+    @GetMapping("/user/{userId}")
+    public Response findByUserId(@PathVariable String userId) {
+        User user = userService.findByUserId(userId);
+        return Response.ok("查询成功", user);
+    }
+}

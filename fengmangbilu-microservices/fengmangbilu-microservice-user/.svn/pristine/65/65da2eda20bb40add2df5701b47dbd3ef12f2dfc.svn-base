@@ -1,0 +1,52 @@
+package com.fengmangbilu.microservice.user.controllers;
+
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.fengmangbilu.common.exceptions.BizException;
+import com.fengmangbilu.data.domain.Response;
+import com.fengmangbilu.microservice.user.constraints.UserMobile;
+import com.fengmangbilu.microservice.user.endpoints.UserRequest;
+import com.fengmangbilu.microservice.user.entities.User;
+import com.fengmangbilu.microservice.user.services.UserService;
+
+@Validated
+@RestController
+public class UserController {
+
+	@Autowired
+	private UserService userService;
+
+	@PostMapping("/register")
+	public Response register(@Valid @RequestBody UserRequest userRequest) throws BizException {
+		userService.register(userRequest);
+		return Response.ok("注册成功");
+	}
+
+	@PutMapping("/resetPassword")
+	public Response resetPassword(@Valid @RequestBody UserRequest userRequest) throws BizException {
+		userService.resetPassword(userRequest);
+		return Response.ok("密码重置成功");
+	}
+
+	@GetMapping("/user/{userId}")
+	public Response findByUserId(@PathVariable String userId) {
+		User user = userService.findByUserId(userId);
+		return Response.ok("查询成功", user);
+	}
+
+	@GetMapping("/user")
+	public Response findByUserMobile(@UserMobile @RequestParam String mobile) {
+		User user = userService.findByMobile(mobile);
+		return Response.ok("查询成功", user);
+	}
+}

@@ -1,0 +1,26 @@
+package com.fengmangbilu.microservice.user.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.fengmangbilu.microservice.user.entities.UserIdCard;
+import com.fengmangbilu.microservice.user.repositories.UserIdCardRepository;
+import com.fengmangbilu.service.DefaultJpaServiceImpl;
+import com.fengmangbilu.util.IdCardUtils;
+
+@Service
+public class UserIdCardServiceImpl extends DefaultJpaServiceImpl<UserIdCard, Long, UserIdCardRepository>
+		implements UserIdCardService {
+	
+	@Autowired
+	private UserService userService;
+	
+	@Override
+	public UserIdCard save(UserIdCard userIdCard) {
+		userIdCard.setBirthday(IdCardUtils.getBirthByIdCard(userIdCard.getIdCard()));
+		userIdCard.setGender(IdCardUtils.getGenderByIdCard(userIdCard.getIdCard()).toString());
+		userIdCard = super.save(userIdCard);
+		userService.setIsCertifiedForTrue(userIdCard.getCreatedBy());
+		return super.save(userIdCard);
+	}
+}

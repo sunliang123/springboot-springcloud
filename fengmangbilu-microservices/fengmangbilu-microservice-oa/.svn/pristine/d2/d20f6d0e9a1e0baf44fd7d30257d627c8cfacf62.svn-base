@@ -1,0 +1,83 @@
+package com.fengmangbilu.microservice.credit.entities;
+
+import java.util.Set;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import com.fengmangbilu.domain.SimpleEntity;
+
+@Entity
+@Table(name = "fengmangbilu_enterprise_info")
+public class EnterpriseInfo extends SimpleEntity{
+	
+	@Column(length = 30)
+	private String name; // 姓名
+	
+	@Column(length = 20)
+	private String idCard; // 身份证号
+
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "enterpriseInfo", fetch = FetchType.EAGER)
+	private Set<CorporateCaseInfo> caseInfos;
+
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "enterpriseInfo", fetch = FetchType.EAGER)
+	private Set<Corporate> corporates;
+
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "enterpriseInfo", fetch = FetchType.EAGER)
+	private Set<CorporateManager> corporateManagers;
+	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "enterpriseInfo", fetch = FetchType.EAGER)
+	private Set<CorporateShareholder> corporateShareholders;
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getIdCard() {
+		return idCard;
+	}
+
+	public void setIdCard(String idCard) {
+		this.idCard = idCard;
+	}
+
+	public Set<CorporateCaseInfo> getCaseInfos() {
+		return caseInfos;
+	}
+
+	public void setCaseInfos(Set<CorporateCaseInfo> caseInfos) {
+		this.caseInfos = caseInfos;
+	}
+
+	public Set<Corporate> getCorporates() {
+		return corporates;
+	}
+
+	public void setCorporates(Set<Corporate> corporates) {
+		this.corporates = corporates;
+	}
+
+	public Set<CorporateManager> getCorporateManagers() {
+		return corporateManagers;
+	}
+
+	public void setCorporateManagers(Set<CorporateManager> corporateManagers) {
+		this.corporateManagers = corporateManagers;
+	}
+
+	public Set<CorporateShareholder> getCorporateShareholders() {
+		return corporateShareholders;
+	}
+
+	public void setCorporateShareholders(Set<CorporateShareholder> corporateShareholders) {
+		this.corporateShareholders = corporateShareholders;
+	}
+}

@@ -1,0 +1,27 @@
+package com.fengmangbilu.oacloud.security;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.http.MediaType;
+import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.web.authentication.AuthenticationFailureHandler;
+
+import com.alibaba.fastjson.JSON;
+import com.fengmangbilu.web.Response;
+
+public class AjaxAuthenticationFailureHandler implements AuthenticationFailureHandler{
+
+	@Override
+	public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response,
+			AuthenticationException exception) throws IOException, ServletException {
+		Response data = Response.error(exception.getMessage());
+		response.setContentType(MediaType.APPLICATION_JSON_UTF8_VALUE);
+		response.getWriter().write(JSON.toJSONString(data));
+		response.flushBuffer();
+	}
+
+}

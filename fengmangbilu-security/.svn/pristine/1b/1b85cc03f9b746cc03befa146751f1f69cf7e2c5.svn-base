@@ -1,0 +1,25 @@
+package com.fengmangbilu.security.exceptions;
+
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
+@SuppressWarnings("serial")
+@JsonSerialize(using = TokenExceptionJackson2Serializer.class)
+public class TokenException extends RuntimeException {
+	
+	public TokenException(String msg, Throwable t) {
+		super(msg, t);
+	}
+
+	public TokenException(String msg) {
+		super(msg);
+	}
+	
+	public String getOAuth2ErrorCode() {
+		return "invalid_request";
+	}
+
+	public int getHttpErrorCode() {
+		return 400;
+	}
+
+}

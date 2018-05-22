@@ -1,0 +1,166 @@
+package com.fengmangbilu.microservice.oa.providers.support;
+
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
+public class PersonRiskInfoWdyqsItemFix {
+    
+    @XmlElement
+    private String bt;
+    
+    @XmlElement
+    private String xm;
+    
+    @XmlElement
+    private String zfzh;
+    
+    @XmlElement
+    private String jzdh;
+
+    @XmlElement
+    private String jgdz;
+    
+    @XmlElement
+    private String bjbx;
+
+    @XmlElement
+    private String dksj;
+    
+    @XmlElement
+    private String yhje;
+    
+    @XmlElement
+    private String whfx;
+    
+    @XmlElement
+    private String hkzt;
+    
+    @XmlElement
+    private String gxsj;
+    
+    @XmlElement
+    private String sjlydwmc;
+    
+    @XmlElement
+    private String photo;
+    
+    @XmlElement
+    private String photoType;
+
+    public String getBt() {
+        return bt;
+    }
+
+    public void setBt(String bt) {
+        this.bt = bt;
+    }
+
+    public String getXm() {
+        return xm;
+    }
+
+    public void setXm(String xm) {
+        this.xm = xm;
+    }
+
+    public String getZfzh() {
+        return zfzh;
+    }
+
+    public void setZfzh(String zfzh) {
+        this.zfzh = zfzh;
+    }
+
+    public String getJzdh() {
+        return jzdh;
+    }
+
+    public void setJzdh(String jzdh) {
+        this.jzdh = jzdh;
+    }
+
+    public String getJgdz() {
+        return jgdz;
+    }
+
+    public void setJgdz(String jgdz) {
+        this.jgdz = jgdz;
+    }
+
+    public String getBjbx() {
+        return bjbx;
+    }
+
+    public void setBjbx(String bjbx) {
+        this.bjbx = bjbx;
+    }
+
+    public String getDksj() {
+        return dksj;
+    }
+
+    public void setDksj(String dksj) {
+        this.dksj = dksj;
+    }
+
+    public String getYhje() {
+        return yhje;
+    }
+
+    public void setYhje(String yhje) {
+        this.yhje = yhje;
+    }
+
+    public String getWhfx() {
+        return whfx;
+    }
+
+    public void setWhfx(String whfx) {
+        this.whfx = whfx;
+    }
+
+    public String getHkzt() {
+        return hkzt;
+    }
+
+    public void setHkzt(String hkzt) {
+        this.hkzt = hkzt;
+    }
+
+    public String getGxsj() {
+        return gxsj;
+    }
+
+    public void setGxsj(String gxsj) {
+        this.gxsj = gxsj;
+    }
+
+    public String getSjlydwmc() {
+        return sjlydwmc;
+    }
+
+    public void setSjlydwmc(String sjlydwmc) {
+        this.sjlydwmc = sjlydwmc;
+    }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
+
+    public String getPhotoType() {
+        return photoType;
+    }
+
+    public void setPhotoType(String photoType) {
+        this.photoType = photoType;
+    }
+    
+}

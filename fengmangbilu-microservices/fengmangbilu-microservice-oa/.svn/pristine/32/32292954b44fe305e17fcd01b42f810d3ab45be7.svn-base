@@ -1,0 +1,12 @@
+package com.fengmangbilu.microservice.oa.services;
+
+import org.springframework.stereotype.Service;
+
+import com.fengmangbilu.microservice.oa.entities.IdCardInfo;
+import com.fengmangbilu.microservice.oa.repositories.IdCardInfoRepository;
+import com.fengmangbilu.service.DefaultJpaServiceImpl;
+
+@Service
+public class IdCardInfoServiceImpl extends DefaultJpaServiceImpl<IdCardInfo, String, IdCardInfoRepository>
+		implements IdCardInfoService {
+}

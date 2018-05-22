@@ -1,0 +1,10 @@
+package com.fengmangbilu.microservice.oa.enums;
+
+public enum AuthStatus {
+
+	SUBMIT,
+
+	SUCCESS,
+
+	FAILURE;
+}

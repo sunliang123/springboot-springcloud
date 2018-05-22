@@ -1,0 +1,47 @@
+package com.fengmangbilu.microservice.user.identifiers;
+
+public class IdCrypt {
+
+	public static long encodeId(long $id) {
+		long $sid = ($id & 0xff000000);
+		$sid += ($id & 0x0000ff00) << 8;
+		$sid += ($id & 0x00ff0000) >> 8;
+		$sid += ($id & 0x0000000f) << 4;
+		$sid += ($id & 0x000000f0) >> 4;
+		$sid ^= 18009181;
+		return $sid;
+	}
+
+	public static long decodeId(long $sid) {
+		$sid ^= 18009181;
+		long $id = ($sid & 0xff000000);
+		$id += ($sid & 0x00ff0000) >> 8;
+		$id += ($sid & 0x0000ff00) << 8;
+		$id += ($sid & 0x000000f0) >> 4;
+		$id += ($sid & 0x0000000f) << 4;
+		return $id;
+	}
+
+//	public static void main(String[] args) {
+//		List<Long> lists = Lists.newArrayList();
+//		for (int i = 0; i <= 10; i++) {
+//			long a = encodeId(i);
+//			if(lists.contains(a)){
+//				break;
+//			}
+//			System.out.println(a);
+//			lists.add(a);
+//		}
+//		System.out.println(decodeId(3));
+		
+//		long yourVal = 596731111;
+//		Bumblebee buckBumble = new Bumblebee();
+//		
+//		System.out.println("This Bumblebee's random value is: " + buckBumble.getRandom());
+//		System.out.println("This Bumblebee's prime value is: " + buckBumble.getPrime());
+//		System.out.println("This Bumblebee's inverse value is: " + buckBumble.getInverse());
+//		System.out.println("Your value is: " + yourVal);
+//		System.out.println("Your value encoded is: " + buckBumble.encode(yourVal));
+//		System.out.println("The above value decoded is: " + buckBumble.decode(buckBumble.encode(yourVal)));
+//	}
+}

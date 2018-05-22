@@ -1,0 +1,12 @@
+package com.fengmangbilu.microservice.credit.services;
+
+import org.springframework.stereotype.Service;
+
+import com.fengmangbilu.microservice.credit.entities.MobileInfo;
+import com.fengmangbilu.microservice.credit.repositories.MobileInfoRepository;
+import com.fengmangbilu.service.DefaultJpaServiceImpl;
+
+@Service
+public class MobileInfoServiceImpl extends DefaultJpaServiceImpl<MobileInfo, String, MobileInfoRepository> implements MobileInfoService {
+
+}

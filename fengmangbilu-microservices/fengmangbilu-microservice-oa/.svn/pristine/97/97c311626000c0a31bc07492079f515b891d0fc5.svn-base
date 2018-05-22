@@ -1,0 +1,11 @@
+package com.fengmangbilu.microservice.credit.repositories;
+
+import org.springframework.stereotype.Repository;
+
+import com.fengmangbilu.microservice.credit.entities.PersonInfo;
+import com.fengmangbilu.repository.DefaultRepository;
+
+@Repository
+public interface PersonInfoRepository extends DefaultRepository<PersonInfo, String> {
+
+}

@@ -1,0 +1,81 @@
+package com.fengmangbilu.microservice.user.controllers;
+
+import java.util.Set;
+
+import javax.validation.ConstraintViolation;
+import javax.validation.ConstraintViolationException;
+
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+import com.fengmangbilu.annotation.JsonFilter;
+import com.fengmangbilu.microservice.user.exceptions.UserError;
+import com.fengmangbilu.microservice.user.exceptions.UserErrorMessage;
+import com.fengmangbilu.microservice.user.exceptions.UserException;
+import com.fengmangbilu.web.Response;
+
+@RestControllerAdvice
+public class ErrorController {
+
+	@ExceptionHandler(UserException.class)
+	@JsonFilter(target = Response.class, filter = {"data", "success"})
+	public ResponseEntity<Response> handleUserException(UserException ex) {
+		UserError error = ex.getUserError();
+		Response response = Response.error(error.getCode(), error.getMessage());
+		return ResponseEntity.ok(response);
+	}
+
+	@ExceptionHandler(MethodArgumentNotValidException.class)
+	@JsonFilter(target = Response.class, filter = {"data", "success"})
+	public ResponseEntity<Response> handleMethodArgumentNotValidException(MethodArgumentNotValidException ex) {
+		BindingResult result = ex.getBindingResult();
+		FieldError fieldError = result.getFieldError();
+		String name = StringUtils.defaultIfBlank(fieldError.getDefaultMessage(), UserErrorMessage.ERR_UNKNOW);
+		return ResponseEntity.ok(getResponse(name));
+	}
+
+	@ExceptionHandler(ConstraintViolationException.class)
+	@JsonFilter(target = Response.class, filter = {"data", "success"})
+	public ResponseEntity<Object> handleConstraintViolationException(ConstraintViolationException ex) {
+		Set<ConstraintViolation<?>> constraintViolations = ex.getConstraintViolations();
+		String message = null;
+		for (ConstraintViolation<?> constraintViolation : constraintViolations) {
+			message = constraintViolation.getMessage();
+		}
+		String name = StringUtils.defaultIfBlank(message, UserErrorMessage.ERR_UNKNOW);
+		return ResponseEntity.ok(getResponse(name));
+	}
+
+	@ExceptionHandler(AuthenticationException.class)
+	@JsonFilter(target = Response.class, filter = {"data", "success"})
+	public ResponseEntity<Response> handlerAuthenticationException(AuthenticationException ex) {
+		int code = UserErrorMessage.ERR_DEFAULT_CODE;
+		String message = ex.getMessage();
+		if (ex instanceof BadCredentialsException) {
+			UserError error = UserError.ERR_PASSWORD_INCORRECT;
+			code = error.getCode();
+			message = error.getMessage();
+		}
+		if (ex instanceof UsernameNotFoundException) {
+			UserError error = UserError.ERR_MOBILE_NOT_FOUND;
+			code = error.getCode();
+			message = error.getMessage();
+		}
+		Response response = Response.error(code, message);
+		return ResponseEntity.ok(response);
+	}
+
+	protected Response getResponse(String name) {
+		UserError error = UserError.getEnum(name);
+		Response response = Response.error(error.getCode(), error.getMessage());
+		return response;
+	}
+}

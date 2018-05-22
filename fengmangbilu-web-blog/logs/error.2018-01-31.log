@@ -1,0 +1,543 @@
+2018-01-31 09:38:21.918 [http-nio-8080-exec-2] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 09:38:26.558 [http-nio-8080-exec-10] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 09:38:38.684 [http-nio-8080-exec-9] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 10:16:34.732 [http-nio-8080-exec-9] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 10:16:35.616 [http-nio-8080-exec-7] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 10:16:36.122 [http-nio-8080-exec-6] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 10:16:50.698 [http-nio-8080-exec-1] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 10:16:51.441 [http-nio-8080-exec-5] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 10:16:51.775 [http-nio-8080-exec-8] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 10:16:52.016 [http-nio-8080-exec-3] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 10:16:52.208 [http-nio-8080-exec-4] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 10:16:53.729 [http-nio-8080-exec-9] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 10:17:02.828 [http-nio-8080-exec-6] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 10:51:48.621 [http-nio-8080-exec-1] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 10:51:54.780 [http-nio-8080-exec-8] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 10:52:11.217 [http-nio-8080-exec-7] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 10:52:11.312 [http-nio-8080-exec-5] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 10:52:11.900 [http-nio-8080-exec-8] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 10:52:11.993 [http-nio-8080-exec-4] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 10:52:12.421 [http-nio-8080-exec-3] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 10:52:12.474 [http-nio-8080-exec-10] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 10:52:12.818 [http-nio-8080-exec-2] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 10:52:12.911 [http-nio-8080-exec-7] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 10:52:13.247 [http-nio-8080-exec-1] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 10:52:13.367 [http-nio-8080-exec-8] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 10:53:27.604 [http-nio-8080-exec-3] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 10:53:27.707 [http-nio-8080-exec-10] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 10:53:59.753 [http-nio-8080-exec-2] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 10:53:59.819 [http-nio-8080-exec-7] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 10:59:25.363 [http-nio-8080-exec-8] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 10:59:25.426 [http-nio-8080-exec-4] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:00:42.907 [http-nio-8080-exec-10] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:00:42.993 [http-nio-8080-exec-9] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:00:43.484 [http-nio-8080-exec-7] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:00:43.591 [http-nio-8080-exec-5] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:00:56.156 [http-nio-8080-exec-8] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:00:56.219 [http-nio-8080-exec-4] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:01:07.395 [http-nio-8080-exec-9] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:01:07.649 [http-nio-8080-exec-10] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:01:08.114 [http-nio-8080-exec-2] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:01:08.166 [http-nio-8080-exec-5] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:01:35.623 [http-nio-8080-exec-1] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:01:36.663 [http-nio-8080-exec-4] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:01:37.139 [http-nio-8080-exec-9] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:01:38.026 [http-nio-8080-exec-3] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:01:44.086 [http-nio-8080-exec-5] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:01:44.194 [http-nio-8080-exec-7] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:02:04.525 [http-nio-8080-exec-4] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:02:04.650 [http-nio-8080-exec-6] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:02:05.057 [http-nio-8080-exec-10] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:02:05.136 [http-nio-8080-exec-3] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:02:48.830 [http-nio-8080-exec-8] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:02:48.967 [http-nio-8080-exec-4] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:03:35.125 [http-nio-8080-exec-10] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:03:35.233 [http-nio-8080-exec-3] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:09:44.817 [http-nio-8080-exec-7] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:09:44.887 [http-nio-8080-exec-1] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:11:04.915 [http-nio-8080-exec-6] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:11:04.984 [http-nio-8080-exec-9] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:11:14.993 [http-nio-8080-exec-2] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:11:15.061 [http-nio-8080-exec-5] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:12:13.931 [http-nio-8080-exec-1] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:13:53.636 [http-nio-8080-exec-5] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:13:53.722 [http-nio-8080-exec-7] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:13:54.496 [http-nio-8080-exec-10] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:13:54.597 [http-nio-8080-exec-4] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:13:54.829 [http-nio-8080-exec-9] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:13:54.944 [http-nio-8080-exec-8] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:14:19.243 [http-nio-8080-exec-1] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:14:19.280 [http-nio-8080-exec-4] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:14:19.393 [http-nio-8080-exec-10] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:14:19.501 [http-nio-8080-exec-5] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:14:20.227 [http-nio-8080-exec-9] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:14:20.335 [http-nio-8080-exec-8] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:14:26.350 [http-nio-8080-exec-2] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:14:26.462 [http-nio-8080-exec-1] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:14:37.997 [http-nio-8080-exec-3] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:14:38.097 [http-nio-8080-exec-2] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:14:38.494 [http-nio-8080-exec-10] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:14:38.579 [http-nio-8080-exec-4] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:14:38.815 [http-nio-8080-exec-5] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:14:38.917 [http-nio-8080-exec-6] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:14:48.476 [http-nio-8080-exec-4] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:14:48.688 [http-nio-8080-exec-1] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:14:48.960 [http-nio-8080-exec-2] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:14:49.044 [http-nio-8080-exec-7] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:18:28.880 [http-nio-8080-exec-10] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:19:01.488 [http-nio-8080-exec-6] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:20:00.503 [http-nio-8080-exec-4] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:20:19.488 [http-nio-8080-exec-7] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:21:13.321 [http-nio-8080-exec-5] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:21:40.846 [http-nio-8080-exec-10] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:22:02.279 [http-nio-8080-exec-6] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:22:02.914 [http-nio-8080-exec-5] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:22:03.384 [http-nio-8080-exec-4] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:22:03.761 [http-nio-8080-exec-10] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:22:29.609 [http-nio-8080-exec-6] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:22:39.913 [http-nio-8080-exec-4] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:25:48.616 [http-nio-8080-exec-9] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:26:24.313 [http-nio-8080-exec-10] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:26:24.893 [http-nio-8080-exec-2] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:27:50.392 [http-nio-8080-exec-9] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:27:51.092 [http-nio-8080-exec-4] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:28:17.316 [http-nio-8080-exec-2] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:29:17.612 [http-nio-8080-exec-9] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:30:29.024 [http-nio-8080-exec-10] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:30:46.246 [http-nio-8080-exec-3] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:30:51.108 [http-nio-8080-exec-9] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:31:17.383 [http-nio-8080-exec-4] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:31:47.095 [http-nio-8080-exec-2] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:31:52.752 [http-nio-8080-exec-7] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:32:49.222 [http-nio-8080-exec-1] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:33:32.061 [http-nio-8080-exec-4] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:33:32.789 [http-nio-8080-exec-10] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:33:45.624 [http-nio-8080-exec-2] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:34:04.685 [http-nio-8080-exec-8] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:34:05.365 [http-nio-8080-exec-1] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:34:09.718 [http-nio-8080-exec-10] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:34:51.498 [http-nio-8080-exec-5] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:34:59.300 [http-nio-8080-exec-9] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:35:45.764 [http-nio-8080-exec-5] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:35:46.043 [http-nio-8080-exec-7] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:35:46.559 [http-nio-8080-exec-9] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:35:47.022 [http-nio-8080-exec-1] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:35:53.046 [http-nio-8080-exec-2] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:37:48.527 [http-nio-8080-exec-7] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:38:19.410 [http-nio-8080-exec-10] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:40:40.610 [http-nio-8080-exec-4] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:43:13.914 [http-nio-8080-exec-10] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:44:08.600 [http-nio-8080-exec-5] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:56:42.512 [http-nio-8080-exec-10] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:57:23.845 [http-nio-8080-exec-9] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 11:57:45.691 [http-nio-8080-exec-7] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 12:04:11.189 [http-nio-8080-exec-9] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 12:06:47.871 [http-nio-8080-exec-3] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 12:07:47.536 [http-nio-8080-exec-6] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 12:07:58.392 [http-nio-8080-exec-1] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 12:11:41.179 [http-nio-8080-exec-8] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 12:12:16.821 [http-nio-8080-exec-3] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 12:12:34.609 [http-nio-8080-exec-6] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 12:12:35.770 [http-nio-8080-exec-1] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 12:19:02.647 [http-nio-8080-exec-6] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 12:19:19.713 [http-nio-8080-exec-4] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 12:19:19.875 [http-nio-8080-exec-6] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 12:19:20.041 [http-nio-8080-exec-8] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 12:20:08.546 [http-nio-8080-exec-4] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 12:20:35.251 [http-nio-8080-exec-8] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 12:20:51.676 [http-nio-8080-exec-3] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 12:21:02.947 [http-nio-8080-exec-5] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 12:21:44.437 [http-nio-8080-exec-8] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 12:22:29.966 [http-nio-8080-exec-7] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 12:27:50.899 [http-nio-8080-exec-3] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 12:28:42.575 [http-nio-8080-exec-4] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 12:29:21.817 [http-nio-8080-exec-2] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 12:29:53.919 [http-nio-8080-exec-1] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 12:30:24.391 [http-nio-8080-exec-8] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 12:32:44.113 [http-nio-8080-exec-5] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 12:34:34.407 [http-nio-8080-exec-3] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 12:34:38.844 [http-nio-8080-exec-8] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 12:35:38.947 [http-nio-8080-exec-1] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 12:36:04.964 [http-nio-8080-exec-2] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 12:36:49.543 [http-nio-8080-exec-8] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 12:42:10.989 [http-nio-8080-exec-7] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 12:42:43.164 [http-nio-8080-exec-1] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 12:42:52.663 [http-nio-8080-exec-4] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 13:06:56.175 [http-nio-8080-exec-2] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 13:07:46.269 [http-nio-8080-exec-10] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 13:08:37.507 [http-nio-8080-exec-3] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 13:09:33.434 [http-nio-8080-exec-10] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 13:09:46.289 [http-nio-8080-exec-6] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 13:10:02.861 [http-nio-8080-exec-1] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 13:11:56.529 [http-nio-8080-exec-5] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 13:14:55.313 [http-nio-8080-exec-5] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 13:18:42.356 [http-nio-8080-exec-3] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 13:19:20.460 [http-nio-8080-exec-6] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 13:20:10.533 [http-nio-8080-exec-10] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 13:20:11.284 [http-nio-8080-exec-5] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 13:20:11.754 [http-nio-8080-exec-3] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 13:20:26.578 [http-nio-8080-exec-9] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 13:20:27.117 [http-nio-8080-exec-1] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 13:20:27.626 [http-nio-8080-exec-10] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 13:20:38.436 [http-nio-8080-exec-9] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 13:20:38.881 [http-nio-8080-exec-4] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 13:21:32.431 [http-nio-8080-exec-3] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 13:38:23.133 [http-nio-8080-exec-7] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 13:53:15.395 [http-nio-8080-exec-2] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 14:14:34.620 [http-nio-8080-exec-8] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 14:27:03.282 [http-nio-8080-exec-5] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 14:27:07.827 [http-nio-8080-exec-8] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 14:32:41.480 [http-nio-8080-exec-2] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 14:34:06.149 [http-nio-8080-exec-5] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 14:34:06.849 [http-nio-8080-exec-2] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 14:35:43.622 [http-nio-8080-exec-3] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 14:35:44.486 [http-nio-8080-exec-7] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 14:35:44.974 [http-nio-8080-exec-8] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 14:36:48.464 [http-nio-8080-exec-2] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 14:37:30.155 [http-nio-8080-exec-10] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 14:38:05.824 [http-nio-8080-exec-6] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 14:44:54.183 [http-nio-8080-exec-5] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 14:45:36.586 [http-nio-8080-exec-10] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 14:45:44.075 [http-nio-8080-exec-4] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 14:45:44.966 [http-nio-8080-exec-5] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 14:45:59.791 [http-nio-8080-exec-10] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 14:46:00.597 [http-nio-8080-exec-3] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 14:46:10.656 [http-nio-8080-exec-7] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 14:46:11.404 [http-nio-8080-exec-4] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 14:46:15.264 [http-nio-8080-exec-5] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 14:46:46.065 [http-nio-8080-exec-9] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 14:52:49.040 [http-nio-8080-exec-3] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 15:02:08.041 [http-nio-8080-exec-6] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 15:06:00.407 [http-nio-8080-exec-10] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 15:06:00.437 [http-nio-8080-exec-2] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 15:06:40.064 [http-nio-8080-exec-8] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 15:16:18.277 [http-nio-8080-exec-5] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 15:16:56.468 [http-nio-8080-exec-1] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 15:16:58.052 [http-nio-8080-exec-2] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 15:22:25.095 [http-nio-8080-exec-10] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 15:23:07.902 [http-nio-8080-exec-2] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 15:23:32.288 [http-nio-8080-exec-7] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 15:26:23.963 [http-nio-8080-exec-1] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 15:26:37.119 [http-nio-8080-exec-2] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 15:29:15.193 [http-nio-8080-exec-4] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 15:30:21.526 [http-nio-8080-exec-6] ERROR com.fengmangbilu.web.DefaultExceptionHandler - No message available
+2018-01-31 18:25:58.225 [http-nio-8080-exec-1] ERROR freemarker.runtime - Error executing FreeMarker template
+freemarker.core.InvalidReferenceException: The following has evaluated to null or missing:
+==> page.html  [in template "index.ftl" at line 2, column 3]
+
+----
+Tip: It's the step after the last dot that caused this error, not those before it.
+----
+Tip: If the failing expression is known to legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+----
+
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: @page.html app="credit"  [in template "index.ftl" at line 2, column 1]
+----
+	at freemarker.core.InvalidReferenceException.getInstance(InvalidReferenceException.java:134)
+	at freemarker.core.UnifiedCall.accept(UnifiedCall.java:106)
+	at freemarker.core.Environment.visit(Environment.java:325)
+	at freemarker.core.Environment.visit(Environment.java:331)
+	at freemarker.core.Environment.process(Environment.java:304)
+	at freemarker.template.Template.process(Template.java:382)
+	at org.springframework.web.servlet.view.freemarker.FreeMarkerView.processTemplate(FreeMarkerView.java:368)
+	at org.springframework.web.servlet.view.freemarker.FreeMarkerView.doRender(FreeMarkerView.java:285)
+	at org.springframework.web.servlet.view.freemarker.FreeMarkerView.renderMergedTemplateModel(FreeMarkerView.java:235)
+	at org.springframework.web.servlet.view.AbstractTemplateView.renderMergedOutputModel(AbstractTemplateView.java:167)
+	at org.springframework.web.servlet.view.AbstractView.render(AbstractView.java:303)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1286)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1041)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:984)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:901)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.servlet.resource.ResourceUrlEncodingFilter.doFilter(ResourceUrlEncodingFilter.java:59)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:108)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:478)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:803)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1459)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2018-01-31 18:25:58.229 [http-nio-8080-exec-1] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is freemarker.core.InvalidReferenceException: The following has evaluated to null or missing:
+==> page.html  [in template "index.ftl" at line 2, column 3]
+
+----
+Tip: It's the step after the last dot that caused this error, not those before it.
+----
+Tip: If the failing expression is known to legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+----
+
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: @page.html app="credit"  [in template "index.ftl" at line 2, column 1]
+----] with root cause
+freemarker.core.InvalidReferenceException: The following has evaluated to null or missing:
+==> page.html  [in template "index.ftl" at line 2, column 3]
+
+----
+Tip: It's the step after the last dot that caused this error, not those before it.
+----
+Tip: If the failing expression is known to legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+----
+
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: @page.html app="credit"  [in template "index.ftl" at line 2, column 1]
+----
+	at freemarker.core.InvalidReferenceException.getInstance(InvalidReferenceException.java:134)
+	at freemarker.core.UnifiedCall.accept(UnifiedCall.java:106)
+	at freemarker.core.Environment.visit(Environment.java:325)
+	at freemarker.core.Environment.visit(Environment.java:331)
+	at freemarker.core.Environment.process(Environment.java:304)
+	at freemarker.template.Template.process(Template.java:382)
+	at org.springframework.web.servlet.view.freemarker.FreeMarkerView.processTemplate(FreeMarkerView.java:368)
+	at org.springframework.web.servlet.view.freemarker.FreeMarkerView.doRender(FreeMarkerView.java:285)
+	at org.springframework.web.servlet.view.freemarker.FreeMarkerView.renderMergedTemplateModel(FreeMarkerView.java:235)
+	at org.springframework.web.servlet.view.AbstractTemplateView.renderMergedOutputModel(AbstractTemplateView.java:167)
+	at org.springframework.web.servlet.view.AbstractView.render(AbstractView.java:303)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1286)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1041)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:984)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:901)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.servlet.resource.ResourceUrlEncodingFilter.doFilter(ResourceUrlEncodingFilter.java:59)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:108)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:478)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:803)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1459)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2018-01-31 18:26:00.515 [http-nio-8080-exec-7] ERROR freemarker.runtime - Error executing FreeMarker template
+freemarker.core.InvalidReferenceException: The following has evaluated to null or missing:
+==> page.html  [in template "index.ftl" at line 2, column 3]
+
+----
+Tip: It's the step after the last dot that caused this error, not those before it.
+----
+Tip: If the failing expression is known to legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+----
+
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: @page.html app="credit"  [in template "index.ftl" at line 2, column 1]
+----
+	at freemarker.core.InvalidReferenceException.getInstance(InvalidReferenceException.java:134)
+	at freemarker.core.UnifiedCall.accept(UnifiedCall.java:106)
+	at freemarker.core.Environment.visit(Environment.java:325)
+	at freemarker.core.Environment.visit(Environment.java:331)
+	at freemarker.core.Environment.process(Environment.java:304)
+	at freemarker.template.Template.process(Template.java:382)
+	at org.springframework.web.servlet.view.freemarker.FreeMarkerView.processTemplate(FreeMarkerView.java:368)
+	at org.springframework.web.servlet.view.freemarker.FreeMarkerView.doRender(FreeMarkerView.java:285)
+	at org.springframework.web.servlet.view.freemarker.FreeMarkerView.renderMergedTemplateModel(FreeMarkerView.java:235)
+	at org.springframework.web.servlet.view.AbstractTemplateView.renderMergedOutputModel(AbstractTemplateView.java:167)
+	at org.springframework.web.servlet.view.AbstractView.render(AbstractView.java:303)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1286)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1041)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:984)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:901)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.servlet.resource.ResourceUrlEncodingFilter.doFilter(ResourceUrlEncodingFilter.java:59)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:108)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:478)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:803)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1459)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)
+2018-01-31 18:26:00.518 [http-nio-8080-exec-7] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is freemarker.core.InvalidReferenceException: The following has evaluated to null or missing:
+==> page.html  [in template "index.ftl" at line 2, column 3]
+
+----
+Tip: It's the step after the last dot that caused this error, not those before it.
+----
+Tip: If the failing expression is known to legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+----
+
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: @page.html app="credit"  [in template "index.ftl" at line 2, column 1]
+----] with root cause
+freemarker.core.InvalidReferenceException: The following has evaluated to null or missing:
+==> page.html  [in template "index.ftl" at line 2, column 3]
+
+----
+Tip: It's the step after the last dot that caused this error, not those before it.
+----
+Tip: If the failing expression is known to legally refer to something that's sometimes null or missing, either specify a default value like myOptionalVar!myDefault, or use <#if myOptionalVar??>when-present<#else>when-missing</#if>. (These only cover the last step of the expression; to cover the whole expression, use parenthesis: (myOptionalVar.foo)!myDefault, (myOptionalVar.foo)??
+----
+
+----
+FTL stack trace ("~" means nesting-related):
+	- Failed at: @page.html app="credit"  [in template "index.ftl" at line 2, column 1]
+----
+	at freemarker.core.InvalidReferenceException.getInstance(InvalidReferenceException.java:134)
+	at freemarker.core.UnifiedCall.accept(UnifiedCall.java:106)
+	at freemarker.core.Environment.visit(Environment.java:325)
+	at freemarker.core.Environment.visit(Environment.java:331)
+	at freemarker.core.Environment.process(Environment.java:304)
+	at freemarker.template.Template.process(Template.java:382)
+	at org.springframework.web.servlet.view.freemarker.FreeMarkerView.processTemplate(FreeMarkerView.java:368)
+	at org.springframework.web.servlet.view.freemarker.FreeMarkerView.doRender(FreeMarkerView.java:285)
+	at org.springframework.web.servlet.view.freemarker.FreeMarkerView.renderMergedTemplateModel(FreeMarkerView.java:235)
+	at org.springframework.web.servlet.view.AbstractTemplateView.renderMergedOutputModel(AbstractTemplateView.java:167)
+	at org.springframework.web.servlet.view.AbstractView.render(AbstractView.java:303)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1286)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1041)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:984)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:901)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:635)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:742)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.servlet.resource.ResourceUrlEncodingFilter.doFilter(ResourceUrlEncodingFilter.java:59)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:99)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HttpPutFormContentFilter.doFilterInternal(HttpPutFormContentFilter.java:108)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.HiddenHttpMethodFilter.doFilterInternal(HiddenHttpMethodFilter.java:81)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:197)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:199)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:478)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:140)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:81)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:87)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:803)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:66)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1459)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Thread.java:748)

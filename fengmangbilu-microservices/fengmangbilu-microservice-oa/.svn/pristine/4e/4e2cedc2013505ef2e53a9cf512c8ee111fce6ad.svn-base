@@ -1,0 +1,18 @@
+package com.fengmangbilu.microservice.oa.repositories;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+
+import com.fengmangbilu.microservice.oa.entities.CompanyAuth;
+import com.fengmangbilu.microservice.oa.enums.AuthStatus;
+import com.fengmangbilu.repository.DefaultRepository;
+
+@Repository
+public interface CompanyAuthRepository extends DefaultRepository<CompanyAuth, Long> {
+
+	@Query("select c from CompanyAuth c where c.createdBy=?1 and c.status=?2")
+	List<CompanyAuth> findAll(String createdBy, AuthStatus status);
+
+}

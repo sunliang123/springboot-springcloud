@@ -1,0 +1,66 @@
+package com.fengmangbilu.api;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.cloud.client.SpringCloudApplication;
+import org.springframework.cloud.netflix.feign.EnableFeignClients;
+import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
+import org.springframework.cloud.netflix.zuul.filters.discovery.PatternServiceRouteMapper;
+import org.springframework.context.annotation.Bean;
+
+import springfox.documentation.builders.ApiInfoBuilder;
+import springfox.documentation.builders.ParameterBuilder;
+import springfox.documentation.builders.PathSelectors;
+import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.schema.ModelRef;
+import springfox.documentation.service.ApiInfo;
+import springfox.documentation.service.Contact;
+import springfox.documentation.service.Parameter;
+import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spring.web.plugins.Docket;
+
+@EnableZuulProxy
+@EnableFeignClients
+@SpringCloudApplication
+public class ApiApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(ApiApplication.class, args);
+    }
+
+    @Bean
+    public PatternServiceRouteMapper serviceRouteMapper() {
+        return new PatternServiceRouteMapper("(?<name>^.+)-(?<version>v.+$)", "${version}/${name}");
+    }
+    
+    /*--------------------------------------------
+     |                API DOC          			|
+    ============================================*/
+    @Bean
+    public Docket createRestApi() {
+    	ParameterBuilder builder = new ParameterBuilder();  
+        List<Parameter> parameters = new ArrayList<Parameter>();  
+        parameters.add(builder.name("Authorization").description("token").modelRef(new ModelRef("string")).parameterType("header").required(false).build());  
+    	
+        return new Docket(DocumentationType.SWAGGER_2)
+                .apiInfo(apiInfo())
+                .select()
+                .apis(RequestHandlerSelectors.basePackage("com.fengmangbilu.**.controllers"))
+                .paths(PathSelectors.any())
+                .build()
+                .globalOperationParameters(parameters)
+                .useDefaultResponseMessages(false);
+    }
+
+    private ApiInfo apiInfo() {
+        return new ApiInfoBuilder()
+                .title("接口文档")
+                .description("")
+                .contact(new Contact("Justice","","314922957@qq.com"))
+                .version("1.0")
+                .build();
+    }
+
+}

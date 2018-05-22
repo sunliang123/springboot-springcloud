@@ -1,0 +1,18 @@
+package com.fengmangbilu.oacloud.client;
+
+import org.springframework.cloud.netflix.feign.FeignClient;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.fengmangbilu.web.Response;
+
+@FeignClient("user")
+public interface UserClient {
+
+	@PostMapping("getToken")
+	public Response getToken(@RequestBody LoginRequest loginRequest);
+	
+	@PostMapping("findByMobile")
+	public Response findByMobile(@RequestParam("mobile") String mobile);
+}

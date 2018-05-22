@@ -1,0 +1,21 @@
+package com.fengmangbilu.microservice.credit.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.fengmangbilu.microservice.credit.entities.SchoolInfo;
+import com.fengmangbilu.microservice.credit.repositories.SchoolInfoRepository;
+import com.fengmangbilu.service.DefaultJpaServiceImpl;
+
+@Service
+public class SchoolInfoServiceImpl extends DefaultJpaServiceImpl<SchoolInfo, String, SchoolInfoRepository>
+		implements SchoolInfoService {
+	
+	@Autowired
+	private SchoolInfoRepository repository;
+
+	@Override
+	public SchoolInfo findByName(String name) {
+		return repository.findByName(name);
+	}
+}

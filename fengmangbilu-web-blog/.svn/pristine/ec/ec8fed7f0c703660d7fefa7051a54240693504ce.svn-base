@@ -1,0 +1,11 @@
+package com.fengmangbilu.blog.repositories;
+
+import org.springframework.stereotype.Repository;
+
+import com.fengmangbilu.blog.entities.Blog;
+import com.fengmangbilu.repository.DefaultRepository;
+
+@Repository
+public interface BlogRepository extends DefaultRepository<Blog, Long> {
+
+}

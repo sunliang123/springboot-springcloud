@@ -1,0 +1,87 @@
+package com.fengmangbilu.microservice.credit.entities;
+
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fengmangbilu.domain.SimpleEntity;
+
+@Entity
+@JsonIgnoreProperties({"id", "riskInfo"})
+@Table(name = "fengmangbilu_risk_sws_info")
+public class RiskSwsInfo extends SimpleEntity {
+
+	private String bt;
+
+	private String bzxr;
+
+	private String zjhm;
+
+	private String jydd;
+
+	private String frxm;
+
+	private String ggsj;
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	private RiskInfo riskInfo;
+
+	public String getBt() {
+		return bt;
+	}
+
+	public void setBt(String bt) {
+		this.bt = bt;
+	}
+
+	public String getBzxr() {
+		return bzxr;
+	}
+
+	public void setBzxr(String bzxr) {
+		this.bzxr = bzxr;
+	}
+
+	public String getZjhm() {
+		return zjhm;
+	}
+
+	public void setZjhm(String zjhm) {
+		this.zjhm = zjhm;
+	}
+
+	public String getJydd() {
+		return jydd;
+	}
+
+	public void setJydd(String jydd) {
+		this.jydd = jydd;
+	}
+
+	public String getFrxm() {
+		return frxm;
+	}
+
+	public void setFrxm(String frxm) {
+		this.frxm = frxm;
+	}
+
+	public String getGgsj() {
+		return ggsj;
+	}
+
+	public void setGgsj(String ggsj) {
+		this.ggsj = ggsj;
+	}
+
+	public RiskInfo getRiskInfo() {
+		return riskInfo;
+	}
+
+	public void setRiskInfo(RiskInfo riskInfo) {
+		this.riskInfo = riskInfo;
+	}
+
+}

@@ -1,0 +1,64 @@
+package com.fengmangbilu.core.util;
+
+import org.apache.commons.lang3.text.WordUtils;
+import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.ListableBeanFactory;
+import org.springframework.beans.factory.NoSuchBeanDefinitionException;
+import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
+import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
+
+/**
+ * This class holds utilities used to work with spring.The main usage is probably the beanFactory singleton.
+ * 
+ * @author Infinite Justice
+ */
+public final class SpringUtils implements BeanFactoryPostProcessor {
+
+    private static ConfigurableListableBeanFactory beanFactory;
+
+    @Override
+    public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
+        SpringUtils.beanFactory = beanFactory;
+        
+    }
+
+    @SuppressWarnings("unchecked")
+    public static <T> T getBean(String name) throws BeansException {
+        return (T) beanFactory.getBean(name);
+    }
+    
+    @SuppressWarnings("unchecked")
+    public static <T> T getBean(Class<T> clazz) throws BeansException {
+      // but to keep legacy logic working properly attempt 
+      // to locate component based on the Spring conventions 
+      String className = WordUtils.uncapitalize(clazz.getSimpleName());
+      if (beanFactory.containsBean(className))
+          return (T) beanFactory.getBean(className);
+      
+      if (ListableBeanFactory.class.isAssignableFrom(beanFactory.getClass())) {
+          ListableBeanFactory listableBeanFactory = (ListableBeanFactory) beanFactory;
+          String[] beanNames = listableBeanFactory.getBeanNamesForType(clazz);
+          if (beanNames.length > 0)
+              return (T) listableBeanFactory.getBean(beanNames[0]);
+      }
+      throw new NoSuchBeanDefinitionException(clazz);
+    }
+
+    
+    public static boolean containsBean(String name) {
+        return beanFactory.containsBean(name);
+    }
+
+    public static boolean isSingleton(String name) throws NoSuchBeanDefinitionException {
+        return beanFactory.isSingleton(name);
+    }
+
+    public static Class<?> getType(String name) throws NoSuchBeanDefinitionException {
+        return beanFactory.getType(name);
+    }
+
+    public static String[] getAliases(String name) throws NoSuchBeanDefinitionException {
+        return beanFactory.getAliases(name);
+    }
+
+}

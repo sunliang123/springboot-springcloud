@@ -1,0 +1,9 @@
+package com.fengmangbilu.microservice.credit.services;
+
+import com.fengmangbilu.microservice.credit.entities.PersonInfo;
+import com.fengmangbilu.microservice.credit.repositories.PersonInfoRepository;
+import com.fengmangbilu.service.DefaultJpaService;
+
+public interface PersonInfoService extends DefaultJpaService<PersonInfo, String, PersonInfoRepository> {
+
+}

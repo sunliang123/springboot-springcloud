@@ -1,0 +1,101 @@
+# eureka
+server.port=8001
+spring.application.name=user
+eureka.instance.hostname=120.76.44.152
+eureka.client.serviceUrl.defaultZone=http://120.25.235.28:8761/eureka/
+
+# management
+management.context-path=/actuator
+management.security.enabled=false
+
+# security
+security.basic.enabled=false
+security.ignored=/resetPassword,/register,/smsLogin,/getToken,/refreshToken,/send_**_sms,/findByMobile
+
+# mvc
+spring.mvc.locale=zh_CN
+spring.mvc.date-format=yyyy-MM-dd
+
+# json
+spring.jackson.time-zone=GMT+8
+spring.jackson.date-format=yyyy-MM-dd HH:mm
+
+# i18n
+spring.messages.basename=messages
+
+# feign
+feign.hystrix.enabled=true
+
+# hystrix
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds=15000
+ribbon.ReadTimeout=10000
+ribbon.ConnectTimeout=5000
+
+# qinniu
+qiniu.accessKey=EVgJznDapc4Li4pJ5CvtlHp5VyDhMTc73CmmTgdv
+qiniu.secretKey=I51SHW6Xddoxap5hg5bqWHrsATDAe-diUw0cBzFj
+qiniu.bucket=avatar
+
+# upload
+spring.http.multipart.max-file-size=2MB
+spring.http.multipart.max-request-size=10MB
+
+# aliyun sms
+aliyun.signName=\u804c\u8def
+aliyun.accessKeyId=yFV1JS8XFQWmT24I
+aliyun.accessKeySecret=Kv32om8pbjPd6fliVUcBf6bvPMMcvk
+aliyun.smsUp.messageType=SmsUp
+aliyun.smsUp.queueName=Alicom-Queue-1850143502431929-SmsUp
+aliyun.smsReport.messageType=SmsReport
+aliyun.smsReport.queueName=Alicom-Queue-1850143502431929-SmsReport
+aliyun.login.templateCode=SMS_86840033
+aliyun.register.templateCode=SMS_86840031
+aliyun.resetPassword.templateCode=SMS_86840030
+
+# Redis
+spring.redis.host=r-wz90becc06d97ba4.redis.rds.aliyuncs.com
+spring.redis.port=6379
+spring.redis.password=Zxcioc2017
+spring.redis.cache.expire.map.sms=600
+
+# rabbitmq
+spring.rabbitmq.host=120.76.44.152
+spring.rabbitmq.port=5672
+spring.rabbitmq.username=admin
+spring.rabbitmq.password=314922957
+
+# log
+logging.level.com.fengmangbilu=DEBUG
+
+# mysql
+spring.datasource.url=jdbc:p6spy:mysql://rm-wz9f17q4n5p4ioy2po.mysql.rds.aliyuncs.com:3306/fengmangbilu?characterEncoding=utf-8&useSSL=true&autoReconnect=true
+spring.datasource.username=zxcioc
+spring.datasource.password=Zxcioc2017
+spring.datasource.driver-class-name=com.p6spy.engine.spy.P6SpyDriver
+
+# druid
+spring.datasource.druid.StatViewServlet.enabled=true
+spring.datasource.druid.StatFilter.enabled=true
+spring.datasource.druid.filters=stat,wall,log4j
+spring.datasource.druid.initialSize=5
+spring.datasource.druid.dbType=mysql
+spring.datasource.druid.minIdle=5
+spring.datasource.druid.maxActive=20
+spring.datasource.druid.maxWait=60000
+spring.datasource.druid.timeBetweenEvictionRunsMillis=60000
+spring.datasource.druid.minEvictableIdleTimeMillis=300000
+spring.datasource.druid.validationQuery=SELECT 1 FROM DUAL
+spring.datasource.druid.testWhileIdle=true
+spring.datasource.druid.testOnBorrow=false
+spring.datasource.druid.testOnReturn=false
+spring.datasource.druid.poolPreparedStatements=true
+spring.datasource.druid.maxPoolPreparedStatementPerConnectionSize=20
+
+# hibernate
+spring.jpa.database=MYSQL
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=false
+spring.jpa.properties.hibernate.query.substitutions=true 1, false 0
+spring.jpa.hibernate.dialect=org.hibernate.dialect.MySQL5Dialect
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL5Dialect
+spring.jpa.properties.javax.persistence.validation.mode=none

@@ -1,0 +1,11 @@
+2018-04-02 11:36:56.185 [http-nio-8001-exec-10] ERROR com.fengmangbilu.web.DefaultExceptionHandler - com.qiniu.common.QiniuException:   
+{ResponseInfo:com.qiniu.http.Response@51798ee3,status:-1, reqId:, xlog:, xvia:, adress:, duration:0.000000 s, error:http://up-z2.qiniu.com/mkfile/392901/mimeType/YXBwbGljYXRpb24vb2N0ZXQtc3RyZWFt/key/NjBlZWE0ODFhNzIyNDNkZjllN2Y2OTcwN2ExMWJkYmIuanBlZw==  
+{ResponseInfo:com.qiniu.http.Response@3ad40ab4,status:400, reqId:TCwAAOaLw5w1gSEV, xlog:UP:12/400, xvia:, adress:up-z2.qiniu.com/14.152.37.4:80, duration:0.000000 s, error:scope not specified}  
+{"error":"scope not specified"}}  
+:Response(code=500, data=null, message=  
+{ResponseInfo:com.qiniu.http.Response@51798ee3,status:-1, reqId:, xlog:, xvia:, adress:, duration:0.000000 s, error:http://up-z2.qiniu.com/mkfile/392901/mimeType/YXBwbGljYXRpb24vb2N0ZXQtc3RyZWFt/key/NjBlZWE0ODFhNzIyNDNkZjllN2Y2OTcwN2ExMWJkYmIuanBlZw==  
+{ResponseInfo:com.qiniu.http.Response@3ad40ab4,status:400, reqId:TCwAAOaLw5w1gSEV, xlog:UP:12/400, xvia:, adress:up-z2.qiniu.com/14.152.37.4:80, duration:0.000000 s, error:scope not specified}  
+{"error":"scope not specified"}}  
+, success=false)
+2018-04-02 15:35:01.919 [http-nio-8001-exec-10] ERROR com.fengmangbilu.web.DefaultExceptionHandler - org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported:Response(code=405, data=null, message=Request method 'GET' not supported, success=false)
+2018-04-02 15:37:46.213 [http-nio-8001-exec-1] ERROR com.fengmangbilu.web.DefaultExceptionHandler - org.springframework.dao.InvalidDataAccessApiUsageException: The given id must not be null!; nested exception is java.lang.IllegalArgumentException: The given id must not be null!:Response(code=500, data=null, message=The given id must not be null!; nested exception is java.lang.IllegalArgumentException: The given id must not be null!, success=false)

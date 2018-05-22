@@ -1,0 +1,18 @@
+
+package com.fengmangbilu.security.exceptions;
+
+import org.springframework.security.core.SpringSecurityCoreVersion;
+
+/**
+ * 无效的令牌异常
+ * @author Justice
+ */
+public class InvalidTokenException extends TokenException {
+
+	private static final long serialVersionUID = SpringSecurityCoreVersion.SERIAL_VERSION_UID;
+	
+	public InvalidTokenException(String msg) {
+		super(msg);
+	}
+
+}

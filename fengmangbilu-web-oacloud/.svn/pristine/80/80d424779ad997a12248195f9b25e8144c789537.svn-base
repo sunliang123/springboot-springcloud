@@ -1,0 +1,52 @@
+# eureka
+server.port=8080
+spring.application.name=oacloud
+eureka.instance.hostname=120.25.235.28
+eureka.client.serviceUrl.defaultZone=http://120.25.235.28:8761/eureka/
+
+# server
+server.session.timeout=7200
+spring.autoconfigure.exclude[0]=org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+spring.autoconfigure.exclude[1]=org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
+
+# management
+management.context-path=/actuator
+management.security.enabled=false
+
+# zuul
+zuul.add-host-header=true
+zuul.ignored-services=*
+zuul.ribbon.eager-load.enabled=true
+zuul.routes.user.serviceId=user
+zuul.routes.user.path=/user/**
+zuul.routes.user.sensitive-headers=Cookie,Set-Cookie
+zuul.routes.oa.serviceId=oa
+zuul.routes.oa.path=/oa/**
+zuul.routes.oa.sensitive-headers=Cookie,Set-Cookie
+zuul.routes.support.serviceId=support
+zuul.routes.support.path=/support/**
+zuul.routes.support.sensitive-headers=Cookie,Set-Cookie
+
+# swagger2
+springfox.documentation.swagger.v2.path=/oacloud/v2/api-docs
+
+# ribbon
+ribbon.ReadTimeout=10000
+ribbon.ConnectTimeout=5000
+
+# hystrix
+hystrix.command.user.execution.isolation.thread.timeoutInMilliseconds=15000
+hystrix.command.oa.execution.isolation.thread.timeoutInMilliseconds=15000
+hystrix.command.support.execution.isolation.thread.timeoutInMilliseconds=15000
+
+#feign
+feign.hystrix.enabled=true
+
+# log
+logging.level.com.fengmangbilu=DEBUG
+
+# rabbitmq
+spring.rabbitmq.host=120.76.44.152
+spring.rabbitmq.port=5672
+spring.rabbitmq.username=admin
+spring.rabbitmq.password=314922957

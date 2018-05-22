@@ -1,0 +1,18 @@
+package com.fengmangbilu.microservice.user.clients;
+
+import javax.validation.Valid;
+
+import org.springframework.cloud.netflix.feign.FeignClient;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import com.fengmangbilu.microservice.user.endpoints.ReportRequest;
+import com.fengmangbilu.web.Response;
+
+@FeignClient("oa")
+public interface OaClient {
+
+	@PostMapping("checkIdCard")
+	public Response checkIdCard(@Valid @RequestBody ReportRequest request);
+
+}

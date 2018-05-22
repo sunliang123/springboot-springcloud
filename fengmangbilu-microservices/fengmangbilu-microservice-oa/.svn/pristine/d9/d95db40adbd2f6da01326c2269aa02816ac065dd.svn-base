@@ -1,0 +1,743 @@
+package com.fengmangbilu.microservice.oa.controllers;
+
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.FutureTask;
+
+import javax.validation.Valid;
+
+import org.apache.commons.beanutils.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.StringTrimmerEditor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.util.ObjectUtils;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.fengmangbilu.annotation.JsonFilter;
+import com.fengmangbilu.microservice.oa.endpoints.IdCardRequest;
+import com.fengmangbilu.microservice.oa.endpoints.PushRequest;
+import com.fengmangbilu.microservice.oa.endpoints.ReportRequest;
+import com.fengmangbilu.microservice.oa.entities.CompanyInfo;
+import com.fengmangbilu.microservice.oa.entities.Corporate;
+import com.fengmangbilu.microservice.oa.entities.CorporateCaseInfo;
+import com.fengmangbilu.microservice.oa.entities.CorporateManager;
+import com.fengmangbilu.microservice.oa.entities.CorporateShareholder;
+import com.fengmangbilu.microservice.oa.entities.DeptInfo;
+import com.fengmangbilu.microservice.oa.entities.EducationInfo;
+import com.fengmangbilu.microservice.oa.entities.EnterpriseInfo;
+import com.fengmangbilu.microservice.oa.entities.IdCardInfo;
+import com.fengmangbilu.microservice.oa.entities.MobileInfo;
+import com.fengmangbilu.microservice.oa.entities.OstaInfo;
+import com.fengmangbilu.microservice.oa.entities.PersonInfo;
+import com.fengmangbilu.microservice.oa.entities.ReportInfo;
+import com.fengmangbilu.microservice.oa.entities.ReportPushInfo;
+import com.fengmangbilu.microservice.oa.entities.RiskAlsInfo;
+import com.fengmangbilu.microservice.oa.entities.RiskAssessInfo;
+import com.fengmangbilu.microservice.oa.entities.RiskCqsInfo;
+import com.fengmangbilu.microservice.oa.entities.RiskInfo;
+import com.fengmangbilu.microservice.oa.entities.RiskSwsInfo;
+import com.fengmangbilu.microservice.oa.entities.RiskSxsInfo;
+import com.fengmangbilu.microservice.oa.entities.RiskWdyqsInfo;
+import com.fengmangbilu.microservice.oa.entities.RiskZxsInfo;
+import com.fengmangbilu.microservice.oa.entities.SchoolInfo;
+import com.fengmangbilu.microservice.oa.entities.StaffInfo;
+import com.fengmangbilu.microservice.oa.enums.ReportType;
+import com.fengmangbilu.microservice.oa.exceptions.ReportException;
+import com.fengmangbilu.microservice.oa.providers.DefaultCreditClient;
+import com.fengmangbilu.microservice.oa.providers.DefaultCreditProfile;
+import com.fengmangbilu.microservice.oa.providers.EducationExecutor;
+import com.fengmangbilu.microservice.oa.providers.EnterpriseExecutor;
+import com.fengmangbilu.microservice.oa.providers.ICreditClient;
+import com.fengmangbilu.microservice.oa.providers.ICreditProfile;
+import com.fengmangbilu.microservice.oa.providers.ProviderContext;
+import com.fengmangbilu.microservice.oa.providers.ProviderExecutor;
+import com.fengmangbilu.microservice.oa.providers.support.CisReport;
+import com.fengmangbilu.microservice.oa.providers.support.OstaInfoItem;
+import com.fengmangbilu.microservice.oa.providers.support.OstaInfos;
+import com.fengmangbilu.microservice.oa.providers.support.PersonBaseInfo;
+import com.fengmangbilu.microservice.oa.providers.support.PersonRiskAssess;
+import com.fengmangbilu.microservice.oa.providers.support.PersonRiskInfo;
+import com.fengmangbilu.microservice.oa.providers.support.PersonRiskInfoAls;
+import com.fengmangbilu.microservice.oa.providers.support.PersonRiskInfoAlsItem;
+import com.fengmangbilu.microservice.oa.providers.support.PersonRiskInfoAlsItemFix;
+import com.fengmangbilu.microservice.oa.providers.support.PersonRiskInfoCqs;
+import com.fengmangbilu.microservice.oa.providers.support.PersonRiskInfoCqsItem;
+import com.fengmangbilu.microservice.oa.providers.support.PersonRiskInfoCqsItemFix;
+import com.fengmangbilu.microservice.oa.providers.support.PersonRiskInfoItem;
+import com.fengmangbilu.microservice.oa.providers.support.PersonRiskInfoSws;
+import com.fengmangbilu.microservice.oa.providers.support.PersonRiskInfoSwsItem;
+import com.fengmangbilu.microservice.oa.providers.support.PersonRiskInfoSwsItemFix;
+import com.fengmangbilu.microservice.oa.providers.support.PersonRiskInfoSxs;
+import com.fengmangbilu.microservice.oa.providers.support.PersonRiskInfoSxsItem;
+import com.fengmangbilu.microservice.oa.providers.support.PersonRiskInfoSxsItemFix;
+import com.fengmangbilu.microservice.oa.providers.support.PersonRiskInfoWdyqs;
+import com.fengmangbilu.microservice.oa.providers.support.PersonRiskInfoWdyqsItem;
+import com.fengmangbilu.microservice.oa.providers.support.PersonRiskInfoWdyqsItemFix;
+import com.fengmangbilu.microservice.oa.providers.support.PersonRiskInfoZxs;
+import com.fengmangbilu.microservice.oa.providers.support.PersonRiskInfoZxsItem;
+import com.fengmangbilu.microservice.oa.providers.support.PersonRiskInfoZxsItemFix;
+import com.fengmangbilu.microservice.oa.providers.support.PoliceCheckInfo;
+import com.fengmangbilu.microservice.oa.providers.support.PoliceCheckInfoItem;
+import com.fengmangbilu.microservice.oa.services.CompanyInfoService;
+import com.fengmangbilu.microservice.oa.services.DeptInfoService;
+import com.fengmangbilu.microservice.oa.services.IdCardInfoService;
+import com.fengmangbilu.microservice.oa.services.QiniuService;
+import com.fengmangbilu.microservice.oa.services.ReportInfoService;
+import com.fengmangbilu.microservice.oa.services.ReportPushInfoService;
+import com.fengmangbilu.microservice.oa.services.SchoolInfoService;
+import com.fengmangbilu.microservice.oa.services.StaffInfoService;
+import com.fengmangbilu.util.IdCardUtils;
+import com.fengmangbilu.web.Response;
+import com.google.common.collect.Maps;
+import com.google.common.collect.Sets;
+
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import springfox.documentation.annotations.ApiIgnore;
+
+@Api(tags = "APP接口")
+@Validated
+@RestController
+@RequestMapping("report")
+public class ReportController {
+
+	@Autowired
+	private QiniuService qiniuService;
+
+	@Autowired
+	private DeptInfoService deptInfoService;
+
+	@Autowired
+	private CompanyInfoService companyInfoService;
+
+	@Autowired
+	private IdCardInfoService idCardInfoService;
+
+	@Autowired
+	private ReportInfoService reportInfoService;
+
+	@Autowired
+	private SchoolInfoService schoolInfoService;
+
+	@Autowired
+	private StaffInfoService staffInfoService;
+
+	@Autowired
+	private ReportPushInfoService reportPushInfoService;
+
+	@InitBinder
+	public void initBinder(WebDataBinder binder) {
+		binder.registerCustomEditor(String.class, new StringTrimmerEditor(true));
+	}
+
+	@GetMapping("getCompanyInfo")
+	@ApiOperation("获取推送单位的相信信息")
+	public Response getCompanyInfo(@RequestParam Long pushId) throws Exception {
+		ReportPushInfo reportPushInfo = reportPushInfoService.findOne(pushId);
+		if (!ObjectUtils.isEmpty(reportPushInfo)) {
+			CompanyInfo companyInfo = companyInfoService.findOne(reportPushInfo.getCompanyId());
+			return Response.ok(companyInfo);
+		}
+		throw ReportException.UNKNOW_COMPANY;
+	}
+
+	@GetMapping("getDeptInfos")
+	@ApiOperation("推送报告时获取推送单位下的部门")
+	@JsonFilter(target = DeptInfo.class, filter = {"superId", "companyId", "sortFactor", "hasSubDept"})
+	public Response getDeptInfos(@RequestParam String userId) throws Exception {
+		StaffInfo staffInfo = staffInfoService.findByIsLeaveFalseAndUserId(userId);
+		if (!ObjectUtils.isEmpty(staffInfo)) {
+			List<DeptInfo> deptInfos = deptInfoService.findByCompanyId(staffInfo.getCompanyId());
+			Map<String, Object> content = Maps.newHashMap();
+			content.put("deptInfos", deptInfos);
+			content.put("companyId", staffInfo.getCompanyId());
+			content.put("companyName", staffInfo.getCompanyName());
+			return Response.ok(content);
+		}
+		throw ReportException.UNKNOW_DEPT;
+	}
+
+	@GetMapping("getReportPushInfos")
+	@ApiOperation("获取报告推送记录")
+	public Response getReportPushInfos(@AuthenticationPrincipal String userId,
+			@RequestParam(name = "page", defaultValue = "0") int page,
+			@RequestParam(name = "size", defaultValue = "10") int size) {
+		Pageable pageable = new PageRequest(page, size);
+		Page<ReportPushInfo> reportPushInfos = reportPushInfoService.findByCreatedByOrderByCreatedDateDesc(userId, pageable);
+		return Response.ok(reportPushInfos);
+	}
+
+	@GetMapping("getUpToken")
+	@ApiOperation("上传离职证明获取七牛云token")
+	public Response getUpToken() {
+		String upToken = qiniuService.getUpToken("lzzm");
+		return Response.ok(null, upToken);
+	}
+
+	@GetMapping("getReportInfo")
+	@ApiOperation("查看报告")
+	public Response getReportInfo(@AuthenticationPrincipal String userId, @RequestParam String reportId) {
+		ReportInfo reportInfo = reportInfoService.findByCreatedByAndReportId(userId, reportId);
+		if (reportInfo == null) {
+			throw ReportException.UNKNOW_REPORT;
+		}
+		return Response.ok(reportInfo);
+	}
+	
+	@GetMapping("getReportInfos")
+	@ApiOperation("获取当前用户所有个人报告")
+	public Response getReportInfos(@AuthenticationPrincipal String userId) {
+		List<ReportInfo> reportInfos = reportInfoService.findByCreatedByOrderByTypeDesc(userId);
+		return Response.ok(reportInfos);
+	}
+
+	@PostMapping("push")
+	@ApiOperation("推送报告")
+	public Response push(@AuthenticationPrincipal String userId, @Valid @RequestBody PushRequest request) throws Exception {
+		IdCardInfo idCardInfo = idCardInfoService.findFirstByCreatedBy(userId);
+		if (ObjectUtils.isEmpty(idCardInfo)) {
+			throw ReportException.UNCERTIFIED;
+		}
+		String requestUserId = request.getUserId();
+		ReportPushInfo reportPushInfo = reportPushInfoService.findFirstByCreatedByAndUserId(userId, requestUserId);
+		if (!ObjectUtils.isEmpty(reportPushInfo)) {
+			throw ReportException.REPEAT_PUSH;
+		}
+		Long deptId = request.getDeptId();
+		DeptInfo deptInfo = deptInfoService.findOne(deptId);
+		if (ObjectUtils.isEmpty(deptInfo)) {
+			throw ReportException.UNKNOW_DEPT;
+		}
+		Long companyId = request.getCompanyId();
+		CompanyInfo companyInfo = companyInfoService.findOne(companyId);
+		if (ObjectUtils.isEmpty(companyInfo)) {
+			throw ReportException.UNKNOW_COMPANY;
+		}
+		ReportRequest rptRequest = new ReportRequest();
+		BeanUtils.copyProperties(rptRequest, idCardInfo);
+		String name = idCardInfo.getName();
+		String idCard = idCardInfo.getIdCard();
+		String mobile = idCardInfo.getMobile();
+		ReportType type = request.getType();
+		ReportInfo reportInfo = reportInfoService.findBy(name, idCard, mobile, type);
+		if (ObjectUtils.isEmpty(reportInfo)) {
+			reportInfo = createReportInfo(rptRequest);
+			reportInfo.setType(type);
+			if (type.equals(ReportType.BASIC)) {
+				ICreditProfile profile = DefaultCreditProfile.getProfile(rptRequest);
+				ICreditClient client = new DefaultCreditClient(profile);
+				CisReport report = client.getPerson().getRisk().getRiskAssess().getCisReport();
+				reportInfo = fillReportInfo(reportInfo, report);
+
+				ProviderContext context = ProviderContext.getContext().execute(rptRequest);
+				MobileInfo mobileInfo = createMobileInfo(context);
+				reportInfo.setMobileInfo(mobileInfo);
+			} else if (type.equals(ReportType.STANDARD)) {
+				ICreditProfile profile = DefaultCreditProfile.getProfile(rptRequest);
+				ICreditClient client = new DefaultCreditClient(profile);
+				CisReport report = client.getPerson().getOsta().getRisk().getRiskAssess().getCisReport();
+				reportInfo = fillReportInfo(reportInfo, report);
+
+				ExecutorService executors = Executors.newFixedThreadPool(2);
+				CountDownLatch latch = new CountDownLatch(2);
+				ProviderExecutor providerExecutor = new ProviderExecutor(rptRequest, latch);
+				EducationExecutor educationExecutor = new EducationExecutor(rptRequest, latch);
+				FutureTask<ProviderContext> providerTask = new FutureTask<ProviderContext>(providerExecutor);
+				FutureTask<JSONObject> educationTask = new FutureTask<JSONObject>(educationExecutor);
+				executors.execute(providerTask);
+				executors.execute(educationTask);
+				ProviderContext context = providerTask.get();
+				MobileInfo mobileInfo = createMobileInfo(context);
+				reportInfo.setMobileInfo(mobileInfo);
+				JSONObject education = educationTask.get();
+				EducationInfo educationInfo = createEducationInfo(education);
+				reportInfo.setEducationInfo(educationInfo);
+				latch.await();
+				executors.shutdown();
+			} else if (type.equals(ReportType.SENIOR)) {
+				ICreditProfile profile = DefaultCreditProfile.getProfile(rptRequest);
+				ICreditClient client = new DefaultCreditClient(profile);
+				CisReport report = client.getPerson().getOsta().getRisk().getRiskAssess().getCisReport();
+				reportInfo = fillReportInfo(reportInfo, report);
+
+				ExecutorService executors = Executors.newFixedThreadPool(3);
+				CountDownLatch latch = new CountDownLatch(3);
+				ProviderExecutor providerExecutor = new ProviderExecutor(rptRequest, latch);
+				EducationExecutor educationExecutor = new EducationExecutor(rptRequest, latch);
+				EnterpriseExecutor enterpriseExecutor = new EnterpriseExecutor(rptRequest, latch);
+				FutureTask<ProviderContext> providerTask = new FutureTask<ProviderContext>(providerExecutor);
+				FutureTask<JSONObject> educationTask = new FutureTask<JSONObject>(educationExecutor);
+				FutureTask<JSONObject> enterpriseTask = new FutureTask<JSONObject>(enterpriseExecutor);
+				executors.execute(providerTask);
+				executors.execute(educationTask);
+				executors.execute(enterpriseTask);
+				ProviderContext context = providerTask.get();
+				MobileInfo mobileInfo = createMobileInfo(context);
+				reportInfo.setMobileInfo(mobileInfo);
+				JSONObject education = educationTask.get();
+				EducationInfo educationInfo = createEducationInfo(education);
+				reportInfo.setEducationInfo(educationInfo);
+				JSONObject enterprise = enterpriseTask.get();
+				EnterpriseInfo enterpriseInfo = createEnterpriseInfo(rptRequest, enterprise);
+				reportInfo.setEnterpriseInfo(enterpriseInfo);
+				latch.await();
+				executors.shutdown();
+			}
+		}
+		reportPushInfo = new ReportPushInfo();
+		BeanUtils.copyProperties(reportPushInfo, rptRequest);
+		BeanUtils.copyProperties(reportPushInfo, request);
+		reportPushInfoService.push(reportPushInfo, reportInfo);
+		return Response.ok("推送成功");
+	}
+
+	@ApiIgnore
+	@PostMapping("getIdCard")
+	public Response getIdCard(@Valid @RequestBody IdCardRequest request) throws Exception {
+		ReportRequest reportRequest = new ReportRequest();
+		BeanUtils.copyProperties(reportRequest, request);
+		ICreditProfile profile = DefaultCreditProfile.getProfile(reportRequest);
+		ICreditClient client = new DefaultCreditClient(profile);
+		CisReport report = client.getPerson().getCisReport();
+		PoliceCheckInfo policeInfo = report.getPoliceCheckInfo();
+		if (!ObjectUtils.isEmpty(policeInfo)) {
+			IdCardInfo idCardInfo = new IdCardInfo();
+			BeanUtils.copyProperties(idCardInfo, request);
+			idCardInfo.setBirthday(IdCardUtils.getBirthByIdCard(request.getIdCard()));
+			idCardInfo.setGender(IdCardUtils.getGenderByIdCard(request.getIdCard()));
+			idCardInfoService.save(idCardInfo);
+		}
+		return Response.ok(policeInfo);
+	}
+
+	@ApiIgnore
+	@PostMapping("getBasic")
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
+	public Response getBasic(@Valid @RequestBody ReportRequest request) throws Exception {
+		ReportInfo reportInfo = createReportInfo(request);
+		reportInfo.setType(ReportType.BASIC);
+
+		// 鹏元征信服务 -身份认证、风险六项、风险评估
+		ICreditProfile profile = DefaultCreditProfile.getProfile(request);
+		ICreditClient client = new DefaultCreditClient(profile);
+		CisReport report = client.getPerson().getRisk().getRiskAssess().getCisReport();
+		reportInfo = fillReportInfo(reportInfo, report);
+
+		// 考拉征信服务 -手机实名
+		ProviderContext context = ProviderContext.getContext().execute(request);
+		MobileInfo mobileInfo = createMobileInfo(context);
+		reportInfo.setMobileInfo(mobileInfo);
+
+		reportInfoService.save(reportInfo);
+		return Response.ok(reportInfo);
+	}
+
+	@ApiIgnore
+	@PostMapping("getStandard")
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
+	public Response getStandard(@Valid @RequestBody ReportRequest request) throws Exception {
+		ReportInfo reportInfo = createReportInfo(request);
+		reportInfo.setType(ReportType.STANDARD);
+
+		// 鹏元征信服务 -身份认证、风险六项、风险评估、职业资格
+		ICreditProfile profile = DefaultCreditProfile.getProfile(request);
+		ICreditClient client = new DefaultCreditClient(profile);
+		CisReport report = client.getPerson().getOsta().getRisk().getRiskAssess().getCisReport();
+		reportInfo = fillReportInfo(reportInfo, report);
+
+		// 考拉征信服务、京东万象服务 -手机实名 、学历查询
+		ExecutorService executors = Executors.newFixedThreadPool(2);
+		CountDownLatch latch = new CountDownLatch(2);
+		ProviderExecutor providerExecutor = new ProviderExecutor(request, latch);
+		EducationExecutor educationExecutor = new EducationExecutor(request, latch);
+		FutureTask<ProviderContext> providerTask = new FutureTask<ProviderContext>(providerExecutor);
+		FutureTask<JSONObject> educationTask = new FutureTask<JSONObject>(educationExecutor);
+		executors.execute(providerTask);
+		executors.execute(educationTask);
+		ProviderContext context = providerTask.get();
+		MobileInfo mobileInfo = createMobileInfo(context);
+		reportInfo.setMobileInfo(mobileInfo);
+		JSONObject education = educationTask.get();
+		EducationInfo educationInfo = createEducationInfo(education);
+		reportInfo.setEducationInfo(educationInfo);
+		latch.await();
+		executors.shutdown();
+
+		reportInfoService.save(reportInfo);
+		return Response.ok(reportInfo);
+	}
+
+	@PostMapping("getSenior")
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
+	public Response getSenior(@Valid @RequestBody ReportRequest request) throws Exception {
+		ReportInfo reportInfo = createReportInfo(request);
+		reportInfo.setType(ReportType.SENIOR);
+
+		// 鹏元征信服务 -身份认证、风险六项、风险评估、职业资格
+		ICreditProfile profile = DefaultCreditProfile.getProfile(request);
+		ICreditClient client = new DefaultCreditClient(profile);
+		CisReport report = client.getPerson().getOsta().getRisk().getRiskAssess().getCisReport();
+		reportInfo = fillReportInfo(reportInfo, report);
+
+		// 考拉征信服务、京东万象服务 -手机实名 、学历查询、个人对外投资查询
+		ExecutorService executors = Executors.newFixedThreadPool(3);
+		CountDownLatch latch = new CountDownLatch(3);
+		ProviderExecutor providerExecutor = new ProviderExecutor(request, latch);
+		EducationExecutor educationExecutor = new EducationExecutor(request, latch);
+		EnterpriseExecutor enterpriseExecutor = new EnterpriseExecutor(request, latch);
+		FutureTask<ProviderContext> providerTask = new FutureTask<ProviderContext>(providerExecutor);
+		FutureTask<JSONObject> educationTask = new FutureTask<JSONObject>(educationExecutor);
+		FutureTask<JSONObject> enterpriseTask = new FutureTask<JSONObject>(enterpriseExecutor);
+		executors.execute(providerTask);
+		executors.execute(educationTask);
+		executors.execute(enterpriseTask);
+		ProviderContext context = providerTask.get();
+		MobileInfo mobileInfo = createMobileInfo(context);
+		reportInfo.setMobileInfo(mobileInfo);
+		JSONObject education = educationTask.get();
+		EducationInfo educationInfo = createEducationInfo(education);
+		reportInfo.setEducationInfo(educationInfo);
+		JSONObject enterprise = enterpriseTask.get();
+		EnterpriseInfo enterpriseInfo = createEnterpriseInfo(request, enterprise);
+		reportInfo.setEnterpriseInfo(enterpriseInfo);
+		latch.await();
+		executors.shutdown();
+
+		reportInfoService.save(reportInfo);
+		return Response.ok(reportInfo);
+	}
+
+	private EnterpriseInfo createEnterpriseInfo(ReportRequest request, JSONObject result) {
+		if (result == null)
+			return null;
+		EnterpriseInfo enterpriseInfo = JSON.parseObject(result.toJSONString(), EnterpriseInfo.class);
+		enterpriseInfo.setName(request.getName());
+		enterpriseInfo.setIdCard(request.getIdCard());
+		Set<CorporateCaseInfo> caseInfos = enterpriseInfo.getCaseInfos();
+		for (CorporateCaseInfo corporateCaseInfo : caseInfos) {
+			corporateCaseInfo.setEnterpriseInfo(enterpriseInfo);
+		}
+		Set<Corporate> corporates = enterpriseInfo.getCorporates();
+		for (Corporate corporate : corporates) {
+			corporate.setEnterpriseInfo(enterpriseInfo);
+		}
+		Set<CorporateManager> corporateManagers = enterpriseInfo.getCorporateManagers();
+		for (CorporateManager corporateManager : corporateManagers) {
+			corporateManager.setEnterpriseInfo(enterpriseInfo);
+		}
+		Set<CorporateShareholder> corporateShareholders = enterpriseInfo.getCorporateShareholders();
+		for (CorporateShareholder corporateShareholder : corporateShareholders) {
+			corporateShareholder.setEnterpriseInfo(enterpriseInfo);
+		}
+		return enterpriseInfo;
+	}
+
+	private EducationInfo createEducationInfo(JSONObject result) {
+		if (result == null) {
+			return null;
+		}
+		EducationInfo educationInfo = new EducationInfo();
+		if (result.containsKey("userName")) {
+			educationInfo.setName(result.getString("userName"));
+			educationInfo.setIdCard(result.getString("identity"));
+			educationInfo.setEducationDegree(result.getString("educationDegree"));
+			educationInfo.setEnrolDate(result.getString("enrolDate"));
+			educationInfo.setGraduate(result.getString("graduate"));
+			educationInfo.setGraduateTime(result.getString("graduateTime"));
+			educationInfo.setPhoto(result.getString("photo"));
+			educationInfo.setSpecialityName(result.getString("specialityName"));
+			educationInfo.setStudyResult(result.getString("studyResult"));
+			educationInfo.setStudyStyle(result.getString("studyStyle"));
+			educationInfo.setJnlNo(result.getString("jnlNo"));
+			SchoolInfo schoolInfo = schoolInfoService.findByName(educationInfo.getGraduate());
+			educationInfo.setSchoolInfo(schoolInfo);
+		}
+		if (result.containsKey("idname")) {
+			educationInfo.setName(result.getString("userName"));
+			educationInfo.setIdCard(result.getString("identity"));
+			educationInfo.setEducationDegree(result.getString("educationDegree"));
+			educationInfo.setEnrolDate(result.getString("enrolDate"));
+			educationInfo.setGraduate(result.getString("graduate"));
+			educationInfo.setGraduateTime(result.getString("graduateTime"));
+			educationInfo.setPhoto(result.getString("photo"));
+			educationInfo.setSpecialityName(result.getString("specialityName"));
+			educationInfo.setStudyResult(result.getString("studyResult"));
+			educationInfo.setStudyStyle(result.getString("studyStyle"));
+			educationInfo.setJnlNo(result.getString("jnlNo"));
+			SchoolInfo schoolInfo = schoolInfoService.findByName(educationInfo.getGraduate());
+			educationInfo.setSchoolInfo(schoolInfo);
+		}
+		return educationInfo;
+	}
+
+	private ReportInfo createReportInfo(ReportRequest request) throws ReportException {
+		ReportInfo reportInfo = new ReportInfo();
+		reportInfo.setName(request.getName());
+		reportInfo.setIdCard(request.getIdCard());
+		reportInfo.setMobile(request.getMobile());
+		return reportInfo;
+	}
+
+	private MobileInfo createMobileInfo(ProviderContext context) throws ReportException {
+		MobileInfo mobileInfo = new MobileInfo();
+		mobileInfo.setName(context.getRequest().getName());
+		mobileInfo.setIdCard(context.getRequest().getIdCard());
+		mobileInfo.setMobile(context.getRequest().getMobile());
+		mobileInfo.setIdentical(context.isRealNameAuth());
+		mobileInfo.setAreaName(context.getStrategy().getAreaName());
+		mobileInfo.setProvider(context.getStrategy().getProvider());
+		return mobileInfo;
+	}
+
+	private ReportInfo fillReportInfo(ReportInfo reportInfo, CisReport report) {
+		PoliceCheckInfo policeInfo = report.getPoliceCheckInfo();
+		PersonInfo personInfo = new PersonInfo();
+		if (policeInfo != null) {
+			PoliceCheckInfoItem item = policeInfo.getItem();
+			personInfo.setName(item.getName());
+			personInfo.setIdCard(item.getDocumentNo());
+			personInfo.setPhoto(item.getPhoto());
+		}
+		PersonBaseInfo personBaseInfo = report.getPersonBaseInfo();
+		if (personBaseInfo != null) {
+			personInfo.setBirthday(personBaseInfo.getBirthday());
+			personInfo.setGender(personBaseInfo.getGenderID());
+			personInfo.setOriginalAddress(personBaseInfo.getOriginalAddress());
+		}
+		PersonRiskInfo personRiskInfo = report.getPersonRiskInfo();
+		RiskInfo riskInfo = new RiskInfo();
+		if (personRiskInfo != null) {
+			riskInfo.setName(personInfo.getName());
+			riskInfo.setIdCard(personInfo.getIdCard());
+			PersonRiskInfoItem riskItem = personRiskInfo.getItem();
+			if (riskItem != null) {
+				riskInfo.setAlCount(Integer.valueOf(riskItem.getAlCount()));
+				riskInfo.setZxCount(Integer.valueOf(riskItem.getZxCount()));
+				riskInfo.setSxCount(Integer.valueOf(riskItem.getSxCount()));
+				riskInfo.setSwCount(Integer.valueOf(riskItem.getSwCount()));
+				riskInfo.setCqggCount(Integer.valueOf(riskItem.getCqggCount()));
+				riskInfo.setWdyqCount(Integer.valueOf(riskItem.getWdyqCount()));
+				PersonRiskInfoZxs zxs = personRiskInfo.getDetails().getZxs();
+				if (zxs != null) {
+					List<PersonRiskInfoZxsItem> zxsItems = zxs.getItem();
+					Set<RiskZxsInfo> riskZxsInfos = Sets.newHashSet();
+					for (PersonRiskInfoZxsItem item : zxsItems) {
+						PersonRiskInfoZxsItemFix fix = item.getFix();
+						RiskZxsInfo info = new RiskZxsInfo();
+						info.setAh(fix.getAh());
+						info.setAjzt(fix.getAjzt());
+						info.setBt(fix.getBt());
+						info.setBzxr(fix.getBzxrmc());
+						info.setLasj(fix.getLasj());
+						info.setZjhm(fix.getZjhm());
+						info.setZxbd(fix.getZxbd());
+						info.setZxfy(fix.getZxfy());
+						info.setRiskInfo(riskInfo);
+						riskZxsInfos.add(info);
+					}
+					riskInfo.setRiskZxsInfos(riskZxsInfos);
+				}
+				PersonRiskInfoAls als = personRiskInfo.getDetails().getAls();
+				Set<RiskAlsInfo> riskAlsInfos = Sets.newHashSet();
+				if (als != null) {
+					List<PersonRiskInfoAlsItem> alsItems = als.getItem();
+					for (PersonRiskInfoAlsItem item : alsItems) {
+						PersonRiskInfoAlsItemFix fix = item.getFix();
+						RiskAlsInfo info = new RiskAlsInfo();
+						info.setAjlx(fix.getAjlx());
+						info.setAjzh(fix.getAjzh());
+						info.setAy(fix.getAy());
+						info.setBt(fix.getBt());
+						info.setDsrxm(fix.getDsrxm());
+						info.setFymc(fix.getFymc());
+						info.setPjjg(fix.getPjjg());
+						info.setSjrq(fix.getSjrq());
+						info.setSlcx(fix.getSlcx());
+						info.setSr(fix.getSr());
+						info.setXb(fix.getXb());
+						info.setZjhm(fix.getZjhm());
+						info.setRiskInfo(riskInfo);
+						riskAlsInfos.add(info);
+					}
+					riskInfo.setRiskAlsInfos(riskAlsInfos);
+				}
+				PersonRiskInfoCqs cqs = personRiskInfo.getDetails().getCqs();
+				Set<RiskCqsInfo> riskCqsInfos = Sets.newHashSet();
+				if (cqs != null) {
+					List<PersonRiskInfoCqsItem> cqsItems = cqs.getItem();
+					for (PersonRiskInfoCqsItem item : cqsItems) {
+						PersonRiskInfoCqsItemFix fix = item.getFix();
+						RiskCqsInfo info = new RiskCqsInfo();
+						info.setBcqr(fix.getBcqr());
+						info.setBt(fix.getBt());
+						info.setCqje(fix.getCqje());
+						info.setFbjs(fix.getFbjs());
+						info.setZt(fix.getZt());
+						info.setDbgdDz(fix.getDbgd().getDz());
+						info.setDbgdSfzhm(fix.getDbgd().getSfzhm());
+						info.setDbgdXb(fix.getDbgd().getXb());
+						info.setDbgdXm(fix.getDbgd().getXm());
+						info.setDbgdXxdz(fix.getDbgd().getXxdz());
+						info.setDbgdZj(fix.getDbgd().getZj());
+						info.setDbjbrDz(fix.getDbjbr().getDz());
+						info.setDbjbrDzyj(fix.getDbjbr().getDzyj());
+						info.setDbjbrSfzhm(fix.getDbjbr().getSfzhm());
+						info.setDbjbrSjhm(fix.getDbjbr().getSjhm());
+						info.setDbjbrXb(fix.getDbjbr().getXb());
+						info.setDbjbrXm(fix.getDbjbr().getXm());
+						info.setDbjbrXxdz(fix.getDbjbr().getXxdz());
+						info.setDbjbrZj(fix.getDbjbr().getZj());
+						info.setFzrDz(fix.getFzr().getDz());
+						info.setFzrDzyj(fix.getFzr().getDzyj());
+						info.setFzrFbjs(fix.getFzr().getFbjs());
+						info.setFzrSjhm(fix.getFzr().getSjhm());
+						info.setFzrXm(fix.getFzr().getXm());
+						info.setFzrXxdz(fix.getFzr().getXxdz());
+						info.setFzrZj(fix.getFzr().getZj());
+						info.setFzrZw(fix.getFzr().getZw());
+						info.setQkgdDz(fix.getQkgd().getDz());
+						info.setQkgdSfzhm(fix.getQkgd().getSfzhm());
+						info.setQkgdXb(fix.getQkgd().getXb());
+						info.setQkgdXm(fix.getQkgd().getXm());
+						info.setQkgdXxdz(fix.getQkgd().getXxdz());
+						info.setQkgdZj(fix.getQkgd().getZj());
+						info.setQkjbrDz(fix.getQkjbr().getDz());
+						info.setQkjbrDzyj(fix.getQkjbr().getDzyj());
+						info.setQkjbrSfzhm(fix.getQkjbr().getSfzhm());
+						info.setQkjbrSjhm(fix.getQkjbr().getSjhm());
+						info.setQkjbrXb(fix.getQkjbr().getXb());
+						info.setQkjbrXm(fix.getQkjbr().getXm());
+						info.setQkjbrXxdz(fix.getQkjbr().getXxdz());
+						info.setQkjbrZj(fix.getQkjbr().getZj());
+						info.setRiskInfo(riskInfo);
+						riskCqsInfos.add(info);
+					}
+					riskInfo.setRiskCqsInfos(riskCqsInfos);
+				}
+				PersonRiskInfoSws sws = personRiskInfo.getDetails().getSws();
+				Set<RiskSwsInfo> riskSwsInfos = Sets.newHashSet();
+				if (sws != null) {
+					List<PersonRiskInfoSwsItem> swsItems = sws.getItem();
+					for (PersonRiskInfoSwsItem item : swsItems) {
+						PersonRiskInfoSwsItemFix fix = item.getFix();
+						RiskSwsInfo info = new RiskSwsInfo();
+						info.setBt(fix.getBt());
+						info.setBzxr(fix.getBzxr());
+						info.setFrxm(fix.getFrxm());
+						info.setGgsj(fix.getGgsj());
+						info.setJydd(fix.getJydd());
+						info.setZjhm(fix.getZjhm());
+						info.setRiskInfo(riskInfo);
+						riskSwsInfos.add(info);
+					}
+					riskInfo.setRiskSwsInfos(riskSwsInfos);
+				}
+				PersonRiskInfoSxs sxs = personRiskInfo.getDetails().getSxs();
+				Set<RiskSxsInfo> riskSxsInfos = Sets.newHashSet();
+				if (sxs != null) {
+					List<PersonRiskInfoSxsItem> sxsItems = sxs.getItem();
+					for (PersonRiskInfoSxsItem item : sxsItems) {
+						PersonRiskInfoSxsItemFix fix = item.getFix();
+						RiskSxsInfo info = new RiskSxsInfo();
+						info.setAh(fix.getAh());
+						info.setBt(fix.getBt());
+						info.setBzxr(fix.getMc());
+						info.setFbsj(fix.getFbsj());
+						info.setFlwsyw(fix.getFlwsyw());
+						info.setLasj(fix.getLasj());
+						info.setLxqk(fix.getLxqk());
+						info.setNl(fix.getNl());
+						info.setSf(fix.getSf());
+						info.setWlx(fix.getWlx());
+						info.setXb(fix.getXb());
+						info.setXwjtqx(fix.getXwjtqx());
+						info.setYjdw(fix.getYjdw());
+						info.setYjwh(fix.getYjwh());
+						info.setYlx(fix.getYlx());
+						info.setZjhm(fix.getZjhm());
+						info.setZxfy(fix.getZxfy());
+						info.setRiskInfo(riskInfo);
+						riskSxsInfos.add(info);
+					}
+					riskInfo.setRiskSxsInfos(riskSxsInfos);
+				}
+				PersonRiskInfoWdyqs wdyqs = personRiskInfo.getDetails().getWdyqs();
+				Set<RiskWdyqsInfo> riskWdyqsInfos = Sets.newHashSet();
+				if (wdyqs != null) {
+					List<PersonRiskInfoWdyqsItem> wdyqsItems = wdyqs.getItem();
+					for (PersonRiskInfoWdyqsItem item : wdyqsItems) {
+						PersonRiskInfoWdyqsItemFix fix = item.getFix();
+						RiskWdyqsInfo info = new RiskWdyqsInfo();
+						info.setBjbx(fix.getBjbx());
+						info.setBt(fix.getBt());
+						info.setDksj(fix.getDksj());
+						info.setGxsj(fix.getGxsj());
+						info.setHkzt(fix.getHkzt());
+						info.setJgdz(fix.getJgdz());
+						info.setJzdh(fix.getJzdh());
+						info.setSjlydwmc(fix.getSjlydwmc());
+						info.setWhfx(fix.getWhfx());
+						info.setXm(fix.getXm());
+						info.setYhje(fix.getYhje());
+						info.setZfzh(fix.getZfzh());
+						info.setPhoto(fix.getPhoto());
+						info.setPhotoType(fix.getPhotoType());
+						info.setRiskInfo(riskInfo);
+						riskWdyqsInfos.add(info);
+					}
+					riskInfo.setRiskWdyqsInfos(riskWdyqsInfos);
+				}
+			}
+		}
+		PersonRiskAssess personRiskAssess = report.getPersonRiskAssess();
+		RiskAssessInfo riskAssessInfo = new RiskAssessInfo();
+		if (personRiskAssess != null) {
+			riskAssessInfo.setName(personInfo.getName());
+			riskAssessInfo.setIdCard(personInfo.getIdCard());
+			riskAssessInfo.setResult(personRiskAssess.getCheckResult());
+		}
+		OstaInfos ostaInfos = report.getOstaInfos();
+		Set<OstaInfo> ostaInfoSet = Sets.newHashSet();
+		if (ostaInfos != null) {
+			List<OstaInfoItem> ostaItems = ostaInfos.getItem();
+			if (ostaItems != null) {
+				for (OstaInfoItem item : ostaItems) {
+					OstaInfo ostaInfo = new OstaInfo();
+					ostaInfo.setName(personInfo.getName());
+					ostaInfo.setIdCard(personInfo.getIdCard());
+					ostaInfo.setCertificateID(item.getCertificateID());
+					ostaInfo.setOccupation(item.getOccupation());
+					ostaInfo.setLevel(item.getLevel());
+					ostaInfo.setSubmitOrgName(item.getSubmitOrgName());
+					ostaInfo.setCityName(item.getCityName());
+					ostaInfo.setAvgNationalSalary(item.getAvgNationalSalary());
+					ostaInfoSet.add(ostaInfo);
+				}
+			}
+		}
+		reportInfo.setRiskInfo(riskInfo);
+		reportInfo.setPersonInfo(personInfo);
+		reportInfo.setOstaInfos(ostaInfoSet);
+		reportInfo.setRiskAssessInfo(riskAssessInfo);
+		return reportInfo;
+	}
+
+}

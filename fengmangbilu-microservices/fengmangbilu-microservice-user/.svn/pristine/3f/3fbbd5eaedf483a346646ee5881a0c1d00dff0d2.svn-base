@@ -1,0 +1,18 @@
+package com.fengmangbilu.microservice.user.endpoints;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Demo {
+ 
+	private List<LoginRequest> r = new ArrayList<>();
+
+	public List<LoginRequest> getR() {
+		return r;
+	}
+
+	public void setR(List<LoginRequest> r) {
+		this.r = r;
+	}
+	
+}

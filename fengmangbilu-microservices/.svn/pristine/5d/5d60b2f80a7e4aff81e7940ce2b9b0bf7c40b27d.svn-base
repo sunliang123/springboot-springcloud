@@ -1,0 +1,252 @@
+package com.fengmangbilu.microservice.security.token;
+
+import java.util.Date;
+import java.util.UUID;
+
+import org.springframework.beans.factory.InitializingBean;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.web.authentication.preauth.PreAuthenticatedAuthenticationToken;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.Assert;
+
+import com.fengmangbilu.microservice.security.AccessToken;
+import com.fengmangbilu.microservice.security.DefaultAccessToken;
+import com.fengmangbilu.microservice.security.DefaultRefreshToken;
+import com.fengmangbilu.microservice.security.ExpiredTokenException;
+import com.fengmangbilu.microservice.security.InvalidGrantException;
+import com.fengmangbilu.microservice.security.InvalidTokenException;
+import com.fengmangbilu.microservice.security.RefreshToken;
+
+/**
+ * 默认令牌服务实现
+ * @author Justice
+ */
+public class DefaultTokenService implements TokenService, InitializingBean {
+
+	private int refreshTokenValiditySeconds = 60 * 60 * 24 * 30; // default 30
+
+	private int accessTokenValiditySeconds = 60 * 60 * 24; // default 24 hours.
+
+	private boolean supportRefreshToken = true;
+
+	private boolean reuseRefreshToken = true;
+
+	private TokenEnhancer accessTokenEnhancer;
+
+	private TokenStore tokenStore;
+
+	private AuthenticationManager authenticationManager;
+
+	public void afterPropertiesSet() throws Exception {
+		Assert.notNull(tokenStore, "tokenStore must be set");
+	}
+
+	@Transactional
+	public AccessToken createAccessToken(Authentication authentication) throws AuthenticationException {
+
+		AccessToken existingAccessToken = tokenStore.getAccessToken(authentication);
+		RefreshToken refreshToken = null;
+		if (existingAccessToken != null) {
+			if (existingAccessToken.isExpired()) {
+				if (existingAccessToken.getRefreshToken() != null) {
+					refreshToken = existingAccessToken.getRefreshToken();
+					// The token store could remove the refresh token when the
+					// access token is removed, but we want to
+					// be sure...
+					tokenStore.removeRefreshToken(refreshToken);
+				}
+				tokenStore.removeAccessToken(existingAccessToken);
+			} else {
+				// Re-store the access token in case the authentication has
+				// changed
+				tokenStore.storeAccessToken(existingAccessToken, authentication);
+				return existingAccessToken;
+			}
+		}
+
+		// Only create a new refresh token if there wasn't an existing one
+		// associated with an expired access token.
+		// Clients might be holding existing refresh tokens, so we re-use it in
+		// the case that the old access token
+		// expired.
+		if (refreshToken == null) {
+			refreshToken = createRefreshToken(authentication);
+		}
+		// But the refresh token itself might need to be re-issued if it has
+		// expired.
+		else if (refreshToken instanceof ExpiringRefreshToken) {
+			ExpiringRefreshToken expiring = (ExpiringRefreshToken) refreshToken;
+			if (System.currentTimeMillis() > expiring.getExpiration().getTime()) {
+				refreshToken = createRefreshToken(authentication);
+			}
+		}
+
+		AccessToken accessToken = createAccessToken(authentication, refreshToken);
+		tokenStore.storeAccessToken(accessToken, authentication);
+		// In case it was modified
+		refreshToken = accessToken.getRefreshToken();
+		if (refreshToken != null) {
+			tokenStore.storeRefreshToken(refreshToken, authentication);
+		}
+		return accessToken;
+
+	}
+
+	@Transactional(noRollbackFor = { InvalidTokenException.class, InvalidGrantException.class, ExpiredTokenException.class })
+	public AccessToken refreshAccessToken(String refreshTokenValue) throws AuthenticationException {
+
+		if (!supportRefreshToken) {
+			throw new InvalidGrantException("禁用刷新令牌");
+		}
+
+		RefreshToken refreshToken = tokenStore.readRefreshToken(refreshTokenValue);
+		if (refreshToken == null) {
+			throw new InvalidGrantException("刷新令牌已失效");
+		}
+
+		UsernamePasswordAuthenticationToken authentication = tokenStore.readAuthenticationForRefreshToken(refreshToken);
+
+		if (this.authenticationManager != null) {
+			// The client has already been authenticated, but the user
+			// authentication might be old now, so give it a
+			// chance to re-authenticate.
+			Authentication user = new PreAuthenticatedAuthenticationToken(authentication.getPrincipal(), "",
+					authentication.getAuthorities());
+			user = authenticationManager.authenticate(user);
+			Object details = authentication.getDetails();
+			authentication = new UsernamePasswordAuthenticationToken(user, "", user.getAuthorities());
+			authentication.setDetails(details);
+		}
+
+		// clear out any access tokens already associated with the refresh
+		// token.
+		tokenStore.removeAccessTokenUsingRefreshToken(refreshToken);
+
+		if (isExpired(refreshToken)) {
+			tokenStore.removeRefreshToken(refreshToken);
+			throw new ExpiredTokenException("刷新令牌已过期");
+		}
+
+		if (!reuseRefreshToken) {
+			tokenStore.removeRefreshToken(refreshToken);
+			refreshToken = createRefreshToken(authentication);
+		}
+
+		AccessToken accessToken = createAccessToken(authentication, refreshToken);
+		tokenStore.storeAccessToken(accessToken, authentication);
+		if (!reuseRefreshToken) {
+			tokenStore.storeRefreshToken(accessToken.getRefreshToken(), authentication);
+		}
+		return accessToken;
+	}
+
+	public AccessToken getAccessToken(Authentication authentication) {
+		return tokenStore.getAccessToken(authentication);
+	}
+
+	protected boolean isExpired(RefreshToken refreshToken) {
+		if (refreshToken instanceof ExpiringRefreshToken) {
+			ExpiringRefreshToken expiringToken = (ExpiringRefreshToken) refreshToken;
+			return expiringToken.getExpiration() == null || System.currentTimeMillis() > expiringToken.getExpiration().getTime();
+		}
+		return false;
+	}
+
+	public AccessToken readAccessToken(String accessToken) {
+		return tokenStore.readAccessToken(accessToken);
+	}
+
+	public UsernamePasswordAuthenticationToken loadAuthentication(String accessTokenValue)
+			throws AuthenticationException, InvalidTokenException, ExpiredTokenException {
+		AccessToken accessToken = tokenStore.readAccessToken(accessTokenValue);
+		if (accessToken == null) {
+			throw new InvalidTokenException("访问令牌已失效");
+		} else if (accessToken.isExpired()) {
+			tokenStore.removeAccessToken(accessToken);
+			throw new ExpiredTokenException("访问令牌已过期");
+		}
+
+		UsernamePasswordAuthenticationToken result = tokenStore.readAuthentication(accessToken);
+		if (result == null) {
+			// in case of race condition
+			throw new InvalidTokenException("访问令牌已失效");
+		}
+		return result;
+	}
+
+	public boolean revokeToken(String tokenValue) {
+		AccessToken accessToken = tokenStore.readAccessToken(tokenValue);
+		if (accessToken == null) {
+			return false;
+		}
+		if (accessToken.getRefreshToken() != null) {
+			tokenStore.removeRefreshToken(accessToken.getRefreshToken());
+		}
+		tokenStore.removeAccessToken(accessToken);
+		return true;
+	}
+
+	private RefreshToken createRefreshToken(Authentication authentication) {
+		int validitySeconds = getRefreshTokenValiditySeconds();
+		String value = UUID.randomUUID().toString();
+		if (validitySeconds > 0) {
+			return new DefaultExpiringRefreshToken(value, new Date(System.currentTimeMillis() + (validitySeconds * 1000L)));
+		}
+		return new DefaultRefreshToken(value);
+	}
+
+	private AccessToken createAccessToken(Authentication authentication, RefreshToken refreshToken) {
+		DefaultAccessToken token = new DefaultAccessToken(UUID.randomUUID().toString());
+		int validitySeconds = getAccessTokenValiditySeconds();
+		if (validitySeconds > 0) {
+			token.setExpiration(new Date(System.currentTimeMillis() + (validitySeconds * 1000L)));
+		}
+		token.setRefreshToken(refreshToken);
+
+		return accessTokenEnhancer != null ? accessTokenEnhancer.enhance(token, authentication) : token;
+	}
+
+	protected int getAccessTokenValiditySeconds() {
+		return accessTokenValiditySeconds;
+	}
+
+	protected int getRefreshTokenValiditySeconds() {
+		return refreshTokenValiditySeconds;
+	}
+
+	protected boolean isSupportRefreshToken() {
+		return this.supportRefreshToken;
+	}
+
+	public void setTokenEnhancer(TokenEnhancer accessTokenEnhancer) {
+		this.accessTokenEnhancer = accessTokenEnhancer;
+	}
+
+	public void setRefreshTokenValiditySeconds(int refreshTokenValiditySeconds) {
+		this.refreshTokenValiditySeconds = refreshTokenValiditySeconds;
+	}
+
+	public void setAccessTokenValiditySeconds(int accessTokenValiditySeconds) {
+		this.accessTokenValiditySeconds = accessTokenValiditySeconds;
+	}
+
+	public void setSupportRefreshToken(boolean supportRefreshToken) {
+		this.supportRefreshToken = supportRefreshToken;
+	}
+
+	public void setReuseRefreshToken(boolean reuseRefreshToken) {
+		this.reuseRefreshToken = reuseRefreshToken;
+	}
+
+	public void setTokenStore(TokenStore tokenStore) {
+		this.tokenStore = tokenStore;
+	}
+
+	public void setAuthenticationManager(AuthenticationManager authenticationManager) {
+		this.authenticationManager = authenticationManager;
+	}
+
+}

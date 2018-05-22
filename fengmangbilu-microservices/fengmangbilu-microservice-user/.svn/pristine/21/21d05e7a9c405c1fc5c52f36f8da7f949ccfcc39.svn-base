@@ -1,0 +1,52 @@
+package com.fengmangbilu.microservice.user.identifiers;
+
+import java.io.Serializable;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Properties;
+
+import org.hibernate.MappingException;
+import org.hibernate.engine.spi.SessionImplementor;
+import org.hibernate.id.Configurable;
+import org.hibernate.id.IdentifierGenerator;
+import org.hibernate.service.ServiceRegistry;
+import org.hibernate.type.Type;
+
+public class SequenceIdentifierGenerator implements IdentifierGenerator, Configurable {
+
+	@Override
+	public void configure(Type type, Properties params, ServiceRegistry serviceRegistry) throws MappingException {
+	}
+
+	@Override
+	public Serializable generate(SessionImplementor session, Object obj) {
+		long id = getNextValue(session, obj.getClass().getSimpleName().toUpperCase());
+		long even = id & 0xAAAAAAAA;
+		long odd = id & 0x55555555;
+		odd = ((odd & 0x33333333) << 2) | ((odd & 0xCCCCCCCC) >> 2);
+		odd = ((odd & 0x0F0F0F0F) << 4) | ((odd & 0xF0F0F0F0) >> 4);
+		odd = ((odd & 0x00FF00FF) << 8) | ((odd & 0xFF00FF00) >> 8);
+		odd = ((odd & 0x0000FFFF) << 16) | ((odd & 0xFFFF0000) >> 16);
+		id = even | odd;
+		return id;
+	}
+
+	public Long getNextValue(SessionImplementor session, String sequenceName) {
+		Connection connection = session.connection();
+		Long sequenceValue = null;
+		try {
+			PreparedStatement preparedStatement = connection
+					.prepareStatement("SELECT NEXTVAL('" + sequenceName + "') AS NEXTVAL");
+			ResultSet resultSet = preparedStatement.executeQuery();
+			if (resultSet.next()) {
+				sequenceValue = resultSet.getLong("NEXTVAL");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return sequenceValue;
+	}
+
+}

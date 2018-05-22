@@ -1,0 +1,19 @@
+package com.fengmangbilu.microservice.oa.endpoints;
+
+import com.fengmangbilu.microservice.oa.constraints.CreditReportRequestConstraint;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+@CreditReportRequestConstraint
+public class CreditReportRequest {
+
+	private String name;
+
+	private String idCard;
+
+	private String mobile;
+
+}

@@ -1,0 +1,19 @@
+package com.fengmangbilu.security.token;
+
+import org.springframework.security.core.Authentication;
+
+import com.fengmangbilu.security.AccessToken;
+
+/**
+ * 增加访问令牌在储存之前的策略
+ * @author Justice
+ */
+public interface TokenEnhancer {
+
+	/**
+	 * 提供了一个定制访问令牌（例如通过其附加信息映射）的机会。
+	 * @param accesstoken 当前访问令牌到期和刷新令牌
+	 * @param authentication 认证目前包括客户端和用户详细信息 返回带有额外信息的新令牌
+	 */
+	AccessToken enhance(AccessToken accessToken, Authentication authentication);
+}

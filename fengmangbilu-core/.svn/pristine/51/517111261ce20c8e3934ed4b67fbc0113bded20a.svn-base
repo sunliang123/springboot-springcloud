@@ -1,0 +1,42 @@
+package com.fengmangbilu.core.util;
+
+import javax.servlet.http.HttpServletRequest;
+
+public class WebUtils {
+
+    public static String getRemoteIp(HttpServletRequest request) {
+        String remoteIp = null;
+        remoteIp = request.getHeader("x-forwarded-for");
+        if (remoteIp == null || remoteIp.isEmpty() || "unknown".equalsIgnoreCase(remoteIp)) {
+            remoteIp = request.getHeader("X-Real-IP");
+        }
+        if (remoteIp == null || remoteIp.isEmpty() || "unknown".equalsIgnoreCase(remoteIp)) {
+            remoteIp = request.getHeader("Proxy-Client-IP");
+        }
+        if (remoteIp == null || remoteIp.isEmpty() || "unknown".equalsIgnoreCase(remoteIp)) {
+            remoteIp = request.getHeader("WL-Proxy-Client-IP");
+        }
+        if (remoteIp == null || remoteIp.isEmpty() || "unknown".equalsIgnoreCase(remoteIp)) {
+            remoteIp = request.getHeader("HTTP_CLIENT_IP");
+        }
+        if (remoteIp == null || remoteIp.isEmpty() || "unknown".equalsIgnoreCase(remoteIp)) {
+            remoteIp = request.getHeader("HTTP_X_FORWARDED_FOR");
+        }
+        if (remoteIp == null || remoteIp.isEmpty() || "unknown".equalsIgnoreCase(remoteIp)) {
+            remoteIp = request.getRemoteAddr();
+        }
+        if (remoteIp == null || remoteIp.isEmpty() || "unknown".equalsIgnoreCase(remoteIp)) {
+            remoteIp = request.getRemoteHost();
+        }
+        if (remoteIp.equals("0:0:0:0:0:0:0:1")){
+        	return "127.0.0.1";
+        }
+        return remoteIp;
+    }
+
+    public static boolean isAjaxRequest(HttpServletRequest request) {
+        String requestedWith = request.getHeader("x-requested-with");
+        return (requestedWith != null) ? "XMLHttpRequest".equalsIgnoreCase(requestedWith) : false;
+    }
+    
+}

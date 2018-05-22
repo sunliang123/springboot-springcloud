@@ -1,0 +1,47 @@
+package com.fengmangbilu.core.validator.constraints;
+
+import static java.lang.annotation.ElementType.ANNOTATION_TYPE;
+import static java.lang.annotation.ElementType.TYPE;
+import static java.lang.annotation.RetentionPolicy.RUNTIME;
+
+import java.lang.annotation.Documented;
+import java.lang.annotation.Retention;
+import java.lang.annotation.Target;
+
+import javax.validation.Constraint;
+import javax.validation.Payload;
+
+import com.fengmangbilu.core.validator.UniqueValidator;
+
+/**
+ * @author Justice
+ */
+@Target({ TYPE, ANNOTATION_TYPE })
+@Retention(RUNTIME)
+@Documented
+@Constraint(validatedBy = {UniqueValidator.class})
+public @interface Unique {
+
+    String message() default "{com.fengmangbilu.validator.constraints.Unique.message}";
+
+    Class<?>[] groups() default {};
+
+    Class<? extends Payload>[] payload() default {};
+
+    /**
+     * The property of the entity we want to validate for uniqueness.
+     */
+    String property();
+
+    /**
+     * Defines several {@link Unique} annotations on the same element.
+     *
+     * @see com.fengmangbilu.core.validator.constraints.core.validator.constraints.Unique
+     */
+    @Target({ TYPE, ANNOTATION_TYPE })
+    @Retention(RUNTIME)
+    @Documented
+    @interface List {
+        Unique[] value();
+    }
+}

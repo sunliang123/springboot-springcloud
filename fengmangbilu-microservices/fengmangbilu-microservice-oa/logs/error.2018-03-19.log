@@ -1,0 +1,74 @@
+2018-03-19 16:39:19.139 [http-nio-8003-exec-3] ERROR com.fengmangbilu.web.DefaultExceptionHandler - com.qiniu.common.QiniuException:   
+{ResponseInfo:com.qiniu.http.Response@50e22b24,status:-1, reqId:, xlog:, xvia:, adress:, duration:0.000000 s, error:http://up-z2.qiniu.com/mkfile/36680/mimeType/YXBwbGljYXRpb24vb2N0ZXQtc3RyZWFt/key/OGIxMTIxYjQxMTU2NDJkY2I3MDI1ZjE0NDQ3NWFjOTcuanBn  
+{ResponseInfo:com.qiniu.http.Response@47a730a,status:400, reqId:Ez0AACrUUNyVRR0V, xlog:UP/400, xvia:, adress:up-z2.qiniu.com/14.152.37.5:80, duration:0.000000 s, error:incorrect region, please use up-z0.qiniup.com}  
+{"error":"incorrect region, please use up-z0.qiniup.com"}}  
+:Response(code=500, data=null, message=  
+{ResponseInfo:com.qiniu.http.Response@50e22b24,status:-1, reqId:, xlog:, xvia:, adress:, duration:0.000000 s, error:http://up-z2.qiniu.com/mkfile/36680/mimeType/YXBwbGljYXRpb24vb2N0ZXQtc3RyZWFt/key/OGIxMTIxYjQxMTU2NDJkY2I3MDI1ZjE0NDQ3NWFjOTcuanBn  
+{ResponseInfo:com.qiniu.http.Response@47a730a,status:400, reqId:Ez0AACrUUNyVRR0V, xlog:UP/400, xvia:, adress:up-z2.qiniu.com/14.152.37.5:80, duration:0.000000 s, error:incorrect region, please use up-z0.qiniup.com}  
+{"error":"incorrect region, please use up-z0.qiniup.com"}}  
+, success=false)
+2018-03-19 17:22:43.327 [main] ERROR org.springframework.boot.SpringApplication - Application startup failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'oaController': Unsatisfied dependency expressed through field 'userClient'; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'com.fengmangbilu.microservice.oa.clients.UserClient': FactoryBean threw exception on object creation; nested exception is java.lang.IllegalStateException: RequestParam.value() was empty on parameter 0
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:588)
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:88)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:366)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1264)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:553)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:761)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:867)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:543)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.fengmangbilu.microservice.oa.OaApplication.main(OaApplication.java:37)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'com.fengmangbilu.microservice.oa.clients.UserClient': FactoryBean threw exception on object creation; nested exception is java.lang.IllegalStateException: RequestParam.value() was empty on parameter 0
+	at org.springframework.beans.factory.support.FactoryBeanRegistrySupport.doGetObjectFromFactoryBean(FactoryBeanRegistrySupport.java:175)
+	at org.springframework.beans.factory.support.FactoryBeanRegistrySupport.getObjectFromFactoryBean(FactoryBeanRegistrySupport.java:103)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getObjectForBeanInstance(AbstractBeanFactory.java:1634)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:254)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.addCandidateEntry(DefaultListableBeanFactory.java:1316)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findAutowireCandidates(DefaultListableBeanFactory.java:1282)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1101)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1066)
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:585)
+	... 19 common frames omitted
+Caused by: java.lang.IllegalStateException: RequestParam.value() was empty on parameter 0
+	at feign.Util.checkState(Util.java:128)
+	at org.springframework.cloud.netflix.feign.annotation.RequestParamParameterProcessor.processArgument(RequestParamParameterProcessor.java:63)
+	at org.springframework.cloud.netflix.feign.support.SpringMvcContract.processAnnotationsOnParameter(SpringMvcContract.java:238)
+	at feign.Contract$BaseContract.parseAndValidateMetadata(Contract.java:107)
+	at org.springframework.cloud.netflix.feign.support.SpringMvcContract.parseAndValidateMetadata(SpringMvcContract.java:133)
+	at feign.Contract$BaseContract.parseAndValidatateMetadata(Contract.java:64)
+	at feign.hystrix.HystrixDelegatingContract.parseAndValidatateMetadata(HystrixDelegatingContract.java:34)
+	at feign.ReflectiveFeign$ParseHandlersByName.apply(ReflectiveFeign.java:146)
+	at feign.ReflectiveFeign.newInstance(ReflectiveFeign.java:53)
+	at feign.Feign$Builder.target(Feign.java:218)
+	at org.springframework.cloud.netflix.feign.HystrixTargeter.target(HystrixTargeter.java:56)
+	at org.springframework.cloud.netflix.feign.FeignClientFactoryBean.loadBalance(FeignClientFactoryBean.java:211)
+	at org.springframework.cloud.netflix.feign.FeignClientFactoryBean.getObject(FeignClientFactoryBean.java:232)
+	at org.springframework.beans.factory.support.FactoryBeanRegistrySupport.doGetObjectFromFactoryBean(FactoryBeanRegistrySupport.java:168)
+	... 29 common frames omitted
+2018-03-19 17:25:42.301 [http-nio-8003-exec-3] ERROR com.fengmangbilu.web.DefaultExceptionHandler - com.netflix.hystrix.exception.HystrixRuntimeException: UserClient#setIsCertifiedForTrue(Long) failed and no fallback available.:Response(code=500, data=null, message=UserClient#setIsCertifiedForTrue(Long) failed and no fallback available., success=false)
+2018-03-19 17:33:05.962 [http-nio-8003-exec-1] ERROR com.fengmangbilu.web.DefaultExceptionHandler - com.netflix.hystrix.exception.HystrixRuntimeException: UserClient#setIsCertifiedForTrue(String) failed and no fallback available.:Response(code=500, data=null, message=UserClient#setIsCertifiedForTrue(String) failed and no fallback available., success=false)
+2018-03-19 17:38:00.133 [http-nio-8003-exec-2] ERROR com.fengmangbilu.web.DefaultExceptionHandler - com.netflix.hystrix.exception.HystrixRuntimeException: UserClient#setIsCertifiedForTrue(String) failed and no fallback available.:Response(code=500, data=null, message=UserClient#setIsCertifiedForTrue(String) failed and no fallback available., success=false)
+2018-03-19 17:41:11.792 [http-nio-8003-exec-1] ERROR com.fengmangbilu.web.DefaultExceptionHandler - com.netflix.hystrix.exception.HystrixRuntimeException: UserClient#setIsCertifiedForTrue(String) failed and no fallback available.:Response(code=500, data=null, message=UserClient#setIsCertifiedForTrue(String) failed and no fallback available., success=false)
+2018-03-19 17:41:13.625 [http-nio-8003-exec-2] ERROR com.fengmangbilu.web.DefaultExceptionHandler - com.netflix.hystrix.exception.HystrixRuntimeException: UserClient#setIsCertifiedForTrue(String) failed and no fallback available.:Response(code=500, data=null, message=UserClient#setIsCertifiedForTrue(String) failed and no fallback available., success=false)
+2018-03-19 17:41:14.524 [http-nio-8003-exec-3] ERROR com.fengmangbilu.web.DefaultExceptionHandler - com.netflix.hystrix.exception.HystrixRuntimeException: UserClient#setIsCertifiedForTrue(String) failed and no fallback available.:Response(code=500, data=null, message=UserClient#setIsCertifiedForTrue(String) failed and no fallback available., success=false)
+2018-03-19 17:41:15.042 [http-nio-8003-exec-4] ERROR com.fengmangbilu.web.DefaultExceptionHandler - com.netflix.hystrix.exception.HystrixRuntimeException: UserClient#setIsCertifiedForTrue(String) failed and no fallback available.:Response(code=500, data=null, message=UserClient#setIsCertifiedForTrue(String) failed and no fallback available., success=false)
+2018-03-19 17:41:15.459 [http-nio-8003-exec-5] ERROR com.fengmangbilu.web.DefaultExceptionHandler - com.netflix.hystrix.exception.HystrixRuntimeException: UserClient#setIsCertifiedForTrue(String) failed and no fallback available.:Response(code=500, data=null, message=UserClient#setIsCertifiedForTrue(String) failed and no fallback available., success=false)
+2018-03-19 17:42:12.366 [http-nio-8003-exec-6] ERROR com.fengmangbilu.web.DefaultExceptionHandler - com.netflix.hystrix.exception.HystrixRuntimeException: UserClient#setIsCertifiedForTrue(String) failed and no fallback available.:Response(code=500, data=null, message=UserClient#setIsCertifiedForTrue(String) failed and no fallback available., success=false)
+2018-03-19 17:42:51.402 [http-nio-8003-exec-7] ERROR com.fengmangbilu.web.DefaultExceptionHandler - com.netflix.hystrix.exception.HystrixRuntimeException: UserClient#setIsCertifiedForTrue(String) failed and no fallback available.:Response(code=500, data=null, message=UserClient#setIsCertifiedForTrue(String) failed and no fallback available., success=false)
+2018-03-19 17:43:29.440 [http-nio-8003-exec-8] ERROR com.fengmangbilu.web.DefaultExceptionHandler - com.netflix.hystrix.exception.HystrixRuntimeException: UserClient#setIsCertifiedForTrue(String) failed and no fallback available.:Response(code=500, data=null, message=UserClient#setIsCertifiedForTrue(String) failed and no fallback available., success=false)
+2018-03-19 17:49:19.757 [http-nio-8003-exec-3] ERROR com.fengmangbilu.web.DefaultExceptionHandler - com.netflix.hystrix.exception.HystrixRuntimeException: UserClient#setIsCertifiedForTrue(String) timed-out and no fallback available.:Response(code=500, data=null, message=UserClient#setIsCertifiedForTrue(String) timed-out and no fallback available., success=false)
+2018-03-19 17:50:48.789 [http-nio-8003-exec-4] ERROR com.fengmangbilu.web.DefaultExceptionHandler - com.netflix.hystrix.exception.HystrixRuntimeException: UserClient#setIsCertifiedForTrue(String) timed-out and no fallback available.:Response(code=500, data=null, message=UserClient#setIsCertifiedForTrue(String) timed-out and no fallback available., success=false)
+2018-03-19 18:03:51.207 [http-nio-8003-exec-1] ERROR com.fengmangbilu.web.DefaultExceptionHandler - com.netflix.hystrix.exception.HystrixRuntimeException: UserClient#setIsCertifiedForTrue(String) timed-out and no fallback available.:Response(code=500, data=null, message=UserClient#setIsCertifiedForTrue(String) timed-out and no fallback available., success=false)

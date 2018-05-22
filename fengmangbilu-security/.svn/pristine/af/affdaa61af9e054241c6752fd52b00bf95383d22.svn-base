@@ -1,0 +1,60 @@
+package com.fengmangbilu.security.token;
+
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.AuthenticationException;
+
+import com.fengmangbilu.security.AccessToken;
+
+/**
+ * 令牌服务
+ * @author Justice
+ */
+public interface TokenService {
+
+	/**
+	 * 为指定的访问令牌加载凭据。
+	 * @param 访问令牌的值
+	 * @return 访问令牌的身份验证。
+	 * @throws AuthenticationException访问令牌过期或失效
+	 */
+	UsernamePasswordAuthenticationToken loadAuthentication(String accessToken) throws AuthenticationException;
+
+	/**
+	 * 仅从值检索完整访问令牌详细信息。
+	 * @param accessToken 访问令牌的值
+	 * @return 完整访问令牌
+	 */
+	AccessToken readAccessToken(String accessToken);
+
+	/**
+	 * 创建与指定凭据相关联的访问令牌。
+	 * @param authentication 与访问令牌相关联的凭据。
+	 * @return 访问令牌
+	 * @throws AuthenticationException 如果凭证错误。
+	 */
+	AccessToken createAccessToken(Authentication authentication) throws AuthenticationException;
+
+	/**
+	 * 刷新访问令牌。
+	 * @param refreshToken 有关刷新令牌的详细信息。
+	 * @param tokenRequest 传入令牌请求。
+	 * @return （新的）访问令牌。
+	 * @throws AuthenticationException 如果刷新令牌无效或过期。
+	 */
+	AccessToken refreshAccessToken(String refreshToken) throws AuthenticationException;
+
+	/**
+	 * 检索存储在所提供的身份验证密钥上的访问令牌，如果它存在的话。
+	 * @param authentication 访问令牌的身份验证密钥
+	 * @return the access 令牌 或null
+	 */
+	AccessToken getAccessToken(Authentication authentication);
+
+	/**
+	 * 注销令牌
+	 * @param tokenValue 令牌值
+	 * @return
+	 */
+	boolean revokeToken(String tokenValue);
+}

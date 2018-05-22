@@ -1,0 +1,9 @@
+package com.fengmangbilu.microservice.credit.services;
+
+import com.fengmangbilu.microservice.credit.entities.RiskAlsInfo;
+import com.fengmangbilu.microservice.credit.repositories.RiskAlsInfoRepository;
+import com.fengmangbilu.service.DefaultJpaService;
+
+public interface RiskAlsInfoService extends DefaultJpaService<RiskAlsInfo, String, RiskAlsInfoRepository>{
+    
+}

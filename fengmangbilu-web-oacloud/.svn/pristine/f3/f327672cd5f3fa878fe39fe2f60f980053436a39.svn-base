@@ -1,0 +1,30 @@
+package com.fengmangbilu.oacloud.security;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint;
+import org.springframework.security.web.session.InvalidSessionStrategy;
+import org.springframework.util.Assert;
+
+public class AjaxAuthenticationEntryPoint extends LoginUrlAuthenticationEntryPoint {
+
+	private final InvalidSessionStrategy invalidSessionStrategy;
+
+	public AjaxAuthenticationEntryPoint(InvalidSessionStrategy invalidSessionStrategy, String loginFormUrl) {
+		super(loginFormUrl);
+		Assert.notNull(invalidSessionStrategy, "invalidSessionStrategy cannot be null");
+		this.invalidSessionStrategy = invalidSessionStrategy;
+	}
+
+	@Override
+	public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException)
+			throws IOException, ServletException {
+		invalidSessionStrategy.onInvalidSessionDetected(request, response);
+	}
+
+}

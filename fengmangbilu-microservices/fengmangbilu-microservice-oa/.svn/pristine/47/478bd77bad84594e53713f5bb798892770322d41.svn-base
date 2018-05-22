@@ -1,0 +1,124 @@
+package com.fengmangbilu.microservice.credit.entities;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+import com.fengmangbilu.domain.SimpleEntity;
+
+/**
+ * 学校信息
+ */
+@Entity
+@Table(name = "fengmangbilu_school_info")
+public class SchoolInfo extends SimpleEntity{
+
+    @Column(length = 50)
+    private String name;
+
+    @Column(length = 50)
+    private String dept;
+    
+    @Column(length = 50)
+    private String address;
+    
+    @Column(length = 50)
+    private String level;
+    
+    @Column(length = 50)
+    private String nature;
+    
+    @Column(length = 2)
+    private Boolean is985;
+    
+    @Column(length = 2)
+    private Boolean is211;
+    
+    @Column(length = 50)
+    private String url;
+    
+    private Boolean topUniversity;
+    
+    private Boolean topSubject;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDept() {
+        return dept;
+    }
+
+    public void setDept(String dept) {
+        this.dept = dept;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getLevel() {
+        return level;
+    }
+
+    public void setLevel(String level) {
+        this.level = level;
+    }
+
+    public String getNature() {
+        return nature;
+    }
+
+    public void setNature(String nature) {
+        this.nature = nature;
+    }
+
+    public Boolean getIs985() {
+        return is985;
+    }
+
+    public void setIs985(Boolean is985) {
+        this.is985 = is985;
+    }
+
+    public Boolean getIs211() {
+        return is211;
+    }
+
+    public void setIs211(Boolean is211) {
+        this.is211 = is211;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+	public Boolean getTopUniversity() {
+		return topUniversity;
+	}
+
+	public void setTopUniversity(Boolean topUniversity) {
+		this.topUniversity = topUniversity;
+	}
+
+	public Boolean getTopSubject() {
+		return topSubject;
+	}
+
+	public void setTopSubject(Boolean topSubject) {
+		this.topSubject = topSubject;
+	}
+    
+}

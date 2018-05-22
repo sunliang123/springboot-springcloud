@@ -1,0 +1,15 @@
+
+package com.fengmangbilu.microservice.security.authentication;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.security.authentication.AuthenticationDetailsSource;
+
+public class TokenAuthenticationDetailsSource
+		implements AuthenticationDetailsSource<HttpServletRequest, TokenAuthenticationDetails> {
+
+	public TokenAuthenticationDetails buildDetails(HttpServletRequest context) {
+		return new TokenAuthenticationDetails(context);
+	}
+
+}

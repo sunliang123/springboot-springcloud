@@ -1,0 +1,11 @@
+package com.fengmangbilu.microservice.credit.repositories;
+
+import org.springframework.stereotype.Repository;
+
+import com.fengmangbilu.microservice.credit.entities.CorporateManager;
+import com.fengmangbilu.repository.DefaultRepository;
+
+@Repository
+public interface CorporateManagerRepository extends DefaultRepository<CorporateManager, String> {
+
+}

@@ -1,0 +1,64 @@
+package com.fengmangbilu.microservice.oa.entities;
+
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import com.fengmangbilu.domain.BaseEntity;
+
+import lombok.Getter;
+import lombok.Setter;
+
+/**
+ * 员工信息
+ */
+@Getter
+@Setter
+@Entity
+@Table(name = "fengmangbilu_staff_info")
+public class StaffInfo extends BaseEntity {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+
+	/** 姓名 **/
+	@Column(length = 20)
+	private String name;
+
+	/** 身份证号  **/
+	@Column(length = 20)
+	private String idCard;
+
+	/** 手机号  **/
+	@Column(length = 20)
+	private String mobile;
+
+	/** 部门 **/
+	@Column(length = 20)
+	private String deptId;
+
+	/** 职位 **/
+	@Column(length = 20)
+	private String position;
+
+	/** 入职日期 **/
+	private Date entryDate;
+
+	/** 离职日期 **/
+	private Date dimissionDate;
+
+	/** 是否激活(注册) **/
+	private Boolean isActive;
+
+	/** 是否在职 **/
+	private Boolean isEmployed;
+	
+	/** 用户id **/
+	private String userId;
+}

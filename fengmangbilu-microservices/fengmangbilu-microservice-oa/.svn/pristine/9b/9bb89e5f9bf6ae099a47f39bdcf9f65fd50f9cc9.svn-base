@@ -1,0 +1,9 @@
+package com.fengmangbilu.microservice.credit.services;
+
+import com.fengmangbilu.microservice.credit.entities.RiskWdyqsInfo;
+import com.fengmangbilu.microservice.credit.repositories.RiskWdyqsInfoRepository;
+import com.fengmangbilu.service.DefaultJpaService;
+
+public interface RiskWdyqsInfoService extends DefaultJpaService<RiskWdyqsInfo, String, RiskWdyqsInfoRepository>{
+    
+}

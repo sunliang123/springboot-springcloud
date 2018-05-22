@@ -1,0 +1,15 @@
+package com.fengmangbilu.security.token;
+
+import java.util.Date;
+
+import com.fengmangbilu.security.RefreshToken;
+
+/**
+ * 带有过期时间的刷新令牌
+ * @author Justice
+ */
+public interface ExpiringRefreshToken extends RefreshToken {
+
+	Date getExpiration();
+
+}

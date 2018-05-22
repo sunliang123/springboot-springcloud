@@ -1,0 +1,29 @@
+package com.fengmangbilu.security.authentication;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.web.AuthenticationEntryPoint;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fengmangbilu.core.Response;
+
+public class TokenAuthenticationEntryPoint implements AuthenticationEntryPoint{
+	
+	@Autowired
+	private ObjectMapper objectMapper;
+	
+	public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException)
+			throws IOException, ServletException {
+		response.setContentType(MediaType.APPLICATION_JSON_UTF8_VALUE);
+		objectMapper.writeValue(response.getWriter(), Response.unauthorized(authException.getMessage()));
+		response.flushBuffer();
+	}
+
+}

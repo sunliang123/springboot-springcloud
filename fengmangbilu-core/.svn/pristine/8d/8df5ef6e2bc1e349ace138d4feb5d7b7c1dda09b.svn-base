@@ -1,0 +1,138 @@
+package com.fengmangbilu.repository;
+
+import java.io.Serializable;
+import java.util.List;
+
+import javax.persistence.EntityManager;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.jpa.datatables.PredicateBuilder;
+import org.springframework.data.jpa.datatables.SpecificationBuilder;
+import org.springframework.data.jpa.datatables.mapping.DataTablesInput;
+import org.springframework.data.jpa.datatables.mapping.DataTablesOutput;
+import org.springframework.data.jpa.domain.Specification;
+import org.springframework.data.jpa.domain.Specifications;
+import org.springframework.data.jpa.repository.support.JpaEntityInformation;
+import org.springframework.data.jpa.repository.support.QueryDslJpaRepository;
+import org.springframework.data.querydsl.EntityPathResolver;
+import org.springframework.data.querydsl.SimpleEntityPathResolver;
+
+import com.querydsl.core.BooleanBuilder;
+import com.querydsl.core.types.EntityPath;
+import com.querydsl.core.types.Predicate;
+import com.querydsl.core.types.dsl.PathBuilder;
+
+/**
+ * @author Justice
+ */
+public class DefaultJpaRepository<T, ID extends Serializable> extends QueryDslJpaRepository<T, ID>
+		implements DefaultRepository<T, ID> {
+
+	private static final EntityPathResolver DEFAULT_ENTITY_PATH_RESOLVER = SimpleEntityPathResolver.INSTANCE;
+
+	private final EntityPath<T> path;
+	private final PathBuilder<T> builder;
+
+	public DefaultJpaRepository(JpaEntityInformation<T, ID> entityInformation, EntityManager entityManager) {
+		this(entityInformation, entityManager, DEFAULT_ENTITY_PATH_RESOLVER);
+	}
+
+	public DefaultJpaRepository(JpaEntityInformation<T, ID> entityInformation, EntityManager entityManager,
+			EntityPathResolver resolver) {
+		super(entityInformation, entityManager);
+		this.path = resolver.createPath(entityInformation.getJavaType());
+		this.builder = new PathBuilder<T>(path.getType(), path.getMetadata());
+	}
+
+	@Override
+	public DataTablesOutput<T> findAll(DataTablesInput input, Predicate predicate) {
+		DataTablesOutput<T> output = new DataTablesOutput<T>();
+		output.setDraw(input.getDraw());
+		if (input.getLength() == 0) {
+			return output;
+		}
+
+		try {
+			long recordsTotal = predicate == null ? count() : count(predicate);
+			if (recordsTotal == 0) {
+				return output;
+			}
+			output.setRecordsTotal(recordsTotal);
+
+			PredicateBuilder<T> predicateBuilder = new PredicateBuilder<T>(this.builder, input);
+			Page<T> data = findAll(new BooleanBuilder().and(predicateBuilder.build()).and(predicate).getValue(),
+					predicateBuilder.createPageable());
+
+			List<T> content = (List<T>) data.getContent();
+			output.setData(content);
+			output.setRecordsFiltered(data.getTotalElements());
+
+		} catch (Exception e) {
+			output.setError(e.toString());
+		}
+
+		return output;
+	}
+
+	@Override
+	public DataTablesOutput<T> findAll(DataTablesInput input) {
+		DataTablesOutput<T> output = new DataTablesOutput<T>();
+		output.setDraw(input.getDraw());
+		if (input.getLength() == 0) {
+			return output;
+		}
+
+		try {
+			long recordsTotal = count();
+			if (recordsTotal == 0) {
+				return output;
+			}
+			output.setRecordsTotal(recordsTotal);
+
+			SpecificationBuilder<T> specificationBuilder = new SpecificationBuilder<T>(input);
+
+			Page<T> data = findAll(Specifications.where(specificationBuilder.build()),
+					specificationBuilder.createPageable());
+
+			List<T> content = (List<T>) data.getContent();
+			output.setData(content);
+			output.setRecordsFiltered(data.getTotalElements());
+
+		} catch (Exception e) {
+			output.setError(e.toString());
+		}
+
+		return output;
+	}
+
+	@Override
+	public DataTablesOutput<T> findAll(DataTablesInput input, Specification<T> specification) {
+		DataTablesOutput<T> output = new DataTablesOutput<T>();
+		output.setDraw(input.getDraw());
+		if (input.getLength() == 0) {
+			return output;
+		}
+
+		try {
+			long recordsTotal = specification == null ? count() : count(specification);
+			if (recordsTotal == 0) {
+				return output;
+			}
+			output.setRecordsTotal(recordsTotal);
+
+			SpecificationBuilder<T> specificationBuilder = new SpecificationBuilder<T>(input);
+
+			Page<T> data = findAll(Specifications.where(specificationBuilder.build()).and(specification),
+					specificationBuilder.createPageable());
+
+			List<T> content = (List<T>) data.getContent();
+			output.setData(content);
+			output.setRecordsFiltered(data.getTotalElements());
+
+		} catch (Exception e) {
+			output.setError(e.toString());
+		}
+
+		return output;
+	}
+}

@@ -1,0 +1,9 @@
+package com.fengmangbilu.microservice.credit.services;
+
+import com.fengmangbilu.microservice.credit.entities.IdCardInfo;
+import com.fengmangbilu.microservice.credit.repositories.IdCardInfoRepository;
+import com.fengmangbilu.service.DefaultJpaService;
+
+public interface IdCardInfoService extends DefaultJpaService<IdCardInfo, String, IdCardInfoRepository> {
+
+}

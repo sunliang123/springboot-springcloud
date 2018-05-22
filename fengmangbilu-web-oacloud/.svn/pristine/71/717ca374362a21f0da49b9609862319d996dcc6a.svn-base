@@ -1,0 +1,121 @@
+package com.fengmangbilu.oacloud.security.config;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.RememberMeServices;
+import org.springframework.security.web.session.HttpSessionEventPublisher;
+import org.springframework.session.security.web.authentication.SpringSessionRememberMeServices;
+
+import com.fengmangbilu.oacloud.security.AjaxAuthenticationEntryPoint;
+import com.fengmangbilu.oacloud.security.AjaxAuthenticationFailureHandler;
+import com.fengmangbilu.oacloud.security.AjaxAuthenticationSuccessHandler;
+import com.fengmangbilu.oacloud.security.AjaxLogoutSuccessHandler;
+import com.fengmangbilu.oacloud.security.AjaxRedirectInvalidSessionStrategy;
+import com.fengmangbilu.oacloud.security.AjaxRedirectSessionInformationExpiredStrategy;
+
+@Configuration
+@EnableWebSecurity
+public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
+	
+	@Autowired
+	private UserDetailsService userDetailsService;
+
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
+		 http.authorizeRequests()
+		 	 .antMatchers(HttpMethod.POST,"/login").permitAll()
+		 	 .antMatchers("/user/resetPassword","/user/register","/user/send_**_sms").permitAll()
+		 	 .antMatchers("/*/v2/api-docs/**","/swagger-resources/**","/swagger-ui.html","/webjars/**").permitAll()
+			 .anyRequest().authenticated()
+			 .and()
+			 .csrf()
+			 .disable() //禁用csrf
+			 .formLogin()
+			 .loginProcessingUrl("/login")
+			 .successHandler(authenticationSuccessHandler())
+			 .failureHandler(authenticationFailureHandler())
+			 .permitAll()
+			 .and()
+			 .sessionManagement()
+			 .sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
+			 .maximumSessions(1) //一个账号最多允许一处登录
+			 .expiredSessionStrategy(expiredSessionStrategy()) //会话控制策略
+			 .and()
+			 .sessionFixation()
+			 .changeSessionId()
+			 .invalidSessionStrategy(invalidSessionStrategy()) //会话过期策略
+			 .and()
+			 .exceptionHandling()
+			 .authenticationEntryPoint(authenticationEntryPoint()) //会话超时处理
+			 .and()
+			 .logout()
+			 .logoutUrl("/logout") //退出请求
+			 .logoutSuccessHandler(logoutSuccessHandler())
+			 .deleteCookies("JSESSIONID","SESSION","remember-me")
+			 .permitAll()
+			 .and()
+			 .rememberMe()
+			 .rememberMeServices(rememberMeServices());
+	}
+	
+	@Autowired
+	public void configureAuthentication(AuthenticationManagerBuilder authenticationManagerBuilder) throws Exception {
+		authenticationManagerBuilder.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder());
+	}
+	
+	@Bean
+	public AjaxAuthenticationEntryPoint authenticationEntryPoint() {
+		return new AjaxAuthenticationEntryPoint();
+	}
+	
+	@Bean
+	public AjaxRedirectInvalidSessionStrategy invalidSessionStrategy(){
+		return new AjaxRedirectInvalidSessionStrategy();
+	}
+	
+	@Bean
+	public AjaxRedirectSessionInformationExpiredStrategy expiredSessionStrategy(){
+		return new AjaxRedirectSessionInformationExpiredStrategy();
+	}
+	
+	@Bean
+	public AjaxAuthenticationFailureHandler authenticationFailureHandler() {
+		return new AjaxAuthenticationFailureHandler();
+	}
+	
+	@Bean
+	public AjaxAuthenticationSuccessHandler authenticationSuccessHandler() {
+		return new AjaxAuthenticationSuccessHandler();
+	}
+	
+	@Bean
+	public AjaxLogoutSuccessHandler logoutSuccessHandler() {
+		return new AjaxLogoutSuccessHandler();
+	}
+
+	@Bean
+	public BCryptPasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder();
+	}
+	
+	@Bean
+	public RememberMeServices rememberMeServices() {
+		SpringSessionRememberMeServices rememberMeServices = new SpringSessionRememberMeServices();
+		rememberMeServices.setAlwaysRemember(false);
+		return rememberMeServices;
+	}
+	
+	@Bean
+	public HttpSessionEventPublisher httpSessionEventPublisher() {
+		return new HttpSessionEventPublisher();
+	}
+}

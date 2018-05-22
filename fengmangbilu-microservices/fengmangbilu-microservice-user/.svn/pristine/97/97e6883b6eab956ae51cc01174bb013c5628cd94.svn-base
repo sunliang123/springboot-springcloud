@@ -1,0 +1,21 @@
+package com.fengmangbilu.microservice.user.exceptions;
+
+@SuppressWarnings("serial")
+public class UserException extends RuntimeException {
+
+	private UserError errorCode;
+
+	protected UserException() {
+		this(null);
+	}
+
+	public UserException(UserError errorCode) {
+		super(errorCode.getMessage());
+		this.errorCode = errorCode;
+	}
+
+	public UserError getUserError() {
+		return errorCode;
+	}
+
+}

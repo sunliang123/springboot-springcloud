@@ -1,0 +1,38 @@
+package com.fengmangbilu.microservice.oa.entities;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+@Entity
+@Table(name = "fengmangbilu_org_auth")
+public class OrgAuth {
+	
+	/** 姓名  **/
+    @Column(length = 30)
+    private String name;
+    
+    /** 身份证号  **/
+    @Column(length = 20)
+    private String idCard;
+	
+    /** 部门  **/
+	private String dept;
+	
+	/** 职位 **/
+	private String position;
+	
+	/** 公司名称 **/
+	private String companyName;
+	
+	/** 公司规模  **/
+	private String compayScale;
+	
+	/** 营业执照 **/
+	private String businessLicense;
+}

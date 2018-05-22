@@ -1,0 +1,83 @@
+package com.fengmangbilu.microservice.user.exceptions;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public enum UserError {
+
+	ERR_MOBILE_NOT_FOUND(1000, "该手机号尚未注册"),
+	ERR_MOBILE_DUPLICATE(1001, "该手机号已经注册"),
+	ERR_MOBILE_FORMAT(1002, "手机号格式错误"),
+	ERR_MOBILE_IS_BLANK(1003, "手机号不能为空"),
+
+	ERR_SMS_CODE(1010, "验证码错误"),
+	ERR_SMS_CODE_IS_BLANK(1011, "验证码错误"),
+	ERR_SMS_LIMIT_CONTROL(1012, "验证码发送频率过高，请稍后再试"),
+
+	ERR_PASSWORD_FORMAT(1020, "密码必须包含数字、字母、长度不低于6位"),
+	ERR_PASSWORD_IS_BLANK(1021, "密码不能为空"),
+	ERR_PASSWORD_INCORRECT(1022, "帐号或密码错误"),
+
+	ERR_FILE_SIZE(1030, "文件需小于2M"),
+	ERR_FILE_TYPE(1031, "文件格式不正确"),
+	ERR_FILE_IS_EMPTY(1032, "请选择需要上传的文件"),
+
+	ERR_UNKNOW(1099, "未知错误");
+
+	private int code;
+
+	private String message;
+
+	private UserError(int code,String message) {
+		this.code = code;
+		this.message = message;
+	}
+
+	public static UserError getEnum(int code) {
+		UserError result = null;
+		UserError[] enums = UserError.values();
+		for (int i = 0; i < enums.length; i++) {
+			if (enums[i].getCode() == code) {
+				result = enums[i];
+				break;
+			}
+		}
+		return result;
+	}
+
+	@SuppressWarnings({"rawtypes", "unchecked"})
+	public static List toList() {
+		UserError[] enums = UserError.values();
+		List list = new ArrayList();
+		for (int i = 0; i < enums.length; i++) {
+			Map<String, String> map = new HashMap<String, String>();
+			map.put("code", String.valueOf(enums[i].getCode()));
+			map.put("message", enums[i].getMessage());
+			list.add(map);
+		}
+		return list;
+	}
+
+	public static Map<String, Map<String, Object>> toMap() {
+		UserError[] enums = UserError.values();
+		Map<String, Map<String, Object>> enumMap = new HashMap<String, Map<String, Object>>();
+		for (int num = 0; num < enums.length; num++) {
+			Map<String, Object> map = new HashMap<String, Object>();
+			String key = String.valueOf(getEnum(enums[num].getCode()));
+			map.put("code", String.valueOf(enums[num].getCode()));
+			map.put("message", enums[num].getMessage());
+			enumMap.put(key, map);
+		}
+		return enumMap;
+	}
+
+	public int getCode() {
+		return code;
+	}
+
+	public String getMessage() {
+		return message;
+	}
+}

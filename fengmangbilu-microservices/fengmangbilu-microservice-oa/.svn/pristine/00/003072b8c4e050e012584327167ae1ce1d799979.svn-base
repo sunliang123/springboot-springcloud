@@ -1,0 +1,10 @@
+package com.fengmangbilu.microservice.credit.services;
+
+import com.fengmangbilu.microservice.credit.entities.CorporateCaseInfo;
+import com.fengmangbilu.microservice.credit.repositories.CorporateCaseInfoRepository;
+import com.fengmangbilu.service.DefaultJpaService;
+
+public interface CorporateCaseInfoService
+		extends DefaultJpaService<CorporateCaseInfo, String, CorporateCaseInfoRepository> {
+
+}

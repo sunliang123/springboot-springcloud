@@ -1,0 +1,89 @@
+package com.fengmangbilu.microservice.credit.entities;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.Table;
+
+import com.fengmangbilu.domain.SimpleEntity;
+import com.fengmangbilu.microservice.credit.enums.Provider;
+
+/**
+ * 手机实名信息
+ */
+@Entity
+@Table(name = "fengmangbilu_mobile_info")
+public class MobileInfo extends SimpleEntity {
+
+	/** 姓名 **/
+	@Column(length = 20)
+	private String name;
+
+	/** 身份证 **/
+	@Column(length = 25)
+	private String idCard;
+
+	/** 手机号 **/
+	@Column(length = 20)
+	private String mobile;
+
+	/** 归属地 **/
+	@Column(length = 20)
+	private String areaName;
+
+	@Enumerated(EnumType.ORDINAL)
+	private Provider provider;
+
+	/** 是否实名 **/
+	private boolean identical = true;
+
+	public String getMobile() {
+		return mobile;
+	}
+
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
+
+	public String getAreaName() {
+		return areaName;
+	}
+
+	public void setAreaName(String areaName) {
+		this.areaName = areaName;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getIdCard() {
+		return idCard;
+	}
+
+	public void setIdCard(String idCard) {
+		this.idCard = idCard;
+	}
+
+	public boolean isIdentical() {
+		return identical;
+	}
+
+	public void setIdentical(boolean identical) {
+		this.identical = identical;
+	}
+
+	public Provider getProvider() {
+		return provider;
+	}
+
+	public void setProvider(Provider provider) {
+		this.provider = provider;
+	}
+	
+}

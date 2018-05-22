@@ -1,0 +1,41 @@
+package com.fengmangbilu.oacloud.security;
+
+import java.io.IOException;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.http.MediaType;
+import org.springframework.security.web.session.InvalidSessionStrategy;
+import org.springframework.security.web.util.UrlUtils;
+import org.springframework.util.Assert;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fengmangbilu.web.Response;
+
+public class AjaxRedirectInvalidSessionStrategy implements InvalidSessionStrategy {
+
+	private int status = 100099;
+	private String message = "亲，您还没有登录，请先登录！";
+
+	public AjaxRedirectInvalidSessionStrategy(String invalidSessionUrl) {
+		Assert.isTrue(UrlUtils.isValidRedirectUrl(invalidSessionUrl), "url must start with '/' or with 'http(s)'");
+	}
+
+	public void onInvalidSessionDetected(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		ObjectMapper mapper = new ObjectMapper();
+		Response data = Response.error(status, message);
+		response.setContentType(MediaType.APPLICATION_JSON_UTF8_VALUE);
+		response.getWriter().write(mapper.writeValueAsString(data));
+		response.flushBuffer();
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+}

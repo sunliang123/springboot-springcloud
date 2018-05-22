@@ -1,0 +1,5 @@
+package com.fengmangbilu.microservice.credit.enums;
+
+public enum ReportType {
+	BASIC, STANDARD, SENIOR
+}

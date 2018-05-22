@@ -1,0 +1,110 @@
+package com.fengmangbilu.microservice.oa.entities;
+
+import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import com.fengmangbilu.domain.BaseEntity;
+
+import lombok.Getter;
+import lombok.Setter;
+
+/**
+ * 公司信息
+ */
+@Getter
+@Setter
+@Entity
+@Table(name = "fengmangbilu_company_info")
+public class CompanyInfo extends BaseEntity{
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+
+	/** 营业期限开始时间 **/
+	private Date fromTime;
+
+	/** 法人类型，1 人 2 公司 **/
+	private String type;
+
+	/** 行业评分（万分制） **/
+	private String categoryScore;
+
+	/** 公司id **/
+	private String companyId;
+
+	/** 注册号 **/
+	private String regNumber;
+
+	/** 公司评分（万分制） **/
+	private String percentileScore;
+
+	/** 联系方式 **/
+	private String phoneNumber;
+
+	/** 注册资金 **/
+	private String regCapital;
+
+	/** 登记机关 **/
+	private String regInstitute;
+
+	/** 企业名称 **/
+	private String name;
+
+	/** 注册地址 **/
+	private String regLocation;
+
+	/** 行业 **/
+	private String industry;
+
+	/** 核准时间 **/
+	private Date approvedTime;
+
+	/** 核准机构 **/
+	private String orgApprovedInstitute;
+
+	/** 经营范围 **/
+	private String businessScope;
+
+	/** 组织机构代码 **/
+	private String orgNumber;
+
+	/** 成立时间 **/
+	private String estiblishTime;
+
+	/** 经营状态 **/
+	private String regStatus;
+
+	/** 法人 **/
+	private String legalPersonName;
+
+	/** 营业期限结束时间 **/
+	private String toTime;
+
+	/** 法人id **/
+	private String legalPersonId;
+
+	/** 实收注册资金 **/
+	private String actualCapital;
+
+	/** 网址 **/
+	private String websiteList;
+
+	/** 公司类型 **/
+	private String companyOrgType;
+
+	/** 统一社会信用代码 **/
+	private String creditCode;
+	
+	/** 公司规模  **/
+	private String compayScale;
+	
+	/** 营业执照 **/
+	private String businessLicense;
+
+}

@@ -1,0 +1,11 @@
+package com.fengmangbilu.microservice.user.repositories;
+
+import org.springframework.stereotype.Repository;
+
+import com.fengmangbilu.microservice.user.entities.UserPoint;
+import com.fengmangbilu.repository.DefaultRepository;
+
+@Repository
+public interface UserPointRepository extends DefaultRepository<UserPoint, Long> {
+
+}

@@ -1,0 +1,72 @@
+package com.fengmangbilu.microservice.oa.services;
+
+import java.util.Date;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.fengmangbilu.microservice.oa.entities.ReportInfo;
+import com.fengmangbilu.microservice.oa.entities.ReportPushInfo;
+import com.fengmangbilu.microservice.oa.entities.StaffInfo;
+import com.fengmangbilu.microservice.oa.enums.ReportStatus;
+import com.fengmangbilu.microservice.oa.repositories.ReportPushInfoRepository;
+import com.fengmangbilu.service.DefaultJpaServiceImpl;
+
+@Service
+public class ReportPushInfoServiceImpl extends DefaultJpaServiceImpl<ReportPushInfo, Long, ReportPushInfoRepository>
+		implements ReportPushInfoService {
+	
+	@Autowired
+	private StaffInfoService staffInfoService;
+	
+	@Autowired
+	private ReportInfoService reportInfoService;
+
+	@Autowired
+	private ReportPushInfoRepository repository;
+
+	@Override
+	public ReportPushInfo push(ReportPushInfo reportPushInfo,ReportInfo reportInfo) {
+		reportInfo = reportInfoService.save(reportInfo);
+		reportPushInfo.setReportId(reportInfo.getReportId());
+		return repository.save(reportPushInfo);
+	}
+
+	@Override
+	public ReportPushInfo findFirstByCreatedByAndUserId(String createdBy, String userId) {
+		return repository.findFirstByCreatedByAndUserId(createdBy, userId);
+	}
+
+	@Override
+	public Page<ReportPushInfo> findByCreatedByOrderByCreatedDateDesc(String createdBy, Pageable pageable) {
+		return repository.findByCreatedByOrderByCreatedDateDesc(createdBy, pageable);
+	}
+
+	@Override
+	@Transactional
+	public int setStatusFor(Long pushId, ReportStatus status) {
+		return repository.setStatusFor(pushId, status);
+	}
+
+	@Override
+	public ReportPushInfo agree(ReportPushInfo reportPushInfo) {
+		StaffInfo staffInfo = new StaffInfo();
+		staffInfo.setName(reportPushInfo.getName());
+		staffInfo.setMobile(reportPushInfo.getMobile());
+		staffInfo.setIdCard(reportPushInfo.getIdCard());
+		staffInfo.setDeptId(reportPushInfo.getDeptId());
+		staffInfo.setPosition(reportPushInfo.getPosition());
+		staffInfo.setCompanyId(reportPushInfo.getCompanyId());
+		staffInfo.setEntryDate(new Date());
+		staffInfo.setIsActive(true);
+		staffInfo.setIsLeave(false);
+		staffInfo.setUserId(reportPushInfo.getCreatedBy());
+		staffInfoService.save(staffInfo);
+		repository.setStatusFor(reportPushInfo.getPushId(), ReportStatus.AGREE);
+		return reportPushInfo;
+	}
+
+}

@@ -1,0 +1,147 @@
+package com.fengmangbilu.microservice.credit.entities;
+
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fengmangbilu.domain.SimpleEntity;
+
+@Entity
+@JsonIgnoreProperties({"id", "riskInfo"})
+@Table(name = "fengmangbilu_risk_als_info")
+public class RiskAlsInfo extends SimpleEntity {
+
+	private String bt;
+
+	private String dsrxm;
+
+	private String zjhm;
+
+	private String xb;
+
+	private String sr;
+
+	private String ajlx;
+
+	private String fymc;
+
+	private String sjrq;
+
+	private String ajzh;
+
+	private String slcx;
+
+	private String ay;
+
+	private String pjjg;
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	private RiskInfo riskInfo;
+
+	public String getBt() {
+		return bt;
+	}
+
+	public void setBt(String bt) {
+		this.bt = bt;
+	}
+
+	public String getDsrxm() {
+		return dsrxm;
+	}
+
+	public void setDsrxm(String dsrxm) {
+		this.dsrxm = dsrxm;
+	}
+
+	public String getZjhm() {
+		return zjhm;
+	}
+
+	public void setZjhm(String zjhm) {
+		this.zjhm = zjhm;
+	}
+
+	public String getXb() {
+		return xb;
+	}
+
+	public void setXb(String xb) {
+		this.xb = xb;
+	}
+
+	public String getSr() {
+		return sr;
+	}
+
+	public void setSr(String sr) {
+		this.sr = sr;
+	}
+
+	public String getAjlx() {
+		return ajlx;
+	}
+
+	public void setAjlx(String ajlx) {
+		this.ajlx = ajlx;
+	}
+
+	public String getFymc() {
+		return fymc;
+	}
+
+	public void setFymc(String fymc) {
+		this.fymc = fymc;
+	}
+
+	public String getSjrq() {
+		return sjrq;
+	}
+
+	public void setSjrq(String sjrq) {
+		this.sjrq = sjrq;
+	}
+
+	public String getAjzh() {
+		return ajzh;
+	}
+
+	public void setAjzh(String ajzh) {
+		this.ajzh = ajzh;
+	}
+
+	public String getSlcx() {
+		return slcx;
+	}
+
+	public void setSlcx(String slcx) {
+		this.slcx = slcx;
+	}
+
+	public String getAy() {
+		return ay;
+	}
+
+	public void setAy(String ay) {
+		this.ay = ay;
+	}
+
+	public String getPjjg() {
+		return pjjg;
+	}
+
+	public void setPjjg(String pjjg) {
+		this.pjjg = pjjg;
+	}
+
+	public RiskInfo getRiskInfo() {
+		return riskInfo;
+	}
+
+	public void setRiskInfo(RiskInfo riskInfo) {
+		this.riskInfo = riskInfo;
+	}
+
+}

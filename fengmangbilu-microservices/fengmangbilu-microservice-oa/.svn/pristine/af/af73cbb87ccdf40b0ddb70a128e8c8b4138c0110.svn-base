@@ -1,0 +1,95 @@
+package com.fengmangbilu.microservice.credit.entities;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
+
+import com.fengmangbilu.domain.SimpleEntity;
+
+/**
+ * 身份认证信息
+ */
+@Entity
+@Table(name = "fengmangbilu_person_info")
+public class PersonInfo extends SimpleEntity{
+
+	/** 姓名  **/
+    @Column(length = 30)
+    private String name;
+    
+    /** 身份证号  **/
+    @Column(length = 20)
+    private String idCard;
+    
+    /** 照片**/
+    @Column(length = 20000)
+    private String photo;
+    
+    /**出生年月日  **/
+    @Column(length = 20)
+    private String birthday;
+    
+    /** 性别  **/
+    @Column(length = 10)
+    private String gender;
+    
+    /** 原籍地址  **/
+    @Column(length = 50)
+    private String originalAddress;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getIdCard() {
+        return idCard;
+    }
+
+    public void setIdCard(String idCard) {
+        this.idCard = idCard;
+    }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
+
+    public String getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getOriginalAddress() {
+        return originalAddress;
+    }
+
+    public void setOriginalAddress(String originalAddress) {
+        this.originalAddress = originalAddress;
+    }
+
+    @Override
+    public String toString() {
+        return ReflectionToStringBuilder.toString(this);
+    }
+
+}

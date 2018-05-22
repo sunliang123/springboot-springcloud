@@ -1,0 +1,72 @@
+package com.fengmangbilu.core.validator.provider;
+
+import java.lang.annotation.Annotation;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Method;
+import java.util.List;
+
+import javax.validation.ParameterNameProvider;
+
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.core.LocalVariableTableParameterNameDiscoverer;
+
+import com.google.common.collect.Lists;
+
+public class ReportOnParameterNameProvider implements ParameterNameProvider {
+
+    private final LocalVariableTableParameterNameDiscoverer parameterNameDiscoverer = new LocalVariableTableParameterNameDiscoverer();
+
+    @Override
+    public List<String> getParameterNames(Constructor<?> constructor) {
+        Annotation[][] annotations = constructor.getParameterAnnotations();
+        List<String> parameterNames = Lists.newArrayList();
+        for (int i = 0; i < constructor.getParameterTypes().length; i++) {
+            String parameterName = null;
+            for (Annotation annotation : annotations[i]) {
+                if (annotation.annotationType() == ReportOn.class) {
+                    parameterName = ReportOn.class.cast(annotation).value();
+                    if (StringUtils.isEmpty(parameterName)) {
+                        parameterName = parameterNameDiscoverer.getParameterNames(constructor)[i];
+                    }
+                }
+            }
+            if (parameterName == null) {
+                parameterName = getPrefix() + i;
+            }
+            parameterNames.add(parameterName);
+        }
+        return parameterNames;
+    }
+
+    @Override
+    public List<String> getParameterNames(Method method) {
+        Annotation[][] annotations = method.getParameterAnnotations();
+        List<String> parameterNames = Lists.newArrayList();
+        for (int i = 0; i < method.getParameterTypes().length; i++) {
+            String parameterName = null;
+            for (Annotation annotation : annotations[i]) {
+                if (annotation.annotationType() == ReportOn.class) {
+                    parameterName = ReportOn.class.cast(annotation).value();
+                    if (StringUtils.isEmpty(parameterName)) {
+                        parameterName = parameterNameDiscoverer.getParameterNames(method)[i];
+                    }
+                }
+            }
+            if (parameterName == null) {
+                parameterName = getPrefix() + i;
+            }
+            parameterNames.add(parameterName);
+        }
+        return parameterNames;
+    }
+
+    /**
+     * Returns the prefix to be used for parameter names. Defaults to {@code arg} as per the spec.
+     * Can be overridden to create customized name providers.
+     *
+     * @return The prefix to be used for parameter names.
+     */
+    protected String getPrefix() {
+        return "arg";
+    }
+}

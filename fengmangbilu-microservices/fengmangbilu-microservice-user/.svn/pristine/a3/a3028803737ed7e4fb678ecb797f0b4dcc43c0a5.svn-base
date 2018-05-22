@@ -1,0 +1,16 @@
+package com.fengmangbilu.microservice.user.endpoints;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+public class ReportRequest {
+
+	private String name;
+
+	private String idCard;
+
+	private String mobile;
+
+}

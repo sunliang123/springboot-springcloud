@@ -1,0 +1,9 @@
+package com.fengmangbilu.microservice.user.entities;
+
+
+/**
+ * 个人积分
+ */
+public class UserPoint {
+
+}

@@ -1,0 +1,64 @@
+package com.fengmangbilu.core.validator;
+
+import static org.hibernate.validator.internal.util.logging.Messages.MESSAGES;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
+import javax.persistence.PersistenceContext;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
+import javax.validation.ConstraintValidator;
+import javax.validation.ConstraintValidatorContext;
+
+import org.apache.commons.beanutils.BeanUtils;
+import org.hibernate.validator.internal.util.Contracts;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.fengmangbilu.core.validator.constraints.Unique;
+
+public class UniqueValidator implements ConstraintValidator<Unique, Object> {
+
+	@PersistenceContext
+	EntityManager em;
+
+	private String property;
+
+	@Override
+	public void initialize(final Unique constraintAnnotation) {
+		Contracts.assertNotEmpty(constraintAnnotation.property(), MESSAGES.parameterMustNotBeEmpty("property"));
+		property = constraintAnnotation.property();
+	}
+
+	@Override
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@Transactional(readOnly = true, propagation = Propagation.REQUIRES_NEW)
+	public boolean isValid(final Object object, final ConstraintValidatorContext context) {
+		try {
+			Class clazz = object.getClass();
+			Object value = BeanUtils.getProperty(object, property);
+			CriteriaBuilder builder = em.getCriteriaBuilder();
+			CriteriaQuery<Long> criteria = builder.createQuery(Long.class);
+			Root root = criteria.from(clazz);
+			List<Predicate> predicates = new ArrayList<>();
+			predicates.add(builder.equal(root.get(property), value));
+			criteria.select(builder.count(root)).where(predicates.toArray(new Predicate[predicates.size()]));
+			Long result = em.createQuery(criteria).getSingleResult();
+			if (result == 1) {
+				context.disableDefaultConstraintViolation();
+				context.buildConstraintViolationWithTemplate(context.getDefaultConstraintMessageTemplate())
+						.addPropertyNode(property).addConstraintViolation();
+			}
+			return result == 0;
+		} catch (NoResultException e) {
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+}

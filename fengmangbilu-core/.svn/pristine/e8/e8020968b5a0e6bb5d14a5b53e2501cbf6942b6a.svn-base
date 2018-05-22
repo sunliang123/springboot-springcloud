@@ -1,0 +1,33 @@
+package com.fengmangbilu.util;
+
+import java.util.regex.Pattern;
+
+public class RegexUtils {
+
+	// 验证手机
+	public static final String REGEX_MOBILE = "^((13[0-9])|(15[^4,\\D])|(17[0-9])|(18[0-9]))\\d{8}$";
+
+	// 验证固定电话 
+	public static final String REGEX_PHONE = "^[\\d-]{5,17}$";
+	
+	/**
+	 * 验证手机号
+	 */
+	public static boolean isMobile(CharSequence input) {
+		return isMatch(REGEX_MOBILE, input);
+	}
+	
+	/**
+	 * 验证固定电话
+	 */
+	public static boolean isPhone(CharSequence input) {
+		return isMatch(REGEX_PHONE, input);
+	}
+
+	/**
+	 * 判断是否匹配正则
+	 */
+	public static boolean isMatch(String regex, CharSequence input) {
+		return input != null && input.length() > 0 && Pattern.matches(regex, input);
+	}
+}

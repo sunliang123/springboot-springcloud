@@ -1,0 +1,222 @@
+package com.fengmangbilu.microservice.user.entities;
+
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.persistence.Transient;
+
+import org.apache.commons.lang3.StringUtils;
+import org.hibernate.annotations.BatchSize;
+import org.hibernate.annotations.GenericGenerator;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import com.fengmangbilu.data.domain.DateEntity;
+
+/**
+ * 个人信息
+ */
+@Entity
+@Table(name = "fengmangbilu_user")
+public class User extends DateEntity implements UserDetails {
+
+	private static final long serialVersionUID = -3339673812724455972L;
+
+	/** 用户编号 **/
+	@Id
+	@GenericGenerator(name = "userid",
+			strategy = "com.fengmangbilu.microservice.user.identifiers.UserIdentifierGenerator")
+	@GeneratedValue(generator = "userid")
+	@Column(length = 50)
+	private Long userId;
+
+	/** 头像 **/
+	private String avatarUrl;
+
+	/** 昵称 **/
+	@Column(length = 50)
+	private String nickname;
+
+	/** 手机号 **/
+	@Column(length = 50)
+	private String mobile;
+
+	/** 邮箱 **/
+	@Column(length = 50)
+	private String email;
+
+	/** 登录密码 **/
+	@Column(length = 255)
+	private String password;
+
+	/** 最后登录日期 **/
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date lastLoginDate;
+
+	/** 最后修改密码时间 **/
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date lastPasswordResetDate;
+
+	/** 当前用户角色 **/
+	@ManyToMany(targetEntity = Role.class, fetch = FetchType.EAGER)
+	@BatchSize(size = 20)
+	private Set<Role> roles = new HashSet<>();
+
+	/** 当前用户权限 **/
+	@Transient
+	private Set<GrantedAuthority> authorities = new HashSet<>();
+
+	public Set<GrantedAuthority> getAuthorities() {
+		Set<GrantedAuthority> userAuthotities = new HashSet<>();
+		for (Role role : this.roles) {
+			for (Authority authority : role.getAuthorities()) {
+				userAuthotities.add(new SimpleGrantedAuthority(authority.getValue()));
+			}
+		}
+		return userAuthotities;
+	}
+
+	/** 账号是否过期 **/
+	private boolean accountNonExpired = true;
+
+	/** 账号是否锁定 **/
+	private boolean accountNonLocked = true;
+
+	/** 密码是否过期 **/
+	private boolean credentialsNonExpired = true;
+
+	/** 是否可用 **/
+	private boolean enabled = true;
+
+	public Long getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Long userId) {
+		this.userId = userId;
+	}
+
+	public String getMobile() {
+		return mobile;
+	}
+
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	@Override
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public Date getLastLoginDate() {
+		return lastLoginDate;
+	}
+
+	public void setLastLoginDate(Date lastLoginDate) {
+		this.lastLoginDate = lastLoginDate;
+	}
+
+	public Date getLastPasswordResetDate() {
+		return lastPasswordResetDate;
+	}
+
+	public void setLastPasswordResetDate(Date lastPasswordResetDate) {
+		this.lastPasswordResetDate = lastPasswordResetDate;
+	}
+
+	@Override
+	public boolean isAccountNonExpired() {
+		return accountNonExpired;
+	}
+
+	public void setAccountNonExpired(boolean accountNonExpired) {
+		this.accountNonExpired = accountNonExpired;
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		return accountNonLocked;
+	}
+
+	public void setAccountNonLocked(boolean accountNonLocked) {
+		this.accountNonLocked = accountNonLocked;
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		return credentialsNonExpired;
+	}
+
+	public void setCredentialsNonExpired(boolean credentialsNonExpired) {
+		this.credentialsNonExpired = credentialsNonExpired;
+	}
+
+	@Override
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+
+	public String getProtectedMobile() {
+		if (StringUtils.isNotBlank(mobile)) {
+			return mobile.replaceAll("(\\d{3})\\d{4}(\\d{4})", "$1****$2");
+		}
+		return null;
+	}
+
+	public String getNickname() {
+		return nickname;
+	}
+
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
+
+	public String getAvatarUrl() {
+		return avatarUrl;
+	}
+
+	public void setAvatarUrl(String avatarUrl) {
+		this.avatarUrl = avatarUrl;
+	}
+
+	public Set<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(Set<Role> roles) {
+		this.roles = roles;
+	}
+
+	@Override
+	public String getUsername() {
+		return String.valueOf(userId);
+	}
+}

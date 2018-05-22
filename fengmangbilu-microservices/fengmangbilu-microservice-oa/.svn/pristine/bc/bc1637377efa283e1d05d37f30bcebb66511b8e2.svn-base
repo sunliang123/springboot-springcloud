@@ -1,0 +1,44 @@
+package com.fengmangbilu.microservice.oa.enums;
+
+public enum ErrorCode {
+	NAME_NOT_BLANK(3011, "姓名不能为空"), 
+	NAME_NOT_VALID(3012, "姓名格式不正确"),
+	IDCARD_NOT_BLANK(3013, "身份证不能为空"), 
+	IDCARD_NOT_VALID(3014, "身份证格式不正确"),
+	MOBILE_NOT_BLANK(3015, "手机号不能为空"),
+	MOBILE_NOT_VALID(3016, "手机号格式不正确"),
+	ARGUMENT_NOT_VALID(3017,"请求参数错误"),
+	FILE_NOT_VALID(3018,"文件格式不正确"),
+	SERVICE(3021, "请求服务异常"), 
+	CONDITION(3022, "请求参数转换异常"), 
+	CONNECT(3023, "请求连接超时"),
+	RESULT(3024, "请求结果转换异常"),
+	UNZIP(3025, "请求结果解压异常"),
+	IDCARD_DIFFER(3026, "公民身份号码一致,姓名不一致"),
+	IDCARD_UNFOUND(3027, "库中无此号,请到户籍所在地进行核实"),
+	ENCRYPT(3031,"接口加密异常"),
+	SIGN(3032,"接口签名异常"),
+	API(3033,"接口访问异常"),
+	OTHER(3099, "未定义异常");
+
+	private final int errCode;
+	private final String errMsg;
+
+	private ErrorCode(int errCode, String errMsg) {
+		this.errCode = errCode;
+		this.errMsg = errMsg;
+	}
+
+	public int getErrCode() {
+		return errCode;
+	}
+
+	public String getErrMsg() {
+		return errMsg;
+	}
+
+	@Override
+	public String toString() {
+		return errCode + ": " + errMsg;
+	}
+}

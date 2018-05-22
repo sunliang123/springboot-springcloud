@@ -1,0 +1,76 @@
+package com.fengmangbilu.blog.entities;
+
+import java.util.Collection;
+
+import javax.persistence.Basic;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Lob;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import com.fengmangbilu.domain.IdEntity;
+
+@Entity
+@Table(name = "fengmangbilu_blog")
+public class Blog extends IdEntity {
+	
+	/** 标题 **/
+	private String title;
+	
+	/** 内容 **/
+	@Lob 
+	@Basic(fetch = FetchType.LAZY)
+	private String content;
+	
+	/** 简介 **/
+	private String summary;
+	
+	/** 标签 **/
+	@OneToMany
+	private Collection<Tag> tags;
+	
+	/** 作者 **/
+	private String author;
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
+	public Collection<Tag> getTags() {
+		return tags;
+	}
+
+	public void setTags(Collection<Tag> tags) {
+		this.tags = tags;
+	}
+
+	public String getSummary() {
+		return summary;
+	}
+
+	public void setSummary(String summary) {
+		this.summary = summary;
+	}
+	
+}

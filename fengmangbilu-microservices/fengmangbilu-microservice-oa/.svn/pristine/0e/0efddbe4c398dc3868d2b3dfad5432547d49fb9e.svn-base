@@ -1,0 +1,13 @@
+package com.fengmangbilu.microservice.credit.repositories;
+
+import org.springframework.stereotype.Repository;
+
+import com.fengmangbilu.microservice.credit.entities.SchoolInfo;
+import com.fengmangbilu.repository.DefaultRepository;
+
+@Repository
+public interface SchoolInfoRepository extends DefaultRepository<SchoolInfo, String> {
+
+	SchoolInfo findByName(String name);
+	
+}

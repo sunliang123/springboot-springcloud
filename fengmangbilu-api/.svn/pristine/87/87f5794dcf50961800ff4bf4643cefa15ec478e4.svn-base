@@ -1,0 +1,100 @@
+package com.fengmangbilu.api.configs;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.hibernate.validator.HibernateValidator;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.ReloadableResourceBundleMessageSource;
+import org.springframework.data.web.config.EnableSpringDataWebSupport;
+import org.springframework.http.MediaType;
+import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.http.converter.json.Jackson2ObjectMapperFactoryBean;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.mobile.device.DeviceHandlerMethodArgumentResolver;
+import org.springframework.mobile.device.DeviceResolverHandlerInterceptor;
+import org.springframework.validation.Validator;
+import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
+import org.springframework.web.method.support.HandlerMethodArgumentResolver;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.module.SimpleModule;
+import com.fasterxml.jackson.databind.ser.impl.SimpleFilterProvider;
+import com.fasterxml.jackson.datatype.hibernate5.Hibernate5Module;
+import com.fengmangbilu.common.NumericBooleanSerializer;
+import com.fengmangbilu.common.jsonfilter.JsonFilterAnnotationIntrospector;
+
+@Configuration
+@EnableSpringDataWebSupport
+@ComponentScan(basePackages = { "com.fengmangbilu" })
+public class WebMvcConfig extends WebMvcConfigurerAdapter {
+
+	@Bean
+	public MappingJackson2HttpMessageConverter customJackson2HttpMessageConverter() {
+		MappingJackson2HttpMessageConverter jsonConverter = new MappingJackson2HttpMessageConverter();
+		List<MediaType> supportedMediaTypes = new ArrayList<MediaType>();
+		supportedMediaTypes.add(MediaType.APPLICATION_JSON_UTF8);
+		supportedMediaTypes.add(MediaType.TEXT_HTML);
+		jsonConverter.setSupportedMediaTypes(supportedMediaTypes);
+		jsonConverter.setObjectMapper(jackson2ObjectMapperFactoryBean().getObject());
+		return jsonConverter;
+	}
+
+	@Bean
+	public Jackson2ObjectMapperFactoryBean jackson2ObjectMapperFactoryBean() {
+		Jackson2ObjectMapperFactoryBean factoryBean = new Jackson2ObjectMapperFactoryBean();
+		factoryBean.setFailOnUnknownProperties(false);
+		factoryBean.setFailOnEmptyBeans(false);
+		factoryBean.setIndentOutput(true);
+		factoryBean.setAnnotationIntrospector(new JsonFilterAnnotationIntrospector());
+		ObjectMapper objectMapper = new ObjectMapper();
+		Hibernate5Module hibernate5Module = new Hibernate5Module();
+		SimpleModule simpleModule = new SimpleModule();
+		simpleModule.addSerializer(boolean.class, new NumericBooleanSerializer());
+		simpleModule.addSerializer(Boolean.class, new NumericBooleanSerializer());
+		objectMapper.registerModules(hibernate5Module, simpleModule);
+		factoryBean.setObjectMapper(objectMapper);
+		SimpleFilterProvider simpleFilterProvider = new SimpleFilterProvider();
+		simpleFilterProvider.setFailOnUnknownId(false);
+		factoryBean.setFilters(simpleFilterProvider);
+		return factoryBean;
+	}
+
+	@Override
+	public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
+		converters.add(customJackson2HttpMessageConverter());
+	}
+
+	@Override
+	public void addArgumentResolvers(List<HandlerMethodArgumentResolver> argumentResolvers) {
+		argumentResolvers.add(new DeviceHandlerMethodArgumentResolver());
+	}
+
+	@Override
+	public Validator getValidator() {
+		LocalValidatorFactoryBean localValidatorFactoryBean = new LocalValidatorFactoryBean();
+		localValidatorFactoryBean.setProviderClass(HibernateValidator.class);
+		ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
+		messageSource.setDefaultEncoding("UTF-8");
+		messageSource.setBasenames("classpath:ValidationMessages");
+		localValidatorFactoryBean.setValidationMessageSource(messageSource);
+		return localValidatorFactoryBean;
+	}
+
+	@Override
+	public void addInterceptors(InterceptorRegistry registry) {
+		registry.addInterceptor(new DeviceResolverHandlerInterceptor());
+	}
+
+	@Override
+	public void addResourceHandlers(ResourceHandlerRegistry registry) {
+		registry.addResourceHandler("swagger-ui.html").addResourceLocations("classpath:/META-INF/resources/");
+		registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
+		super.addResourceHandlers(registry);
+	}
+}

@@ -1,0 +1,21 @@
+package com.fengmangbilu.microservice.oa.services;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
+import com.fengmangbilu.microservice.oa.entities.ReportInfo;
+import com.fengmangbilu.microservice.oa.entities.ReportPushInfo;
+import com.fengmangbilu.microservice.oa.enums.ReportStatus;
+import com.fengmangbilu.microservice.oa.repositories.ReportPushInfoRepository;
+import com.fengmangbilu.service.DefaultJpaService;
+
+public interface ReportPushInfoService extends DefaultJpaService<ReportPushInfo, Long, ReportPushInfoRepository> {
+	
+	ReportPushInfo push(ReportPushInfo reportPushInfo,ReportInfo reportInfo);
+	
+	ReportPushInfo findFirstByCreatedByAndUserId(String createdBy,String userId);
+	
+	Page<ReportPushInfo> findByCreatedByOrderByCreatedDateDesc(String createdBy,Pageable pageable);
+	
+	int setStatusFor(Long pushId,ReportStatus status);
+}

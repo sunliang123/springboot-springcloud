@@ -1,0 +1,22 @@
+package com.fengmangbilu.microservice.oa.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.fengmangbilu.microservice.oa.entities.StaffInfo;
+import com.fengmangbilu.microservice.oa.repositories.StaffInfoRepository;
+import com.fengmangbilu.service.DefaultJpaServiceImpl;
+
+@Service
+public class StaffInfoServiceImpl extends DefaultJpaServiceImpl<StaffInfo, Long, StaffInfoRepository>
+		implements StaffInfoService {
+
+	@Autowired
+	private StaffInfoRepository repository;
+
+	@Override
+	public StaffInfo findByIsEmployedTrueAndUserId(String userId) {
+		return repository.findByIsEmployedTrueAndUserId(userId);
+	}
+
+}

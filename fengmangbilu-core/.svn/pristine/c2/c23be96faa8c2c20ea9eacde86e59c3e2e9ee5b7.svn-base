@@ -1,0 +1,21 @@
+package com.fengmangbilu.core;
+
+import org.springframework.http.HttpStatus;
+
+/**
+ * 业务异常
+ * @author Justice
+ */
+@SuppressWarnings("serial")
+public class ServiceException extends GlobalException {
+
+	public ServiceException(String msg) {
+		super(msg);
+	}
+
+	@Override
+	public HttpStatus getHttpStatus() {
+		return HttpStatus.BAD_REQUEST;
+	}
+
+}

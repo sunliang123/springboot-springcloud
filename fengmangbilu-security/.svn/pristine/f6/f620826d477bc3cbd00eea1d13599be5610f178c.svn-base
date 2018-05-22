@@ -1,0 +1,144 @@
+package com.fengmangbilu.security.error;
+
+import java.io.IOException;
+
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.AccessDeniedException;
+import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.web.util.ThrowableAnalyzer;
+import org.springframework.web.HttpRequestMethodNotSupportedException;
+
+import com.fengmangbilu.security.DefaultThrowableAnalyzer;
+import com.fengmangbilu.security.exceptions.TokenException;
+
+public class DefaultWebResponseExceptionTranslator implements WebResponseExceptionTranslator<TokenException> {
+
+	private ThrowableAnalyzer throwableAnalyzer = new DefaultThrowableAnalyzer();
+
+	@Override
+	public ResponseEntity<TokenException> translate(Exception e) throws Exception {
+
+		// Try to extract a SpringSecurityException from the stacktrace
+		Throwable[] causeChain = throwableAnalyzer.determineCauseChain(e);
+		Exception ase = (TokenException) throwableAnalyzer.getFirstThrowableOfType(TokenException.class, causeChain);
+
+		if (ase != null) {
+			return handleTokenException((TokenException) ase);
+		}
+
+		ase = (TokenException) throwableAnalyzer.getFirstThrowableOfType(TokenException.class, causeChain);
+		if (ase != null) {
+			return handleTokenException(new UnauthorizedException(e.getMessage(), e));
+		}
+
+		ase = (AuthenticationException) throwableAnalyzer.getFirstThrowableOfType(AuthenticationException.class, causeChain);
+		if (ase instanceof AuthenticationException) {
+			return handleTokenException(new UnauthorizedException(ase.getMessage(), ase));
+		}
+
+		ase = (AccessDeniedException) throwableAnalyzer.getFirstThrowableOfType(AccessDeniedException.class, causeChain);
+		if (ase instanceof AccessDeniedException) {
+			return handleTokenException(new ForbiddenException(ase.getMessage(), ase));
+		}
+
+		ase = (HttpRequestMethodNotSupportedException) throwableAnalyzer.getFirstThrowableOfType(HttpRequestMethodNotSupportedException.class, causeChain);
+		if (ase instanceof HttpRequestMethodNotSupportedException) {
+			return handleTokenException(new MethodNotAllowed(ase.getMessage(), ase));
+		}
+
+		return handleTokenException(new ServerErrorException(HttpStatus.INTERNAL_SERVER_ERROR.getReasonPhrase(), e));
+
+	}
+
+	private ResponseEntity<TokenException> handleTokenException(TokenException e) throws IOException {
+		int status = e.getHttpErrorCode();
+		HttpHeaders headers = new HttpHeaders();
+		headers.set("Cache-Control", "no-store");
+		headers.set("Pragma", "no-cache");
+		ResponseEntity<TokenException> response = new ResponseEntity<TokenException>(e, headers, HttpStatus.valueOf(status));
+		return response;
+
+	}
+
+	public void setThrowableAnalyzer(ThrowableAnalyzer throwableAnalyzer) {
+		this.throwableAnalyzer = throwableAnalyzer;
+	}
+
+	@SuppressWarnings("serial")
+	private static class ForbiddenException extends TokenException {
+
+		public ForbiddenException(String msg, Throwable t) {
+			super(msg, t);
+		}
+
+		@Override
+		public String getOAuth2ErrorCode() {
+			return "access_denied";
+		}
+
+		@Override
+		public int getHttpErrorCode() {
+			return 403;
+		}
+
+	}
+
+	@SuppressWarnings("serial")
+	private static class ServerErrorException extends TokenException {
+
+		public ServerErrorException(String msg, Throwable t) {
+			super(msg, t);
+		}
+
+		@Override
+		public String getOAuth2ErrorCode() {
+			return "server_error";
+		}
+
+		@Override
+		public int getHttpErrorCode() {
+			return 500;
+		}
+
+	}
+
+	@SuppressWarnings("serial")
+	private static class UnauthorizedException extends TokenException {
+
+		public UnauthorizedException(String msg, Throwable t) {
+			super(msg, t);
+		}
+
+		@Override
+		public String getOAuth2ErrorCode() {
+			return "unauthorized";
+		}
+
+		@Override
+		public int getHttpErrorCode() {
+			return 401;
+		}
+
+	}
+
+	@SuppressWarnings("serial")
+	private static class MethodNotAllowed extends TokenException {
+
+		public MethodNotAllowed(String msg, Throwable t) {
+			super(msg, t);
+		}
+
+		@Override
+		public String getOAuth2ErrorCode() {
+			return "method_not_allowed";
+		}
+
+		@Override
+		public int getHttpErrorCode() {
+			return 405;
+		}
+
+	}
+}

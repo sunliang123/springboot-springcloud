@@ -1,0 +1,19 @@
+package com.fengmangbilu.microservice.oa.endpoints;
+
+import com.fengmangbilu.microservice.oa.constraints.ReportRequestConstraint;
+
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+@ReportRequestConstraint
+public class ReportRequest {
+
+	private String name;
+
+	private String idCard;
+
+	private String mobile;
+
+}

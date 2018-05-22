@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="//image.fengmangbilu.com/static/favicon.ico">
+<title>锋芒毕露工作室-博客</title>
+<!-- Bootstrap core CSS -->
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="css/bootstrap-grid.min.css" rel="stylesheet" type="text/css">
+<link href="css/bootstrap-reboot.min.css" rel="stylesheet" type="text/css">
+<!-- CUSTOM STYLESHEET -->
+<link href="${urls.getForLookupPath('/css/style.css')}" rel="stylesheet" type="text/css" />
+<!-- Icons | Font Awesome -->
+<script src="js/fontawesome-all.min.js"></script>
+<style type="text/css">
+.blog{
+	margin: 0 0 45px;
+}
+
+.blog .blog-header {
+    margin: 0 0 30px;
+}
+
+.blog .blog-header:after {
+    content: '';
+    display: block;
+    border-bottom: 1px solid #999999;
+    -webkit-transform: scale(1, 0.5);
+    transform: scale(1, 0.5);
+    margin-top: 0.3rem;
+}
+
+.blog .blog-title{
+	text-align: center;
+    margin: 0 0 20px;
+}
+
+.blog .blog-title span {
+    background: #fff;
+    padding: 0 10px;
+    position: relative;
+}
+
+.blog-meta {
+	text-align: center;
+    list-style: none;
+    padding: 0;
+    margin-bottom: 2rem;
+    opacity: .7;
+    color: #999999;
+    font-weight: 600;
+}
+
+.blog-meta > li {
+    display: inline-block;
+    margin-right: 30px;
+    font-size: 14px;
+}
+
+.blog-detail .first-paragraph {
+    display: block;
+    float: left;
+    margin: 8px 10px 5px 0;
+    padding: 5px 10px;
+    background-color: #434a54;
+    color: #fff;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    -ms-border-radius: 2px;
+    -o-border-radius: 2px;
+    border-radius: 2px;
+}
+</style>
+</head>
+
+<body>
+	<section class="menu">
+		<nav class="navbar navbar-expand beta-menu navbar-dropdown align-items-center navbar-fixed-top navbar-toggleable-sm">
+			<button class="navbar-toggler navbar-toggler-right collapsed" type="button" data-toggle="collapse"
+				data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<div class="hamburger">
+					<span></span> <span></span> <span></span> <span></span>
+				</div>
+			</button>
+			<div class="menu-logo">
+				<div class="navbar-brand">
+					<span class="navbar-caption-wrap"><a class="navbar-caption display-5" href="https://thematic.me/agent"><i
+							class="fab fa-blogger"></i></a></span>
+				</div>
+			</div>
+			<div class="navbar-collapse collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav nav-dropdown" data-app-modern-menu="true">
+					<li class="nav-item dropdown"><a class="nav-link link display-4" href="/" aria-expanded="false">首页</a></li>
+					<li class="nav-item dropdown"><a class="nav-link link display-4" href="#top" aria-expanded="false">博客</a></li>
+					<li class="nav-item"><a class="nav-link link display-4 active" href="index.html#features12-2">关于我们</a></li>
+				</ul>
+			</div>
+		</nav>
+	</section>
+
+	<section class="main">
+		<div class="container">
+             <div class="row">
+             	<div class="col-12">
+                <article class="blog">
+                   <div class="blog-header">
+                        <h2 class="blog-title">卫星系统——酒店后端全链路日志收集工具介绍</h2>
+                        <ul class="blog-meta">
+                            <li><i class="fas fa-calendar"></i> 2017-08-21</li>
+                            <li><i class="fas fa-edit"></i> Branding</li>
+                            <li><i class="fas fa-comments"></i><a href="#"> 3条回复</a></li>
+                        </ul>
+                    </div>
+                    <div class="blog-detail">
+                        <p><strong class="first-paragraph">目</strong>前美团点评已累计了丰富的线上交易与用户行为数据，为商家赋能需要我们有更强大的专业化数据加工能力，来帮助商家做出正确的决策从而提高用户体验。目前商家端产品在数据应用上主要基于离线数据加工，数据生产调度以“T+1”为主，伴随着越来越深入的精细化运营，实时数据应用诉求逾加强烈。本文将从目前主流实时数据处理引擎的特点和我们面临的问题出发，简单的介绍一下我们是如何搭建实时数据处理系统。</p>
+
+                        <p>目前比较流行的实时处理引擎有 Storm，Spark Streaming，Flink。每个引擎都有各自的特点和应用场景。 下表是对这三个引擎的简单对比：</p>
+
+                        <blockquote class="blockquote text-center">
+                            <h6 class="mb-0 blockquote-text">Praesent consectetur vel dui sed molestie. Aliquam imperdiet cursus dapibus. Quisque vestibulum blandit tellus, nec volutpat turpis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</h6>
+                            <footer class="blockquote-footer mt-2">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+                        </blockquote>
+
+                        <p>Quisque nec accumsan justo. Maecenas auctor in nulla nec tincidunt. Pellentesque rutrum molestie tortor, ut egestas risus commodo a. Praesent a orci nec libero fringilla euismod eu id massa. Nunc eget bibendum odio, sed sodales eros.Vivamus lacinia, mi eu ultrices mattis.</p>
+
+                   </div>
+                </article>
+                </div>
+             </div>
+         </div>
+	</section>
+	
+	<section class="foot">
+		<div class="container-fluid text-center ft-copyright">
+			<p>© 2017 <a href="">锋芒毕露工作室 </a> - All rights reserved.</p>
+		</div>
+	</section>
+	
+	<!-- js placed at the end of the document so the pages load faster -->
+	<script src="js/jquery.min.js"></script>
+	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/dropdown.min.js"></script>
+	<script src="js/jquery.app.js"></script>
+</body>
+
+</html>
